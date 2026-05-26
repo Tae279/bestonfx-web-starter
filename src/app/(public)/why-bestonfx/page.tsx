@@ -17,9 +17,9 @@ export default function WhyBestonFXPage() {
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {trustCards.map((card) => (
           <article key={card.title} className="premium-card rounded-2xl p-6">
-            <p className="text-sm text-gold-300">{card.eyebrow}</p>
-            <h2 className="mt-3 text-xl font-semibold">{card.title}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-300">{card.description}</p>
+            <p className="text-sm font-medium text-brand-700">{card.eyebrow}</p>
+            <h2 className="mt-3 text-xl font-semibold text-ink-900">{card.title}</h2>
+            <p className="mt-3 text-sm leading-6 text-ink-600">{card.description}</p>
           </article>
         ))}
       </div>

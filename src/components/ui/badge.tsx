@@ -2,14 +2,14 @@ import { cn } from '@/lib/utils';
 
 type BadgeProps = {
   children: React.ReactNode;
-  variant?: 'gold' | 'muted' | 'risk';
+  variant?: 'brand' | 'muted' | 'risk';
   className?: string;
 };
 
 const variants = {
-  gold: 'border-gold-500/30 bg-gold-500/10 text-gold-300',
-  muted: 'border-white/10 bg-white/5 text-slate-300',
-  risk: 'border-amber-300/30 bg-amber-300/10 text-amber-200'
+  brand: 'border-brand-200 bg-brand-50 text-brand-700',
+  muted: 'border-ink-200 bg-ink-50 text-ink-600',
+  risk: 'border-amber-300 bg-amber-50 text-amber-700'
 };
 
 export function Badge({ children, variant = 'muted', className }: BadgeProps) {

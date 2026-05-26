@@ -25,20 +25,20 @@ export function TradingToolsGrid({ standalone = false }: { standalone?: boolean 
           return (
             <article key={tool.title} className="premium-card rounded-3xl p-6">
               <div className="flex items-start justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-300">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
                   <Icon className="h-5 w-5" />
                 </div>
-                <Badge variant={tool.status === 'Demo' ? 'gold' : 'muted'}>{tool.status}</Badge>
+                <Badge variant={tool.status === 'Demo' ? 'brand' : 'muted'}>{tool.status}</Badge>
               </div>
-              <h3 className="mt-5 text-lg font-semibold">{tool.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{tool.description}</p>
-              <p className="mt-5 text-sm text-gold-300">ดูเครื่องมือ →</p>
+              <h3 className="mt-5 text-lg font-semibold text-ink-900">{tool.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-ink-600">{tool.description}</p>
+              <p className="mt-5 text-sm font-medium text-brand-700">ดูเครื่องมือ →</p>
             </article>
           );
         })}
       </div>
       {standalone ? (
-        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-6 text-amber-200">
+        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-6 text-amber-700">
           Calculator results เป็นข้อมูลทั่วไป ไม่ใช่คำแนะนำการลงทุนหรือคำสั่งซื้อขายเฉพาะบุคคล
         </p>
       ) : null}

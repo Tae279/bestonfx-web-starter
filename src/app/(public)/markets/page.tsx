@@ -19,9 +19,9 @@ export default function MarketsPage() {
       <div className="mt-10 grid gap-4 md:grid-cols-5">
         {markets.map((market) => (
           <article key={market} className="premium-card rounded-2xl p-5">
-            <Badge variant="gold">Coming soon</Badge>
-            <h2 className="mt-4 text-lg font-semibold">{market}</h2>
-            <p className="mt-3 text-sm text-slate-300">รอยืนยัน contract specification และเงื่อนไขการซื้อขาย</p>
+            <Badge variant="brand">Coming soon</Badge>
+            <h2 className="mt-4 text-lg font-semibold text-ink-900">{market}</h2>
+            <p className="mt-3 text-sm text-ink-600">รอยืนยัน contract specification และเงื่อนไขการซื้อขาย</p>
           </article>
         ))}
       </div>

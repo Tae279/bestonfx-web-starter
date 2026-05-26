@@ -12,9 +12,9 @@ type ButtonProps = {
 };
 
 const variantClasses = {
-  primary: 'bg-gold-500 text-navy-950 hover:bg-gold-300',
-  secondary: 'border border-gold-500/30 bg-gold-500/10 text-gold-300 hover:bg-gold-500/20',
-  ghost: 'text-slate-200 hover:bg-white/10'
+  primary: 'bg-brand-700 text-white shadow-glow-sm hover:bg-brand-600',
+  secondary: 'border border-brand-200 bg-brand-50 text-brand-700 hover:bg-brand-100',
+  ghost: 'text-ink-700 hover:bg-ink-100'
 };
 
 const sizeClasses = {
@@ -32,7 +32,7 @@ export function Button({
   onClick
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:pointer-events-none disabled:opacity-50',
     variantClasses[variant],
     sizeClasses[size],
     className

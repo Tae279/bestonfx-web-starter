@@ -24,9 +24,9 @@ export default function PartnerDashboardPage() {
       <div className="mt-10 grid gap-4 md:grid-cols-4">
         {stats.map((stat) => (
           <article key={stat.label} className="premium-card rounded-2xl p-6">
-            <Badge variant="gold">MVP</Badge>
-            <p className="mt-4 text-sm text-slate-400">{stat.label}</p>
-            <p className="mt-2 text-2xl font-semibold">{stat.value}</p>
+            <Badge variant="brand">MVP</Badge>
+            <p className="mt-4 text-sm text-ink-500">{stat.label}</p>
+            <p className="mt-2 text-2xl font-semibold text-ink-900">{stat.value}</p>
           </article>
         ))}
       </div>

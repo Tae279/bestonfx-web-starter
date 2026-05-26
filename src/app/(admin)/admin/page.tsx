@@ -25,8 +25,8 @@ export default function AdminPage() {
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {modules.map((module) => (
           <article key={module} className="premium-card rounded-2xl p-6">
-            <h2 className="text-lg font-semibold">{module}</h2>
-            <p className="mt-3 text-sm text-slate-300">MVP module placeholder</p>
+            <h2 className="text-lg font-semibold text-ink-900">{module}</h2>
+            <p className="mt-3 text-sm text-ink-600">MVP module placeholder</p>
           </article>
         ))}
       </div>

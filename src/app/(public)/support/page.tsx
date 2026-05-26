@@ -26,7 +26,7 @@ export default function SupportPage() {
       </div>
       <div className="mt-12 grid gap-3 md:grid-cols-2">
         {faqs.map((faq) => (
-          <div key={faq} className="premium-card rounded-2xl p-5 text-sm text-slate-200">
+          <div key={faq} className="premium-card rounded-2xl p-5 text-sm text-ink-700">
             {faq}
           </div>
         ))}

@@ -48,11 +48,12 @@ When connected to Framer MCP:
 
 ## BestonFX brand direction
 
-- Dark navy + champagne gold
-- Premium, calm, trust-first
-- “Bloomberg Terminal meets Swiss private bank”
-- No casino/gambling visual language
+- Light theme + royal blue (`#0040c1`) accent — derived from Fizens (`fizens.framer.ai`), CEO-preferred. Replaces the old dark-navy + champagne-gold direction.
+- Typeface: Prompt (Thai + Latin)
+- Premium, calm, trust-first; clean fintech-SaaS, generous whitespace, rounded surfaces, soft blue glow
+- Broker-sober — no playful consumer styling, no casino/gambling visual language
 - LINE-first conversion path for Thai users
+- Source of truth: `DESIGN.md` + `docs/brand/tokens.json`
 
 ## Copy baseline
 

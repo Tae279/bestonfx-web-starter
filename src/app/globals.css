@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --background: 222 70% 6%;
-  --foreground: 210 40% 98%;
-  --muted: 222 32% 16%;
-  --muted-foreground: 218 16% 70%;
-  --border: 218 22% 22%;
-  --gold: 45 65% 52%;
+  --background: 0 0% 100%; /* #ffffff */
+  --foreground: 0 0% 9%; /* #171717 ink-900 */
+  --muted: 220 14% 96%; /* #f3f4f6 ink-100 */
+  --muted-foreground: 220 9% 46%; /* #6b7280 ink-500 */
+  --border: 220 13% 91%; /* #e5e7eb ink-200 */
+  --brand: 222 100% 38%; /* #0040c1 brand-700 */
+  --ring: 222 100% 38%;
 }
 
 * {
@@ -18,18 +18,20 @@
 
 html {
   scroll-behavior: smooth;
-  background: #050b18;
+  background: #ffffff;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.14), transparent 32%),
-    radial-gradient(circle at 88% 14%, rgba(242, 210, 122, 0.09), transparent 28%),
-    #050b18;
-  color: #f8fafc;
-  font-family: var(--font-sans);
+    radial-gradient(circle at 16% 12%, rgba(41, 112, 255, 0.08), transparent 36%),
+    radial-gradient(circle at 88% 0%, rgba(0, 64, 193, 0.05), transparent 30%),
+    #ffffff;
+  color: #171717;
+  font-family: var(--font-sans, 'Prompt', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -38,17 +40,29 @@ a {
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.35);
-  color: #fff;
+  background: rgba(0, 64, 193, 0.16);
+  color: #0040c1;
 }
 
+/* Primary surface card — light, soft elevation (Fizens-style) */
 .premium-card {
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  background: linear-gradient(180deg, rgba(16, 19, 24, 0.94), rgba(8, 20, 38, 0.82));
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(14px);
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow:
+    0 1px 3px rgba(16, 24, 40, 0.06),
+    0 12px 28px -12px rgba(16, 24, 40, 0.12);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
+.premium-card:hover {
+  box-shadow:
+    0 1px 3px rgba(16, 24, 40, 0.06),
+    0 18px 40px -16px rgba(0, 64, 193, 0.22);
+}
+
+/* Compliance / risk emphasis — readable amber on light */
 .risk-text {
-  color: #fbbf24;
+  color: #b45309; /* amber-700 */
 }

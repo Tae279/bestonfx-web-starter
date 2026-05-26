@@ -33,8 +33,8 @@ export function AccountComparisonPreview() {
       {accounts.map((account) => (
         <article key={account.name} className="premium-card rounded-3xl p-6">
           <div className="flex items-center justify-between gap-3">
-            <h3 className="text-xl font-semibold">{account.name}</h3>
-            <Badge variant="gold">POC</Badge>
+            <h3 className="text-xl font-semibold text-ink-900">{account.name}</h3>
+            <Badge variant="brand">POC</Badge>
           </div>
           <dl className="mt-6 space-y-4 text-sm">
             <Info label="เหมาะกับ" value={account.bestFor} />
@@ -43,7 +43,7 @@ export function AccountComparisonPreview() {
             <Info label="Platform" value={account.platform} />
             <Info label="Support" value={account.support} />
           </dl>
-          <p className="mt-6 text-xs leading-6 text-amber-200">
+          <p className="mt-6 text-xs leading-6 text-amber-700">
             เงื่อนไขบัญชีอาจเปลี่ยนแปลงได้ และไม่ใช่การรับประกันผลลัพธ์การเทรด
           </p>
         </article>
@@ -55,8 +55,8 @@ export function AccountComparisonPreview() {
 function Info({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</dt>
-      <dd className="mt-1 text-slate-200">{value}</dd>
+      <dt className="text-xs uppercase tracking-[0.18em] text-ink-400">{label}</dt>
+      <dd className="mt-1 text-ink-700">{value}</dd>
     </div>
   );
 }

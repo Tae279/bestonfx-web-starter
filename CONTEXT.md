@@ -25,8 +25,10 @@ The repo supports:
 - Thai-first
 - LINE-first support and conversion
 - Premium, calm, trust-first finance aesthetic
-- Dark navy and champagne gold visual direction
-- Framer/Fizens is stakeholder POC only; Next.js is the production foundation
+- Light theme with royal blue (`#0040c1`) accent and the Prompt typeface — derived from the
+  Fizens template (CEO-preferred). This replaces the prior dark-navy + champagne-gold direction.
+- See `DESIGN.md` and `docs/brand/tokens.json` for the brand system
+- Next.js is the production foundation
 
 ## Compliance Boundaries
 

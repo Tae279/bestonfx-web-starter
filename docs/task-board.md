@@ -26,10 +26,10 @@ _Last updated: 2026-05-27_
 
 | ID | Task | Owner | Branch | Allowed files | Status | Acceptance criteria |
 |---|---|---|---|---|---|---|
-| T001 | Finalize multi-agent orchestration plan | Claude Code | `agent/claude-orchestration` | `docs/orchestration-plan.md`, `docs/task-board.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/*` | Ready | Plan defines roles, branches, file ownership, gates, stop conditions |
-| T002 | Run initial dependency + build check | Codex | `agent/codex-baseline-check` | `package.json`, lockfile, config files only if needed | Todo | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` results documented |
-| T003 | Audit Framer/Fizens project through MCP | Claude Code | `framer-poc` | `docs/framer-poc-map.md`, screenshots/notes only | Todo | Pages, components, section order, reusable/adapt/remove table documented |
-| T004 | Improve homepage visual layout in Next.js | Cursor Composer 2.5 | `agent/cursor-homepage-ui` | `src/app/(public)/page.tsx`, `src/components/site/*` | Todo | Mobile-first homepage has hero, trust cards, tools, LINE CTA, IB CTA, AI bot mock, visible risk warning |
+| T001 | Finalize multi-agent orchestration plan | Claude Code | `agent/claude-orchestration` | `docs/orchestration-plan.md`, `docs/task-board.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/*` | Done | Plan defines roles, branches, file ownership, gates, stop conditions |
+| T002 | Run initial dependency + build check | Codex | `agent/codex-baseline-check` | `package.json`, lockfile, config files only if needed | Done | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` results documented |
+| T003 | Audit Framer/Fizens project through MCP | Claude Code | `framer-poc` | `docs/framer-poc-map.md`, screenshots/notes only | Done | Pages, components, section order, reusable/adapt/remove table documented |
+| T004 | Improve homepage visual layout in Next.js | Cursor Composer 2.5 | `agent/cursor-homepage-ui` | `src/app/(public)/page.tsx`, `src/components/site/*` | In Progress | Mobile-first homepage has hero, trust cards, tools, LINE CTA, IB CTA, AI bot mock, visible risk warning |
 | T005 | Strengthen compliance scanner | Codex | `agent/codex-baseline-check` | `scripts/*`, `src/lib/compliance/*`, `docs/compliance-copy-rules.md` | Todo | Scanner catches banned profit/risk-free/IB-income/fake-stat phrases and passes current repo |
 | T006 | Create Framer Workshop components | Human + Claude Code | `framer-poc` | Framer workspace, `prompts/workshop-components.md`, `docs/framer-poc-map.md` | Todo | Risk bar, hero, LINE CTA, IB estimator mock, AI bot mock, tools grid created or documented |
 | T007 | Build public page polish pass | Cursor Composer 2.5 | `agent/cursor-homepage-ui` | `src/app/(public)/*`, `src/components/site/*` | Todo | Why, Accounts, Markets, Tools, Partners, Support pages feel consistent and premium |

@@ -58,6 +58,7 @@ Framer Workshop + MCP
 | Area | Source of truth |
 |---|---|
 | Domain language and glossary | `CONTEXT.md` |
+| POC execution plan | `docs/plan.md` |
 | Production architecture | `docs/architecture-decision.md` |
 | Product positioning | `docs/product-brief.md` |
 | Compliance copy rules | `docs/compliance-copy-rules.md` |
@@ -83,11 +84,11 @@ dev
 agent/claude-orchestration
   docs, task breakdown, architecture notes, Framer MCP plans
 
-agent/codex-build
-  implementation, API skeletons, tests, type/build fixes
+agent/codex-baseline-check
+  technical verification and build fixes
 
-agent/cursor-ui
-  UI, page layout, responsive polish
+agent/cursor-homepage-ui
+  homepage UI polish
 
 framer-poc
   Framer POC notes, exported snippets, screenshots, section maps

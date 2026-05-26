@@ -27,13 +27,13 @@ _Last updated: 2026-05-26_
 | ID | Task | Owner | Branch | Allowed files | Status | Acceptance criteria |
 |---|---|---|---|---|---|---|
 | T001 | Finalize multi-agent orchestration plan | Claude Code | `agent/claude-orchestration` | `docs/orchestration-plan.md`, `docs/task-board.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/*` | Ready | Plan defines roles, branches, file ownership, gates, stop conditions |
-| T002 | Run initial dependency + build check | Codex | `agent/codex-build` | `package.json`, lockfile, config files only if needed | Todo | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` results documented |
+| T002 | Run initial dependency + build check | Codex | `agent/codex-baseline-check` | `package.json`, lockfile, config files only if needed | Todo | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` results documented |
 | T003 | Audit Framer/Fizens project through MCP | Claude Code | `framer-poc` | `docs/framer-poc-map.md`, screenshots/notes only | Todo | Pages, components, section order, reusable/adapt/remove table documented |
-| T004 | Improve homepage visual layout in Next.js | Cursor Composer 2.5 | `agent/cursor-ui` | `src/app/(public)/page.tsx`, `src/components/site/*` | Todo | Mobile-first homepage has hero, trust cards, tools, LINE CTA, IB CTA, AI bot mock, visible risk warning |
-| T005 | Strengthen compliance scanner | Codex | `agent/codex-build` | `scripts/*`, `src/lib/compliance/*`, `docs/compliance-copy-rules.md` | Todo | Scanner catches banned profit/risk-free/IB-income/fake-stat phrases and passes current repo |
+| T004 | Improve homepage visual layout in Next.js | Cursor Composer 2.5 | `agent/cursor-homepage-ui` | `src/app/(public)/page.tsx`, `src/components/site/*` | Todo | Mobile-first homepage has hero, trust cards, tools, LINE CTA, IB CTA, AI bot mock, visible risk warning |
+| T005 | Strengthen compliance scanner | Codex | `agent/codex-baseline-check` | `scripts/*`, `src/lib/compliance/*`, `docs/compliance-copy-rules.md` | Todo | Scanner catches banned profit/risk-free/IB-income/fake-stat phrases and passes current repo |
 | T006 | Create Framer Workshop components | Human + Claude Code | `framer-poc` | Framer workspace, `prompts/workshop-components.md`, `docs/framer-poc-map.md` | Todo | Risk bar, hero, LINE CTA, IB estimator mock, AI bot mock, tools grid created or documented |
-| T007 | Build public page polish pass | Cursor Composer 2.5 | `agent/cursor-ui` | `src/app/(public)/*`, `src/components/site/*` | Todo | Why, Accounts, Markets, Tools, Partners, Support pages feel consistent and premium |
-| T008 | Add API route verification notes | Codex | `agent/codex-build` | `src/app/api/*`, `src/lib/*` | Todo | API placeholders are safe, typed, and do not expose production secrets or advice logic |
+| T007 | Build public page polish pass | Cursor Composer 2.5 | `agent/cursor-homepage-ui` | `src/app/(public)/*`, `src/components/site/*` | Todo | Why, Accounts, Markets, Tools, Partners, Support pages feel consistent and premium |
+| T008 | Add API route verification notes | Codex | `agent/codex-baseline-check` | `src/app/api/*`, `src/lib/*` | Todo | API placeholders are safe, typed, and do not expose production secrets or advice logic |
 | T009 | Create demo walkthrough script | Claude Code | `framer-poc` | `docs/poc-checklist.md`, new `docs/demo-walkthrough.md` | Todo | 5-minute stakeholder walkthrough explains home, trust, accounts, tools, LINE, IB, AI bot, legal footer |
 | T010 | Founder review package | Human owner | `dev` | All review artifacts | Todo | Framer preview + local Next.js preview + screenshots + open decisions ready |
 
@@ -93,7 +93,7 @@ Your job:
    - test/check commands
 
 Do not write production code unless explicitly assigned.
-Start by reviewing docs/orchestration-plan.md and docs/task-board.md.
+Start by reviewing docs/plan.md, docs/orchestration-plan.md, and docs/task-board.md.
 ```
 
 ### Codex — Implementation / Verification

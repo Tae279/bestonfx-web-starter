@@ -1,6 +1,6 @@
 # BestonFX Task Board
 
-_Last updated: 2026-05-26_
+_Last updated: 2026-05-27_
 
 ## Current Sprint
 
@@ -68,80 +68,9 @@ _Last updated: 2026-05-26_
 
 ---
 
-## Current Agent Prompts
+## Agent Prompts
 
-### Claude Code — Orchestrator
-
-```text
-You are the Lead Architect and Orchestrator for the BestonFX website project.
-
-Your job:
-1. Break work into small tasks.
-2. Assign each task to either Codex, Cursor Composer 2.5, or Framer MCP.
-3. Prevent agents from editing the same files at the same time.
-4. Enforce compliance rules:
-   - no profit guarantees
-   - no risk-free claims
-   - no unverified statistics
-   - no regulatory claims unless explicitly provided
-   - no guaranteed IB income
-5. Before implementation, produce:
-   - task objective
-   - files allowed to edit
-   - files not allowed to edit
-   - acceptance criteria
-   - test/check commands
-
-Do not write production code unless explicitly assigned.
-Start by reviewing docs/plan.md, docs/orchestration-plan.md, and docs/task-board.md.
-```
-
-### Codex — Implementation / Verification
-
-```text
-You are the Implementation and Verification Agent for BestonFX.
-
-Scope:
-- Work only on files listed in the task.
-- Do not modify copy unless the task explicitly says so.
-- Do not invent financial, regulatory, spread, leverage, or IB commission claims.
-- Run the required checks for the task.
-
-Default checks:
-- npm run typecheck
-- npm run lint
-- npm run compliance:scan
-- npm run build
-
-Return:
-1. files changed
-2. reason for each change
-3. commands run
-4. remaining risks
-```
-
-### Cursor Composer 2.5 — UI Builder
-
-```text
-You are the UI Builder for BestonFX.
-
-Task:
-Improve only the specified page/component.
-
-Rules:
-- Do not change data model.
-- Do not change API routes.
-- Do not change compliance wording.
-- Do not add fake stats, fake testimonials, or performance claims.
-- Keep dark navy + gold premium style.
-- Mobile-first.
-- Preserve existing component names unless necessary.
-
-Before editing, list:
-1. files you will edit
-2. sections you will touch
-3. risks
-```
+Canonical operating prompts live in `docs/plan.md` -> **Agent Operating Prompts** (Claude Code, Codex, Cursor Composer 2.5, Framer MCP, Workshop). Do not duplicate prompt text here — update `docs/plan.md` to avoid drift.
 
 ---
 
@@ -157,8 +86,9 @@ Run tasks in this order:
 5. T005 — compliance scanner improvement
 6. T006 — Workshop components
 7. T007 — public page polish
-8. T009 — demo walkthrough
-9. T010 — founder/team review
+8. T008 — API route verification notes
+9. T009 — demo walkthrough
+10. T010 — founder/team review
 ```
 
 ---

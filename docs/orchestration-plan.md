@@ -1,6 +1,6 @@
 # BestonFX Multi-Agent Orchestration Plan
 
-_Last updated: 2026-05-26_
+_Last updated: 2026-05-27_
 
 ## Purpose
 
@@ -212,7 +212,7 @@ Agents must not create, imply, or preserve language that suggests:
 Approved default risk warning:
 
 ```text
-Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน และไม่มีการรับประกันผลตอบแทน
+Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ
 ```
 
 Use placeholder for unknown facts:

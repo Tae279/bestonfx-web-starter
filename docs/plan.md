@@ -267,8 +267,9 @@ Current sequence:
 5. T005 - Compliance scanner strengthening
 6. T006 - Workshop components
 7. T007 - Public page polish pass
-8. T009 - Demo walkthrough
-9. T010 - Founder/team review
+8. T008 - API route verification notes
+9. T009 - Demo walkthrough
+10. T010 - Founder/team review
 ```
 
 Do not run homepage UI polish before the technical baseline and Framer direction are clear.

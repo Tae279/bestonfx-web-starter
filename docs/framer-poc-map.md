@@ -16,9 +16,9 @@ Create `BestonFX Framer POC v0.1` from the purchased Fizens template so the team
 | Auth design pages | 5 (Sign Up/In, Forgot/Reset Password, Password Protection) |
 | Components | ~64 |
 | Published URL | None yet — `production: null`, `staging: null` (founder must publish for stakeholder preview) |
-| Primary color | Blue `#0040C1` / `#2970FF` — **needs full remap to navy + gold** |
+| Primary color | Blue `#0040C1` / `#2970FF` — **kept as royal-blue anchor per Fizens/CEO-preferred direction** |
 | Fonts | Poppins + Instrument Sans — **needs remap to Prompt (Thai-first)** |
-| Theme | Light (white background) — **BestonFX is dark navy premium → theme inversion required, not just color swap** |
+| Theme | Light (white background) — **kept; old dark-navy + champagne-gold direction is superseded** |
 
 ---
 
@@ -100,9 +100,11 @@ Remove from home flow: **StaticsSection** (performance/growth framing) and any *
 
 | Fizens | BestonFX |
 |---|---|
-| `/Primary/1` `#0040C1` (blue) | Gold accent `#D4AF37`; primary surfaces navy |
-| `/Gray/White` background | Navy `#050B18` / `#081426` (dark theme) |
+| `/Primary/1` `#0040C1` (blue) | Keep as royal-blue primary; use `#2970FF` for hover/bright accents |
+| `/Gray/White` background | Keep light; use white + `ink-50`/`ink-100` surfaces with soft blue glow |
 | Poppins (display) + Instrument Sans | Prompt (Thai-first) across all TextStyles |
+
+See `DESIGN.md` and `docs/brand/tokens.json` for the current design system. Reject old champagne-gold and dark-navy page background unless founder explicitly reverses this direction.
 
 ---
 
@@ -110,7 +112,7 @@ Remove from home flow: **StaticsSection** (performance/growth framing) and any *
 
 - **Reuse (restyle only):** Button, Main Navbar, Nav Link, FAQ Item/List, Footer (heavy custom), Article Card, Blog/Filter
 - **Adapt:** Feature Card, Metric Card, How It Works, Stepper, Bento 1-4, Hero Highlight
-- **Replace with Workshop:** hero, trust cards, risk bar, LINE CTA, IB estimator, AI bot, tools grid
+- **Replace with Workshop / rebuild in Next.js:** hero, trust cards, risk bar, LINE CTA, IB estimator, AI bot, tools grid
 - **Remove until verified:** Testimonial Card, Star Rating, Sections/Statics, Sections/Testimonial
 
 ## Workshop-only components

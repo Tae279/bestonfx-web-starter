@@ -1,17 +1,17 @@
-import { ArrowRight, LineChart, ShieldCheck } from 'lucide-react';
+import { AlertTriangle, ArrowRight, LineChart, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function PremiumTradingHero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 -z-10 bg-hero-radial" />
       <div className="container grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs text-brand-700">
             <ShieldCheck className="h-4 w-4" />
-            Premium Thai Forex/CFD broker concept
+            Thai-first Forex/CFD information hub
           </div>
-          <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tightest text-ink-900 md:text-6xl">
+          <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tightest text-ink-900 md:text-6xl md:leading-[1.08]">
             โครงสร้างการเทรดระดับมืออาชีพ สำหรับนักเทรดไทยที่ต้องการความโปร่งใสและการดูแลจริง
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-600">
@@ -25,7 +25,8 @@ export function PremiumTradingHero() {
               คุยกับทีมทาง LINE
             </Button>
           </div>
-          <p className="mt-5 max-w-xl text-xs leading-6 text-amber-700">
+          <p className="mt-5 inline-flex max-w-xl items-start gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-6 text-amber-800">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
             ไม่มีการรับประกันผลตอบแทน การเทรด Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน
           </p>
         </div>
@@ -46,7 +47,7 @@ function TradingTerminalMock() {
     <div className="premium-card rounded-[2rem] p-5 shadow-glow">
       <div className="flex items-center justify-between border-b border-ink-200 pb-4">
         <div>
-          <p className="text-sm text-ink-500">BestonFX terminal concept</p>
+          <p className="text-sm text-ink-500">BestonFX trading desk</p>
           <p className="mt-1 text-xl font-semibold text-ink-900">Risk-first dashboard</p>
         </div>
         <div className="rounded-2xl bg-brand-50 p-3 text-brand-700">

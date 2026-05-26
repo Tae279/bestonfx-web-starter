@@ -3,8 +3,7 @@ import Link from 'next/link';
 const footerLinks = [
   { href: '/legal/risk-disclosure', label: 'Risk Disclosure' },
   { href: '/support', label: 'Support' },
-  { href: '/partners', label: 'Partners' },
-  { href: '/admin', label: 'Admin' }
+  { href: '/partners', label: 'Partners' }
 ];
 
 export function SiteFooter() {

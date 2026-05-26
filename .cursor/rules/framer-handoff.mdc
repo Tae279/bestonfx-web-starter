@@ -1,0 +1,22 @@
+---
+description: Framer POC handoff and MCP workflow
+globs: docs/**,prompts/**
+alwaysApply: false
+---
+
+# Framer Handoff
+
+## Architecture
+Framer = stakeholder-facing visual POC. Next.js = production foundation.
+Do not duplicate content, tracking, or compliance ownership across both.
+
+## Framer MCP workflow
+1. Audit project structure first
+2. Propose page/section map before editing
+3. Modify one page or section at a time
+4. Avoid broad prompts like "redesign everything"
+5. Keep original template backup
+
+## Handoff path
+Framer POC → stakeholder approval → export or manual rebuild → Next.js MVP
+See `docs/framer-poc-map.md` and `docs/architecture-decision.md`

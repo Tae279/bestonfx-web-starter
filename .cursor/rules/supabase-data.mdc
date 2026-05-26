@@ -1,0 +1,21 @@
+---
+description: Supabase schema, client usage, migrations
+globs: supabase/**,src/lib/supabase/**
+alwaysApply: false
+---
+
+# Supabase
+
+## Clients
+- Browser: `@/lib/supabase/client`
+- Server: `@/lib/supabase/server` (SSR/cookies pattern)
+
+## Migrations
+- New schema → `supabase/migrations/` numbered SQL
+- Seed data → `supabase/seed.sql`
+- Future: `claim_registry` for approved marketing claims
+
+## Security
+- RLS required before production data
+- No service role keys in client code
+- Env: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` only on client

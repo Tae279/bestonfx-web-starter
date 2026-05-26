@@ -1,0 +1,30 @@
+---
+description: BestonFX visual system — navy, gold, premium fintech
+globs: "**/*.tsx,src/app/globals.css,tailwind.config.ts"
+alwaysApply: false
+---
+
+# Brand & UI
+
+## Direction
+Dark navy + champagne gold. Premium, calm, trust-first.
+"Bloomberg Terminal meets Swiss private bank" — ไม่ใช่ casino/gambling aesthetic.
+
+## Tokens (reuse, don't invent)
+- CSS vars: `--background`, `--gold`, `.premium-card`, `.risk-text`
+- Tailwind: `border-gold-500/30`, `text-gold-300`, `text-amber-200` for risk
+- Background: `#050b18` + subtle gold radial gradients
+
+## Copy language
+- Public UI: **Thai-first** headlines and body
+- CTA primary: LINE-first (`NEXT_PUBLIC_LINE_OA_URL` or `/support`)
+
+## Components
+- Site sections → `src/components/site/*`
+- shadcn primitives → `src/components/ui/*`
+- Content constants → `src/content/*` (not inline Lorem)
+
+## Patterns
+- Functional components, typed props
+- `SectionHeader`, `ComplianceNote`, `RiskDisclosureBar` as reference
+- Responsive: mobile-first (`py-20 md:py-28`, `sm:flex-row`)

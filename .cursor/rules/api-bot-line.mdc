@@ -1,0 +1,24 @@
+---
+description: API routes, AI bot guardrails, LINE webhook skeleton
+globs: src/app/api/**,src/lib/bot/**,src/lib/line/**
+alwaysApply: false
+---
+
+# API / Bot / LINE
+
+## Bot guardrails (`src/lib/bot/guardrails.ts`)
+Block: ควรซื้อ/ขาย, lot sizing, รับประกัน, signal accuracy
+Safe redirect: account docs, tools, LINE handoff — never personalized trade advice
+
+## Bot responses touching risk
+Append or reference mandatory risk warning. Use `applyBotGuardrails()` before LLM.
+
+## LINE webhook
+Skeleton only — verify signature via `src/lib/line/verify.ts`, no secrets in repo
+
+## Analytics
+Events via `@/lib/analytics/events.ts` — keep naming stable for future Supabase
+
+## API style
+- Typed request/response
+- Return safe error messages (English OK for logs; user-facing Thai where public)

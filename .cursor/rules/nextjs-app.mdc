@@ -1,0 +1,29 @@
+---
+description: Next.js App Router conventions for this repo
+globs: src/app/**,src/lib/**
+alwaysApply: false
+---
+
+# Next.js Patterns
+
+## Route groups
+- `(public)/` — marketing pages
+- `(admin)/`, `(partner)/` — portal placeholders
+- `api/` — bot, LINE webhook, analytics, health
+
+## Conventions
+- Server Components default; `'use client'` only when needed
+- Metadata in `layout.tsx` / page — site still `robots: noindex` until launch
+- `lang="th"` on `<html>`
+- Constants from `@/lib/constants/site`, content from `@/content/*`
+
+## Do not
+- Wire to real CRM/trading portal/payment/KYC
+- Break stable route paths documented in README
+
+## Verify after changes
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```

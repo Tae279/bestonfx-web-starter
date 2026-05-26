@@ -1,0 +1,25 @@
+---
+description: Compliance-safe Thai marketing copy for public pages
+globs: src/content/**,src/components/site/**,src/app/(public)/**
+alwaysApply: false
+---
+
+# Compliance Copy
+
+## Mandatory risk warning
+Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ
+
+## Banned phrases (see also `src/lib/compliance/rules.ts`)
+- กำไรแน่นอน, ไม่ขาดทุน, ไร้ความเสี่ยง, รวยเร็ว, เปลี่ยนชีวิต
+- แม่น 100%, win rate 100%, รายได้แน่นอน
+- ดีที่สุด / อันดับ 1 (ยกเว้นมี source + date + region)
+
+## Safer framing
+- DX Trade → การศึกษา / มุมมองตลาด ไม่ใช่คำแนะนำเฉพาะบุคคล
+- IB income → estimated, conditional, volume-dependent
+- Calculators → risk note ก่อนและหลังผลลัพธ์
+
+## Page placement
+- Sticky risk bar + footer: ทุก public page (via root layout)
+- Hero risk note: Home, Accounts, Markets, Partners
+- หลังแก้ copy → `npm run compliance:scan`

@@ -1,0 +1,9 @@
+{
+  "slug": "example-line-campaign",
+  "title": "Example LINE Campaign",
+  "status": "draft",
+  "owner": "marketing",
+  "expiresAt": "2026-12-31",
+  "riskWarningRequired": true,
+  "approvedClaims": []
+}

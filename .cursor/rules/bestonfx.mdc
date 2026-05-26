@@ -1,0 +1,35 @@
+---
+description: BestonFX core project rules — mission, stack, safety
+alwaysApply: true
+---
+
+# BestonFX Core
+
+## Mission
+Production foundation สำหรับ BestonFX public site + bot + LINE + Supabase.
+Framer/Fizens = stakeholder POC เท่านั้น — ไม่ duplicate content/tracking กับ Next.js production.
+
+## Stack (locked)
+- Next.js 14 App Router, TypeScript strict, Tailwind, shadcn/ui-compatible
+- Zustand, React Hook Form + Zod, Supabase-ready
+- Import alias: `@/*` → `src/*`
+
+## Before editing
+1. อ่านไฟล์ที่เกี่ยวข้องก่อนแก้
+2. แผนใหญ่ → สรุป change plan ก่อน implement
+3. แก้ marketing copy → รัน `npm run compliance:scan`
+4. ห้ามใส่ secrets ใน code — ใช้ `.env.local` เท่านั้น
+
+## Never invent
+- Regulatory status, spreads, leverage, commission, payouts
+- Testimonials, ratings, user counts, awards
+- DX Trade performance claims
+
+## Placeholder pattern
+ใช้ `รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่` เมื่อข้อมูลยังไม่ approved
+
+## Safe without human review
+Components, route skeletons, mock data, migrations, docs/prompts
+
+## Requires human review
+Legal copy, regulatory wording, commission terms, testimonials, trading advice

@@ -39,6 +39,28 @@ for regulatory/account/trading conditions that are not confirmed.
 - No direct dependency on existing CRM/trading portal
 - Keep routes and data contracts stable for future integration
 
+## Default AI Hero workflow
+
+Use this flow by default for web/app features, bug fixes, refactors, and prototype-to-production work:
+
+```text
+/grill-me -> /to-prd -> /to-issues -> /tdd -> /improve-codebase-architecture
+```
+
+- Start with `/grill-me` when requirements are broad, ambiguous, high-impact, or compliance-sensitive.
+- Use `/to-prd` after alignment to capture the product decision, user stories, implementation decisions, testing decisions, and out-of-scope items.
+- Use `/to-issues` to break approved PRDs into thin vertical slices with acceptance criteria, blockers, and `AFK` / `HITL` ownership.
+- Use `/tdd` for implementation slices: one failing behavior test, minimal implementation, then refactor only when green.
+- Use `/improve-codebase-architecture` before major work, after rapid feature buildout, or when tests become hard to write.
+- If the answer exists in this repo, inspect the repo instead of asking the user.
+- Compliance rules in this file always override workflow convenience.
+
+## Agent skills context
+
+- Issue tracker: GitHub Issues for `Tae279/bestonfx-web-starter`. See `docs/agents/issue-tracker.md`.
+- Triage labels: default Matt Pocock skill labels. See `docs/agents/triage-labels.md`.
+- Domain docs: single-context layout with root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
+
 ## Before modifying copy
 
 Run:

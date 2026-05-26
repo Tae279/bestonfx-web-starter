@@ -20,6 +20,15 @@ Framer/Fizens = stakeholder POC เท่านั้น — ไม่ duplicate
 3. แก้ marketing copy → รัน `npm run compliance:scan`
 4. ห้ามใส่ secrets ใน code — ใช้ `.env.local` เท่านั้น
 
+## AI Hero workflow
+Default routing for web/app work:
+`/grill-me` → `/to-prd` → `/to-issues` → `/tdd` → `/improve-codebase-architecture`
+
+- ถ้าคำตอบหาได้จาก repo ให้ inspect repo ก่อนถาม user
+- แตกงานเป็น vertical slices พร้อม acceptance criteria
+- ใช้ TDD ผ่าน public interface เมื่อ implement
+- Compliance rules ในไฟล์นี้ชนะ workflow เสมอ
+
 ## Never invent
 - Regulatory status, spreads, leverage, commission, payouts
 - Testimonials, ratings, user counts, awards

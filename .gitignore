@@ -8,6 +8,7 @@ out
 .DS_Store
 coverage
 *.log
+*.tsbuildinfo
 supabase/.branches
 supabase/.temp
 

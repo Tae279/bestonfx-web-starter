@@ -57,11 +57,13 @@ Framer Workshop + MCP
 
 | Area | Source of truth |
 |---|---|
+| Domain language and glossary | `CONTEXT.md` |
 | Production architecture | `docs/architecture-decision.md` |
 | Product positioning | `docs/product-brief.md` |
 | Compliance copy rules | `docs/compliance-copy-rules.md` |
 | Framer visual POC mapping | `docs/framer-poc-map.md` |
 | Agent workflow | `docs/orchestration-plan.md` |
+| Agent skills configuration | `docs/agents/` |
 | Active tasks | `docs/task-board.md` |
 | Agent instructions | `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/bestonfx.mdc` |
 

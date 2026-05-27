@@ -6,8 +6,8 @@ alwaysApply: true
 # BestonFX Core
 
 ## Mission
-Production foundation สำหรับ BestonFX public site + bot + LINE + Supabase.
-Framer/Fizens = stakeholder POC เท่านั้น — ไม่ duplicate content/tracking กับ Next.js production.
+**Current phase: Framer/Fizens POC first** — main execution surface = Framer (duplicate Fizens template). Source of truth: `docs/plan.md`.
+Next.js repo = _future_ production foundation (BestonFX public site + bot + LINE + Supabase) — build only after the Framer POC is approved. Do not duplicate content/tracking between Framer and Next.js.
 
 ## Stack (locked)
 - Next.js 14 App Router, TypeScript strict, Tailwind, shadcn/ui-compatible

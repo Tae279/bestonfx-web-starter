@@ -4,8 +4,8 @@ _Last updated: 2026-05-27_
 
 ## Current Sprint
 
-**Sprint name:** Framer POC + Next.js Foundation  
-**Goal:** Give the team a near-usable Framer visual POC while keeping the Next.js production foundation aligned and compliance-safe.
+**Sprint name:** Framer/Fizens POC First  
+**Goal:** Deliver a presentable `BestonFX Framer POC v0.1` by adapting the purchased Fizens template. Next.js is the future production foundation only — not a current build target. Source of truth: `docs/plan.md`.
 
 ---
 
@@ -24,22 +24,23 @@ _Last updated: 2026-05-27_
 
 ## Active Tasks
 
-| ID | Task | Owner | Branch | Allowed files | Status | Acceptance criteria |
+| ID | Task | Owner | Branch | Allowed files / workspace | Status | Acceptance criteria |
 |---|---|---|---|---|---|---|
-| T001 | Finalize multi-agent orchestration plan | Claude Code | `agent/claude-orchestration` | `docs/orchestration-plan.md`, `docs/task-board.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/*` | Done | Plan defines roles, branches, file ownership, gates, stop conditions |
-| T002 | Run initial dependency + build check | Codex | `agent/codex-baseline-check` | `package.json`, lockfile, config files only if needed | Done | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` results documented |
-| T003 | Audit Framer/Fizens project through MCP | Claude Code | `framer-poc` | `docs/framer-poc-map.md`, screenshots/notes only | Done | Pages, components, section order, reusable/adapt/remove table documented |
-| T004 | Improve homepage visual layout in Next.js | Cursor Composer 2.5 | `framer-poc` | `src/app/(public)/page.tsx`, `src/components/site/*` | Review | Mobile-first homepage has hero, trust cards, tools, LINE CTA, IB CTA, AI bot mock, visible risk warning |
-| T005 | Strengthen compliance scanner | Codex | `agent/codex-baseline-check` | `scripts/*`, `src/lib/compliance/*`, `docs/compliance-copy-rules.md` | Todo | Scanner catches banned profit/risk-free/IB-income/fake-stat phrases and passes current repo |
-| T006 | Create Framer Workshop components | Human + Claude Code | `framer-poc` | Framer workspace, `prompts/workshop-components.md`, `docs/framer-poc-map.md` | Todo | Risk bar, hero, LINE CTA, IB estimator mock, AI bot mock, tools grid created or documented |
-| T007 | Build public page polish pass | Cursor Composer 2.5 | `framer-poc` | `src/app/(public)/*`, `src/components/site/*` | Review | Why, Accounts, Markets, Tools, Partners, Support pages feel consistent and premium |
-| T008 | Add API route verification notes | Codex | `agent/codex-baseline-check` | `src/app/api/*`, `src/lib/*` | Todo | API placeholders are safe, typed, and do not expose production secrets or advice logic |
-| T009 | Create demo walkthrough script | Claude Code | `framer-poc` | `docs/poc-checklist.md`, new `docs/demo-walkthrough.md` | Todo | 5-minute stakeholder walkthrough explains home, trust, accounts, tools, LINE, IB, AI bot, legal footer |
-| T010 | Founder review package | Human owner | `dev` | All review artifacts | Todo | Framer preview + local Next.js preview + screenshots + open decisions ready |
+| T001 | Align docs to the Framer-first single source of truth | Claude Code | `agent/framer-first-single-source` | `docs/plan.md`, `docs/task-board.md`, `docs/orchestration-plan.md`, `README.md`, `prompts/*`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/*` | Review | `docs/plan.md` is the SSOT; current phase is explicitly Framer-first; Next.js = future foundation; no doc tells an agent to build/polish Next.js now |
+| T002 | Optional technical baseline check (repo health only) | Codex | `agent/codex-baseline-check` | `package.json`, lockfile, config files only if needed | Done | `npm install`, `npm run typecheck`, `npm run lint`, `npm run compliance:scan`, `npm run build` documented; repo health only, no production UI build |
+| T003 | Framer MCP audit of the duplicated Fizens project | Claude Code | `framer-poc` | `docs/framer-poc-map.md`, screenshots/notes only | Done | Pages, components, section order, reuse/adapt/remove table documented |
+| T004 | Improve Framer/Fizens homepage visual layout | Claude Code + Framer MCP + Human | `framer-poc` | Framer workspace, `docs/framer-poc-map.md`, `prompts/workshop-components.md`, `prompts/framer-mcp-claude.md` | Todo | Framer homepage has BestonFX premium hero; risk warning visible; LINE CTA visible above/near first conversion path; Fizens fake stats/testimonials removed or replaced with safe placeholders; no regulatory/profit/spread/leverage/commission/IB-income claims invented; mobile preview presentable |
+| T005 | Workshop components | Human + Claude Code | `framer-poc` | Framer workspace, `prompts/workshop-components.md`, `docs/framer-poc-map.md` | In Progress | 7 components (RiskDisclosureBar, PremiumTradingHero, TrustStackCards, LineSupportCTA, TradingToolsGrid, IBCommissionEstimatorMock, AIChatBotMock) created in canvas — specs complete, canvas `blocked-by-tool` until a worker has Framer MCP/Workshop access |
+| T006 | Framer page expansion | Claude Code + Framer MCP + Human | `framer-poc` | Framer workspace, `docs/framer-poc-map.md`, `prompts/framer-mcp-claude.md` | Todo | Why / Accounts / Markets / Tools / Partners / Support pages built in Framer from Fizens layouts with safe placeholders; risky Fizens copy + template purchase artifacts removed |
+| T007 | Compliance / copy review | Human / Legal + Claude Code | `framer-poc` | `docs/compliance-copy-rules.md`, copy in Framer | Todo | All POC copy passes compliance rules; risky Fizens copy replaced; unconfirmed facts use `รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่`; risk warning on claim-bearing pages |
+| T008 | Demo walkthrough | Claude Code | `framer-poc` | `docs/poc-checklist.md`, new `docs/demo-walkthrough.md` | Todo | 5-minute stakeholder walkthrough of the Framer POC: home, trust, accounts, tools, LINE, IB, AI bot, legal footer |
+| T009 | Founder / team review | Human owner | — | All review artifacts | Todo | Framer preview link + screenshots + open decisions (D001–D007) ready for the team |
+| T010 | Decide rebuild / export path into Next.js | Founder + Claude Code | — | Decision note | Todo | Team decides which approved Framer sections to rebuild or export into Next.js (next phase) |
 
 ### Latest execution notes
 
-- `framer-poc` now contains the Fizens-derived light/royal-blue design system (`DESIGN.md`, `docs/brand/tokens.json`) and homepage visual QA polish.
+- **Phase pivot (2026-05-27):** Current phase is now **Framer/Fizens POC first** (see `docs/plan.md`, the single source of truth). The Next.js homepage polish noted below is **parked** — no longer the current deliverable, tracked in backlog `B009`. The Next.js repo stays a future production foundation + repo-health surface only.
+- `framer-poc` already contains the Fizens-derived light/royal-blue design system (`DESIGN.md`, `docs/brand/tokens.json`) and an earlier homepage visual QA polish (now parked per the pivot above).
 - Verified: `npm run typecheck`, `npm run compliance:scan`, `npm run build` passed on 2026-05-27.
 - Browser QA passed for hero overlap, inline AI help section, and footer public links.
 - Linear: `DX-81` moved to In Review; follow-up `DX-160` tracks POC/mock label cleanup before public launch.
@@ -58,6 +59,9 @@ _Last updated: 2026-05-27_
 | B006 | Create IB dashboard mock data | Codex | Medium | Must clearly mark estimated vs confirmed commission |
 | B007 | Create LINE LIFF onboarding wireframe | Claude Code + Cursor | Medium | Keep as mock until LINE channel details are ready |
 | B008 | Add RAG document ingestion skeleton | Codex | Medium | Use approved docs only; no trading advice |
+| B009 | Rebuild or polish approved Framer POC sections in Next.js after stakeholder approval | Cursor Composer 2.5 | Low (until POC approved) | Was the current-phase Next.js homepage polish (old T004). Prior Next.js homepage polish already exists on `framer-poc` (light/royal-blue system, passed checks 2026-05-27) — now parked. Resume only after the Framer POC is approved. |
+| B010 | Strengthen Next.js compliance scanner | Codex | Medium | Was T005. Repo-health item, not current-phase priority. Scanner catches banned profit/risk-free/IB-income/fake-stat phrases. |
+| B011 | Add API route verification notes | Codex | Medium | Was T008. API placeholders safe, typed, no secrets/advice logic. Next phase. |
 
 ---
 
@@ -83,19 +87,19 @@ Canonical operating prompts live in `docs/plan.md` -> **Agent Operating Prompts*
 
 ## First Execution Order
 
-Run tasks in this order:
+Run tasks in this order (Framer-first):
 
 ```text
-1. T001 — finalize orchestration docs
-2. T002 — run technical checks
-3. T003 — Framer MCP audit
-4. T004 — homepage visual improvement
-5. T005 — compliance scanner improvement
-6. T006 — Workshop components
-7. T007 — public page polish
-8. T008 — API route verification notes
-9. T009 — demo walkthrough
-10. T010 — founder/team review
+1.  T001 — align docs to the Framer-first single source of truth
+2.  T002 — optional technical baseline check (repo health only)
+3.  T003 — Framer MCP audit of the duplicated Fizens project
+4.  T004 — Framer/Fizens homepage visual layout
+5.  T005 — Workshop components
+6.  T006 — Framer page expansion
+7.  T007 — compliance / copy review
+8.  T008 — demo walkthrough
+9.  T009 — founder / team review
+10. T010 — decide rebuild / export path into Next.js
 ```
 
 ---
@@ -119,10 +123,10 @@ Before marking any task `Done`, confirm:
 
 The sprint is complete when:
 
-- [ ] Framer POC is presentable to team.
-- [ ] Next.js local preview runs.
-- [ ] Homepage and key pages align with Framer POC direction.
-- [ ] Risk warning is visible across public pages.
-- [ ] No fake metrics/testimonials remain.
-- [ ] Task board is updated with open decisions.
-- [ ] Founder/team can decide whether to rebuild manually or export selected Framer components later.
+- [ ] Framer POC (`BestonFX Framer POC v0.1`) is presentable to the team.
+- [ ] Framer homepage and key pages reflect the BestonFX light royal-blue direction.
+- [ ] Risk warning is visible across Framer POC pages that bear claims.
+- [ ] No fake metrics / testimonials / fake user counts remain in the Framer POC.
+- [ ] Next.js repo stays green (repo health only — not a sprint deliverable).
+- [ ] Task board is updated with open decisions (D001–D007).
+- [ ] Founder/team can decide whether to rebuild manually or export selected Framer components later (T010).

@@ -4,6 +4,8 @@
 
 Support a Framer-first POC and Next.js production foundation for BestonFX.
 
+> **Current phase: Framer/Fizens POC first.** Single source of truth: `docs/plan.md`. The current deliverable is the Framer POC (built from the purchased Fizens template). Next.js is the _future_ production foundation — do not build/polish it as the current deliverable until the Framer POC is approved.
+
 ## Work mode
 
 1. Inspect files before editing.

@@ -7,16 +7,17 @@ BestonFX is a pre-launch Thai-market forex/CFD broker brand.
 Positioning:
 
 ```text
-Bloomberg Terminal meets Swiss private bank
+Clean, blue-led fintech — premium, modern, trustworthy, Thai-first
 ```
 
 Brand:
 
-- Dark navy
-- Champagne gold
-- Premium, trust-first
+- Light royal blue / clean blue-led fintech aesthetic
+- White, soft slate, light glass, subtle gradients
+- Premium, modern, trustworthy — not black/gold private-bank styling
 - Thai-first
-- LINE-first support/conversion
+- LINE-first support/conversion (LINE green only on LINE CTA)
+- See `DESIGN.md` + `docs/brand/tokens.json` for the brand system
 
 ## Public site objectives
 

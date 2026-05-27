@@ -4,6 +4,14 @@ Starter repo สำหรับ **BestonFX public website + Framer POC handoff +
 
 > This repo is a production-oriented scaffold. It is not wired to real brokerage CRM, trading portal, payment, KYC, or live commission systems.
 
+## Current project phase
+
+> **Current phase: Framer/Fizens POC.** Source of truth: [`docs/plan.md`](docs/plan.md).
+
+- The current deliverable is a presentable **Framer POC** (`BestonFX Framer POC v0.1`), built by adapting the purchased Fizens template.
+- This repo is used to coordinate **docs, prompts, compliance rules, and the future production foundation** — not as the current build target.
+- **Do not treat the Next.js scaffold as the main deliverable** until the Framer POC is approved. Next.js rebuild/export happens only after stakeholder approval.
+
 ## Stack
 
 - Next.js 14 App Router

@@ -1,29 +1,48 @@
-# BestonFX Web POC Execution Plan
+# BestonFX Web POC Execution Plan — Single Source of Truth
 
 _Last updated: 2026-05-27_
 
-## Purpose
+> **This file is the single source of truth for the current phase.** If any other doc (README, AGENTS, orchestration plan, task board, prompts) conflicts with this file, **this file wins** — pause and report the conflict instead of guessing.
 
-ใช้ไฟล์นี้เป็น master plan สำหรับทำ BestonFX POC ให้ทีม, Claude Code, Codex, Cursor Composer 2.5, Framer MCP, Workshop, Legal, Marketing และ Founder เดินไปทางเดียวกัน โดยไม่หลุด compliance risk ของเว็บ Forex/CFD
+## Current Phase: Framer/Fizens POC First
 
-Primary objective:
+**Primary objective:** Create a near-usable BestonFX visual POC inside Framer by adapting the purchased Fizens template, so the team can review a finished-looking concept before any production build.
 
-```text
-ทำให้ทีมเห็น BestonFX website POC ที่ดูเกือบใช้งานได้จริง
-โดยมี 2 tracks ทำคู่กัน:
-1. Framer POC สำหรับ visual/stakeholder review
-2. Next.js repo สำหรับ production foundation
-```
+**Next.js is not the main build target in this phase.** It remains the planning repo, prompt library, compliance-rule repository, and the _future_ production foundation — built only after the Framer POC is approved.
 
-This plan is operational. For source-of-truth rules, read:
+**Current deliverable:** a presentable `BestonFX Framer POC v0.1` the team can review.
 
-- `CONTEXT.md`
-- `AGENTS.md`
-- `CLAUDE.md`
-- `.cursor/rules/bestonfx.mdc`
-- `docs/orchestration-plan.md`
-- `docs/task-board.md`
-- `docs/agents/`
+### In scope now (Framer-first)
+
+- Duplicate the Fizens template into `BestonFX Framer POC v0.1`
+- Audit / adapt / remove / replace Fizens sections via Framer MCP
+- Create missing components with Workshop (`prompts/workshop-components.md`)
+- Compliance-safe copy and section mapping (`docs/framer-poc-map.md`)
+
+### Not in scope now
+
+- Building a new production website in Next.js
+- Polishing the Next.js homepage / UI as the main deliverable
+- Exporting the full Framer site with Unframer
+- Building production backend / CRM / trading portal
+- Publishing compliance-sensitive copy
+
+### Role of each surface this phase
+
+| Surface | Role now |
+|---|---|
+| **Framer (main execution surface)** | Duplicate Fizens, adapt/remove/replace sections, build missing components in Workshop, controlled audit + batch edits via Framer MCP |
+| **Next.js repo** | Planning repo, prompt library, compliance-rule repository, future production foundation (after POC approval), optional local technical scaffold for repo health only |
+
+### Related docs (operational detail, governed by this file)
+
+- `docs/task-board.md` — active tasks and execution order
+- `docs/orchestration-plan.md` — agent roles, gates, branches
+- `docs/framer-poc-map.md` — Fizens → BestonFX section mapping
+- `prompts/workshop-components.md` — Workshop component specs
+- `prompts/framer-mcp-claude.md` — Framer MCP operator prompts
+- `CONTEXT.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/bestonfx.mdc` — agent guardrails
+- `docs/compliance-copy-rules.md`, `docs/agents/` — compliance + skills
 
 ## AI Hero / Pocock Skill Routing
 
@@ -51,14 +70,16 @@ Compliance rules in BestonFX docs always override speed or workflow convenience.
 
 ## Workstreams
 
-| Workstream | Goal | Main owner | Supporting tool | Output |
-|---|---|---|---|---|
-| Repo baseline | Make Next.js stable | Codex | Cursor | Typecheck, lint, compliance scan, build results |
-| Orchestration | Keep roles, branches, file ownership, and task order clear | Claude Code | Human | Updated `docs/task-board.md` if needed |
-| Framer POC | Convert Fizens into BestonFX visual concept | Claude Code + Framer MCP | Workshop | Framer preview link and section map |
-| Homepage UI | Polish homepage after baseline and Framer direction are clear | Cursor Composer 2.5 | Codex | Mobile-first premium homepage |
-| Compliance | Review copy, claims, risk warning, and bot policy | Human / Legal | Claude Code | Approved copy matrix |
-| Team review | Help team decide production scope | Founder / PM | Everyone | Decision package |
+Ordered by current-phase priority. Framer POC leads; Next.js production work is parked until POC approval.
+
+| Priority | Workstream | Goal | Main owner | Supporting tool | Output |
+|---|---|---|---|---|---|
+| 1 | Framer POC | Adapt Fizens into the BestonFX visual concept | Claude Code + Framer MCP | Workshop | Framer preview link + section map |
+| 2 | Compliance | Review copy, claims, risk warning, bot policy | Human / Legal | Claude Code | Approved copy matrix |
+| 3 | Orchestration | Keep roles, branches, file ownership, task order clear | Claude Code | Human | Updated `docs/task-board.md` |
+| 4 | Repo health | Keep Next.js repo green (typecheck/lint/scan/build) — health only, no production UI build | Codex | — | Check results |
+| 5 | Team review | Help team decide production scope | Founder / PM | Everyone | Decision package |
+| — _(deferred)_ | Next.js production rebuild | Rebuild/export approved Framer sections into Next.js | Cursor Composer 2.5 | Codex | Deferred until Framer POC approved (backlog `B009`) |
 
 ## Agent Operating Prompts
 
@@ -132,6 +153,7 @@ Rules:
 - Do not add fake stats.
 - Do not invent regulatory, spread, leverage, commission, or IB claims.
 - Fix only technical setup issues if any.
+- Repo health only in this phase — do not build or polish production UI.
 
 Return:
 1. commands run
@@ -141,7 +163,11 @@ Return:
 5. remaining risks
 ```
 
-### Cursor Composer 2.5 - Homepage UI
+### Cursor Composer 2.5 - Next.js UI (DEFERRED this phase)
+
+> **Not a current-phase task.** The Framer POC is the deliverable now. Cursor Composer is optional support for **local reference mockups only** — it is not the primary tool for the Framer POC. Do **not** treat Next.js homepage/UI polish as the current deliverable. Next.js production rebuild happens only after the Framer POC is approved (backlog `B009`).
+
+If explicitly asked to produce a local reference mockup (optional, non-blocking):
 
 Use branch: `agent/cursor-homepage-ui`
 
@@ -166,18 +192,19 @@ docs/compliance-copy-rules.md
 Prompt:
 
 ```text
-You are the UI Builder for BestonFX.
+You are producing an OPTIONAL local reference mockup for BestonFX — not the current deliverable.
 
 Task:
-Improve the homepage visual presentation only.
+Improve the homepage visual presentation only, as a reference for the Framer POC direction.
 
-Design direction:
-- Premium Thai forex/CFD broker
-- Dark navy + champagne gold
-- Bloomberg Terminal meets Swiss private bank
+Design direction (current brand — light, royal blue; source: DESIGN.md + docs/brand/tokens.json):
+- Premium Thai forex/CFD broker, trust-first, broker-sober
+- Light theme, white background, royal blue #0040C1, bright blue #2970FF, soft blue #EFF4FF
+- Font: Prompt (Thai + Latin)
 - Mobile-first
 - LINE CTA visible above the fold
 - Risk warning must remain visible
+- The old dark-navy + champagne-gold direction is superseded — do not use it.
 
 Compliance rules:
 - No guaranteed profit
@@ -248,7 +275,7 @@ Create and review in this order:
 
 Review criteria:
 
-- Fits navy/gold premium brand
+- Fits the light royal-blue premium brand (see `DESIGN.md`)
 - Mobile view works
 - No fake numbers
 - No profit language
@@ -257,22 +284,22 @@ Review criteria:
 
 ## Execution Sequence
 
-Current sequence:
+Framer-first order (canonical — matches `docs/task-board.md`):
 
 ```text
-1. T001 - Claude Code orchestration review
-2. T002 - Codex technical baseline check
-3. T003 - Framer MCP audit
-4. T004 - Cursor Composer homepage UI polish
-5. T005 - Compliance scanner strengthening
-6. T006 - Workshop components
-7. T007 - Public page polish pass
-8. T008 - API route verification notes
-9. T009 - Demo walkthrough
-10. T010 - Founder/team review
+1.  T001 - Align docs to the Framer-first single source of truth
+2.  T002 - Optional technical baseline check (repo health only)
+3.  T003 - Framer MCP audit of the duplicated Fizens project
+4.  T004 - Framer/Fizens homepage visual layout
+5.  T005 - Workshop components
+6.  T006 - Framer page expansion
+7.  T007 - Compliance / copy review
+8.  T008 - Demo walkthrough
+9.  T009 - Founder / team review
+10. T010 - Decide rebuild / export path into Next.js
 ```
 
-Do not run homepage UI polish before the technical baseline and Framer direction are clear.
+Do not polish Next.js UI as a current deliverable. Next.js rebuild/export happens only after the Framer POC is approved.
 
 ## POC Acceptance Criteria
 
@@ -284,9 +311,9 @@ Do not run homepage UI polish before the technical baseline and Framer direction
 - `npm run build` passes
 - Localhost opens without static asset 404
 
-### UI
+### UI (Framer POC homepage)
 
-- Homepage looks premium, dark navy/gold
+- Homepage looks premium in the light royal-blue brand (`#0040C1`), not the superseded dark-navy/gold
 - Hero communicates trust-first positioning
 - LINE CTA is visible above the fold
 - Risk warning is visible
@@ -352,12 +379,15 @@ Send Design / Marketing:
 1. Framer preview link
 2. docs/framer-poc-map.md
 3. screenshots of key pages
-4. brand tokens:
-   - Navy 950: #050B18
-   - Navy 900: #081426
-   - Graphite 900: #101318
-   - Gold 500: #D4AF37
-   - Gold 300: #F2D27A
+4. brand tokens (current — light, royal blue; see `DESIGN.md` + `docs/brand/tokens.json`):
+   - Primary blue: #0040C1
+   - Bright blue: #2970FF
+   - Soft blue surface: #EFF4FF
+   - Border: #E5E7EB
+   - Heading text: #171717
+   - Body text: #4B5563
+   - LINE green: #06C755 (LINE conversion paths only)
+   - Risk amber: #B45309 (compliance/risk surfaces only)
 5. homepage section map
 6. Workshop component list
 ```

@@ -6,12 +6,22 @@ _Last updated: 2026-05-27_
 
 This document defines how the BestonFX website team should coordinate multiple AI coding/design agents without creating conflicting edits, compliance drift, or duplicated architecture.
 
+> **Governed by `docs/plan.md`** (the single source of truth). If this file conflicts with `docs/plan.md`, that file wins.
+
+### Current phase priority
+
+```text
+1. Framer/Fizens POC          <- current execution surface and deliverable
+2. Compliance-safe copy and section mapping
+3. Next.js repo               <- future production foundation only (not a current build target)
+```
+
 The immediate goal is to run a lightweight, human-controlled orchestration model for:
 
-1. Framer/Fizens visual POC
-2. Next.js production foundation
-3. Compliance-safe UX/copy
-4. AI bot, LINE, CMS, analytics, and IB portal scaffolding
+1. Framer/Fizens visual POC (current focus)
+2. Compliance-safe UX/copy
+3. Next.js production foundation (future — after Framer POC approval)
+4. AI bot, LINE, CMS, analytics, and IB portal scaffolding (future)
 
 This is not a fully autonomous agent system. Human approval remains required before publishing, merging, or presenting compliance-sensitive claims.
 
@@ -26,16 +36,19 @@ Human owner / PM
   -> approves strategy, claims, legal-sensitive copy, final merge
 
 Claude Code
-  -> lead architect / orchestrator / Framer MCP operator
+  -> lead orchestrator / Framer MCP operator / docs (SSOT) maintainer / compliance reviewer
+
+Framer MCP
+  -> PRIMARY automation: inspect and adapt the Fizens template (this phase)
+
+Framer Workshop
+  -> PRIMARY component generator for missing Framer sections (this phase)
 
 Codex
-  -> implementation + verification agent
+  -> repo health check only this phase (docs/scripts support; no production UI build)
 
 Cursor Composer 2.5
-  -> fast UI/page/component builder inside Cursor
-
-Framer Workshop + MCP
-  -> Framer POC visual editing surface
+  -> optional local reference mockups only (not the primary tool for the Framer POC)
 ```
 
 ---
@@ -44,11 +57,11 @@ Framer Workshop + MCP
 
 | Agent / Tool | Primary role | Best use | Must not do |
 |---|---|---|---|
-| Claude Code | Lead Architect / Orchestrator | Break down tasks, inspect repo, operate Framer MCP, review compliance-sensitive copy, create task prompts | Do not make broad production edits without scoped task approval |
-| Codex | Implementation / Verification Agent | Create components, fix TypeScript/build errors, add tests, run checks, implement API skeletons | Do not invent financial/regulatory/commission claims |
-| Cursor Composer 2.5 | UI Builder | Improve pages, layouts, responsive behavior, Tailwind/shadcn component wiring | Do not edit API, DB schema, compliance rules, or legal copy unless explicitly assigned |
-| Framer Workshop | Framer component generator | Create visual POC components such as hero, risk bar, LINE CTA, IB estimator mock | Do not create production logic/auth/backend |
-| Framer MCP | Framer canvas automation | Audit project, batch-update text/styles, create placeholder pages, insert generated components | Do not run unsupervised whole-site redesigns |
+| Claude Code | Lead Orchestrator / Framer MCP operator | Maintain docs (SSOT), break down tasks, operate Framer MCP, review compliance-sensitive copy, create task prompts | Do not make broad production edits without scoped task approval |
+| Codex | Repo health check only (this phase) | Run typecheck/lint/compliance:scan/build, fix technical setup, docs/scripts support | Do not build or polish production UI this phase; do not invent financial/regulatory/commission claims |
+| Cursor Composer 2.5 | Optional local reference mockups only | Optional, non-blocking local mockups for reference — not the primary tool for the Framer POC | Do not treat Next.js UI polish as a current deliverable; do not edit API, DB schema, compliance rules, or legal copy |
+| Framer Workshop | **Primary** component generator (this phase) | Create visual POC components: hero, risk bar, LINE CTA, IB estimator mock, tools grid | Do not create production logic/auth/backend |
+| Framer MCP | **Primary** Framer automation (this phase) | Audit the Fizens project, batch-update text/styles, create placeholder pages, insert generated components | Do not run unsupervised whole-site redesigns |
 | Human owner | Final approver | Product decisions, legal-sensitive copy, regulatory wording, final merge | Do not skip approval gates for speed |
 
 ---
@@ -84,11 +97,14 @@ dev
 agent/claude-orchestration
   docs, task breakdown, architecture notes, Framer MCP plans
 
+agent/framer-first-single-source
+  align docs to the Framer-first single source of truth
+
 agent/codex-baseline-check
-  technical verification and build fixes
+  repo health checks only (this phase)
 
 agent/cursor-homepage-ui
-  homepage UI polish
+  optional local reference mockups only — deferred until the Framer POC is approved (backlog B009)
 
 framer-poc
   Framer POC notes, exported snippets, screenshots, section maps
@@ -153,7 +169,7 @@ Pass criteria:
 - LINE CTA is visible above or near first conversion path.
 - Risk warning is visible.
 - No fake statistics or fake testimonials.
-- Visual direction matches dark navy + gold premium finance aesthetic.
+- Visual direction matches the BestonFX light royal-blue brand (`#0040C1`, Prompt font; see `DESIGN.md`), not the superseded dark-navy + gold.
 
 ### Gate 3: Compliance
 
@@ -262,18 +278,18 @@ Every agent task should include:
 3. Codex installs dependencies and runs checks.
 4. Cursor Composer does not edit until file ownership is clear.
 
-### Day 2: Framer POC audit + homepage alignment
+### Day 2: Framer POC audit + homepage in Framer
 
 1. Claude Code uses Framer MCP to audit the Fizens structure.
 2. Claude Code updates `docs/framer-poc-map.md`.
-3. Cursor Composer improves the Next.js homepage according to the map.
-4. Codex fixes only technical issues introduced by UI work.
+3. Claude Code + Framer MCP build the BestonFX homepage **in Framer** from the section map (Workshop components where Fizens is weak).
+4. Codex runs repo-health checks only (no production UI build).
 
-### Day 3: Core public pages
+### Day 3: Core public pages (in Framer)
 
-1. Cursor Composer improves Accounts, Markets, Tools, Partners, Support pages.
-2. Codex adds tests/checks and cleans component typing.
-3. Claude Code reviews copy for compliance-sensitive issues.
+1. Claude Code + Framer MCP expand Accounts, Markets, Tools, Partners, Support pages **in Framer** with safe placeholders.
+2. Claude Code reviews copy for compliance-sensitive issues.
+3. Codex keeps the Next.js repo green (repo health only).
 
 ### Day 4: Framer POC polish
 

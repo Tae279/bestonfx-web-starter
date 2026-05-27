@@ -2,6 +2,8 @@
 
 ## Project intent
 
+> **Current phase: Framer/Fizens POC first.** Source of truth: `docs/plan.md`. The current deliverable is a Framer POC built from the purchased Fizens template. Do **not** start building or polishing the Next.js production site now — it is the _future_ production foundation, after POC approval.
+
 Build BestonFX public website and surrounding system foundation:
 
 - Public marketing site

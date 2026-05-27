@@ -41,21 +41,22 @@ nodeId | old text | new text | compliance note
 ## 3. Apply brand colors
 
 ```text
-Using Framer MCP, create or update color styles for BestonFX:
+Using Framer MCP, create or update color styles for BestonFX (current brand — light, royal blue; source: DESIGN.md + docs/brand/tokens.json):
 
-- Navy 950: #050B18
-- Navy 900: #081426
-- Graphite 900: #101318
-- Gold 500: #D4AF37
-- Gold 300: #F2D27A
-- Text Primary: #F8FAFC
-- Text Secondary: #A7B0C0
-- Risk Red: #EF4444
-- LINE Green: #06C755
+- Primary blue: #0040C1
+- Bright blue (hover/accent): #2970FF
+- Soft blue surface: #EFF4FF
+- Page background: #FFFFFF
+- Border: #E5E7EB
+- Heading text: #171717
+- Body text: #4B5563
+- LINE green: #06C755 (LINE conversion paths only)
+- Risk amber: #B45309 (compliance/risk surfaces only)
 
+The old dark-navy + champagne-gold palette is superseded — do not create or keep it.
+Remap TextStyles to the Prompt font (Thai-first).
 Apply these to global styles where safe.
 Do not flatten components.
-Do not change typography yet.
 Show affected nodes before applying.
 ```
 

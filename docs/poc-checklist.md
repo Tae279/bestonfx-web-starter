@@ -10,7 +10,7 @@
 
 ## Day 2
 
-- [ ] Apply navy/gold tokens
+- [ ] Apply light royal-blue tokens (see `DESIGN.md` / `docs/brand/tokens.json`)
 - [ ] Build RiskDisclosureBar
 - [ ] Replace homepage hero
 - [ ] Remove fake stats/testimonials

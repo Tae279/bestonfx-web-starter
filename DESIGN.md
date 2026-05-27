@@ -6,7 +6,7 @@
 
 ## Brand essence
 
-- **Bloomberg-clean meets Swiss private bank — in daylight.** Calm, premium, trust-first.
+- **Bloomberg-clean, blue-led fintech — in daylight.** Calm, premium, trust-first.
 - Lots of whitespace, large rounded surfaces, one confident blue, soft blue glow for depth.
 - **Broker-sober:** we borrow Fizens' light/blue clarity but drop its playful consumer cues
   (no pink accent, no cartoon energy). No casino / gambling visual language.
@@ -35,6 +35,25 @@ Use LINE green only on the LINE conversion path; amber only for risk/compliance.
 | Risk / compliance | `amber-700` | `#b45309` |
 
 Full 50→950 scales for `brand` + `ink` live in `tailwind.config.ts`.
+
+### Alternate working palette — pending CEO hex sign-off (2026-05-27)
+
+Founder-supplied **temporary working tokens**, recorded for a future single-pass migration. **Not applied** — the active palette above (`#0040c1` anchor) stays in `tailwind.config.ts` + `src/app/globals.css` + `docs/brand/tokens.json`. Migrate to these only when the CEO confirms the final hex.
+
+| Role | Hex |
+|---|---|
+| Royal Blue 600 (candidate primary) | `#2563EB` |
+| Royal Blue 500 (bright / hover) | `#3B82F6` |
+| Sky Blue 400 (accent) | `#38BDF8` |
+| Surface Light | `#F8FAFC` |
+| Surface Soft Blue | `#EFF6FF` |
+| Slate 900 (headings) | `#0F172A` |
+| Slate 600 (body) | `#475569` |
+| Border Soft | `#D8E3F0` |
+| LINE Green (LINE CTA only) | `#06C755` |
+| Risk Red | `#EF4444` |
+
+Shifts vs active: primary → brighter Tailwind blue-600, neutrals `ink` gray → `slate` (blue undertone), risk amber `#b45309` → red `#EF4444`. Still light + blue-led — no gold / black / navy.
 
 ## Typography
 
@@ -82,6 +101,7 @@ Tight negative tracking on display sizes is signature; Thai script keeps default
 4. Fizens' playful pink accent — too consumer for a broker.
 5. Guaranteed-profit / risk-free / fake-stat visual framing (see `CONTEXT.md` compliance boundaries).
 6. Casino / gambling color or motion language.
+7. Black + gold / champagne gold / "Swiss private bank" luxury styling — superseded. This is a light, blue-led fintech brand; no gold accents.
 
 ## Files
 

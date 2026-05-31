@@ -1,8 +1,8 @@
 # BestonFX Web POC Execution Plan — Single Source of Truth
 
-_Last updated: 2026-05-27_
+_Last updated: 2026-06-01_
 
-> **This file is the single source of truth for the current phase.** If any other doc (README, AGENTS, orchestration plan, task board, prompts) conflicts with this file, **this file wins** — pause and report the conflict instead of guessing.
+> **This file is the single source of truth for the current phase.** For broker-site IA, Home section order, Framer/Fizens adaptation, motion, copy, and trust-building rules, the latest execution source is `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`. If any other doc (README, AGENTS, orchestration plan, task board, prompts) conflicts with this file or the 2026-06-01 research source, **pause and report the conflict instead of guessing**.
 
 ## Current Phase: Framer/Fizens POC First
 
@@ -10,14 +10,14 @@ _Last updated: 2026-05-27_
 
 **Next.js is not the main build target in this phase.** It remains the planning repo, prompt library, compliance-rule repository, and the _future_ production foundation — built only after the Framer POC is approved.
 
-**Current deliverable:** a presentable `BestonFX Framer POC v0.1` the team can review.
+**Current deliverable:** a presentable `BestonFX Framer POC v0.1` the team can review, based on the 2026-06-01 research-backed source of truth.
 
 ### In scope now (Framer-first)
 
 - Duplicate the Fizens template into `BestonFX Framer POC v0.1`
 - Audit / adapt / remove / replace Fizens sections via Framer MCP
 - Create missing components with Workshop (`prompts/workshop-components.md`)
-- Compliance-safe copy and section mapping (`docs/framer-poc-map.md`)
+- Compliance-safe copy and section mapping (`docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`, `docs/wireframes/*`; `docs/framer-poc-map.md` is Fizens inventory and legacy map only)
 
 ### Not in scope now
 
@@ -38,7 +38,13 @@ _Last updated: 2026-05-27_
 
 - `docs/task-board.md` — active tasks and execution order
 - `docs/orchestration-plan.md` — agent roles, gates, branches
-- `docs/framer-poc-map.md` — Fizens → BestonFX section mapping
+- `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md` — latest broker-site IA, Home, motion, copy, trust, and Framer/Fizens source of truth
+- `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.html` — polished founder/Framer/agency operator dashboard
+- `docs/research/bestonfx-framer-perfect-research-2026-06-01.md` + `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.md` — expanded research and operator handoff
+- `docs/research/bestonfx-framer-design-craft-playbook-2026-06-01.md` — design/motion/Framer-craft/copy/trust/anti-AI-slop deep-dive (Claude, 2026-06-01)
+- `docs/wireframes/sitemap.md`, `docs/wireframes/pages/*.md`, `docs/wireframes/components.md` — page-level Framer build specs
+- `docs/framer-poc-map.md` — Fizens template inventory and legacy section map; do not use it to override wireframes
+- `docs/reports/home-ia-drift-handoff.md` — Home IA correction log
 - `prompts/workshop-components.md` — Workshop component specs
 - `prompts/framer-mcp-claude.md` — Framer MCP operator prompts
 - `CONTEXT.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/bestonfx.mdc` — agent guardrails
@@ -98,6 +104,9 @@ CONTEXT.md
 docs/plan.md
 docs/orchestration-plan.md
 docs/task-board.md
+docs/research/bestonfx-framer-source-of-truth-2026-06-01.md
+docs/wireframes/sitemap.md
+docs/wireframes/pages/home.md
 docs/framer-poc-map.md
 docs/compliance-copy-rules.md
 ```
@@ -265,11 +274,11 @@ Create and review in this order:
 
 ```text
 1. RiskDisclosureBar
-2. PremiumTradingHero
+2. TerminalHero
 3. TrustStackCards
 4. LineSupportCTA
-5. TradingToolsGrid
-6. IBCommissionEstimatorMock
+5. TradingToolsGrid (/tools only)
+6. IBCommissionEstimatorMock (/partners only)
 7. AIChatBotMock
 ```
 
@@ -290,13 +299,14 @@ Framer-first order (canonical — matches `docs/task-board.md`):
 1.  T001 - Align docs to the Framer-first single source of truth
 2.  T002 - Optional technical baseline check (repo health only)
 3.  T003 - Framer MCP audit of the duplicated Fizens project
-4.  T004 - Framer/Fizens homepage visual layout
-5.  T005 - Workshop components
-6.  T006 - Framer page expansion
-7.  T007 - Compliance / copy review
-8.  T008 - Demo walkthrough
-9.  T009 - Founder / team review
-10. T010 - Decide rebuild / export path into Next.js
+4.  T011 - Research-backed Framer/Fizens source-of-truth reset (2026-06-01)
+5.  T004 - Framer/Fizens homepage visual layout
+6.  T005 - Workshop components
+7.  T006 - Framer page expansion
+8.  T007 - Compliance / copy review
+9.  T008 - Demo walkthrough
+10. T009 - Founder / team review
+11. T010 - Decide rebuild / export path into Next.js
 ```
 
 Do not polish Next.js UI as a current deliverable. Next.js rebuild/export happens only after the Framer POC is approved.
@@ -350,9 +360,11 @@ Send Founder / Leadership:
 ```text
 1. Framer preview link
 2. Local Next.js screenshots or Vercel preview link
-3. docs/framer-poc-map.md
-4. docs/poc-checklist.md
-5. One-page decision note:
+3. docs/research/bestonfx-framer-perfect-handoff-2026-06-01.html
+4. docs/research/bestonfx-framer-source-of-truth-2026-06-01.md
+5. docs/research/bestonfx-framer-perfect-handoff-2026-06-01.md
+6. docs/poc-checklist.md
+7. One-page decision note:
    - what is approved
    - what is placeholder
    - what needs legal confirmation
@@ -377,9 +389,11 @@ Send Design / Marketing:
 
 ```text
 1. Framer preview link
-2. docs/framer-poc-map.md
-3. screenshots of key pages
-4. brand tokens (current — light, royal blue; see `DESIGN.md` + `docs/brand/tokens.json`):
+2. docs/research/bestonfx-framer-perfect-handoff-2026-06-01.html
+3. docs/research/bestonfx-framer-source-of-truth-2026-06-01.md
+4. docs/wireframes/sitemap.md
+5. screenshots of key pages
+6. brand tokens (current — light, royal blue; see `DESIGN.md` + `docs/brand/tokens.json`):
    - Primary blue: #0040C1
    - Bright blue: #2970FF
    - Soft blue surface: #EFF4FF
@@ -388,8 +402,8 @@ Send Design / Marketing:
    - Body text: #4B5563
    - LINE green: #06C755 (LINE conversion paths only)
    - Risk amber: #B45309 (compliance/risk surfaces only)
-5. homepage section map
-6. Workshop component list
+7. homepage section map
+8. Workshop component list
 ```
 
 ## Hard Rules

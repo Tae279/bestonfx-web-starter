@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BestonFX Framer/Fizens Source of Truth — 2026-06-01</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #024ada;
+      --royal: #0040c1;
+      --bright: #2970ff;
+      --ink: #101828;
+      --muted: #667085;
+      --paper: #ffffff;
+      --soft: #f5f8ff;
+      --line: #d8e3f0;
+      --green: #06c755;
+      --amber: #fff7ed;
+      --amber-ink: #9a5b00;
+      --shadow: 0 26px 80px rgba(16, 24, 40, .12);
+      --font: Prompt, "Noto Sans Thai", "IBM Plex Sans Thai", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", "JetBrains Mono", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(2, 74, 218, .18), transparent 32rem),
+        radial-gradient(circle at 90% 6%, rgba(41, 112, 255, .14), transparent 28rem),
+        linear-gradient(180deg, #f8fbff, #fff 36%, #f7faff);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.62;
+    }
+    a { color: var(--royal); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .shell { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+    .hero { min-height: 78vh; display: grid; align-items: center; padding: 72px 0 36px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.72); color: var(--royal); border-radius: 999px;
+      padding: 8px 12px; font: 800 12px/1 var(--mono); text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.02; letter-spacing: 0; }
+    h1 { margin-top: 18px; font-size: clamp(42px, 7vw, 86px); max-width: 820px; }
+    h2 { font-size: clamp(30px, 4vw, 54px); }
+    h3 { font-size: 22px; }
+    p { margin: 10px 0 0; color: var(--muted); }
+    .lead { font-size: 19px; max-width: 720px; }
+    .hero-card {
+      border: 1px solid rgba(216,227,240,.9); border-radius: 28px; padding: 24px;
+      background: rgba(255,255,255,.82); box-shadow: var(--shadow); backdrop-filter: blur(18px);
+    }
+    .terminal {
+      min-height: 360px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,64,193,.15);
+      background: linear-gradient(145deg, #071a45, #0040c1 48%, #eaf2ff 49%, #fff);
+      position: relative;
+    }
+    .terminal::before {
+      content: ""; position: absolute; inset: 26px; border-radius: 20px;
+      background: rgba(255,255,255,.78); box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    }
+    .chip {
+      position: absolute; border: 1px solid var(--line); border-radius: 14px; padding: 12px;
+      background: #fff; box-shadow: 0 12px 30px rgba(16,24,40,.12); font: 800 12px/1.25 var(--mono);
+    }
+    .chip.a { left: 38px; top: 56px; color: var(--royal); }
+    .chip.b { right: 38px; top: 142px; color: #157347; }
+    .chip.c { left: 64px; bottom: 48px; color: var(--amber-ink); }
+    nav {
+      position: sticky; top: 0; z-index: 5; border-block: 1px solid var(--line);
+      background: rgba(255,255,255,.82); backdrop-filter: blur(18px);
+    }
+    nav .shell { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0; }
+    nav a { flex: 0 0 auto; border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; color: var(--muted); font-size: 13px; }
+    section { padding: 72px 0; }
+    .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; margin-bottom: 22px; }
+    .tag { color: var(--royal); font: 800 12px/1 var(--mono); text-transform: uppercase; }
+    .grid { display: grid; gap: 16px; }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line); border-radius: 20px; padding: 20px;
+      background: rgba(255,255,255,.86); box-shadow: 0 16px 48px rgba(16,24,40,.07);
+    }
+    .card strong { display: block; color: var(--ink); margin-bottom: 6px; }
+    .matrix { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 18px; border: 1px solid var(--line); background: #fff; }
+    .matrix th, .matrix td { padding: 13px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .matrix th { color: var(--royal); font: 800 12px/1.2 var(--mono); text-transform: uppercase; background: var(--soft); }
+    .matrix tr:last-child td { border-bottom: 0; }
+    .callout { border: 1px solid #fed7aa; background: var(--amber); color: var(--amber-ink); border-radius: 20px; padding: 18px; }
+    .source-list { columns: 2; column-gap: 32px; }
+    .source-list li { break-inside: avoid; margin-bottom: 8px; color: var(--muted); }
+    code { color: var(--royal); background: #edf4ff; border-radius: 7px; padding: 1px 5px; font-family: var(--mono); }
+    @media (max-width: 820px) {
+      .hero-grid, .cols-2, .cols-3, .section-head { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding-top: 48px; }
+      section { padding: 52px 0; }
+      .source-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero shell">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">BestonFX · Framer/Fizens · Source of Truth</span>
+          <h1>Broker site ที่ดู modern แต่ยังน่าเชื่อถือแบบจริง</h1>
+          <p class="lead">Research-backed handoff สำหรับทำ `bestonfx.com` เวอร์ชั่นใหม่ใน Framer โดยใช้ Fizens เป็นฐาน แต่เปลี่ยน IA, copy, trust, motion, และ compliance ให้เหมาะกับ Forex/CFD broker ไทย.</p>
+        </div>
+        <div class="hero-card">
+          <div class="terminal" aria-label="Trading terminal visual mock">
+            <div class="chip a">Risk first</div>
+            <div class="chip b">LINE support</div>
+            <div class="chip c">Sample data only</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="shell">
+        <a href="#decision">Decision</a>
+        <a href="#structure">Structure</a>
+        <a href="#home">Home</a>
+        <a href="#motion">Motion</a>
+        <a href="#framer">Framer</a>
+        <a href="#sources">Sources</a>
+      </div>
+    </nav>
+
+    <section id="decision" class="shell">
+      <div class="section-head">
+        <div><span class="tag">01 · Locked Direction</span><h2>Latest decision</h2></div>
+      </div>
+      <div class="grid cols-3">
+        <div class="card"><strong>Fizens stays</strong><p>ใช้ Fizens เพราะ CEO ชอบ: light fintech, premium cards, smooth animation, CMS, components, sticky/ticker capability.</p></div>
+        <div class="card"><strong>IA changes</strong><p>Home เป็น persuasion flow ไม่ใช่ feature dump: ไม่มี full tools grid และไม่มี IB block บน Home.</p></div>
+        <div class="card"><strong>Trust first</strong><p>Risk warning, verified entity proof, transparent costs, rebate T&C, LINE admin, and education are conversion assets.</p></div>
+      </div>
+      <div class="callout" style="margin-top:16px">Source priority: this research -> `docs/wireframes/*` -> `DESIGN.md` -> `docs/framer-poc-map.md` as inventory only.</div>
+    </section>
+
+    <section id="structure" class="shell">
+      <div class="section-head"><div><span class="tag">02 · Site Map</span><h2>Recommended pages</h2><p>POC ควรมี 9 public surfaces + legal utilities เพื่อดูครบแบบ broker จริง แต่ไม่บวมเกิน Framer POC.</p></div></div>
+      <table class="matrix">
+        <thead><tr><th>Route</th><th>Purpose</th><th>Fizens treatment</th></tr></thead>
+        <tbody>
+          <tr><td><code>/</code></td><td>Trust + conversion spine</td><td>Home reorganized by user intent</td></tr>
+          <tr><td><code>/why-bestonfx</code></td><td>Regulation, transparency, Thai care</td><td>About / Overview</td></tr>
+          <tr><td><code>/markets</code></td><td>Tradable markets and sample symbols</td><td>Features grids</td></tr>
+          <tr><td><code>/accounts</code></td><td>Standard vs Demo account path</td><td>Pricing cards rewritten</td></tr>
+          <tr><td><code>/tools</code></td><td>MT5, rebate/pip/margin calculators</td><td>AdditionSection / feature cards</td></tr>
+          <tr><td><code>/partners</code></td><td>IB program without income promises</td><td>Custom cards/forms</td></tr>
+          <tr><td><code>/support</code></td><td>LINE-first Thai support</td><td>Contact</td></tr>
+          <tr><td><code>/articles</code></td><td>Education and SEO CMS</td><td>Articles CMS</td></tr>
+          <tr><td><code>/legal/*</code></td><td>Risk, terms, privacy, regulatory disclosures</td><td>Legal custom</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="home" class="shell">
+      <div class="section-head"><div><span class="tag">03 · Home</span><h2>Correct Home flow</h2><p>Home ต้องตอบใน 5 วินาทีว่า beston คือ broker ที่โชว์ต้นทุนจริง คืน rebate และมีทีมไทยช่วยดูแล.</p></div></div>
+      <div class="grid cols-2">
+        <div class="card"><strong>Above fold</strong><p>Risk bar -> nav -> hero `เห็นทุกต้นทุน คืนทุกการเทรด` -> CTA pair -> sample terminal visual.</p></div>
+        <div class="card"><strong>Trust loop</strong><p>Regulatory strip -> trust pillars -> markets ticker -> account preview -> steps -> rebate explainer.</p></div>
+        <div class="card"><strong>Conversion close</strong><p>Articles teaser -> FAQ -> LINE-first CTA -> legal footer.</p></div>
+        <div class="card"><strong>Do not add</strong><p>No full tools grid. No IB block. No fake stats. No fake testimonials. No public deposit CTA.</p></div>
+      </div>
+    </section>
+
+    <section id="motion" class="shell">
+      <div class="section-head"><div><span class="tag">04 · Motion</span><h2>Wow without noise</h2><p>Motion ต้องช่วยให้เข้าใจ ไม่ใช่แค่โชว์ว่า animate ได้.</p></div></div>
+      <table class="matrix">
+        <thead><tr><th>ID</th><th>Pattern</th><th>Framer implementation</th></tr></thead>
+        <tbody>
+          <tr><td>M1</td><td>Hero bloom reveal</td><td>Appear effect + scale/opacity/y</td></tr>
+          <tr><td>M2</td><td>Scroll-scrub terminal depth</td><td>Scroll Transform, Section in View</td></tr>
+          <tr><td>M3</td><td>Sticky proof story</td><td>Sticky media panel + content rail</td></tr>
+          <tr><td>M4</td><td>Card cascade</td><td>Small stagger, no text delay that blocks reading</td></tr>
+          <tr><td>M5</td><td>Market ticker</td><td>Native ticker/slideshow, tap/hover pause</td></tr>
+          <tr><td>M6</td><td>Micro interactions</td><td>Subtle hover lift, border tint, input feedback</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top:16px">Reduced motion is mandatory. Heavy parallax and cursor effects must be simplified on mobile/touch.</div>
+    </section>
+
+    <section id="framer" class="shell">
+      <div class="section-head"><div><span class="tag">05 · Framer Build</span><h2>Apply inside Fizens</h2></div></div>
+      <div class="grid cols-3">
+        <div class="card"><strong>Components</strong><p>RiskBar, Navbar, Hero, CTA pair, Account card, FAQ item, Article card, legal footer.</p></div>
+        <div class="card"><strong>CMS</strong><p>Articles collection with category, excerpt, cover, read time, meta title, meta description, review status.</p></div>
+        <div class="card"><strong>SEO</strong><p>Page metadata, semantic headings, alt text, video posters, JSON-LD, redirects, sitemap.</p></div>
+      </div>
+    </section>
+
+    <section id="sources" class="shell">
+      <div class="section-head"><div><span class="tag">06 · Evidence</span><h2>Sources used</h2></div></div>
+      <ul class="source-list">
+        <li><a href="https://www.framer.com/marketplace/templates/fizens/">Fizens Marketplace</a></li>
+        <li><a href="https://fizens.framer.ai/">Fizens live preview</a></li>
+        <li><a href="https://www.framer.com/help/articles/guide-to-seo-features-and-tools/">Framer SEO guide</a></li>
+        <li><a href="https://www.framer.com/help/articles/how-animations-and-effects-work-in-framer/">Framer animations/effects</a></li>
+        <li><a href="https://www.framer.com/academy/lessons/framer-animations-scroll-transform">Framer scroll transform</a></li>
+        <li><a href="https://www.framer.com/help/articles/reduced-motion-settings/">Framer reduced motion</a></li>
+        <li><a href="https://handbook.fca.org.uk/handbook/cobs4">FCA COBS 4</a></li>
+        <li><a href="https://www.esma.europa.eu/lv/press-news/esma-news/esma-adopts-final-product-intervention-measures-cfds-and-binary-options">ESMA CFD measures</a></li>
+        <li><a href="https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2021-releases/21-060mr-asic-s-cfd-product-intervention-order-takes-effect/">ASIC CFD order</a></li>
+        <li><a href="https://pepperstone.com/en/">Pepperstone</a></li>
+        <li><a href="https://www.ig.com/en">IG</a></li>
+        <li><a href="https://www.oanda.com/us-en/">OANDA</a></li>
+        <li><a href="https://www.exness.com/standard-accounts/">Exness accounts</a></li>
+        <li><a href="https://www.exness.com/trading-platforms/">Exness platforms</a></li>
+        <li><a href="https://www.xm.com/about">XM About</a></li>
+        <li><a href="https://web.dev/prefers-reduced-motion/">web.dev reduced motion</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+

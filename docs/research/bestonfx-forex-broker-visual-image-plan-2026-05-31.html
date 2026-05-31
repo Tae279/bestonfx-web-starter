@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>แผน Visual & Image สำหรับ BestonFX Framer/Fizens</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #0e1726;
+      --muted: #5d697c;
+      --line: #d9e0ea;
+      --blue: #024ada;
+      --blue-2: #0b63ce;
+      --navy: #051f3e;
+      --green: #157f4f;
+      --amber: #a86200;
+      --red: #b42318;
+      --soft-blue: #e9f1ff;
+      --soft-green: #eaf7f0;
+      --soft-amber: #fff3d8;
+      --soft-red: #fff0ed;
+      --shadow: 0 18px 50px rgba(5, 31, 62, .09);
+      --radius: 8px;
+      --font: "Prompt", "IBM Plex Sans Thai", "Noto Sans Thai", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #08111f;
+        --panel: #101b2b;
+        --ink: #eef4ff;
+        --muted: #a9b6c7;
+        --line: #22324a;
+        --blue: #6aa3ff;
+        --blue-2: #8fbaff;
+        --navy: #dbe6f5;
+        --green: #4ed29a;
+        --amber: #e7b15a;
+        --red: #ff8a7a;
+        --soft-blue: #0d2349;
+        --soft-green: #0d2b22;
+        --soft-amber: #34260d;
+        --soft-red: #351812;
+        --shadow: 0 18px 50px rgba(0, 0, 0, .26);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        linear-gradient(180deg, rgba(2, 74, 218, .06), transparent 520px),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .hero {
+      padding: 56px 0 30px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 78% 18%, rgba(2, 74, 218, .12), transparent 32%),
+        linear-gradient(135deg, rgba(255, 255, 255, .52), rgba(255, 255, 255, 0));
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 12px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--soft-blue);
+      border: 1px solid rgba(2, 74, 218, .18);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    h1 {
+      margin: 18px 0 12px;
+      max-width: 920px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 20px;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead { max-width: 820px; color: var(--muted); font-size: 18px; }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .metric, .panel, .callout, .source-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .metric { padding: 16px; min-height: 118px; }
+    .metric strong {
+      display: block;
+      font: 800 28px/1.1 var(--mono);
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .metric span { color: var(--muted); font-size: 13px; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      flex: 0 0 auto;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+    section { padding: 42px 0; }
+    section[id] { scroll-margin-top: 72px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    .section-note { color: var(--muted); font-size: 14px; }
+    .panel { padding: 22px; margin: 16px 0; }
+    .panel p { max-width: 74ch; }
+    .grid-2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .callout {
+      padding: 16px 18px;
+      border-left: 4px solid var(--blue);
+      background: var(--soft-blue);
+      box-shadow: none;
+    }
+    .callout.warn { border-left-color: var(--amber); background: var(--soft-amber); }
+    .callout.risk { border-left-color: var(--red); background: var(--soft-red); }
+    .callout.good { border-left-color: var(--green); background: var(--soft-green); }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin: 2px 4px 2px 0;
+      font: 700 11px/1.35 var(--mono);
+      color: var(--muted);
+      background: color-mix(in srgb, var(--panel) 72%, transparent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: color-mix(in srgb, var(--soft-blue) 72%, var(--panel));
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .ok { color: var(--green); font-weight: 800; }
+    .warn-text { color: var(--amber); font-weight: 800; }
+    .bad { color: var(--red); font-weight: 800; }
+    code {
+      font-family: var(--mono);
+      font-size: .92em;
+      background: color-mix(in srgb, var(--soft-blue) 68%, transparent);
+      padding: 2px 5px;
+      border-radius: 5px;
+      overflow-wrap: anywhere;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #09172b;
+      color: #edf5ff;
+      border: 1px solid #1d3354;
+      border-radius: var(--radius);
+      padding: 16px;
+      font: 13px/1.65 var(--mono);
+      overflow-x: auto;
+    }
+    .visual-board {
+      display: grid;
+      grid-template-columns: 1.4fr .7fr .9fr;
+      min-height: 330px;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .sample-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .sample-card {
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .sample-card.featured { grid-column: 1 / -1; }
+    .sample-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--soft-blue);
+      border-bottom: 1px solid var(--line);
+    }
+    .sample-caption {
+      padding: 14px 16px 16px;
+    }
+    .sample-caption strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .sample-caption p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+    .mock {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(2, 74, 218, .16), transparent 32%),
+        linear-gradient(160deg, #07162c, #122a46 48%, #0a1527);
+      min-height: 260px;
+    }
+    .mock::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.08), transparent 22%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.07), rgba(255,255,255,.07) 1px, transparent 1px, transparent 42px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.05) 1px, transparent 1px, transparent 66px);
+      transform: perspective(800px) rotateX(5deg) rotateY(-8deg);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255,255,255,.2);
+    }
+    .mock::after {
+      content: "BESTONFX / VERIFIED DATA ONLY";
+      position: absolute;
+      left: 34px;
+      bottom: 28px;
+      font: 800 11px/1 var(--mono);
+      color: rgba(255,255,255,.72);
+      letter-spacing: .08em;
+    }
+    .tile {
+      min-height: 158px;
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .tile strong { display: block; margin-bottom: 8px; }
+    .tile p { color: var(--muted); font-size: 14px; }
+    .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .source-card { padding: 14px; box-shadow: none; }
+    .source-card b { color: var(--blue); font-family: var(--mono); }
+    .small { color: var(--muted); font-size: 13px; }
+    footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .meta-grid, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .section-head, .source-grid, .visual-board, .sample-gallery { grid-template-columns: 1fr; }
+      .sample-card.featured { grid-column: auto; }
+      h1 { font-size: 36px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 22px, 1180px); }
+      .hero { padding: 38px 0 22px; }
+      .meta-grid, .grid-4 { grid-template-columns: 1fr; }
+      section { padding: 30px 0; }
+      .panel { padding: 16px; }
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      th, td { min-width: 160px; white-space: normal; }
+      td code, td .tag { overflow-wrap: anywhere; }
+      .metric { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">รายงาน Research / BestonFX Framer-Fizens POC / 2026-05-31</div>
+      <h1>แนวทาง Visual และ Image สำหรับ landing page โบรกเกอร์ Forex</h1>
+      <p class="lead">สรุปวิจัยเพื่ออัปเกรด <strong>image plan</strong> เดิมของ <strong>bestonfx.com Framer POC</strong> ที่ remix จาก Fizens: ทำให้ภาพดู premium, broker-sober, conversion-ready, และไม่สร้างความเสี่ยงด้าน compliance.</p>
+      <div class="meta-grid">
+        <div class="metric"><strong>1</strong><span>ระบบ Hero visual ไม่ใช่ finance mockup แบบสุ่ม</span></div>
+        <div class="metric"><strong>9</strong><span>ระบบ asset ที่ใช้ต่อใน Framer execution ได้</span></div>
+        <div class="metric"><strong>18</strong><span>แหล่งอ้างอิงด้าน research และ implementation</span></div>
+        <div class="metric"><strong>0</strong><span>ไม่มี fake testimonial, rating, profit visual หรือ deposit CTA</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="#answer">คำตอบหลัก</a>
+      <a href="#research">สัญญาณ Research</a>
+      <a href="#samples">ภาพตัวอย่าง</a>
+      <a href="#pro-findings">ข้อค้นพบ GPT 5.5 Pro</a>
+      <a href="#audit">ตรวจ Audit แผนเดิม</a>
+      <a href="#system">ระบบภาพ</a>
+      <a href="#sections">แผนราย Section</a>
+      <a href="#prompts">ชุด Prompt</a>
+      <a href="#framer">กฎ Framer</a>
+      <a href="#qa">รายการ QA</a>
+      <a href="#sources">แหล่งอ้างอิง</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="answer">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>คำตอบหลัก</h2>
+            <p class="section-note">ระบบ visual ที่ดีสำหรับ broker ไม่ใช่ luxury lifestyle หรือ fake trading success แต่คือ operational trust ที่ตรวจสอบได้ แล้วนำเสนอให้ cinematic พอเหมาะ.</p>
+          </div>
+          <div class="callout good"><strong>คำแนะนำ:</strong> คงทิศทาง immersive command-center ไว้ แต่เปลี่ยนจาก “wow finance art” เป็น evidence-led visual system: platform, process, risk, security, Thai support และ market education.</div>
+        </div>
+
+        <div class="visual-board">
+          <div class="mock" aria-hidden="true"></div>
+          <div class="tile">
+            <strong>คงไว้</strong>
+            <p>เก็บ Fizens rhythm, Framer parallax, cinematic Hero, account/support CTA rhythm และ positioning แบบ Thai-first broker.</p>
+            <span class="tag">ใช้ Fizens ต่อ</span><span class="tag">การใช้ motion จาก Framer</span>
+          </div>
+          <div class="tile">
+            <strong>ปรับ</strong>
+            <p>ลดพลังของ fake-live chart แล้วเพิ่มภาพกลุ่ม risk/proof/process โดยใช้ placeholder ทุกจุดที่ข้อมูลยัง pending.</p>
+            <span class="tag">นำด้วย proof</span><span class="tag">ไม่มี fake numbers</span>
+          </div>
+          <div class="tile">
+            <strong>ลบ</strong>
+            <p>ลบ template finance-app devices, wealth-growth language, testimonial, star rating, generic SaaS pricing และ public deposit CTA.</p>
+            <span class="tag">คุม compliance</span>
+          </div>
+          <div class="tile">
+            <strong>กฎสำหรับ Mobile</strong>
+            <p>บนมือถือ Hero ใช้ optimized poster image หนึ่งใบ ส่วน Spline/parallax หนัก ๆ ให้ fallback เป็น static พร้อม reduced-motion.</p>
+            <span class="tag">คุม LCP</span><span class="tag">รองรับ accessibility</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>แกนคิดของ Visual</h3>
+          <p>สำหรับ BestonFX ภาพควรสื่อว่า “broker นี้เป็นระบบ ระบุเงื่อนไขชัด ติดต่อได้ และจริงจังด้าน operation” หน้าเว็บ competitor broker ใช้ product surfaces, platform cards, market instruments, security/protection modules, regulatory proof, support proof และ risk warning ใกล้ conversion path ซ้ำ ๆ Exness เน้น Thai support, platform access, safety และ market instruments [2][3]. XM วาง risk warning ซ้ำใกล้ CTA [4]. IUX และ IC Markets เน้น execution, security, account types, market access และ data/proof modules [5][6][7]. Pepperstone ใช้ brand authority, market/product tiles, analyst content, certification และ risk warning ใน footer [8].</p>
+          <p>เอกสาร handoff เดิมของ BestonFX เดินมาถูกทางแล้วด้วย premium command-center Hero, parallax depth layers, risk disclosure bar, LINE CTA, market cards, account selector และ education/tool modules [1]. สิ่งที่ต้องปรับคือให้ทุกภาพทำงานหนึ่งในสี่อย่างนี้: <strong>clarify product</strong>, <strong>prove trust</strong>, <strong>explain risk</strong>, หรือ <strong>guide conversion</strong>. ภาพตกแต่งที่ไม่ทำหนึ่งในสี่ข้อนี้ควรถูกลดบน desktop และตัดออกบน mobile.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="samples">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ภาพตัวอย่างที่ generate แล้ว</h2>
+            <p class="section-note">ภาพชุดนี้เป็นตัวอย่าง art direction สำหรับ Framer POC ไม่ใช่ final production asset. ก่อนใช้จริงต้องตรวจ crop, text artifact, compliance และ performance อีกครั้ง.</p>
+          </div>
+          <div class="callout warn"><strong>กฎการใช้งาน:</strong> ใช้เป็น visual target สำหรับ Framer/Fizens remix ได้ แต่ห้ามถือว่า approved สำหรับ public launch จนกว่าจะผ่าน founder/legal/compliance review.</div>
+        </div>
+
+        <div class="sample-gallery">
+          <figure class="sample-card featured">
+            <img src="assets/bestonfx-visual-samples/sample-hero-terminal.png" width="1536" height="1024" loading="lazy" decoding="async" alt="ตัวอย่าง hero terminal สำหรับ BestonFX Framer POC ที่ใช้ trading UI แบบ abstract และพื้นที่ว่างสำหรับข้อความ" />
+            <figcaption class="sample-caption">
+              <strong>01 / Hero terminal</strong>
+              <p>ใช้เป็น mood ของ Hero: broker operations terminal, abstract chart, risk/support cues, ไม่มีเลข spread, P/L, license หรือข้อความที่ต้องอนุมัติ.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="sample-card">
+            <img src="assets/bestonfx-visual-samples/sample-trust-matrix.png" width="1563" height="1006" loading="lazy" decoding="async" alt="ตัวอย่าง trust matrix แบบ abstract สำหรับแสดงหมวด risk, platform, support, document และ security" />
+            <figcaption class="sample-caption">
+              <strong>02 / Trust matrix</strong>
+              <p>ใช้แทน fake certificate/review: แสดงระบบตรวจสอบและสถานะ pending แบบ visual โดยไม่อ้าง regulator หรือ license จริง.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="sample-card">
+            <img src="assets/bestonfx-visual-samples/sample-market-universe.png" width="1774" height="887" loading="lazy" decoding="async" alt="ตัวอย่าง market universe cards สำหรับ forex, metals, indices, commodities และ crypto CFDs แบบไม่แสดงราคาจริง" />
+            <figcaption class="sample-caption">
+              <strong>03 / Market universe</strong>
+              <p>ใช้กับ Markets Preview: asset-class cards + microchart แบบ neutral ไม่ใช่ live quote, signal หรือ performance claim.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="sample-card">
+            <img src="assets/bestonfx-visual-samples/sample-line-support.png" width="1536" height="1024" loading="lazy" decoding="async" alt="ตัวอย่าง LINE OA support module แบบ abstract พร้อม chat bubbles, QR placeholder และ support topic cards" />
+            <figcaption class="sample-caption">
+              <strong>04 / LINE support</strong>
+              <p>ใช้กับ Support CTA: เน้น admin handoff, เอกสาร, platform guide และคำถามทั่วไป; ไม่ใส่คำแนะนำซื้อขายหรือข้อความ buy/sell.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="sample-card">
+            <img src="assets/bestonfx-visual-samples/sample-risk-education.png" width="1730" height="909" loading="lazy" decoding="async" alt="ตัวอย่าง risk education hero image สำหรับบทความหรือ section อธิบายความเสี่ยง Forex และ CFD" />
+            <figcaption class="sample-caption">
+              <strong>05 / Risk education</strong>
+              <p>ใช้กับ Articles/Risk Disclosure: diagram, document cards, warning motifs แบบ calm ไม่ทำให้ดู panic และไม่ขายกำไร.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro-findings">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ข้อค้นพบจาก ChatGPT 5.5 Pro</h2>
+            <p class="section-note">นี่คือ peer review แบบ model-to-model จากไฟล์ที่แนบมา รายการที่รับเข้าแผนจะถูก fold เข้า execution plan ส่วนรายการที่มีความเสี่ยงจะอยู่ในสถานะ placeholder จนกว่าจะ verify.</p>
+          </div>
+          <div class="callout good"><strong>ข้อสรุปร่วม:</strong> BestonFX ควรดูเป็น transparent trading infrastructure ไม่ใช่ AI trading fantasy. ภาพควรอธิบาย MT5, rebate, support, risk, trust และ market access.</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ข้อค้นพบ</th>
+              <th>การตัดสินใจ</th>
+              <th>วิธี implement สำหรับ BestonFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ภาพ Hero ควรเป็น trading command center ไม่ใช่ lifestyle หรือ fantasy แบบ “green chart up”.</td>
+              <td class="ok">รับเข้าแผน</td>
+              <td>ทำ Hero visual เป็น MT5-inspired operations terminal ที่มี abstract market watch, order panel, rebate/risk cues และไม่มี P/L หรือ account balance ที่อ่านได้.</td>
+            </tr>
+            <tr>
+              <td>ภาพ Trust visual ต้องมาก่อนความสวย: document stack, shield, verification, license-proof slots.</td>
+              <td class="ok">รับเข้าแผนพร้อม guardrails</td>
+              <td>ใช้ verification matrix และ compliance stack visuals. ห้ามใส่ license number, regulator logo, certificate seal หรือ award badge จนกว่าจะ source-approved.</td>
+            </tr>
+            <tr>
+              <td>ภาพ product range สำคัญกว่า Hero สวยอย่างเดียว.</td>
+              <td class="ok">รับเข้าแผน</td>
+              <td>ใช้ asset-class cards ใน Markets page และ Home preview: Forex, Metals, Indices, Commodities, Crypto CFDs พร้อม sample-data styling แบบ neutral.</td>
+            </tr>
+            <tr>
+              <td>ส่วน Accounts, calculators, market chips และ IB estimator ควรทำเป็น Framer components จริง ไม่ใช่ generated screenshots.</td>
+              <td class="ok">รับเข้าแผน</td>
+              <td>ทำ account comparison, rebate calculator, pip calculator, margin calculator และ IB estimator เป็น component briefs. Raster images ใช้เป็น mood/background support เท่านั้น.</td>
+            </tr>
+            <tr>
+              <td>ส่วน Rebate ต้องมี visual layer ของตัวเอง เพราะเป็น reason-to-believe สำคัญของ broker.</td>
+              <td class="warn-text">รับเป็น placeholder</td>
+              <td>เพิ่ม Rebate Flow Card: lot to eligibility to weekly rebate. value และ rule ต้องเป็น demo/pending จนกว่าจะ compliance-approved.</td>
+            </tr>
+            <tr>
+              <td>งาน Support ควร LINE-first และ Thai-first แต่หลีกเลี่ยง generic headset stock photos.</td>
+              <td class="ok">รับเข้าแผน</td>
+              <td>ใช้ LINE OA support mock, Thai admin process cards, QR placeholder และ general-info topics เท่านั้น. ไม่มี buy/sell advice bubbles.</td>
+            </tr>
+            <tr>
+              <td>หน้า legal/risk disclosure ควรเรียบ อ่านง่าย และจริงจัง.</td>
+              <td class="ok">รับเข้าแผน</td>
+              <td>ใช้ document layouts สำหรับ Risk Disclosure, Terms และ Privacy พร้อม icons น้อยที่สุด. ไม่มี hero art, parallax หรือ growth CTA.</td>
+            </tr>
+            <tr>
+              <td>ภาพ Hero image ควรตั้ง target ประมาณ 250-400 KB หลัง compression; below-fold images ใช้ lazy-load.</td>
+              <td class="ok">รับเป็น performance target</td>
+              <td>ภาพ Generated PNG samples เป็น research preview เท่านั้น. Framer production exports ควร compress เป็น WebP/AVIF พร้อม static mobile fallback.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel">
+          <h3>ระบบ 9-Asset ที่ปรับแล้ว</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ลำดับความสำคัญ</th>
+                <th>ชื่อ Asset</th>
+                <th>ใช้กับ</th>
+                <th>ควร build เป็น</th>
+                <th>กฎ Guardrail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>P0</td><td><code>beston-home-hero-command-center.webp</code></td><td>ใช้ใน Home Hero</td><td>ภาพ generated still + optional Spline สำหรับ desktop</td><td>ไม่มี P/L, balance, spread, license หรือ profit signal.</td></tr>
+              <tr><td>P0</td><td><code>beston-trust-compliance-stack.webp</code></td><td>ใช้ใน Trust / Why</td><td>ภาพ generated visual + Framer status cards</td><td>ข้อมูล regulator/entity facts ทั้งหมดต้อง pending จนกว่าจะ approved.</td></tr>
+              <tr><td>P0</td><td><code>beston-markets-instrument-universe.webp</code></td><td>ใช้ใน Markets / Home</td><td>ภาพ generated visual + native asset cards</td><td>ใช้ sample-data style, ไม่มี live prices หรือ recommendations.</td></tr>
+              <tr><td>P0</td><td><code>beston-line-support-system.webp</code></td><td>ใช้ใน Support / CTA</td><td>ภาพ generated still + Framer chat component</td><td>ใช้เฉพาะ general support เท่านั้น ไม่มี personalized trading advice.</td></tr>
+              <tr><td>P1</td><td><code>beston-mt5-device-stack.webp</code></td><td>ใช้ใน Tools / Platform</td><td>Device mockup</td><td>ทำเป็น MT5-inspired แต่ไม่ copy platform UI หรือใช้ real account screenshot.</td></tr>
+              <tr><td>P1</td><td><code>beston-rebate-flow-card.svg</code></td><td>ใช้ใน Rebate section</td><td>Framer/SVG component</td><td>กฎ rules และ payout values ต้อง verify ก่อน publish.</td></tr>
+              <tr><td>P1</td><td><code>beston-partner-dashboard-preview.webp</code></td><td>ใช้ใน Partners</td><td>ภาพ generated dashboard preview</td><td>ตัวเลขทั้งหมดเป็น sample-only; ไม่มี guaranteed IB income.</td></tr>
+              <tr><td>P1</td><td><code>beston-risk-education-cover-template.webp</code></td><td>ใช้ใน Articles</td><td>Reusable cover template</td><td>ไม่มี trade calls หรือ prediction-style visuals.</td></tr>
+              <tr><td>P2</td><td><code>beston-spline-hero-fallback.webp</code></td><td>ใช้ใน Mobile/reduced motion</td><td>Compressed static poster</td><td>โหลดเร็ว และแทน heavy 3D/parallax เมื่อจอต่ำกว่า 768px.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel">
+            <h3>ต้อง Generate ก่อน</h3>
+            <p><span class="tag">ภาพ Hero</span><span class="tag">ภาพ Trust</span><span class="tag">หน้า Markets</span><span class="tag">ระบบ LINE</span></p>
+            <p>4 assets นี้ทำให้ Framer POC ดูดีขึ้นมากที่สุด โดยไม่เพิ่ม visual clutter เกินจำเป็น.</p>
+          </div>
+          <div class="panel">
+            <h3>ต้อง Build เป็น components</h3>
+            <p><span class="tag">หน้า Accounts</span><span class="tag">ส่วน Rebate</span><span class="tag">เครื่องมือ Pip</span><span class="tag">เครื่องมือ Margin</span><span class="tag">ระบบ IB</span></p>
+            <p>เครื่องมือ decision tools ควรแก้ไขได้, responsive และตรวจ compliance ได้ใน Framer หรือ future Next.js.</p>
+          </div>
+          <div class="panel">
+            <h3>ทำให้เรียบ</h3>
+            <p><span class="tag">หน้า Risk Disclosure</span><span class="tag">หน้า Terms</span><span class="tag">หน้า Privacy</span></p>
+            <p>หน้า legal ต้องการ readability และ seriousness มากกว่า art direction หรือ motion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>สัญญาณจาก Research</h2>
+            <p class="section-note">รูปแบบ pattern ที่ใช้ได้จริงคือ “regulated fintech proof + real product interface + visible risk framing” มากกว่า “forex hype”.</p>
+          </div>
+          <div class="callout warn"><strong>ขอบเขตการใช้แหล่งข้อมูล:</strong> แหล่งข้อมูลจาก FCA ใช้เป็น benchmark ด้าน communication quality เท่านั้น ไม่ใช่ claim ว่า BestonFX อยู่ภายใต้ FCA.</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>กลุ่มแหล่งข้อมูล</th>
+              <th>Pattern ด้าน visual ที่พบ</th>
+              <th>ผลต่อ BestonFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Exness Thailand</strong> [2][3]</td>
+              <td>มี Thai-localized support, platform access, global-market instruments, safety/protection pages และ anti-scam guidance.</td>
+              <td>ใช้ Thai support และ protection/process cards เป็น trust objects ที่มองเห็นได้ ไม่ใช่แค่ legal copy ใน footer.</td>
+            </tr>
+            <tr>
+              <td><strong>XM</strong> [4]</td>
+              <td>ส่วน trading benefit ถูกวางคู่กับ risk warning ใกล้ action points.</td>
+              <td>วาง risk warning ใกล้ Hero CTA และ repeat ใน account/markets pages โดยไม่กลืนทั้งหน้า.</td>
+            </tr>
+            <tr>
+              <td><strong>IUX</strong> [5][6]</td>
+              <td>เน้น Execution, DDoS, liquidity, regulation, KYC, AML, client fund protection, ratings และ reviews.</td>
+              <td>นำมาใช้กับ BestonFX เป็น execution/security/process imagery ได้ แต่ต้องเลี่ยง ratings/testimonials จนกว่าจะ verify และ approve.</td>
+            </tr>
+            <tr>
+              <td><strong>IC Markets</strong> [7]</td>
+              <td>ใช้ instrument tiles, raw pricing, execution speed, account types, live-looking quotes และ platform proof.</td>
+              <td>ใช้ market/instrument cards ได้ แต่ chart/quote visuals ทั้งหมดต้อง abstract หรือ demo-labeled จนกว่าข้อมูลจริงจะ approved.</td>
+            </tr>
+            <tr>
+              <td><strong>Pepperstone</strong> [8]</td>
+              <td>ใช้ brand partnership imagery, top-traded instruments, platform chooser, analyst content, certification และ risk footer.</td>
+              <td>ใช้ authority ผ่าน DX ecosystem, platform choice, education content และ certification placeholders. ไม่ยืม sports/lifestyle tone.</td>
+            </tr>
+            <tr>
+              <td><strong>Credibility research</strong> [11]</td>
+              <td>ผู้ใช้ประเมิน credibility ผ่าน layout, typography, images, consistency และ usefulness อย่างรวดเร็ว.</td>
+              <td>งาน visual polish ไม่ใช่แค่ cosmetic สำหรับ broker แต่เป็นส่วนหนึ่งของ trust perception โดยเฉพาะในหมวดการเงิน.</td>
+            </tr>
+            <tr>
+              <td><strong>Financial promotion rules</strong> [9][10]</td>
+              <td>แนวทาง financial promotions ควร fair, clear, not misleading และให้ภาพรวมที่ balance ระหว่าง benefit กับ risk.</td>
+              <td>ตัวเลือก image ต้องไม่สื่อ guaranteed profit, risk-free trading, effortless withdrawals, legal status หรือ verified scale.</td>
+            </tr>
+            <tr>
+              <td><strong>Framer and web performance</strong> [12][13][14]</td>
+              <td>ตัว Framer auto-resizes และ converts images ได้ แต่ Hero/LCP images ยังต้อง discover ได้เร็วและตั้ง priority ให้ถูก.</td>
+              <td>อัปโหลด original คุณภาพสูง, ใช้ Auto resolution, เลี่ยง heavy lossless และเลี่ยง Hero asset ที่ lazy-loaded หรือ script-discovered.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="audit">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ตรวจ Audit แผนเดิม</h2>
+            <p class="section-note">เอกสาร handoff วันที่ 29 พ.ค. แข็งแรงแล้ว แต่ asset plan ควรเจาะจงขึ้นและ safe ขึ้นก่อนลงมือใน Framer.</p>
+          </div>
+          <div class="callout"><strong>แหล่ง Source เดิม:</strong> `docs/research/bestonfx-fizens-framer-redesign-handoff-2026-05-29.html` [1]</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>รายการ Asset เดิม</th>
+              <th>ความเสี่ยงหรือ gap</th>
+              <th>แนวทาง upgrade</th>
+              <th>สถานะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ภาพ Hero แบบ trading command center</td>
+              <td>อาจกลายเป็น generic AI “trading room” หรือสื่อ institutional access โดยไม่มี proof.</td>
+              <td>ทำให้เป็น <strong>BestonFX operations terminal</strong>: brand shell, abstract charts, Thai support chip, risk microcopy, ไม่มี P/L หรือ license text ที่อ่านได้.</td>
+              <td class="ok">เก็บไว้และ refine</td>
+            </tr>
+            <tr>
+              <td>ชั้น Parallax depth layers</td>
+              <td>3 layers อาจเพิ่ม page weight และทำให้เกิด motion fatigue.</td>
+              <td>ใช้เฉพาะ desktop ใน Home/Markets. mobile ใช้ poster image ใบเดียว และ reduced motion ต้อง disable transform layers.</td>
+              <td class="ok">เก็บไว้แบบจำกัดขอบเขต</td>
+            </tr>
+            <tr>
+              <td>ภาพ risk ledger แบบ abstract</td>
+              <td>อาจดูเหมือน fake compliance certificate.</td>
+              <td>ใช้ “verification matrix” visual ที่มี status: `verified`, `pending legal`, `placeholder`. ห้ามใส่ seal ถ้ายังไม่ approved.</td>
+              <td class="ok">อัปเกรด</td>
+            </tr>
+            <tr>
+              <td>การ์ด Market cards</td>
+              <td>ราคา live-looking prices และ green arrows อาจสื่อ performance หรือ recommendation.</td>
+              <td>ใช้ asset-class tiles พร้อม risk bands และ neutral microcharts. ตัวเลขทุกตัวต้อง demo-labeled หรือ approved.</td>
+              <td class="warn-text">ต้องมี guardrails</td>
+            </tr>
+            <tr>
+              <td>ตัวอย่าง Mock LINE chat</td>
+              <td>อาจเผลอสื่อ personalized trading advice.</td>
+              <td>แสดงเฉพาะ admin support topics: account steps, documents, platform guide, general information. ไม่มี buy/sell language.</td>
+              <td class="ok">เก็บไว้</td>
+            </tr>
+            <tr>
+              <td>ตัวอย่าง Mock IB estimator</td>
+              <td>เสี่ยงสูงที่จะสื่อ guaranteed IB income.</td>
+              <td>ใช้ disabled/demo state. แทน animated earnings ด้วย process timeline และ approved-media workflow.</td>
+              <td class="warn-text">ลดน้ำหนัก</td>
+            </tr>
+            <tr>
+              <td>ภาพ Article hero images</td>
+              <td>ภาพ generic AI trading photos ลด credibility และเพิ่ม noise.</td>
+              <td>ทำ editorial system ที่ consistent: objects, platform closeups, market maps, Thai explainers, ไม่มี fake dashboards หรือ faces ถ้าไม่ใช่ของจริง.</td>
+              <td class="ok">จัดเป็น system</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="system">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ระบบ Image ของ BestonFX</h2>
+            <p class="section-note">ใช้ 8 image families แล้ว map เข้ากับ revised 9-asset execution list ด้านบน ทุก family ต้องมี job, placement, art direction และ compliance rule ชัดเจน.</p>
+          </div>
+          <div class="callout risk"><strong>ภาพที่ห้ามใช้:</strong> cash piles, luxury cars, yachts, “happy profit trader,” green P/L celebration, fake app ratings, fake review faces, fake regulator seals, Thai SEC badges และ spreads/leverage ที่ยังไม่ approved แต่ดันอ่านได้.</div>
+        </div>
+
+        <div class="grid-4">
+          <div class="tile"><strong>1. Command center</strong><p>ใช้กับบรรยากาศ Hero/product: matte device, abstract market UI, Thai support chip, risk cue.</p></div>
+          <div class="tile"><strong>2. Proof ledger</strong><p>ใช้กับ trust และ verification: status grid พร้อม approved/pending placeholders.</p></div>
+          <div class="tile"><strong>3. Platform/device</strong><p>ใช้กับ MT4/MT5/platform access: ใช้ clean device shells ไม่ใช่ real account screenshots.</p></div>
+          <div class="tile"><strong>4. Market universe</strong><p>ใช้กับ Forex, metals, indices, commodities, crypto CFDs: educational, neutral, ไม่มี signals.</p></div>
+          <div class="tile"><strong>5. Risk education</strong><p>ใช้กับ Risk disclosure, leverage, volatility, margin: calm document/diagram style.</p></div>
+          <div class="tile"><strong>6. Thai support</strong><p>ใช้กับ LINE OA, admin handoff, document checklist: process การ support จริง ไม่มี trading advice.</p></div>
+          <div class="tile"><strong>7. Partner process</strong><p>ใช้กับ IB path, approved media, compliance review: เน้น process มากกว่า income.</p></div>
+          <div class="tile"><strong>8. Editorial education</strong><p>ใช้ทำภาพ article สำหรับ market basics และ platform guides ด้วย style ที่ consistent และ reuse ได้.</p></div>
+        </div>
+
+        <div class="panel">
+          <h3>กฎ Art Direction</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>มิติที่ต้องคุม</th>
+                <th>กฎ</th>
+                <th>เหตุผล</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>สี Palette</td>
+                <td>ใช้ light Fizens/royal-blue base เพื่อความต่อเนื่องของ POC และใช้ navy surfaces แบบควบคุมเฉพาะ trading modules พร้อม Apple Blue `#024ada` accents.</td>
+                <td>เคารพ repo rebrand เดิม แต่ยังรักษาความ serious แบบ broker.</td>
+              </tr>
+              <tr>
+                <td>กราฟ Charts</td>
+                <td>ใช้ abstract line/candlestick shapes, muted colors และ demo labels. เลี่ยง live quote screens ที่อ่านได้ เว้นแต่ต่อ real data ภายหลัง.</td>
+                <td>ป้องกัน fake performance หรือ trading-condition claims.</td>
+              </tr>
+              <tr>
+                <td>บุคคล People</td>
+                <td>เลี่ยง AI trader portraits. ใช้ real team/support photos หลัง approved เท่านั้น หรือใช้ cropped hands/process shots ที่ไม่ claim identity.</td>
+                <td>ภาพ fake people ลด trust และอาจกลายเป็น fake testimonials.</td>
+              </tr>
+              <tr>
+                <td>ตรา Badges</td>
+                <td>ไม่มี regulator logos, award logos, certification logos, app-store ratings หรือ Trustpilot-style blocks จนกว่าจะ source-approved.</td>
+                <td>ความเสี่ยงด้าน legal และ credibility สูงกว่า visual benefit.</td>
+              </tr>
+              <tr>
+                <td>การเคลื่อนไหว Motion</td>
+                <td>ใช้ parallax เพื่อ reveal layered information ไม่ใช่เพื่อดึงความสนใจออกจาก risk warnings หรือ CTAs.</td>
+                <td>ใช้ Framer Scroll Transform รองรับ pattern นี้ได้ แต่ accessibility ต้องมี reduced-motion fallback [15][16].</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="sections">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>แผน Image ราย Section</h2>
+            <p class="section-note">นี่คือ revised image map สำหรับการ execute Fizens remix.</p>
+          </div>
+          <div class="callout"><strong>กฎ CTA ที่ล็อกไว้:</strong> Primary `เปิดบัญชี`; secondary `ทัก LINE OA ติดต่อ admin`. ไม่มี public deposit CTA.</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ชื่อ Section ใน Framer</th>
+              <th>แนว Visual/image</th>
+              <th>Specs ที่ต้องใช้</th>
+              <th>กฎ Compliance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RiskDisclosureBar</td>
+              <td>ใช้ minimal risk icon พร้อม text. ไม่มี animation delay.</td>
+              <td>ใช้ Vector icon 20px, high contrast, sticky top.</td>
+              <td>ต้อง visible ก่อนหรือพร้อม CTA แรก.</td>
+            </tr>
+            <tr>
+              <td>HeroSection</td>
+              <td>ใช้ asymmetric trading operations terminal พร้อม device mock, soft depth และ Thai support chip.</td>
+              <td>ใช้ Desktop: 2400x1600 WebP poster + optional Spline. Mobile: 1200x1500 crop, no Spline.</td>
+              <td>ไม่มี real spreads, P/L, license number หรือ profit arrows.</td>
+            </tr>
+            <tr>
+              <td>Trust Stack</td>
+              <td>ใช้ verification matrix: entity, risk, platform, support, security, pending legal.</td>
+              <td>1600x1000 WebP or Framer-native card grid.</td>
+              <td>ตัว Status chips ต้องเขียน `รอยืนยัน` เมื่อ facts ยัง pending.</td>
+            </tr>
+            <tr>
+              <td>Account Path Selector</td>
+              <td>ใช้ comparison UI แบบ calm พร้อม disabled placeholder values.</td>
+              <td>ทำเป็น Framer component ไม่ใช่ raster screenshot.</td>
+              <td>ไม่มี spread/leverage/commission ถ้ายังไม่ approved.</td>
+            </tr>
+            <tr>
+              <td>Markets Preview</td>
+              <td>ใช้ market universe tiles: Forex, metals, indices, commodities, crypto CFDs.</td>
+              <td>หนึ่ง 2400x1600 background พร้อม reusable cards 5 ใบ.</td>
+              <td>ตัว Crypto CFDs ต้อง mark high-risk. ไม่มี recommendation copy.</td>
+            </tr>
+            <tr>
+              <td>Trading Tools Grid</td>
+              <td>ใช้ calculator, economic calendar, risk explainer และ platform guide cards.</td>
+              <td>ทำเป็น Framer Workshop components. ใช้ demo labels.</td>
+              <td>เครื่องมือ Tools เป็น educational ไม่ใช่ advice.</td>
+            </tr>
+            <tr>
+              <td>DX Ecosystem Strip</td>
+              <td>ใช้ product panels 3 ใบ: DX Academy, DX Trade, DX Exclusive.</td>
+              <td>1200x900 panels or native Framer cards.</td>
+              <td>ตัว DX Trade ห้ามสื่อ signal accuracy หรือ profit.</td>
+            </tr>
+            <tr>
+              <td>LINE Support CTA</td>
+              <td>ใช้ LINE OA chat mock, QR placeholder, admin support topic cards.</td>
+              <td>1200x900 WebP or native chat component.</td>
+              <td>ไม่มี personalized buy/sell advice ใน bubbles.</td>
+            </tr>
+            <tr>
+              <td>IB Partner Preview</td>
+              <td>ใช้ partner process timeline, approved media checklist, demo estimator.</td>
+              <td>ควรใช้ native component มากกว่า image.</td>
+              <td>ไม่มี earning promise หรือ animated income counter.</td>
+            </tr>
+            <tr>
+              <td>Articles CMS</td>
+              <td>ใช้ editorial stills: glossary, platform guides, risk basics, market context.</td>
+              <td>1200x630 WebP, consistent crop-safe style.</td>
+              <td>ไม่มี trade calls และ fake “market prediction” screenshots.</td>
+            </tr>
+            <tr>
+              <td>Footer/legal</td>
+              <td>ใช้ compact wordmark, risk seal, contact icons.</td>
+              <td>ใช้ SVG/logo และ text ไม่ใช่ heavy image.</td>
+              <td>ข้อความ Legal/entity/regulatory copy ต้อง pending จนกว่าจะ approved.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="prompts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ชุด Prompt สำหรับ Image Generation</h2>
+            <p class="section-note">นี่คือ model-ready briefs สำหรับ Higgsfield, Sora stills หรือ image tools ใกล้เคียง ใช้หนึ่ง prompt ต่อหนึ่ง asset แล้วคัดงานด้วย human review อีกครั้ง.</p>
+          </div>
+          <div class="callout warn"><strong>ข้อห้าม Negative prompt ที่ใช้กับทุกภาพ:</strong> no cash piles, no supercars, no yachts, no profit numbers, no real broker license text, no regulator logos, no fake app ratings, no testimonials, no green P/L celebration, no Thai SEC badge.</div>
+        </div>
+
+        <h3>1. Hero หน้า Home: BestonFX operations terminal</h3>
+        <pre>Cinematic Thai forex broker operations terminal, premium but sober fintech landing page hero, matte glass trading device shell on right side, abstract market UI with unreadable placeholder chart shapes, Thai LINE admin support chip, subtle risk disclosure microcopy as abstract text blocks, light royal-blue and white Fizens base with controlled deep navy terminal surface, Apple Blue #024ada accents, calm institutional lighting, asymmetric 1/3 composition, no people, no profit numbers, no readable spreads, no license text, no regulator logos, 85mm lens look, crisp web landing page asset, high detail, clean negative space --ar 3:2 --quality 4k</pre>
+
+        <h3>2. ภาพ Trust Stack: verification matrix</h3>
+        <pre>Premium compliance verification matrix for a Thai-first forex and CFD broker website, clean white and soft blue UI cards, status chips for verified, pending legal, and placeholder, abstract shield and document motifs, no official seal, no readable license numbers, no fake certificate, serious financial services tone, crisp vector-like interface, subtle depth, mobile-friendly crop --ar 16:10 --quality 4k</pre>
+
+        <h3>3. ภาพ Markets Preview: neutral asset universe</h3>
+        <pre>Abstract global markets universe for forex broker landing page, five educational asset-class tiles for forex, metals, indices, commodities, and crypto CFDs, neutral microcharts with no buy sell signals, muted blue and slate palette, risk-band markers, glass dashboard planes, no live prices, no green profit arrows, no recommendation language, premium fintech editorial style --ar 3:2 --quality 4k</pre>
+
+        <h3>4. Module สำหรับ LINE Support</h3>
+        <pre>Thai LINE OA customer support mockup for broker onboarding, clean chat interface with topic bubbles for account steps, documents, platform guide, and general questions, QR placeholder, LINE green used only as small accent, no trading advice, no buy sell message, warm human support feel without fake face portraits, responsive web component style --ar 4:3 --quality 4k</pre>
+
+        <h3>5. Hero บทความ Risk Education</h3>
+        <pre>Editorial Thai financial education hero image about forex CFD risk, calm document layout, leverage diagram, volatility wave, neutral market map, no person, no fear tactics, no profit promise, clean white and blue BestonFX visual language, suitable for 1200x630 blog card, high readability, no readable tiny text except abstract blocks --ar 1200:630 --quality 4k</pre>
+      </div>
+    </section>
+
+    <section id="framer">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>กฎ Implementation บน Framer</h2>
+            <p class="section-note">Framer ช่วย optimize upload ได้ แต่ visual quality และ LCP ยังขึ้นกับ source asset และวิธี build Hero.</p>
+          </div>
+          <div class="callout good"><strong>กฎใช้งานเร็ว:</strong> ใช้ Framer-native components สำหรับ UI-like visuals, ใช้ raster images สำหรับ atmospheric/poster assets และใช้ Spline เฉพาะ desktop hero effect หนึ่งจุด.</div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>หัวข้อ</th>
+              <th>หลัก Best practice</th>
+              <th>Action ที่ต้องทำสำหรับ BestonFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>การตั้ง Image resolution</td>
+              <td>ระบบ Framer Auto สร้างหลายขนาดและ balance quality/performance ได้ [12][13].</td>
+              <td>ใช้ Auto กับ asset ส่วนใหญ่. ใช้ Auto Lossless เฉพาะเมื่อ brand gradients หรือ UI lines มี banding.</td>
+            </tr>
+            <tr>
+              <td>ภาพ Hero/LCP</td>
+              <td>ภาพ LCP ควรถูก discover ได้เร็ว และไม่ควร lazy-load [14].</td>
+              <td>ทำ hero poster เป็น image element จริง หรือเป็น Framer image ที่ discover ได้ชัด ไม่ใช่ delayed embed หรือ CSS background อย่างเดียว.</td>
+            </tr>
+            <tr>
+              <td>การใช้ Spline</td>
+              <td>ตัว Spline embed ใน Framer ได้ และควร optimize เพื่อโหลดเร็วข้าม device [17].</td>
+              <td>ใช้ Spline เฉพาะ desktop hero. ผู้ใช้ mobile และ reduced-motion ได้ static poster แทน.</td>
+            </tr>
+            <tr>
+              <td>การใช้ Scroll Transform</td>
+              <td>ระบบ Framer รองรับ scroll-linked position, scale, rotation และ opacity transforms [15].</td>
+              <td>ใช้ parallax เฉพาะ Home และ Markets. หน้าอื่นใช้ simple fade-rise และ page hero parallax.</td>
+            </tr>
+            <tr>
+              <td>การรองรับ Reduced motion</td>
+              <td>ระบบ Framer มี setting เพื่อ disable parallax, transform และ custom cursor movement [16].</td>
+              <td>เปิด reduced-motion handling ก่อนส่ง stakeholder preview.</td>
+            </tr>
+            <tr>
+              <td>การเขียน Alt text</td>
+              <td>แนวทาง W3C แยก alternative text สำหรับ informative, decorative, functional และ text-in-image [18].</td>
+              <td>ภาพ informative ต้องมี Thai alt text. ชั้น decorative ใช้ empty alt. เลี่ยง readable text ในภาพ.</td>
+            </tr>
+            <tr>
+              <td>การเลือก Native UI vs images</td>
+              <td>ภาพ UI screens ที่อยู่ใน raster images ดูแลยากและ validate ยาก.</td>
+              <td>ให้ build account selector, market cards, calculators, risk matrix และ LINE mock เป็น native Framer components เมื่อทำได้.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="qa">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>รายการ QA ด้าน Visual</h2>
+            <p class="section-note">ใช้ checklist นี้ก่อนส่ง Framer preview link.</p>
+          </div>
+          <div class="callout risk"><strong>เงื่อนไขที่ต้องหยุดแก้ก่อนส่ง:</strong> ถ้าภาพใดสื่อ profit, legal status, rating, user count หรือ trading condition ที่ยังไม่ approved ให้เปลี่ยนเป็น abstract หรือ placeholder asset.</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel">
+            <h3>ด้าน Compliance</h3>
+            <p><span class="tag">ห้าม guaranteed profit</span><span class="tag">ห้าม risk-free</span><span class="tag">ห้าม fake ratings</span></p>
+            <p>ตัว Risk warning ต้องอยู่ใกล้ CTA แรก. Pending legal/regulatory facts ต้องมี visual mark ว่า pending. ไม่มี deposit CTA ใน public hero/nav/footer.</p>
+          </div>
+          <div class="panel">
+            <h3>คุณภาพของ Visual</h3>
+            <p><span class="tag">ห้าม generic stock</span><span class="tag">ห้าม AI trader face</span><span class="tag">ห้าม fake chart data</span></p>
+            <p>ทุกภาพต้องมีงานที่ชัดหนึ่งอย่าง. Hero ต้องมีพื้นที่ว่างพอสำหรับ Thai copy. ภาพต้อง crop สะอาดทั้ง desktop, tablet และ mobile.</p>
+          </div>
+          <div class="panel">
+            <h3>ด้าน Performance</h3>
+            <p><span class="tag">ใช้ Auto resolution</span><span class="tag">Hero ไม่ lazy</span><span class="tag">มี Spline fallback</span></p>
+            <p>หน้า Hero ต้อง render เร็วบน mobile. Spline ใช้เฉพาะ desktop. Decorative images ต้องถูกตัดหรือลดให้เหลือน้อยเมื่อจอต่ำกว่า 768px.</p>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>คำถาม QA</th>
+              <th>เงื่อนไขผ่าน</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ผู้ชมเข้าใจข้อเสนอของ BestonFX ใน first viewport ไหม?</td><td>หน้า Hero ต้องสื่อ broker/platform/support context ไม่ใช่แค่ abstract finance ambience.</td></tr>
+            <tr><td>ผู้ชมรู้ไหมว่าต้อง action อย่างไร?</td><td>`เปิดบัญชี` และ `ทัก LINE OA ติดต่อ admin` ต้องเห็นชัด และไม่ถูก image/motion บัง.</td></tr>
+            <tr><td>ผู้ชมเห็น risk ก่อน action ไหม?</td><td>ตัว Risk bar หรือ risk note ต้อง visible ก่อนที่ผู้ใช้ถูกดันลึกเข้า conversion.</td></tr>
+            <tr><td>มีภาพใดมีตัวเลขไหม?</td><td>ตัวเลขนั้นต้อง approved, demo-labeled หรือ abstract จนอ่านเป็น claim ไม่ได้.</td></tr>
+            <tr><td>มี visual ใดดูเหมือน review, award, license หรือ certification ไหม?</td><td>ต้องมี source ที่ approved แล้ว ไม่เช่นนั้นต้องลบหรือ mark pending.</td></tr>
+            <tr><td>ประสบการณ์ Mobile ยังรู้สึก premium ไหม?</td><td>ใช้ static poster + clean native UI เพื่อให้หน้าเร็วและอ่านง่าย.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>แหล่งอ้างอิง</h2>
+            <p class="section-note">รายการ Citations ใช้เป็น pattern evidence และ implementation references เท่านั้น ข้อสรุปด้าน legal/regulatory ยังต้องมี human review ก่อน publish.</p>
+          </div>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-card"><b>[1]</b> ไฟล์ Handoff เดิมใน repo: <code>docs/research/bestonfx-fizens-framer-redesign-handoff-2026-05-29.html</code></div>
+          <div class="source-card"><b>[2]</b> หน้า homepage ของ <a href="https://www.exness.com/th/">Exness Thailand</a></div>
+          <div class="source-card"><b>[3]</b> หน้า client protection ของ <a href="https://www.exness.com/client-protection/">Exness</a></div>
+          <div class="source-card"><b>[4]</b> หน้า margin and leverage ของ <a href="https://www.xm.com/margin-and-leverage">XM</a></div>
+          <div class="source-card"><b>[5]</b> หน้า homepage ของ <a href="https://www.iux.com/en">IUX</a></div>
+          <div class="source-card"><b>[6]</b> หน้า regulation ของ <a href="https://www.iux.com/en/company/regulation">IUX</a></div>
+          <div class="source-card"><b>[7]</b> หน้า forex trading ของ <a href="https://www.icmarkets.com/global/en/start-forex-trading">IC Markets</a></div>
+          <div class="source-card"><b>[8]</b> หน้า homepage ของ <a href="https://pepperstone.com/en/">Pepperstone</a></div>
+          <div class="source-card"><b>[9]</b> แนวทาง <a href="https://www.fca.org.uk/firms/financial-promotions-adverts">FCA financial promotions and adverts</a></div>
+          <div class="source-card"><b>[10]</b> แนวทาง <a href="https://www.fca.org.uk/firms/risk-warnings-mainstream-investments">FCA risk warnings for mainstream investments</a></div>
+          <div class="source-card"><b>[11]</b> แนวทาง <a href="https://credibility.stanford.edu/guidelines/index.html">Stanford web credibility guidelines</a></div>
+          <div class="source-card"><b>[12]</b> เอกสาร <a href="https://www.framer.com/help/articles/how-are-images-optimized-in-framer/">Framer image optimization</a></div>
+          <div class="source-card"><b>[13]</b> เอกสาร <a href="https://www.framer.com/help/articles/image-resolution-options/">Framer image resolution options</a></div>
+          <div class="source-card"><b>[14]</b> บทความ <a href="https://web.dev/articles/optimize-lcp">web.dev LCP optimization</a></div>
+          <div class="source-card"><b>[15]</b> บทเรียน <a href="https://www.framer.com/academy/lessons/framer-animations-scroll-transform">Framer scroll transform</a></div>
+          <div class="source-card"><b>[16]</b> เอกสาร <a href="https://www.framer.com/help/articles/reduced-motion-settings/">Framer reduced motion settings</a></div>
+          <div class="source-card"><b>[17]</b> เอกสาร <a href="https://docs.spline.design/integrations/integrating-with-framer">Spline integration with Framer</a></div>
+          <div class="source-card"><b>[18]</b> Tutorial ของ <a href="https://www.w3.org/WAI/tutorials/images/">W3C WAI images</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>หมายเหตุ Research:</strong> เอกสารนี้ใช้ปรับ visual planning สำหรับ Framer/Fizens POC เท่านั้น ไม่ใช่การ approve legal copy, account conditions, regulatory statements, spread/leverage claims, IB terms หรือ testimonials.</p>
+      <p class="small">จัดทำสำหรับ DX Enterprise / BestonFX เมื่อ 2026-05-31.</p>
+    </div>
+  </footer>
+</body>
+</html>

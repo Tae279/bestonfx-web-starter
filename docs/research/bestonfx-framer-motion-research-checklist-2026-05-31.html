@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BestonFX Framer Motion Research Checklist</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #05070a;
+      --panel: #0d1118;
+      --panel-2: #111821;
+      --ink: #f4f7fb;
+      --muted: #98a5b8;
+      --line: rgba(255,255,255,.12);
+      --accent: #024ada;
+      --cyan: #20d5ff;
+      --gold: #d7b56d;
+      --green: #27d17f;
+      --pink: #f073a3;
+      --warn: #f5b642;
+      --danger: #ff6b6b;
+      --radius: 18px;
+      --shadow: 0 24px 90px rgba(0,0,0,.42);
+      --font: "Prompt", "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", "JetBrains Mono", Consolas, monospace;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8fb;
+        --panel: #ffffff;
+        --panel-2: #eef3f8;
+        --ink: #06111f;
+        --muted: #56657a;
+        --line: rgba(5,17,31,.12);
+        --shadow: 0 18px 70px rgba(15,33,55,.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(32,213,255,.18), transparent 34rem),
+        radial-gradient(circle at 90% 20%, rgba(215,181,109,.13), transparent 30rem),
+        linear-gradient(180deg, var(--bg), #07090d 52%, var(--bg));
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+    .hero {
+      min-height: 96vh;
+      display: grid;
+      align-items: center;
+      padding: 56px 0 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 9% auto auto 46%;
+      width: min(680px, 76vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(2,74,218,.48), rgba(32,213,255,.18) 38%, transparent 69%);
+      filter: blur(18px);
+      opacity: .78;
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+      color: var(--cyan);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font: 700 11px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    h1, h2, h3 { line-height: 1.08; letter-spacing: 0; margin: 0; }
+    h1 {
+      max-width: 920px;
+      margin-top: 22px;
+      font-size: clamp(42px, 7.8vw, 92px);
+      font-weight: 850;
+    }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 28px;
+      align-items: end;
+      z-index: 1;
+    }
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 18px;
+      backdrop-filter: blur(18px);
+    }
+    .screen {
+      min-height: 420px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        linear-gradient(180deg, rgba(7,15,25,.35), rgba(1,3,8,.95)),
+        radial-gradient(circle at 50% 0%, rgba(32,213,255,.48), transparent 56%);
+      position: relative;
+      overflow: hidden;
+    }
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 12% 8% auto;
+      height: 54%;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,.1), transparent);
+      transform: perspective(800px) rotateX(18deg);
+    }
+    .signal {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(10,18,28,.72);
+      border-radius: 16px;
+      padding: 12px;
+      font: 700 12px/1.35 var(--mono);
+      color: var(--ink);
+      box-shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+    .signal.a { left: 18px; top: 38px; color: var(--gold); }
+    .signal.b { right: 16px; top: 145px; color: var(--green); }
+    .signal.c { left: 42px; bottom: 34px; color: var(--cyan); }
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      backdrop-filter: blur(20px);
+    }
+    .toc .wrap {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 0;
+    }
+    .toc a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .toc a:hover { color: var(--ink); border-color: rgba(32,213,255,.4); }
+    section { padding: 82px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+    h2 { font-size: clamp(30px, 4.8vw, 56px); }
+    h3 { font-size: 22px; margin-bottom: 10px; }
+    .sub { color: var(--muted); max-width: 720px; margin: 12px 0 0; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--gold);
+      font: 700 11px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    }
+    .card strong { color: var(--ink); }
+    .card p { margin: 8px 0 0; color: var(--muted); }
+    .metric {
+      font: 850 30px/1 var(--mono);
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+    }
+    .matrix th, .matrix td {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 13px;
+      vertical-align: top;
+      text-align: left;
+    }
+    .matrix th {
+      color: var(--gold);
+      font: 800 12px/1.2 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      background: rgba(255,255,255,.04);
+    }
+    .matrix td { color: var(--muted); font-size: 14px; }
+    .matrix tr:last-child td { border-bottom: 0; }
+    .ok { color: var(--green); }
+    .warn { color: var(--warn); }
+    .danger { color: var(--danger); }
+    .code {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--cyan);
+      background: rgba(32,213,255,.08);
+      border: 1px solid rgba(32,213,255,.18);
+      border-radius: 10px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    .prompt {
+      margin: 12px 0 0;
+      padding: 14px;
+      border: 1px solid rgba(32,213,255,.18);
+      border-radius: 14px;
+      background: rgba(32,213,255,.065);
+      color: var(--ink);
+      font: 12px/1.65 var(--mono);
+      white-space: pre-wrap;
+    }
+    .decision {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      border: 1px solid rgba(39,209,127,.26);
+      background: rgba(39,209,127,.08);
+      color: var(--green);
+      font: 800 11px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+    }
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(2,74,218,.22);
+      color: var(--cyan);
+      font: 900 13px/1 var(--mono);
+      border: 1px solid rgba(32,213,255,.22);
+    }
+    .note {
+      border-left: 3px solid var(--gold);
+      background: rgba(215,181,109,.08);
+      padding: 16px 18px;
+      border-radius: 12px;
+      color: var(--ink);
+    }
+    .source-list {
+      columns: 2;
+      column-gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .source-list li { break-inside: avoid; margin: 0 0 10px; }
+    footer {
+      padding: 38px 0 56px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 860px) {
+      .hero-grid, .grid.cols-2, .grid.cols-3, .section-head { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .screen { min-height: 360px; }
+      section { padding: 56px 0; }
+      .source-list { columns: 1; }
+      .matrix { display: block; overflow-x: auto; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .toc { position: static; }
+      .hero::before { display: none; }
+      .card, .hero-card, .matrix, .step { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">BestonFX / Framer / Motion Research</span>
+        <h1>Framer Motion Checklist จากเว็บระดับโลก เพื่อทำ POC ให้ดูแพง เท่ และมี wow</h1>
+        <p class="lead">Research นี้แปลง inspiration จาก Apple, Stripe, Linear, Vercel, Framer และ fintech sites ให้กลายเป็น checklist สำหรับ apply บน Fizens template โดยยึด compliance ของ BestonFX: ไม่ยืม crypto copy, ไม่เคลมกำไร, ไม่ใส่ deposit CTA สาธารณะ.</p>
+      </div>
+      <div class="hero-card">
+        <div class="screen">
+          <div class="signal a">REGULATOR<br />PROOF LAYER</div>
+          <div class="signal b">LINE OA<br />ADMIN PATH</div>
+          <div class="signal c">RISK NOTE<br />ALWAYS VISIBLE</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="wrap">
+      <a href="#summary">สรุป</a>
+      <a href="#assets">ต้องสร้างอะไร</a>
+      <a href="#references">เว็บอ้างอิง</a>
+      <a href="#principles">หลัก Motion</a>
+      <a href="#spline">Spline Pro</a>
+      <a href="#recipes">Recipe ทีละเอฟเฟกต์</a>
+      <a href="#framer">Framer Setup</a>
+      <a href="#coded">Coded Fallback</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="summary">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>สรุปสำหรับทำจริง</h2>
+            <p class="sub">แนวทางที่เหมาะกับ BestonFX คือทำเว็บให้เหมือน product film สั้น ๆ: มีฉาก hero ที่จำได้ทันที, มี data/trust layer ที่ดูน่าเชื่อถือ, และมี flow ชัดว่า user ต้องทำอะไรต่อ โดยเริ่มจาก Framer-native ก่อน แล้วใช้ Spline เฉพาะจุดที่ให้ wow จริง.</p>
+          </div>
+          <span class="tag">ใช้กับ POC</span>
+        </div>
+        <div class="grid cols-3">
+          <div class="card"><div class="metric">1</div><strong>ฉาก hero หลัก</strong><p>Home ต้องมีหนึ่งฉาก sticky ที่คนจำได้ทันที: trading command center, glow, dashboard/device, trust layer และ CTA.</p></div>
+          <div class="card"><div class="metric">3</div><strong>ใช้แค่ 3 ชั้นภาพ</strong><p>พอแล้วสำหรับความลึก: background atmosphere, mid product UI, foreground trust/LINE/risk cards.</p></div>
+          <div class="card"><div class="metric">0</div><strong>ห้าม fake number</strong><p>ทุกอย่างที่เหมือน data ต้องเป็น abstract หรือ demo-labeled และมี risk context ใกล้ CTA.</p></div>
+        </div>
+        <div class="note" style="margin-top:18px"><strong>คำตอบสั้น:</strong> ต้องมีทั้ง Framer, asset gen, และ Spline แต่ไม่ต้อง gen ทุกอย่าง. ใช้ Spline Pro สำหรับ hero scene เดียวที่เป็น signature; ใช้รูป generated/poster สำหรับ fallback และใช้ Framer cards สำหรับข้อมูลจริง/CTA/risk เพื่อแก้ง่ายและคุม compliance ได้.</div>
+      </div>
+    </section>
+
+    <section id="assets">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>ต้องสร้าง Asset อะไรบ้าง</h2>
+            <p class="sub">ถ้าทำให้เร็วและดูแพงใน Framer ให้แยก asset เป็น 4 กลุ่ม: Spline scene, generated still, Framer UI cards, และ legal/trust placeholders. ไม่ควรให้ Spline แบกทุกอย่าง.</p>
+          </div>
+          <span class="tag">Asset Plan</span>
+        </div>
+        <table class="matrix">
+          <thead><tr><th>Asset</th><th>ต้อง gen รูปไหม</th><th>ต้องใช้ Spline ไหม</th><th>ทำยังไง</th><th>ใช้ตรงไหน</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Hero trading command center</strong></td>
+              <td><span class="decision">ควร gen poster</span><br />ใช้เป็นภาพ fallback และ thumbnail ก่อน Spline โหลด</td>
+              <td><span class="decision">ควรสร้างใหม่</span><br />ใช้ Spline Pro ทำฉาก 3D หลัก</td>
+              <td>สร้าง Spline scene เองจาก primitives + glass dashboard + floating cards. ใช้ community/library เป็น reference หรือเริ่มจาก object เท่านั้น แล้วเปลี่ยน material/lighting ให้เป็น BestonFX.</td>
+              <td>Home hero sticky stage</td>
+            </tr>
+            <tr>
+              <td><strong>Background atmosphere</strong></td>
+              <td><span class="decision">ควร gen</span><br />1-2 ภาพ WebP</td>
+              <td>ไม่จำเป็น</td>
+              <td>Generate dark navy private trading room / abstract financial command center แบบไม่มีตัวเลขอ่านได้ แล้ว blur/overlay ใน Framer.</td>
+              <td>Hero bg, Why hero, Markets hero</td>
+            </tr>
+            <tr>
+              <td><strong>Dashboard/device mock</strong></td>
+              <td>ไม่จำเป็น ถ้าใช้ Framer/Spline ทำเอง</td>
+              <td><span class="decision">ใช้ได้</span></td>
+              <td>ทำใน Spline เป็น matte glass panels หรือทำใน Framer เป็น stack cards. หลีกเลี่ยง chart ที่ดูเหมือนข้อมูล live จริง.</td>
+              <td>Hero mid layer, Markets preview</td>
+            </tr>
+            <tr>
+              <td><strong>Floating trust cards</strong></td>
+              <td>ไม่ต้อง gen</td>
+              <td>ไม่ต้อง</td>
+              <td>ทำใน Framer เป็น cards แก้ copy ง่าย: `Risk note`, `LINE admin`, `MT4/MT5`, `Regulator proof pending`.</td>
+              <td>Hero foreground, Support CTA</td>
+            </tr>
+            <tr>
+              <td><strong>Market orbit / abstract symbols</strong></td>
+              <td>Optional</td>
+              <td>Optional</td>
+              <td>ถ้าจะใช้ Spline ให้ทำเป็น 3D abstract orbit เบา ๆ สำหรับ Forex/Metals/Indices/Commodities/Crypto CFDs. ถ้ากลัวหนัก ให้ใช้ Framer cards + icon line.</td>
+              <td>Markets page only</td>
+            </tr>
+            <tr>
+              <td><strong>Legal/regulator logos</strong></td>
+              <td>ไม่ gen</td>
+              <td>ไม่ใช้</td>
+              <td>ใช้ placeholder จนกว่าฝ่ายกำกับดูแลยืนยัน. ห้ามสร้างโลโก้ regulator เองหรือใส่ license number ที่ยังไม่อนุมัติ.</td>
+              <td>Trust section, footer, risk disclosure</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grid cols-2" style="margin-top:18px">
+          <div class="card">
+            <h3>Prompt สำหรับ hero poster</h3>
+            <p>ใช้กับ image generator เพื่อทำ poster/fallback ไม่ใช่แทน Spline ทั้งหมด.</p>
+            <div class="prompt">Cinematic Thai fintech trading command center, dark navy private banking interior, matte glass trading terminal, subtle gold micro highlights, cool blue data accents, abstract charts with no readable numbers, no license text, no profit claims, premium institutional broker mood, 85mm lens, soft volumetric glow, asymmetric composition, high-end web hero background, 4k, clean negative space</div>
+          </div>
+          <div class="card">
+            <h3>Prompt สำหรับ parallax layers</h3>
+            <p>ทำเป็น 3 layer PNG/WebP เพื่อขยับต่างความเร็วใน Framer.</p>
+            <div class="prompt">Create transparent parallax layers for a premium Forex/CFD broker website: layer 1 dark blue ambient glow, layer 2 glass dashboard planes and soft grid, layer 3 tiny gold/cyan fragments and abstract candlestick silhouettes, no readable numbers, no logos, no promises, clean alpha edges, web optimized</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>เว็บอ้างอิงและสิ่งที่ยืมได้</h2>
+            <p class="sub">สิ่งที่ยืมคือ pattern ไม่ใช่แบรนด์ สี คอนเทนต์ หรือคำเคลมของเว็บต้นฉบับ.</p>
+          </div>
+          <span class="tag">เว็บจริง</span>
+        </div>
+        <table class="matrix">
+          <thead>
+            <tr><th>เว็บอ้างอิง</th><th>ทำไมถึงดูแพง</th><th>เอามาใช้กับ BestonFX ยังไง</th><th>ห้ามทำตาม</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Apple AirPods Pro</strong><br /><a href="https://www.apple.com/airpods-pro/">apple.com/airpods-pro</a></td>
+              <td>ใช้ product เป็นพระเอก มีภาพใหญ่ ข้อความน้อย และ scroll แต่ละช่วงเล่า feature ทีละเรื่อง.</td>
+              <td>ทำ hero command center ให้ reveal เหมือน product film: scroll แรกเห็นระบบ, scroll ต่อมาเห็น risk/support/platform/regulator proof.</td>
+              <td>อย่าทำ image sequence หนัก ๆ หรือ cinematic ยาวบนมือถือ.</td>
+            </tr>
+            <tr>
+              <td><strong>Stripe</strong><br /><a href="https://stripe.com/">stripe.com</a></td>
+              <td>ทำ infrastructure ให้มีชีวิตด้วย UI layer, data cards, gradient และ proof ที่น่าเชื่อถือ.</td>
+              <td>ใช้ abstract market/data panels และ proof cards เพื่อให้ trust อ่านง่ายขึ้น ไม่ใช่ทำเหมือนระบบเทรด live.</td>
+              <td>ห้ามใส่ volume, uptime, trader count หรือ profit counter ปลอม.</td>
+            </tr>
+            <tr>
+              <td><strong>Linear</strong><br /><a href="https://linear.app/">linear.app</a></td>
+              <td>ใช้ UI จริงที่ดูใช้งานได้ มี hierarchy แน่น และมี micro-detail ทำให้เชื่อว่า product มีจริง.</td>
+              <td>ทำ account/support/process mockup ภาษาไทย เช่นขั้นตอนบัญชี, LINE admin, MT4/MT5 โดยติด demo label ทุกจุด.</td>
+              <td>อย่าใช้ fintech card สำเร็จรูปที่ไม่มีความหมาย.</td>
+            </tr>
+            <tr>
+              <td><strong>Vercel</strong><br /><a href="https://vercel.com/">vercel.com</a> + <a href="https://www.refs.gallery/projects/vercel">Refs.Gallery teardown</a></td>
+              <td>Scroll พา user เดินผ่าน workflow ชัด ไม่ใช่แค่โชว์ section สวย ๆ.</td>
+              <td>Home story: เข้าใจความเสี่ยง -> เลือกบัญชี -> ทัก LINE admin -> เปิดบัญชี -> เรียนรู้เครื่องมือ.</td>
+              <td>อย่าทำ section ที่สวยแต่ไม่ช่วยให้ user ตัดสินใจต่อ.</td>
+            </tr>
+            <tr>
+              <td><strong>Framer</strong><br /><a href="https://www.framer.com/">framer.com</a></td>
+              <td>ความลื่นมาจาก layout responsive + effects + interactions ที่ทำใน canvas ได้เร็ว.</td>
+              <td>เริ่มจาก native Effects, Scroll Transform, Section in View และ component variants ก่อน custom code.</td>
+              <td>อย่ารีบ custom code ก่อน POC ผ่าน.</td>
+            </tr>
+            <tr>
+              <td><strong>Revolut</strong><br /><a href="https://www.revolut.com/">revolut.com</a></td>
+              <td>Fintech ที่ดูน่าเชื่อถือจะจับคู่ benefit, product image, security framing และ risk note.</td>
+              <td>ทุก block ที่ตื่นเต้นต้องมี safety/risk language และเส้นทางคุย admin ที่ชัด.</td>
+              <td>อย่าใช้ finance claim ที่ไม่มี legal/risk context.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>หลัก Motion ที่ทำให้ดูแพง</h2>
+            <p class="sub">เว็บที่ดูแพงไม่ได้ขยับเยอะกว่า แต่ขยับเป็นระบบกว่า.</p>
+          </div>
+          <span class="tag">กฎหลัก</span>
+        </div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>1. หนึ่ง scroll ต้องเล่าหนึ่งเรื่อง</h3>
+            <p>แต่ละช่วง scroll ต้องตอบว่า user ได้รู้อะไรเพิ่ม ไม่ใช่แค่เห็นของลอย. สำหรับ BestonFX ให้ผูกกับ trust, platform, risk, support, market education.</p>
+          </div>
+          <div class="card">
+            <h3>2. ความลึกสำคัญกว่าของตกแต่ง</h3>
+            <p>ใช้ parallax เฉพาะ layer ที่มีบทบาท: background atmosphere, mid product UI, foreground decision/trust card.</p>
+          </div>
+          <div class="card">
+            <h3>3. Motion ต้องไม่แย่งการควบคุมจาก user</h3>
+            <p>ห้าม scroll-jacking. ให้ scroll ปกติ แต่ map progress ไปที่ transform/opacity/scale เหมือน Framer Scroll Transform หรือ GSAP scrub.</p>
+          </div>
+          <div class="card">
+            <h3>4. Motion พรีเมียมต้องมีน้ำหนัก</h3>
+            <p>ใช้ custom easing, stagger และ spring-like weight. หลีกเลี่ยง linear/ease-in-out default เพราะทำให้เว็บดูเหมือน template.</p>
+          </div>
+          <div class="card">
+            <h3>5. Performance คือส่วนหนึ่งของความหรู</h3>
+            <p>ขยับ transform และ opacity เป็นหลัก. เลี่ยง animation ที่กระทบ layout/paint, continuous blur ตอน scroll และ 3D หนักบนมือถือ.</p>
+          </div>
+          <div class="card">
+            <h3>6. ต้องมี reduced motion</h3>
+            <p>เมื่อ user เปิดลด motion ต้องปิด parallax, cursor tilt, glow loop และ scroll-scrubbed motion เหลือแค่ fade สั้น ๆ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="spline">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Spline Pro ใช้ยังไงให้คุ้ม</h2>
+            <p class="sub">ใช้ Spline เป็น signature scene ไม่ใช่ใส่ทุก section. จุดที่คุ้มสุดคือ hero เพราะช่วยให้เว็บดู futuristic ทันที แต่ต้องมี poster fallback และ mobile fallback เสมอ.</p>
+          </div>
+          <span class="tag">Spline Pro</span>
+        </div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>ควรดึงจาก Community ไหม?</h3>
+            <p><strong>ใช้ได้ แต่ไม่ควรแปะตรง ๆ.</strong> ให้ใช้ Community/Library เพื่อหาโครง scene, material, object หรือ lighting idea แล้ว remix ให้เป็น BestonFX เอง. สำหรับ production ให้ชอบ Spline Library หรือ scene ที่ชัดเจนว่า remix/use ได้ และเปลี่ยน brand/material/camera ทั้งหมด.</p>
+          </div>
+          <div class="card">
+            <h3>ควรสร้างใหม่ตรงไหน?</h3>
+            <p><strong>Hero scene ควรสร้างใหม่.</strong> เพราะเป็น first impression ของ broker. สร้าง trading command center แบบ abstract, ไม่มีตัวเลขจริง, ไม่มี license text, ไม่มีกราฟที่เหมือน signal.</p>
+          </div>
+          <div class="card">
+            <h3>ใช้ Pro setting อะไร</h3>
+            <p>ปิด Spline logo, ใช้ transparent background ถ้าจะ blend กับ Framer, ตั้ง mouse events เป็น local/container, ปิด zoom/pan บน touch, ใช้ lazy loading และใส่ poster image ระหว่างโหลด.</p>
+          </div>
+          <div class="card">
+            <h3>ค้นหาอะไรใน Spline</h3>
+            <p>ลองค้น/ดูหมวด: `Glass`, `Environment`, `Interactivity`, `3D Mockups`, `Product Design`, `Dashboard`, `Abstract UI`, `Particles`. เอาเฉพาะ object/material/lighting ไม่เอา scene สำเร็จทั้งก้อน.</p>
+          </div>
+        </div>
+        <table class="matrix" style="margin-top:18px">
+          <thead><tr><th>ขั้นตอน</th><th>ทำใน Spline</th><th>เหตุผล</th><th>ผ่านเมื่อ</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>สร้าง file ใหม่ชื่อ `BestonFX Hero Command Center`</td><td>แยกจาก community asset เพื่อคุม brand และไม่ปน licensing/creator content.</td><td>Scene เริ่มจาก blank หรือ library objects เท่านั้น.</td></tr>
+            <tr><td>2</td><td>วาง 3D glass dashboard 2-3 panels + floating card placeholders</td><td>ให้เกิด depth แบบ futuristic โดย copy ยังแก้ใน Framer ได้.</td><td>ไม่มีตัวเลข/กราฟที่อ่านเป็นผลตอบแทนจริง.</td></tr>
+            <tr><td>3</td><td>ตั้ง lighting: dark navy base, cyan glow, gold micro highlight</td><td>เข้ากับ broker premium และไม่หลุดไป crypto/neon casino.</td><td>ภาพรวมยังอ่าน CTA ได้ ไม่แย่ง text.</td></tr>
+            <tr><td>4</td><td>ทำ interaction เบา ๆ: hover/drag tilt หรือ slow idle rotation</td><td>ทำให้มีชีวิตโดยไม่รบกวน conversion.</td><td>idle motion น้อยกว่า 6-8px/องศา, ไม่เวียนหัว.</td></tr>
+            <tr><td>5</td><td>Export เป็น Spline Viewer/Public URL และ embed ใน Framer</td><td>Framer ใช้ Embed ได้เร็ว และ Spline Viewer มี lazy loading.</td><td>Desktop โหลดดี, mobile เห็น poster/static fallback.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="recipes">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Recipe ทีละเอฟเฟกต์</h2>
+            <p class="sub">ส่วนนี้ตอบตรง ๆ ว่าแต่ละ effect ต้องทำอะไร ต้องใช้รูปไหม ต้องใช้ Spline ไหม และควรตั้งค่า Framer ยังไง.</p>
+          </div>
+          <span class="tag">How-to</span>
+        </div>
+        <table class="matrix">
+          <thead><tr><th>Effect</th><th>ต้องใช้อะไร</th><th>ทำใน Framer ยังไง</th><th>ทำใน Spline/Gen ยังไง</th><th>ข้อควรระวัง</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Hero Device Bloom-Reveal</strong></td>
+              <td>Spline hero scene + poster image</td>
+              <td>วาง Embed/Spline scene ใน Frame ขวา. ใส่ Appear: opacity 0->1, y 48->0, scale .92->1, blur 10->0, duration .9s.</td>
+              <td>สร้าง scene ใหม่. Generate poster เป็น WebP ใช้ก่อนโหลดและ mobile fallback.</td>
+              <td>อย่าใส่ chart/live number จริง. Hero media ควรมี static fallback.</td>
+            </tr>
+            <tr>
+              <td><strong>Scroll-Parallax Layer Stack</strong></td>
+              <td>3 layers: bg, mid, foreground</td>
+              <td>ใช้ Scroll Transform + Section in View. Background y -6%->6%; mid -12%->12%; foreground -20%->20%; scale .98->1.02.</td>
+              <td>Gen background/layers ได้ หรือทำ layer ใน Framer/Spline. ถ้าใช้ Spline ให้ Spline เป็น mid layer เท่านั้น.</td>
+              <td>ใช้ 3 layer พอ. มากกว่านี้รกและกิน performance.</td>
+            </tr>
+            <tr>
+              <td><strong>Immersive Scroll Stage</strong></td>
+              <td>Sticky section + cards + hero visual</td>
+              <td>Parent 180-220vh, visual sticky 100vh. Text/cards opacity 0->1->0, y 80->0->-80 ตาม scroll.</td>
+              <td>ไม่ต้อง gen เพิ่มถ้ามี hero poster/Spline แล้ว. ใช้ Framer cards สำหรับ risk, LINE, platform.</td>
+              <td>ใช้เต็มแค่ Home/Markets. หน้าอื่นห้ามทำหนักแบบนี้.</td>
+            </tr>
+            <tr>
+              <td><strong>Scene Cut Dark -> Light</strong></td>
+              <td>สี/section design</td>
+              <td>หลัง sticky hero ให้ section ถัดไปเปลี่ยนเป็น light/clean trust section ทันที. ใช้ padding เยอะและ fade-rise สั้น.</td>
+              <td>ไม่ต้องใช้รูป. อาศัย contrast และ layout.</td>
+              <td>อย่าใส่ transition gimmick เพิ่มจน user งง.</td>
+            </tr>
+            <tr>
+              <td><strong>Floating Trust Cards</strong></td>
+              <td>Framer cards</td>
+              <td>ทำ cards เป็น component variants. Scroll y/opacity เบา ๆ และ hover scale 1.015.</td>
+              <td>ไม่ต้อง Spline. ใช้ text จริงเพื่อแก้ compliance ง่าย.</td>
+              <td>Regulator/license ต้องเป็น placeholder จนกว่าจะ approved.</td>
+            </tr>
+            <tr>
+              <td><strong>Markets Abstract Orbit</strong></td>
+              <td>Optional Spline mini scene หรือ Framer cards</td>
+              <td>Markets page ใช้ tabs sticky left + chart cards parallax right. Card y 72->0->-44, stagger .1s.</td>
+              <td>ถ้าจะใช้ Spline ให้ทำ orbit เบา ๆ ของ asset categories ไม่ใช่เหรียญ crypto. Gen icons ได้แต่ไม่จำเป็น.</td>
+              <td>ห้ามทำเหมือน signal หรือ performance dashboard.</td>
+            </tr>
+            <tr>
+              <td><strong>Cursor-Tracked Depth</strong></td>
+              <td>Spline mouse event หรือ Framer tilt component</td>
+              <td>Desktop only. rotateY -6deg..6deg, rotateX 4deg..-4deg, translateX -10..10px.</td>
+              <td>ใน Spline ตั้ง mouse events local/container. ปิดบน touch/mobile.</td>
+              <td>ถ้า hover แล้ว text/CTA ขยับจนอ่านยาก ให้ลดครึ่งหนึ่งทันที.</td>
+            </tr>
+            <tr>
+              <td><strong>Page Hero Parallax</strong></td>
+              <td>1 background/poster ต่อ page หรือ reuse hero layers</td>
+              <td>On scroll 0->45vh: bg y 0->28 scale 1->1.035; mid y 0->-18; foreground y 0->-36; title opacity 1->.35.</td>
+              <td>Gen เฉพาะ page สำคัญ: Home, Markets, Why. หน้า Support/Legal ใช้ static cards ก็พอ.</td>
+              <td>Mobile ลด y values 50-70%.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="framer">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>แผนทำใน Framer แบบลงมือได้</h2>
+            <p class="sub">ทำด้วย Framer ก่อน เพราะ POC ตอนนี้อยู่บน Fizens template. Custom code เป็น fallback เฉพาะจุดที่ native effects ไม่พอ.</p>
+          </div>
+          <span class="tag">Framer first</span>
+        </div>
+        <div class="steps">
+          <div class="step"><div><strong>สร้าง `HomeHeroImmersiveStage`</strong><br />Parent section height `180vh-220vh`, visual wrapper sticky `top:0`, height `100vh`, overflow hidden. นี่คือฉากหลักที่ทำให้คนร้อง wow.</div></div>
+          <div class="step"><div><strong>จัด 3-layer composition</strong><br />Background: glow/trading-room still. Mid: Spline dashboard/device. Foreground: Framer trust/risk/LINE cards. ให้ copy อยู่ใน Framer เพื่อแก้ compliance ง่าย.</div></div>
+          <div class="step"><div><strong>ตั้ง Scroll Transform ด้วย Section in View</strong><br />ทุก layer ผูกกับ scroll section เดียวกันเพื่อให้ timing พร้อมกัน. หลีกเลี่ยง page-wide "on scroll" สำหรับ hero เพราะควบคุมจังหวะยาก.</div></div>
+          <div class="step"><div><strong>ตั้งค่า hero reveal</strong><br />Device initial: opacity 0, y 48, scale .92, rotateX 8deg, blur 10. End: opacity 1, y 0, scale 1, rotateX 0, blur 0. Duration .9s, easing cubic-bezier(.16,1,.3,1).</div></div>
+          <div class="step"><div><strong>ตั้งค่า parallax ratios</strong><br />Background y -6% to 6%, mid y -12% to 12%, foreground y -20% to 20%, opacity .75 to 1 to .75, scale .98 to 1.02. Mobile ลดครึ่งหนึ่ง.</div></div>
+          <div class="step"><div><strong>ทำ scene cut หลัง hero</strong><br />จาก dark cinematic hero ตัดเข้า clean/light trust หรือ account section. ใช้ contrast เป็น wow ไม่ต้องเพิ่มเอฟเฟกต์ซับซ้อน.</div></div>
+          <div class="step"><div><strong>ทำ microinteractions</strong><br />Primary CTA hover: scale 1 to 1.025, arrow/island shift 2-4px, duration .22-.32s. Secondary LINE CTA ต้องนิ่ง อ่านง่าย และไม่ดูเป็นปุ่มรองที่ถูกซ่อน.</div></div>
+          <div class="step"><div><strong>ทำ mobile fallback</strong><br />เปลี่ยน sticky stage เป็น static poster + fade-rise. ปิด cursor depth, ลด parallax 50-70%, และอย่า autoplay Spline หนัก ๆ บนมือถือ.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coded">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Fallback ถ้าต้องเขียน Code</h2>
+            <p class="sub">ใช้ถ้า Framer-native ทำไม่ได้ หรือถ้าต้อง export/port ไป Next.js ภายหลัง.</p>
+          </div>
+          <span class="tag">Optional</span>
+        </div>
+        <table class="matrix">
+          <thead>
+            <tr><th>ต้องการอะไร</th><th>ทำใน Framer</th><th>ถ้าต้องเขียน code</th><th>กฎสำคัญ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Layer ขยับตาม scroll</td><td>Scroll Transform + Section in View</td><td>Motion React `useScroll`, `useTransform`, `useSpring`</td><td>ใช้ transform, opacity, clipPath/filter แบบประหยัดเท่านั้น.</td></tr>
+            <tr><td>Pinned timeline ซับซ้อน</td><td>Sticky parent + multiple scroll sections</td><td>GSAP ScrollTrigger timeline with scrub/pin</td><td>ให้หนึ่ง timeline มี controller เดียว อย่าให้ trigger หลายตัวแย่งกัน.</td></tr>
+            <tr><td>CSS-only ในอนาคต</td><td>ไม่เหมาะกับ Framer canvas โดยตรง</td><td>CSS Scroll Timelines และ View Timelines</td><td>ใช้กับ Next.js ภายหลังถ้า browser target รองรับ.</td></tr>
+            <tr><td>3D device หนัก</td><td>Spline embed หรือ Framer Workshop component</td><td>Three.js/Spline export</td><td>Lazy-load บน desktop และใช้ static poster บนมือถือ.</td></tr>
+            <tr><td>Reduced motion</td><td>Duplicate no-motion variants</td><td>`prefers-reduced-motion` media query</td><td>ปิด parallax, tilt, looping glow เหลือแค่ fade/dissolve สั้น ๆ.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Checklist ก่อนส่ง Preview</h2>
+            <p class="sub">เช็คทีละข้อก่อนส่ง Framer preview ให้ดู.</p>
+          </div>
+          <span class="tag">QA Gate</span>
+        </div>
+        <table class="matrix">
+          <thead><tr><th>Priority</th><th>ต้องเช็คอะไร</th><th>ผ่านเมื่อ</th><th>สถานะ</th></tr></thead>
+          <tbody>
+            <tr><td>P0</td><td>ใช้คลิปอ้างอิงเฉพาะ motion</td><td>ไม่มี crypto copy, ไม่มีโครง FacilPay, ไม่มี product claim ที่ยืมมา.</td><td class="ok">ต้องผ่าน</td></tr>
+            <tr><td>P0</td><td>CTA ยังเป็นคู่ที่ approve แล้ว</td><td>Primary `เปิดบัญชี`, secondary `ทัก LINE OA ติดต่อ admin`; ไม่มี public deposit CTA.</td><td class="ok">ต้องผ่าน</td></tr>
+            <tr><td>P0</td><td>Risk context อยู่ใกล้ conversion</td><td>Hero, account, market, partner CTAs มี risk/support language ใกล้ ๆ.</td><td class="ok">ต้องผ่าน</td></tr>
+            <tr><td>P1</td><td>Home มี sticky stage ที่จำได้</td><td>มี immersive stage 180-220vh พร้อม 3 layers และ synchronized transforms.</td><td class="ok">ต้อง build</td></tr>
+            <tr><td>P1</td><td>Markets มี educational immersive stage</td><td>Tabs/cards animate market categories แบบ abstract ไม่มีข้อมูล live ปลอม.</td><td class="ok">ต้อง build</td></tr>
+            <tr><td>P1</td><td>หน้าอื่นไม่ over-motion</td><td>ใช้แค่ page hero parallax + fade-rise. ไม่มี full sticky movie ทุกหน้า.</td><td class="warn">Guardrail</td></tr>
+            <tr><td>P1</td><td>ขยับ transform/opacity ก่อน</td><td>ไม่มี animated top/left/width/height. ไม่มี continuous blur บน scrolling containers.</td><td class="warn">Guardrail</td></tr>
+            <tr><td>P1</td><td>Mobile performance pass</td><td>ใต้ 768px ใช้ static poster หรือ reduced parallax; ไม่มี cursor tilt; ไม่มี Spline autoplay ถ้าหนัก.</td><td class="warn">Guardrail</td></tr>
+            <tr><td>P2</td><td>Microinteraction polish</td><td>Buttons, nav, cards, tabs ใช้ custom cubic-bezier/spring feel ไม่ใช่ default ease-in-out.</td><td class="ok">Polish</td></tr>
+            <tr><td>P2</td><td>Reduced motion pass</td><td>Reduced-motion variant ปิด parallax, cursor tracking, continuous glow.</td><td class="ok">QA</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>แหล่งข้อมูล</h2>
+            <p class="sub">อ่านเมื่อวันที่ 2026-05-31. ข้อสังเกตจากเว็บจริงใช้เป็น design reference ไม่ใช่หลักฐานว่าเว็บเหล่านั้น implement ภายในอย่างไร.</p>
+          </div>
+          <span class="tag">Research</span>
+        </div>
+        <ol class="source-list">
+          <li><a href="https://www.apple.com/airpods-pro/">Apple AirPods Pro page</a> - อ้างอิง product scrollytelling และ feature beats.</li>
+          <li><a href="https://stripe.com/">Stripe homepage</a> - อ้างอิง layered fintech UI และ trust/data modules.</li>
+          <li><a href="https://linear.app/">Linear homepage</a> - อ้างอิง product UI realism และ operational micro-details.</li>
+          <li><a href="https://vercel.com/">Vercel homepage</a> - อ้างอิง workflow-led page narrative.</li>
+          <li><a href="https://www.refs.gallery/projects/vercel">Refs.Gallery Vercel teardown</a> - อธิบาย scroll narrative แบบ Develop/Preview/Ship/Scale.</li>
+          <li><a href="https://www.framer.com/">Framer homepage</a> - อ้างอิง responsive design + effects/interactions/animations.</li>
+          <li><a href="https://www.framer.com/academy/lessons/framer-animations-scroll-transform">Framer Academy Scroll Transform</a> - วิธีใช้ Section in View, Layer in View และ synchronized scroll transforms.</li>
+          <li><a href="https://framer.university/resources/fey-website-in-framer">Framer University Fey resource</a> - ตัวอย่าง hidden trigger frames และ 3D image scroll transforms ใน Framer.</li>
+          <li><a href="https://motion.dev/docs/react-use-scroll">Motion React useScroll docs</a> - scroll-linked values, `useTransform`, และ GPU-aware motion.</li>
+          <li><a href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/">GSAP ScrollTrigger docs</a> - scrub/pin/timeline และแนวทางไม่ทำ scroll-jacking.</li>
+          <li><a href="https://web.dev/articles/animations-and-performance">web.dev Animations and performance</a> - แนวทางใช้ transform/opacity และ compositor.</li>
+          <li><a href="https://developer.chrome.com/docs/css-ui/scroll-driven-animations">Chrome Scroll-driven animations</a> - CSS scroll/view timelines และ off-main-thread benefits.</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion">MDN prefers-reduced-motion</a> - accessibility fallback สำหรับ motion-heavy pages.</li>
+          <li><a href="https://www.revolut.com/">Revolut homepage</a> - อ้างอิง fintech benefit sections ที่มี security/risk framing.</li>
+          <li><a href="https://docs.spline.design/doc/integrating-with-framer/docL4CpxxDk8">Spline integrating with Framer</a> - วิธีนำ Spline scene เข้า Framer.</li>
+          <li><a href="https://docs.spline.design/doc/exporting-as-spline-viewer/docoQp6On9ht">Spline Viewer export docs</a> - viewer embed และ lazy loading behavior.</li>
+          <li><a href="https://docs.spline.design/doc/play-settings/docYUbA2Nc5Z">Spline Play Settings</a> - transparent background, logo removal, mouse/touch controls.</li>
+          <li><a href="https://docs.spline.design/designing-in-3-d/3d-library">Spline 3D Library docs</a> - library scenes/objects และการใช้ model ฟรีเชิงพาณิชย์.</li>
+          <li><a href="https://docs.spline.design/doc/community-platform/docSaqY7mlFz">Spline Community Platform docs</a> - community สำหรับ publish, discover, remix และ inspiration.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      BestonFX Framer Motion Research Checklist. Scope: Framer/Fizens POC, not Next.js production rebuild. Compliance guardrails remain active for all broker copy and public CTAs.
+    </div>
+  </footer>
+</body>
+</html>

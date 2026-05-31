@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BestonFX x Fizens Framer Redesign Handoff</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #07111f;
+      --panel: #0b1628;
+      --panel-2: #101d32;
+      --line: rgba(255,255,255,.12);
+      --text: #f7f3ea;
+      --muted: #b9c1d1;
+      --gold: #d7b56d;
+      --blue: #2970ff;
+      --green: #06c755;
+      --risk: #b45309;
+      --ok: #58d68d;
+      --warn: #f7c948;
+      --bad: #ff6b6b;
+      --radius: 18px;
+      --shadow: 0 28px 90px rgba(0,0,0,.35);
+      --font: Prompt, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(215,181,109,.18), transparent 28rem),
+        radial-gradient(circle at 86% 8%, rgba(41,112,255,.18), transparent 30rem),
+        linear-gradient(180deg, #07111f 0%, #081324 42%, #060b14 100%);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.65;
+    }
+    a { color: var(--gold); }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header.hero { padding: 72px 0 42px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--gold); font: 700 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+    h1 { max-width: 980px; margin: 18px 0 18px; font-size: clamp(38px, 6vw, 78px); line-height: .98; letter-spacing: -.03em; }
+    h2 { margin: 54px 0 14px; font-size: clamp(26px, 3vw, 40px); line-height: 1.12; letter-spacing: -.02em; }
+    h3 { margin: 28px 0 10px; font-size: 21px; }
+    p.lead { max-width: 850px; color: var(--muted); font-size: 18px; }
+    .grid { display: grid; gap: 16px; }
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      background: color-mix(in srgb, var(--panel) 88%, white 12%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .callout { border-left: 0; border-color: rgba(215,181,109,.38); background: rgba(215,181,109,.08); }
+    .risk { border-color: rgba(180,83,9,.42); background: rgba(180,83,9,.12); }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 26px; overflow: hidden; border-radius: 14px; }
+    th, td { padding: 12px 14px; border: 1px solid var(--line); vertical-align: top; font-size: 14px; }
+    th { background: rgba(255,255,255,.07); color: #fff; text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    td { background: rgba(255,255,255,.035); }
+    code, .mono { font-family: var(--mono); color: #ffe0a3; font-size: .93em; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.05); font: 700 12px/1 var(--mono); }
+    .nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(7,17,31,.78); border-bottom: 1px solid var(--line); }
+    .nav .wrap { display: flex; gap: 14px; overflow-x: auto; padding: 12px 0; }
+    .nav a { white-space: nowrap; text-decoration: none; font: 700 12px/1 var(--mono); color: var(--muted); }
+    section { padding-bottom: 18px; }
+    .small { color: var(--muted); font-size: 13px; }
+    .source { color: #aeb8cc; font-size: 12px; }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
+    @media (max-width: 800px) {
+      .two, .three { grid-template-columns: 1fr; }
+      th, td { font-size: 13px; }
+      header.hero { padding-top: 46px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">BestonFX / Fizens / Framer POC</div>
+      <h1>Redesign Handoff สำหรับ rebuild bestonfx.com ใน Framer template</h1>
+      <p class="lead">เอกสารนี้เป็น build-ready spec สำหรับ Claude Code + Framer MCP/Workshop โดยยึด brief ล่าสุด: premium forex/CFD broker, Thai-first, conversion-first, international-regulator trust, immersive scroll/parallax, และใช้ Fizens เป็นฐาน ไม่ใช่ Next.js rebuild.</p>
+      <div class="grid three">
+        <div class="card"><span class="pill">TL;DR</span><p>Hero ต้องเปลี่ยนจาก finance-app mockup เป็น immersive institutional trading command center ที่มี CTA แค่ `เปิดบัญชี` + `ทัก LINE OA ติดต่อ admin`.</p></div>
+        <div class="card"><span class="pill">Biggest risk</span><p>repo ปัจจุบัน lock light royal-blue แต่ brief ล่าสุดขอ dark navy + gold. ต้อง confirm direction ก่อนแก้ canvas จริง.</p></div>
+        <div class="card"><span class="pill">First action</span><p>เปิด Framer MCP กับ duplicated Fizens project แล้ว export page/component XML snapshot ก่อน wire scroll/parallax effect.</p></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav"><div class="wrap">
+    <a href="#skills">Skills</a><a href="#inventory">Fizens Inventory</a><a href="#repo">Repo Reconciliation</a><a href="#motion">Motion</a><a href="#home">Home Spec</a><a href="#pages">Other Pages</a><a href="#assets">Assets</a><a href="#copy">Copy</a><a href="#build">Build Sequence</a><a href="#qa">QA</a>
+  </div></nav>
+
+  <main class="wrap">
+    <section id="skills">
+      <h2>Skills Plan</h2>
+      <div class="card callout">
+        <p><strong>Loaded/applied skills:</strong> <code>skill-creator</code>, <code>framer-handoff</code>, <code>aesthetic-direction/high-end-visual</code>, <code>ui-ux-pro-max</code>, <code>design-taste-frontend</code>, <code>dx-visual-prompt-engineer</code>, <code>higgsfield-generate</code>, <code>craftwork-assets</code>, <code>bestonfx-wireframe</code>, <code>aibm-sales-page</code>, <code>remotion</code> (only for video-task routing awareness; no Remotion build needed).</p>
+        <p><strong>Named skills not found exactly:</strong> <code>framer-expert-builder</code>, <code>higgsfield-expert</code>, <code>creative-design-director</code>, <code>ui-ux-designer</code>, <code>content-creator</code>. Mapped to installed equivalents above.</p>
+      </div>
+      <table>
+        <thead><tr><th>Gap skill</th><th>Status</th><th>Purpose</th><th>Contents</th></tr></thead>
+        <tbody>
+          <tr><td><code>international-forex-broker-market-compliance</code></td><td class="ok">created repo-local</td><td>Copy/legal safety based on international regulator proof and Thai-market broker behavior, not Thai SEC authority.</td><td>Banned claims, risk-warning placement, regulator/license proof slots, market-standard CTA behavior, placeholder policy.</td></tr>
+          <tr><td><code>bestonfx-framer-build-sop</code></td><td class="ok">created repo-local</td><td>Claude Code operating SOP for Fizens-to-BestonFX Framer edits.</td><td>Brand conflict note, Framer build sequence, motion defaults, QA gate.</td></tr>
+          <tr><td><code>ui-ux-pro-max</code></td><td class="ok">use as required review skill</td><td>Conversion UX, mobile breakpoints, CTA clarity, accessibility, motion usability.</td><td>Use after art direction is set; do not let it flatten the immersive visual system.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Build step</th><th>Skill to load</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Framer project audit</td><td><code>framer-handoff</code> + <code>bestonfx-framer-build-sop</code></td><td>Framer constraints + local SOP.</td></tr>
+          <tr><td>Hero and visual system</td><td><code>aesthetic-direction</code> + <code>design-taste-frontend</code></td><td>Premium art direction, cinematic depth, dark navy/gold visual taste.</td></tr>
+          <tr><td>Conversion and breakpoint UX</td><td><code>ui-ux-pro-max</code></td><td>CTA hierarchy, mobile layouts, reduced-motion fallback, touch ergonomics, no motion blocking conversion.</td></tr>
+          <tr><td>Asset prompts</td><td><code>dx-visual-prompt-engineer</code> + <code>higgsfield-generate</code></td><td>Model-specific asset prompt and Higgsfield capability.</td></tr>
+          <tr><td>Component sourcing</td><td><code>craftwork-assets</code></td><td>Curated mockups/3D/UI kits instead of generic AI art.</td></tr>
+          <tr><td>Copy review</td><td><code>aibm-sales-page</code> + <code>international-forex-broker-market-compliance</code></td><td>Conversion copy with international-regulator proof and broker-market guardrails.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="inventory">
+      <h2>Fizens Template Inventory</h2>
+      <p class="small">Live scrape + repo memory show Fizens has 17 web pages, around 64 components, and home sections ordered Hero, About, Features, Addition, Benefit, Statics, HowItWork, Pricing, Blog, FAQ, Footer. Firecrawl MCP was unavailable due invalid token; live inspection used browser/web snapshots and prior Framer MCP notes.</p>
+      <table>
+        <thead><tr><th>Page</th><th>Observed sections/layout</th><th>Existing copy/content</th><th>Animation/components</th><th>CMS?</th><th>BestonFX treatment</th></tr></thead>
+        <tbody>
+          <tr><td><code>/</code> Home</td><td>Navbar, phone hero, blue feature block, centered about, feature cards, addition features, benefit zig-zag, statics strip, how-it-works, testimonials, pricing, blog, FAQ, CTA, footer.</td><td>"Start Managing Your Finance...", "Trusted by millions", savings/wealth/testimonials/pricing.</td><td>Rolling text nav, image/device hero, cards, testimonial carousel/arrows, FAQ accordion.</td><td>Blog likely CMS.</td><td>Reuse skeleton; replace almost all copy and hero/media; remove fake stats/testimonials.</td></tr>
+          <tr><td><code>/features</code></td><td>Header hero, feature grid, more features, benefit, how-it-works, CTA/footer.</td><td>Expense tracking, savings goals, budgeting, debt, investment tracking, bill pay.</td><td>Cards + image blocks.</td><td>No.</td><td>Split into Markets + Tools; avoid advice framing.</td></tr>
+          <tr><td><code>/pricing</code></td><td>Pricing hero, monthly/yearly toggle, 3 plans, FAQ/CTA/footer.</td><td>Free/$20/$40 SaaS plans.</td><td>Toggle/plan cards.</td><td>No.</td><td>Replace with Accounts; all spreads/leverage/fees placeholder until approved.</td></tr>
+          <tr><td><code>/about</code></td><td>About hero, all-in-one/about content, testimonials, CTA/footer.</td><td>Finance app positioning + fake reviews.</td><td>Text/image cards, testimonial carousel.</td><td>No.</td><td>Replace with Why BestonFX: transparency, governance, DX ecosystem, support process.</td></tr>
+          <tr><td><code>/integration</code></td><td>Integration hero, integration card grid, footer.</td><td>"Smart integrations that work for you".</td><td>Icon cards + learn more links.</td><td>Maybe CMS/static list.</td><td>Use for Platforms: MT4/MT5, TradingView, LINE LIFF only if verified.</td></tr>
+          <tr><td><code>/integration/:slug</code></td><td>Detail page for integration item.</td><td>Template integration details.</td><td>Detail header + body.</td><td>Likely CMS.</td><td>Use later for platform detail; keep unpublished until facts approved.</td></tr>
+          <tr><td><code>/download</code></td><td>Download hero, repeated app cards.</td><td>Finora app + Dropbox links.</td><td>App cards, download buttons.</td><td>No.</td><td>Repurpose as Platform Download with placeholder URLs.</td></tr>
+          <tr><td><code>/contact</code></td><td>Contact hero, form fields, footer.</td><td>"Ready to connect?", first/last/email/phone/message.</td><td>Form component.</td><td>No.</td><td>Support + LINE-first; keep form as secondary route.</td></tr>
+          <tr><td><code>/articles</code></td><td>Blog hero, featured post, filters, article grid, load more, footer.</td><td>Stock/investing/insurance articles.</td><td>Filter tabs, article cards.</td><td>Yes.</td><td>Education/Market Insights; broker-market review per post.</td></tr>
+          <tr><td><code>/articles/:slug</code></td><td>Article detail, author/date/category, content, quote, related articles.</td><td>Stock market beginner guide, Warren Buffet quote, investment advice.</td><td>CMS article template.</td><td>Yes.</td><td>Keep template; replace with approved education only, no personal advice.</td></tr>
+          <tr><td><code>/overview</code></td><td>Template sales overview hero + buy button.</td><td>"Modern Financial SaaS Template for Framer".</td><td>Template marketing hero.</td><td>No.</td><td>Remove or repurpose for DX Ecosystem overview.</td></tr>
+          <tr><td><code>/changelog</code></td><td>Version timeline.</td><td>Fizens releases V1/V2.</td><td>Timeline list.</td><td>No.</td><td>Remove from public nav.</td></tr>
+          <tr><td><code>/team-member/:slug</code></td><td>Team detail.</td><td>Template people data.</td><td>Profile layout.</td><td>Likely CMS.</td><td>Remove until real team/legal approvals.</td></tr>
+          <tr><td><code>/jobs/:slug</code></td><td>Job detail.</td><td>Template job data.</td><td>Job detail layout.</td><td>Likely CMS.</td><td>Remove from POC.</td></tr>
+          <tr><td><code>/term-and-conditions</code></td><td>Legal article + CTA/footer.</td><td>Intelly legal copy, "watch your money grow" CTA.</td><td>Text page + CTA.</td><td>No.</td><td>Replace legal entirely; remove growth CTA.</td></tr>
+          <tr><td><code>/privacy-policy</code></td><td>Legal article + CTA/footer.</td><td>Intelly/Kota email and generic privacy terms.</td><td>Text page + CTA.</td><td>No.</td><td>Replace with BestonFX/PDPA-reviewed placeholder.</td></tr>
+          <tr><td><code>/404</code></td><td>Error page.</td><td>Template 404.</td><td>Basic utility.</td><td>No.</td><td>Keep; restyle and route to LINE/support/home.</td></tr>
+          <tr><td>Auth pages x5</td><td>Sign up/in, forgot/reset password, password protection.</td><td>Template auth UX.</td><td>Forms.</td><td>No.</td><td>Defer; public marketing POC only.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="repo">
+      <h2>Repo Reconciliation</h2>
+      <div class="card risk">
+        <strong>Conflict flag:</strong> `DESIGN.md`, `docs/framer-poc-map.md`, `docs/product-brief.md`, and `docs/brand/tokens.json` currently say light royal-blue replaces dark navy/gold. This handoff follows the user's latest brief, but Claude Code must confirm the reversal before changing the Framer canvas.
+      </div>
+      <table>
+        <thead><tr><th>Repo fact/source</th><th>Use in Fizens</th><th>Needs new section?</th><th>Market/regulatory status</th></tr></thead>
+        <tbody>
+          <tr><td>BestonFX is pre-launch Thai-market Forex/CFD broker; repo is Framer POC coordination, not production build.</td><td>Global positioning, all page hero copy.</td><td>No.</td><td>Safe if no regulatory claim.</td></tr>
+          <tr><td>Market-standard high-risk disclosure: Forex/CFD และ Leverage มีความเสี่ยงสูง...</td><td>Sticky RiskDisclosureBar, hero note, footer, Accounts, Markets, Partners, Tools.</td><td>Yes, not in Fizens.</td><td>Use as international broker trust pattern; Thai SEC not treated as controlling authority.</td></tr>
+          <tr><td>Primary routes: Home, Why, Accounts, Markets, Tools, Partners, Support, Risk Disclosure.</td><td>Replace Fizens nav and footer groups.</td><td>No, remap pages.</td><td>Safe.</td></tr>
+          <tr><td>CTA decision from founder: `เปิดบัญชี` and `ทัก LINE OA ติดต่อ admin ก่อน`.</td><td>Hero, nav CTA, sticky mobile CTA, Support page, footer.</td><td>Yes, LINE support module.</td><td>No deposit CTA in public POC.</td></tr>
+          <tr><td>DX Academy, DX Trade, DX Exclusive ecosystem.</td><td>Home ecosystem strip + Why page.</td><td>Yes.</td><td>DX Trade performance/signal framing needs approval.</td></tr>
+          <tr><td>Account/spread/leverage/commission/IB terms unapproved.</td><td>Accounts and Partners use placeholders.</td><td>No.</td><td>Must show `รอยืนยัน...`.</td></tr>
+          <tr><td>AI bot + LINE + Supabase analytics skeletons exist in repo.</td><td>Support/Tools as visual mock only.</td><td>Yes, AIChatBotMock.</td><td>No personalized advice.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="market-behavior">
+      <h2>Thai-Market Broker Behavior</h2>
+      <p class="small">Use this as the practical copy/CTA model: Thai-market broker pages behave like offshore/international-regulated brokers, not Thai-SEC regulated products. They still show risk warnings, regulator/license proof, support/security proof, and an account-opening CTA near the hero.</p>
+      <table>
+        <thead><tr><th>Broker/source</th><th>Observed behavior</th><th>BestonFX implication</th><th>Confidence</th></tr></thead>
+        <tbody>
+          <tr><td>Exness Thailand regulation/client protection</td><td>Uses international regulator framing, security/protection proof, `Register/Try free demo`, risk warning for complex derivative products.</td><td>BestonFX should show `International regulation / entity pending`, security, fund/process transparency, and risk warning near CTA.</td><td>High from official Exness pages.</td></tr>
+          <tr><td>XM Thailand</td><td>Uses `เปิดบัญชี` / `เข้าร่วมกับ XM`, repeats risk warning near CTAs, publishes loss-risk wording and trading-condition claims.</td><td>Primary CTA should be `เปิดบัญชี`; risk text can sit beside/under CTA without killing conversion.</td><td>High from official XM pages.</td></tr>
+          <tr><td>IUX Thailand / global</td><td>Uses `Open Account`, performance/execution metrics, regulator/license pages, risk warning, platform/security proof, and support/help content.</td><td>BestonFX can use proof modules: regulator, execution, platform, support, withdrawals/security once facts are approved.</td><td>High from official IUX pages.</td></tr>
+          <tr><td>Shared pattern</td><td>Conversion copy sells speed, spreads, platform, security, support, education, and trust; it avoids explicit guaranteed profit.</td><td>Replace Thai SEC-heavy review with international-regulator proof slots and banned-claim guardrails.</td><td>Medium-high synthesized from sources above.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="motion">
+      <h2>Motion Language System</h2>
+      <p class="small">Reference clip scope is deliberately limited: borrow only scroll animation, scroll effect, immersive depth, and parallax behavior. Do not borrow content, copy, section order, brand, or product claims. The system below turns that motion taste into reproducible Framer-native techniques.</p>
+      <table>
+        <thead><tr><th>Effect name</th><th>Framer implementation</th><th>Numeric params</th><th>Use</th><th>Confidence/source</th></tr></thead>
+        <tbody>
+          <tr><td>Hero Device Bloom-Reveal</td><td>Hero device Frame → Effects → Appear + optional Workshop glow component.</td><td>Initial: opacity 0, y 48, scale .92, rotateX 8deg, blur 10px. Animate to opacity 1, y 0, scale 1, rotateX 0, blur 0. Duration .9s, delay .18s, easing cubic-bezier(.16,1,.3,1). Glow opacity .18 → .42 over .7s.</td><td>Home hero right visual.</td><td>Medium clip assumption; High Framer effect support.</td></tr>
+          <tr><td>Scroll-Parallax Layer Stack</td><td>Each layer → Effects → Scroll Transform → Section in View, linked to parent section.</td><td>Background y -6% to 6%; mid y -12% to 12%; foreground y -20% to 20%; opacity .75 to 1 to .75; scale .98 to 1.02. Range: section top reaches bottom viewport to section bottom reaches top viewport.</td><td>Hero device, Markets Preview, DX ecosystem.</td><td>High: Framer Academy Scroll Transform.</td></tr>
+          <tr><td>Immersive Scroll Stage</td><td>Create a 180vh section with sticky 100vh visual stage; cards/text scroll over it using Scroll Transform.</td><td>Sticky visual: top 0, height 100vh. Background scale 1.06→1.00, y -4%→4%. Text group opacity 0→1→0 across offsets 0.12/0.28/0.72/0.88. Foreground cards y 80→0→-80, opacity 0→1→0.</td><td>Home hero continuation, Why trust story, Markets risk matrix, Partners process.</td><td>High Framer support; medium implementation complexity.</td></tr>
+          <tr><td>Page Hero Parallax</td><td>All page heroes use 3-layer composition: background asset, mid glass panel, foreground CTA/card.</td><td>On scroll 0→45vh: background y 0→28, scale 1→1.035; mid y 0→-18; foreground y 0→-36; hero title opacity 1→.35. Mobile: reduce all y values by 50%.</td><td>Every public page except legal text pages.</td><td>High Framer support.</td></tr>
+          <tr><td>Cinematic Fade-Rise</td><td>Text/card components → Effects → Appear on viewport.</td><td>opacity 0→1; y 32→0; blur 8→0; duration .65s; stagger .08s/item; viewport amount 20%; once true.</td><td>All section headings and cards.</td><td>High: Framer effects.</td></tr>
+          <tr><td>Cursor-Tracked Depth</td><td>Workshop custom component for device mockup or Image Tilt pattern.</td><td>Desktop only. rotateY -6deg..6deg, rotateX 4deg..-4deg, translateX -10..10px, translateY -6..6px, spring stiffness 120 damping 18. Disable below 768px.</td><td>Hero device/card cluster.</td><td>High: Framer Workshop image tilt example.</td></tr>
+          <tr><td>Sticky Stack Trust Cards</td><td>Use sticky parent cards inside tall scroll section + Scroll Transform per card.</td><td>Section min height 220vh desktop, card sticky top 112px. Card n scale 1 - (n*.025), y n*18px, opacity 1→.72 as next card enters.</td><td>Trust/process story.</td><td>Medium: native Framer feasible; requires QA.</td></tr>
+          <tr><td>Page Transition Wipe</td><td>Home primary breakpoint → Effects → Page Effect → All Pages.</td><td>Exit: opacity 1→0, y 0→-16, duration .28s. Enter: opacity 0→1, y 20→0, duration .44s. Direction: vertical, easing cubic-bezier(.16,1,.3,1).</td><td>Global navigation.</td><td>High: Framer University + Framer Academy page effects.</td></tr>
+          <tr><td>Reduced Motion Fallback</td><td>Use Framer reduced motion setting or duplicate no-motion variants.</td><td>Disable parallax, cursor tilt, continuous glow. Keep opacity fade .22s max.</td><td>Accessibility/performance.</td><td>High: UX best practice.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Page</th><th>Wow motion target</th><th>Use / avoid</th></tr></thead>
+        <tbody>
+          <tr><td>Home</td><td>Maximum immersive effect: sticky command-center hero, parallax market layers, DX ecosystem depth.</td><td>Use all patterns; cap Spline to hero only.</td></tr>
+          <tr><td>Why BestonFX</td><td>Institutional trust journey.</td><td>Use Sticky Stack Trust Cards + Page Hero Parallax; avoid playful motion.</td></tr>
+          <tr><td>Accounts</td><td>Premium selector with calm confidence.</td><td>Use Page Hero Parallax + account card variant transitions; avoid heavy 3D.</td></tr>
+          <tr><td>Markets</td><td>Layered market universe.</td><td>Use Immersive Scroll Stage + tab parallax; avoid live-looking fake data.</td></tr>
+          <tr><td>Tools</td><td>Operational dashboard feel.</td><td>Use cursor depth on calculator/tool cards desktop only.</td></tr>
+          <tr><td>Partners</td><td>Process and growth architecture without income promise.</td><td>Use step-by-step scroll timeline; no animated money counters.</td></tr>
+          <tr><td>Support</td><td>LINE-first service confidence.</td><td>Use chat mock parallax and QR pulse; avoid over-motion near form fields.</td></tr>
+          <tr><td>Legal / Risk</td><td>Serious, readable, trustworthy.</td><td>Use minimal Page Hero Parallax only; no immersive stage.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="home">
+      <h2>Home Page Spec</h2>
+      <table>
+        <thead><tr><th>Order</th><th>Fizens base</th><th>Final layout + copy</th><th>Assets</th><th>Animation</th><th>CTA/regulatory</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>New</td><td><strong>RiskDisclosureBar</strong><br>Copy: `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`<br>Link: `อ่านคำเตือนความเสี่ยง` → `/legal/risk-disclosure`.</td><td>Shield/warning icon from Framer icon set or Phosphor.</td><td>Sticky top; no entrance delay; height 42 desktop / auto mobile. On Home desktop, let hero sit under bar with 24px breathing room.</td><td>Market-standard broker disclosure, not Thai SEC positioning.</td></tr>
+          <tr><td>1</td><td>HeroSection</td><td><strong>Premium Trading Hero</strong><br>Eyebrow: `BESTONFX PRIVATE MARKET ACCESS`<br>H1: `เทรด Forex/CFD ด้วยระบบที่โปร่งใส และทีมดูแลที่เข้าใจนักเทรดไทย`<br>Sub: `เปิดบัญชีได้ง่าย พร้อมช่องทาง LINE OA สำหรับคุยกับ admin เรื่องขั้นตอนบัญชี เอกสาร แพลตฟอร์ม และข้อมูลทั่วไปก่อนเริ่มใช้งาน`.<br>Micro trust row: `International regulator proof pending` / `Thai admin support` / `DX ecosystem`.</td><td>Hero device mockup: Spline 3D trading terminal shell + Higgsfield cinematic still background. Do not show real spreads/license numbers.</td><td>Hero Device Bloom-Reveal + Cursor-Tracked Depth + Immersive Scroll Stage. Above the fold: device opacity 0→1, y 56→0, scale .9→1. On scroll first 45vh: title y 0→-24, device y 0→-54, glow opacity .42→.18.</td><td>Primary `เปิดบัญชี` → account URL pending. Secondary `ทัก LINE OA ติดต่อ admin` → LINE OA URL pending. No public deposit CTA.</td></tr>
+          <tr><td>2</td><td>AboutSection/BenefitSection</td><td><strong>Trust Stack</strong><br>Title: `ความน่าเชื่อถือเริ่มจากข้อมูลที่ไม่ทำให้เข้าใจผิด`<br>Cards: Risk warning, verified conditions, Thai support, DX Academy, DX Trade education-only, DX Exclusive placeholder.</td><td>Abstract compliance ledger cards; no testimonials.</td><td>Cinematic Fade-Rise, stagger .08s.</td><td>No rankings/reviews. DX claims need approval.</td></tr>
+          <tr><td>3</td><td>PricingSection</td><td><strong>Account Path Selector</strong><br>Title: `เลือกบัญชีจากต้นทุน วิธีเทรด และความเสี่ยงที่รับได้`<br>Cards: Standard / Pro / ECN as placeholders only. Each value: `รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่`.</td><td>Workshop segmented selector + account comparison table.</td><td>Fade-Rise. Toggle variant change .24s.</td><td>No spread/leverage/commission until approved.</td></tr>
+          <tr><td>4</td><td>FeaturesSection</td><td><strong>Markets Preview</strong><br>Title: `ตลาดหลักที่นักเทรดไทยติดตาม พร้อมข้อมูลความเสี่ยงก่อนตัดสินใจ`<br>Tabs: Forex, Metals, Indices, Commodities, Crypto CFDs. Copy: education-level, no recommendation.</td><td>Data cards with abstract charts; Spline mini market orbit optional.</td><td>Immersive Scroll Stage: market tabs sticky left, chart cards parallax right. Card y 72→0→-44; opacity 0→1→.65; stagger .1s.</td><td>Crypto CFDs flagged high-risk; verify product availability.</td></tr>
+          <tr><td>5</td><td>AdditionSection</td><td><strong>Trading Tools Grid</strong><br>Cards: Position size calculator, margin/risk explainer, economic calendar, platform guides, AI help mock, LINE support.</td><td>Workshop calculators with demo labels.</td><td>Sticky Stack or asym bento fade-rise.</td><td>Tools are educational, not advice.</td></tr>
+          <tr><td>6</td><td>Overview repurpose</td><td><strong>DX Ecosystem Strip</strong><br>Copy: `เรียนรู้กับ DX Academy, ติดตามมุมมองตลาดใน DX Trade, และต่อยอดสู่บริการระดับ VIP ผ่าน DX Exclusive เมื่อข้อมูลได้รับการอนุมัติ`.</td><td>3-panel ecosystem cards with Thai-first labels.</td><td>Horizontal parallax y -8%/8%; stagger .1s.</td><td>DX Trade cannot imply signal accuracy or profit.</td></tr>
+          <tr><td>7</td><td>Contact/CTA</td><td><strong>LINE Support CTA</strong><br>Title: `ทัก LINE OA เพื่อคุยกับ admin ก่อนเปิดบัญชี`<br>Sub: `สอบถามขั้นตอนบัญชี เอกสาร แพลตฟอร์ม และข้อมูลทั่วไป โดยไม่ให้คำแนะนำซื้อขายเฉพาะบุคคล`.</td><td>LINE QR placeholder, chat mockup.</td><td>Chat card parallax y 42→-24 across section; QR pulse opacity .78→1 every 2.4s; button hover scale 1→1.025.</td><td>Primary LINE OA. Secondary small text link `เปิดบัญชี`.</td></tr>
+          <tr><td>8</td><td>New / Pricing derivative</td><td><strong>IB Partner Preview</strong><br>Title: `Partner program ที่ต้องชัดเรื่องเงื่อนไขก่อนพูดเรื่องรายได้`<br>Use demo estimator with placeholder rate.</td><td>Workshop IBCommissionEstimatorMock.</td><td>Counter disabled until real data. Demo inputs animate on focus only.</td><td>No guaranteed income.</td></tr>
+          <tr><td>9</td><td>FAQSection</td><td><strong>FAQ</strong><br>Questions: account docs, risk, funding information placeholder, platform, LINE support, IB, DX Trade, legal/regulatory status placeholder.</td><td>Reuse Fizens FAQ accordion.</td><td>Accordion variant .22s, height auto, opacity .85→1.</td><td>Every answer touching trading includes warning or link.</td></tr>
+          <tr><td>10</td><td>Footer</td><td><strong>Legal Footer</strong><br>Include company/legal placeholder, international regulator/license placeholder, risk warning, support email, LINE, policy links, no template credits/purchase links on production preview.</td><td>Logo wordmark and compact risk seal.</td><td>No decorative motion.</td><td>Legal/regulator copy needs D001.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="pages">
+      <h2>All Other Pages Spec</h2>
+      <table>
+        <thead><tr><th>BestonFX page</th><th>Fizens base</th><th>Sections to build</th><th>Copy direction</th><th>Assets/animation</th><th>Regulatory flags</th></tr></thead>
+        <tbody>
+          <tr><td>Why BestonFX</td><td>About</td><td>Hero, trust principles, process timeline, DX ecosystem, regulator proof slots, support process, footer.</td><td>`สร้างบนหลักการ: โปร่งใส ตรวจสอบได้ ดูแลจริง`.</td><td>Page Hero Parallax + Sticky Stack Trust Cards + timeline fade-rise.</td><td>Regulatory/entity wording open.</td></tr>
+          <tr><td>Accounts</td><td>Pricing</td><td>Hero, account selector, placeholder comparison table, cost explainer, risk note, FAQ.</td><td>`เลือกบัญชีจากต้นทุน วิธีเทรด และความเสี่ยงที่รับได้`.</td><td>Page Hero Parallax + plan-card variant transitions; replace prices with placeholders.</td><td>Spread/leverage/commission blocked by D002.</td></tr>
+          <tr><td>Markets</td><td>Features</td><td>Hero, market tabs, risk matrix, product education cards, liquidity/session guide.</td><td>`เข้าถึงตลาดสำคัญ พร้อมเข้าใจความเสี่ยงของแต่ละสินทรัพย์`.</td><td>Immersive Scroll Stage + chart cards with parallax; no live data.</td><td>Crypto CFDs, leverage wording needs review.</td></tr>
+          <tr><td>Tools</td><td>Integration + Addition</td><td>Hero, tool grid, calculator mock, economic calendar placeholder, AI help rules.</td><td>`เครื่องมือช่วยวางแผน ไม่ใช่คำแนะนำการลงทุน`.</td><td>Page Hero Parallax + Workshop calculator cursor-depth desktop only.</td><td>No accuracy/profit claims.</td></tr>
+          <tr><td>Partners</td><td>Pricing + Contact</td><td>Hero, partner path, IB estimator mock, approved-media process, LINE partner manager CTA, FAQ.</td><td>`สร้างธุรกิจแนะนำลูกค้าแบบโปร่งใส พร้อมสื่อที่ผ่านการอนุมัติ`.</td><td>Step timeline scroll; estimator mock; no animated earnings counter.</td><td>No guaranteed IB income; D004 required.</td></tr>
+          <tr><td>Support</td><td>Contact</td><td>Hero, LINE CTA, contact form, help categories, complaint/escalation route, AI bot limits.</td><td>`ทัก LINE OA เพื่อคุยกับ admin ก่อนเปิดบัญชี`.</td><td>Chat mockup parallax, QR pulse, simple form.</td><td>No personalized trading advice; SLA D006.</td></tr>
+          <tr><td>Platform Download</td><td>Download</td><td>Hero, MT4/MT5 download cards, guide links, device compatibility, risk note.</td><td>`ดาวน์โหลดแพลตฟอร์มหลังยืนยันบัญชีและเงื่อนไข`.</td><td>Page Hero Parallax + device mockups from Craftwork or Spline.</td><td>Platform availability needs approval.</td></tr>
+          <tr><td>Education / Articles</td><td>Articles + Article Slug</td><td>Blog index, category filters, article detail, related posts, risk banner.</td><td>Thai education articles: risk, platform guides, market basics. Avoid trade calls.</td><td>CMS cards; article hero images via Higgsfield.</td><td>Every post broker-market reviewed.</td></tr>
+          <tr><td>Risk Disclosure</td><td>Terms/Privacy text layout</td><td>Hero, risk categories, leverage examples with placeholders, user acknowledgement CTA.</td><td>Use market-standard broker risk disclosure and legal-approved content only.</td><td>Plain document layout; minimal hero parallax only.</td><td>Legal review mandatory.</td></tr>
+          <tr><td>Terms / Privacy</td><td>Terms / Privacy</td><td>Legal text only, no growth CTA, no template owner names.</td><td>Replace Intelly/Kota with legal-approved BestonFX entity placeholder.</td><td>Static document.</td><td>D001 + PDPA review.</td></tr>
+          <tr><td>404</td><td>404</td><td>Error message, Home, LINE, Support links.</td><td>`หน้านี้ยังไม่พร้อมใช้งาน`.</td><td>Small fade-in only.</td><td>Safe.</td></tr>
+          <tr><td>Remove/Hide</td><td>Changelog, team, jobs, template overview, auth pages</td><td>Do not publish in POC nav.</td><td>N/A.</td><td>N/A.</td><td>Avoid unverified team/jobs/auth scope.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="assets">
+      <h2>Asset Generation Plan</h2>
+      <table>
+        <thead><tr><th>Asset</th><th>Type/tool</th><th>Prompt/spec</th><th>Dimensions/format</th><th>Placement</th></tr></thead>
+        <tbody>
+          <tr><td>Hero trading command center</td><td>Higgsfield still + Spline shell</td><td>`Cinematic Thai fintech trading command center, dark navy private banking interior, matte glass trading terminal, gold micro highlights, blue data accents only, no profit numbers, no real broker license text, 85mm lens, f/2.0, cool twilight lighting, asymmetric 1/3 composition --brand:dx-fintech --thai-primary --no-stock-photo --no-neon --quality 4k`</td><td>2400x1600 WebP + Spline embed</td><td>Home hero right</td></tr>
+          <tr><td>Parallax depth layers</td><td>Higgsfield still slices / Framer layers</td><td>Create 3 transparent PNG/WebP layers: background trading-room glow, mid glass dashboard planes, foreground gold grid/candlestick fragments. No readable numbers, no fake license text.</td><td>3x 2400x1600 WebP/PNG alpha</td><td>Home hero, Markets, Why hero</td></tr>
+          <tr><td>Abstract risk ledger</td><td>Higgsfield image</td><td>`Close-up premium financial risk ledger UI, Thai labels as abstract blocks not readable text, navy surface, champagne-gold rule lines, blue chart accent, institutional, no numbers implying performance, no logos`</td><td>1600x1000 WebP</td><td>Trust Stack</td></tr>
+          <tr><td>Market cards</td><td>Workshop/Craftwork UI cards</td><td>Search Craftwork: `dark fintech dashboard cards`, `trading app mockup`, `premium device mockup`.</td><td>SVG/PNG/Figma/Framer asset</td><td>Markets + Tools</td></tr>
+          <tr><td>LINE chat mock</td><td>Workshop component</td><td>Editable chat bubbles, QR placeholder, LINE green accents only, no advice copy.</td><td>Framer component</td><td>Home + Support</td></tr>
+          <tr><td>IB estimator mock</td><td>Workshop component</td><td>Inputs: lots, symbol group, placeholder rate. Output always demo-labeled and contains disclaimer.</td><td>Framer component</td><td>Partners + Home</td></tr>
+          <tr><td>DX ecosystem panels</td><td>Higgsfield/Spline optional</td><td>Three premium cards: Academy, Trade, Exclusive. Abstract icons only; no performance claims.</td><td>1200x900 WebP or Framer cards</td><td>Home + Why</td></tr>
+          <tr><td>Article hero images</td><td>Higgsfield GPT Image 2 / Soul Location</td><td>Thai trading education editorial stills, no faces unless needed, no fake dashboards, navy/gold/blue palette.</td><td>1200x630 WebP</td><td>Articles CMS</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="components">
+      <h2>Component Sourcing Plan</h2>
+      <table>
+        <thead><tr><th>Component</th><th>Build/source path</th><th>Workshop brief/search</th><th>Unframer use?</th></tr></thead>
+        <tbody>
+          <tr><td>RiskDisclosureBar</td><td>Workshop</td><td>Sticky compact broker risk bar with icon, amber accent, no close button; phrase as general CFD risk, not Thai SEC compliance.</td><td>No.</td></tr>
+          <tr><td>HeroDeviceDepth</td><td>Workshop + Spline embed</td><td>3D tilt device mockup, cursor-tracked depth, reduced-motion fallback.</td><td>No for POC; export later only if rebuilding in React.</td></tr>
+          <tr><td>ImmersiveScrollStage</td><td>Framer native + Workshop helper if needed</td><td>Sticky 100vh visual stage, 180vh wrapper, foreground copy/cards scroll through with opacity keyframes.</td><td>No.</td></tr>
+          <tr><td>AccountPathSelector</td><td>Workshop</td><td>Segmented account cards with placeholder rows and compliance notes.</td><td>No.</td></tr>
+          <tr><td>MarketTabs</td><td>Reuse Fizens feature cards + variants</td><td>Tabs: Forex/Metals/Indices/Commodities/Crypto CFDs, no live data.</td><td>No.</td></tr>
+          <tr><td>IBEstimatorMock</td><td>Workshop</td><td>Calculator UI, demo-only output, no guaranteed earnings.</td><td>No.</td></tr>
+          <tr><td>Article cards</td><td>Reuse Fizens CMS</td><td>Thai article cards with risk category tags.</td><td>Maybe later for Next.js rebuild.</td></tr>
+          <tr><td>Craftwork assets</td><td>Craftwork MCP</td><td>Search mockups, fintech UI kits, 3D abstract finance elements.</td><td>No.</td></tr>
+          <tr><td>Framer University patterns</td><td>Manual Framer native</td><td>Use page transitions and scroll transform lessons.</td><td>No.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="copy">
+      <h2>Copywriting Review</h2>
+      <table>
+        <thead><tr><th>Page</th><th>Keep</th><th>Rewrite/add</th><th>Remove</th><th>Regulatory/market note</th></tr></thead>
+        <tbody>
+          <tr><td>Home</td><td>CTA rhythm and visual section cadence only.</td><td>Thai-first broker hero, `เปิดบัญชี`, `ทัก LINE OA ติดต่อ admin`, regulator proof slots, DX ecosystem.</td><td>Millions users, 140 countries, wealth grow, testimonials, star ratings, deposit CTA.</td><td>Use market-standard risk warning near CTA.</td></tr>
+          <tr><td>Why</td><td>About page image/text cadence.</td><td>Transparency, auditability, support process, international regulator/entity placeholder.</td><td>Fake reviews.</td><td>D001 blocks final legal wording.</td></tr>
+          <tr><td>Accounts</td><td>Pricing card layout.</td><td>Account condition placeholders and educational comparison.</td><td>$0/$20/$40 SaaS pricing.</td><td>D002 blocks real values.</td></tr>
+          <tr><td>Markets</td><td>Feature grid skeleton.</td><td>Market education + risk matrix.</td><td>Investment tracking/savings/debt copy.</td><td>No recommendations or profit framing.</td></tr>
+          <tr><td>Tools</td><td>Integration grid layout.</td><td>Risk calculators, calendar, guides, AI help limits.</td><td>Bank sync/auto finance copy.</td><td>Educational only.</td></tr>
+          <tr><td>Partners</td><td>Plan-card hierarchy.</td><td>Partner process, approved media, demo estimator.</td><td>Any earning promise.</td><td>D004 required.</td></tr>
+          <tr><td>Support</td><td>Contact form fields.</td><td>LINE-first support categories and complaint path.</td><td>Generic newsletter.</td><td>No personalized advice.</td></tr>
+          <tr><td>Articles</td><td>CMS/filter/card system.</td><td>Thai education content.</td><td>Stock picks, "grow wealth", investment advice.</td><td>Review every article.</td></tr>
+          <tr><td>Legal</td><td>Text-page layout.</td><td>Legal-approved BestonFX terms/privacy/risk.</td><td>Intelly/Kota/financial freedom CTA.</td><td>Legal sign-off mandatory.</td></tr>
+        </tbody>
+      </table>
+      <div class="card risk">
+        <strong>Banned phrasing:</strong> กำไรแน่นอน, ไม่ขาดทุน, ไร้ความเสี่ยง, risk-free, guaranteed profit, win rate 100%, แม่น 100%, รายได้แน่นอน, รวยเร็ว, เปลี่ยนชีวิต, อันดับ 1, ดีที่สุด. Thai SEC wording is out of scope unless legal later asks for it; keep only broker-market disclosure and international regulator proof.
+      </div>
+    </section>
+
+    <section id="build">
+      <h2>Claude Code Build Sequence</h2>
+      <table>
+        <thead><tr><th>#</th><th>Skill</th><th>MCP/tool</th><th>Action</th><th>Dependency</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>bestonfx-framer-build-sop</code></td><td>Framer UI</td><td>Duplicate Fizens, rename POC, confirm dark navy/gold vs repo light-blue conflict.</td><td>Founder direction.</td></tr>
+          <tr><td>2</td><td><code>framer-handoff</code></td><td>Framer MCP</td><td>Read project XML/pages/components, save snapshot, do not edit.</td><td>MCP connected.</td></tr>
+          <tr><td>3</td><td><code>international-forex-broker-market-compliance</code></td><td>Framer MCP</td><td>Find and tag risky Fizens copy/template links; replace Thai SEC framing with international broker-market risk disclosure.</td><td>Step 2.</td></tr>
+          <tr><td>4</td><td><code>aesthetic-direction</code></td><td>Framer styles</td><td>Create/replace tokens: navy surfaces, gold accent, blue data accent, Prompt font.</td><td>Direction confirmed.</td></tr>
+          <tr><td>5</td><td><code>dx-visual-prompt-engineer</code></td><td>Higgsfield/Spline</td><td>Generate hero and abstract trust/market assets.</td><td>Asset prompts approved.</td></tr>
+          <tr><td>6</td><td><code>craftwork-assets</code></td><td>Craftwork MCP</td><td>Source device mockups/UI kits if generated assets are weak.</td><td>Craftwork auth.</td></tr>
+          <tr><td>7</td><td><code>bestonfx-framer-build-sop</code></td><td>Workshop</td><td>Build missing components in order: risk bar, immersive hero, trust, account selector, markets, tools, LINE, IB, AI bot.</td><td>Tokens + assets.</td></tr>
+          <tr><td>8</td><td><code>framer-handoff</code></td><td>Framer MCP</td><td>Replace Home sections, wire only `เปิดบัญชี` and `ทัก LINE OA ติดต่อ admin`, then apply scroll/parallax effects.</td><td>Components ready.</td></tr>
+          <tr><td>9</td><td><code>international-forex-broker-market-compliance</code></td><td>Framer MCP</td><td>Build other pages and legal placeholders; risk warning on claim-bearing pages.</td><td>Home stable.</td></tr>
+          <tr><td>10</td><td><code>ui-ux-pro-max</code></td><td>Framer preview/browser</td><td>Breakpoint QA, reduced motion, CTA path check, performance budget.</td><td>All pages built.</td></tr>
+          <tr><td>11</td><td><code>bestonfx-deploy-checklist</code></td><td>Framer publish</td><td>Publish preview only after compliance pass; record open decisions.</td><td>Legal/founder review.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="qa">
+      <h2>QA & Conversion Checklist</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Conversion</h3>
+          <ul>
+            <li>Hero primary CTA visible within first viewport desktop/mobile.</li>
+            <li>Primary CTA label is exactly `เปิดบัญชี`.</li>
+            <li>Secondary CTA label is exactly `ทัก LINE OA ติดต่อ admin`.</li>
+            <li>No public deposit CTA in nav, hero, sticky bar, or footer.</li>
+            <li>Every page has one primary CTA and one support fallback.</li>
+            <li>Footer links route to Home, Accounts, Markets, Tools, Partners, Support, Risk Disclosure, Terms, Privacy.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Regulatory / Market</h3>
+          <ul>
+            <li>Risk warning appears near first CTA and in footer as market-standard broker disclosure.</li>
+            <li>International regulator/license proof is shown only when entity and license number are approved.</li>
+            <li>No fake reviews, fake ratings, fake user counts, fake awards.</li>
+            <li>No profit, risk-free, guaranteed signal, guaranteed IB income language.</li>
+            <li>All unverified terms use `รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่`.</li>
+            <li>Legal/entity/regulatory copy marked D001 until approved.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Responsive</h3>
+          <ul>
+            <li>Check 320, 375, 390, 430, 768, 1024, 1440 widths.</li>
+            <li>No horizontal scroll.</li>
+            <li>Thai text wraps cleanly; no clipped CTA labels.</li>
+            <li>Floating bot does not cover risk bar, LINE CTA, or footer links.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Performance</h3>
+          <ul>
+            <li>Animate transform/opacity only.</li>
+            <li>Hero media under 350KB WebP poster; Spline lazy/click-to-load on mobile.</li>
+            <li>No continuous blur on scrolling containers.</li>
+            <li>Only Home and Markets may use full Immersive Scroll Stage; other pages use Page Hero Parallax + light reveals.</li>
+            <li>Reduced-motion disables parallax and cursor tracking.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks">
+      <h2>Risks & Compliance Flags</h2>
+      <table>
+        <thead><tr><th>Rank</th><th>Risk</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Brand direction conflict: repo says light-blue; latest brief says dark navy/gold.</td><td>Founder confirms one direction before canvas edits. If latest wins, update `DESIGN.md`, `docs/framer-poc-map.md`, and tokens later.</td></tr>
+          <tr><td>2</td><td>Unverified international regulatory/entity/account facts.</td><td>Use placeholder; legal review before publish. Do not cite Thai SEC as controlling authority.</td></tr>
+          <tr><td>3</td><td>Fizens template contains fake stats/testimonials and wealth-growth language.</td><td>Delete all testimonial/statics/template purchase components before stakeholder preview.</td></tr>
+          <tr><td>4</td><td>DX Trade may be interpreted as signal/performance promise.</td><td>Frame as education/market commentary only unless compliance approves exact wording.</td></tr>
+          <tr><td>5</td><td>Heavy motion/3D can hurt mobile performance and trust.</td><td>Use wow scroll/parallax on every page, but reserve full immersive stage for Home/Markets; static poster on mobile/reduced-motion.</td></tr>
+          <tr><td>6</td><td>Reference clip scope can be over-applied.</td><td>Borrow only scroll animation/effect and parallax language; do not borrow copy/content/product structure.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="open">
+      <h2>Open Questions</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Founder decision</th><th>Blocks</th></tr></thead>
+        <tbody>
+          <tr><td>D0</td><td>Confirm dark navy + gold overrides repo light royal-blue direction?</td><td>All visual edits.</td></tr>
+          <tr><td>D1</td><td>International legal/regulatory entity wording and approved license statements?</td><td>Why, footer, legal, trust cards.</td></tr>
+          <tr><td>D2</td><td>Account types, spreads, leverage, commission, min deposit, platform conditions?</td><td>Accounts, Hero, Markets.</td></tr>
+          <tr><td>D3</td><td>Allowed DX Trade/DX Academy/DX Exclusive copy?</td><td>DX ecosystem strip.</td></tr>
+          <tr><td>D4</td><td>IB commission model and allowed partner claims?</td><td>Partners, IB estimator.</td></tr>
+          <tr><td>D5</td><td>Account-opening URL and LINE OA URL?</td><td>Hero/nav conversion architecture.</td></tr>
+          <tr><td>D6</td><td>Support hours, admin handoff script, escalation route?</td><td>Support/LINE CTA.</td></tr>
+          <tr><td>D7</td><td>Thai-only launch or Thai + English?</td><td>CMS/localization scope.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sources">
+      <h2>Sources + Confidence</h2>
+      <table>
+        <thead><tr><th>Claim</th><th>Source</th><th>Confidence</th></tr></thead>
+        <tbody>
+          <tr><td>Fizens page/content inventory</td><td><a href="https://fizens.framer.ai/">Fizens live site</a>; repo `docs/framer-poc-map.md`; Playwright screenshot/snapshot.</td><td>High for page/section structure; medium for internal component names without live MCP XML.</td></tr>
+          <tr><td>Repo product facts and compliance warning</td><td>Local repo `README.md`, `docs/plan.md`, `docs/product-brief.md`, `docs/compliance-copy-rules.md`.</td><td>High.</td></tr>
+          <tr><td>Framer Workshop creates advanced customizable components via prompts and property controls</td><td><a href="https://www.framer.com/workshop/">Framer Workshop docs</a> and <a href="https://www.framer.com/marketplace/plugins/workshop/?via=julesvcode">Workshop Marketplace</a>.</td><td>High.</td></tr>
+          <tr><td>Framer Scroll Transform supports position/scale/rotation/opacity mapped to scroll</td><td><a href="https://www.framer.com/academy/lessons/framer-animations-scroll-transform">Framer Academy Scroll Transform</a>.</td><td>High.</td></tr>
+          <tr><td>Framer page transitions can be set globally from Effects</td><td><a href="https://framer.university/blog/how-to-create-smooth-page-transitions-in-framer">Framer University page transitions</a>; <a href="https://www.framer.com/academy/lessons/page-effects">Framer Academy page effects</a>.</td><td>Medium-high.</td></tr>
+          <tr><td>Framer MCP plugin exposes project XML and update capabilities</td><td><a href="https://www.framer.com/marketplace/plugins/mcp//">Framer Marketplace MCP plugin</a>; note: marketplace states it is not official.</td><td>Medium.</td></tr>
+          <tr><td>Craftwork MCP provides curated 2D/3D/mockup/UI assets for agents</td><td><a href="https://craftwork.design/mcp">Craftwork MCP</a>.</td><td>High.</td></tr>
+          <tr><td>Unframer exports Framer components for React frameworks</td><td><a href="https://github.com/remorses/unframer">Unframer GitHub</a>.</td><td>Medium-high.</td></tr>
+          <tr><td>Higgsfield CLI/MCP supports image/video, Marketing Studio, model catalog, uploads, generation jobs</td><td><a href="https://higgsfield.ai/cli">Higgsfield CLI</a>; local `higgsfield-generate` skill.</td><td>High.</td></tr>
+          <tr><td>Spline can embed interactive 3D in Framer via Embed URL</td><td><a href="https://docs.spline.design/integrations/integrating-with-framer">Spline docs: Integrating with Framer</a>.</td><td>High.</td></tr>
+          <tr><td>Thai-market broker pages commonly use international regulator/license proof and risk warnings near CTAs</td><td><a href="https://www.exness.com/th/regulation/">Exness Thailand regulation</a>; <a href="https://www.exness.com/th/client-protection/">Exness client protection</a>.</td><td>High for Exness behavior; medium for applying as BestonFX pattern until entity confirmed.</td></tr>
+          <tr><td>XM Thailand uses `เปิดบัญชี` CTAs with repeated Forex/CFD risk warnings and publishes retail loss-risk wording</td><td><a href="https://www.xm.com/th/about">XM Thailand about</a>; <a href="https://www.xm.com/th/analytical-tools">XM Thailand analytical tools</a>.</td><td>High for XM behavior.</td></tr>
+          <tr><td>IUX Thailand/global uses Open Account CTA, regulator/license pages, execution/security proof, and CFD risk warnings</td><td><a href="https://www.iux.com/th">IUX Thailand home</a>; <a href="https://www.iux.com/en/company/regulation">IUX regulation</a>; <a href="https://help.iux.com/th/how-to-open-an-account-mt5/">IUX Thai account guide</a>.</td><td>High for IUX behavior.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="first-action">
+      <h2>Single Recommended First Action</h2>
+      <div class="card callout">
+        <strong>Claude Code should first connect Framer MCP to the duplicated `BestonFX Framer POC v0.1`, export the current page/component XML snapshot, confirm dark navy + gold overrides the repo’s light royal-blue source of truth, then rebuild the Home hero with CTA `เปิดบัญชี` + `ทัก LINE OA ติดต่อ admin` and the Immersive Scroll Stage.</strong>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

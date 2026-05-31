@@ -225,7 +225,6 @@ Before editing Framer or source files, every agent must read:
 5. `DESIGN.md`
 6. `docs/framer-poc-map.md` only for Fizens inventory, not final Home IA
 7. `docs/research/bestonfx-framer-design-craft-playbook-2026-06-01.md` for motion / micro-interaction / Framer-craft / anti-AI-slop specifics
-7. `docs/research/bestonfx-framer-design-craft-playbook-2026-06-01.md` for motion / micro-interaction / Framer-craft / anti-AI-slop specifics
 
 Paste-ready instruction for Cursor/Claude:
 

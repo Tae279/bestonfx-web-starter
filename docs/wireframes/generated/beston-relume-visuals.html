@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>beston - Relume Style Sitemap and Wireframe</title>
+  <script>
+    (function () {
+      var board = new URLSearchParams(window.location.search).get("board");
+      if (board) document.documentElement.dataset.export = board;
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #0040c1;
+      --blue-2: #2563eb;
+      --blue-3: #edf4ff;
+      --line: #06c755;
+      --ink: #101827;
+      --muted: #64748b;
+      --soft: #f7faff;
+      --paper: #ffffff;
+      --border: #dbe6f7;
+      --border-strong: #9ab9fb;
+      --amber: #fff4cf;
+      --amber-text: #8a5a00;
+      --shadow: 0 28px 90px rgba(15, 35, 80, 0.12);
+      --font: Prompt, "Noto Sans Thai", "IBM Plex Sans Thai", "Helvetica Neue", Arial, sans-serif;
+      --mono: "SFMono-Regular", "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 360px;
+      background:
+        radial-gradient(circle at top left, rgba(0, 64, 193, 0.12), transparent 30%),
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+      color: var(--ink);
+      font-family: var(--font);
+    }
+
+    .page-shell {
+      width: min(1720px, calc(100vw - 48px));
+      margin: 32px auto 72px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 30px;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #0065ff, #0034a6);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 14px 34px rgba(0, 64, 193, 0.28);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .meta span {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 8px 12px;
+    }
+
+    .board-stack {
+      display: grid;
+      gap: 32px;
+    }
+
+    .artboard {
+      position: relative;
+      width: 1600px;
+      height: 1000px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        #fff;
+      background-size: 64px 64px;
+      box-shadow: var(--shadow);
+    }
+
+    #accounts {
+      height: 1500px;
+    }
+
+    .board-head {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 52px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.24);
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(16px);
+    }
+
+    .board-title {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .divider {
+      width: 1px;
+      height: 56px;
+      background: var(--border);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .board-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #1f2b45;
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .tool-icon {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--blue);
+      background: #fff;
+    }
+
+    .logo-inline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .logo-inline .mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      font-size: 28px;
+    }
+
+    .node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      min-width: 150px;
+      min-height: 96px;
+      padding: 18px 20px;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 14px 30px rgba(0, 64, 193, 0.08);
+      text-align: center;
+    }
+
+    .node strong {
+      display: block;
+      margin-top: 10px;
+      color: #10203f;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .node small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 10px;
+      font-family: var(--mono);
+    }
+
+    .node-root {
+      top: 152px;
+      left: 670px;
+      width: 260px;
+      height: 92px;
+      min-height: 92px;
+      background: linear-gradient(145deg, #0065ff, #0034a6);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 26px 60px rgba(0, 64, 193, 0.34);
+    }
+
+    .node-root strong {
+      margin-top: 0;
+      color: #fff;
+      font-size: 32px;
+    }
+
+    .node svg {
+      width: 32px;
+      height: 32px;
+      color: var(--blue);
+      stroke-width: 1.8;
+    }
+
+    .node-root svg {
+      color: #fff;
+    }
+
+    .connector {
+      position: absolute;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .connector path {
+      fill: none;
+      stroke: #7f97c4;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .connector circle {
+      fill: #7f97c4;
+    }
+
+    .cluster {
+      position: absolute;
+      border: 1.5px dashed #9ab9fb;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .cluster-label {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 16px;
+      border: 1px solid #9ab9fb;
+      border-radius: 8px;
+      background: #eaf2ff;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 12px;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(0, 64, 193, 0.08);
+    }
+
+    .mini-node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 102px;
+      border: 1px solid #b5cbff;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      text-align: center;
+      color: #12213f;
+      font-weight: 650;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .mini-node svg {
+      width: 30px;
+      height: 30px;
+      color: var(--blue);
+      margin-bottom: 10px;
+      stroke-width: 1.8;
+    }
+
+    .conversion-spine {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      bottom: 76px;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 0 38px;
+      border: 1px solid #b5cbff;
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(237, 244, 255, 0.92), rgba(255, 255, 255, 0.92));
+      box-shadow: 0 20px 48px rgba(0, 64, 193, 0.08);
+    }
+
+    .spine-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--blue);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .spine-path {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      color: #0f1f3d;
+      font-weight: 700;
+    }
+
+    .pill-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #d7e4ff;
+      color: var(--blue);
+      box-shadow: 0 12px 30px rgba(0, 64, 193, 0.12);
+    }
+
+    .line-badge {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--line);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .tiny-note {
+      position: absolute;
+      bottom: 28px;
+      left: 0;
+      right: 0;
+      color: #7a879d;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .wire-shell {
+      position: absolute;
+      top: 118px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 196px 1fr;
+      background: #fff;
+    }
+
+    .wire-index {
+      padding: 28px 18px;
+      border-right: 1px solid var(--border);
+      background: linear-gradient(180deg, #fbfdff, #f3f7ff);
+    }
+
+    .index-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: #233250;
+      font-size: 12px;
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    .index-dot {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .wire-page {
+      position: relative;
+      padding: 0 38px 36px;
+      overflow: hidden;
+    }
+
+    .riskbar {
+      height: 31px;
+      margin: 0 -38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--amber);
+      color: var(--amber-text);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .navline {
+      height: 66px;
+      margin: 0 -38px;
+      padding: 0 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #10203f;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-logo .mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      font-size: 18px;
+    }
+
+    .nav-items {
+      display: flex;
+      gap: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2f3d56;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+      min-width: 128px;
+      border-radius: 999px;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .btn.primary {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 12px 24px rgba(0, 64, 193, 0.22);
+    }
+
+    .hero-wire {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      gap: 38px;
+      padding: 34px 0 20px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-wire h2 {
+      margin-top: 12px;
+      font-size: 40px;
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      color: #101827;
+    }
+
+    .hero-wire p {
+      margin-top: 14px;
+      color: #53627a;
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 22px;
+      color: #657187;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .terminal {
+      height: 250px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 22px 70px rgba(15, 35, 80, 0.14);
+      overflow: hidden;
+    }
+
+    .terminal-inner {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      height: 100%;
+    }
+
+    .terminal-side {
+      border-right: 1px solid var(--border);
+      padding: 16px 12px;
+      background: #f8fbff;
+    }
+
+    .terminal-item {
+      height: 24px;
+      margin-top: 8px;
+      border-radius: 7px;
+      background: #eef4ff;
+    }
+
+    .terminal-main {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr 235px;
+      gap: 16px;
+    }
+
+    .terminal-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .chart {
+      height: 152px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(178deg, transparent 0 46%, rgba(0, 64, 193, 0.12) 47%, transparent 49%),
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(148, 163, 184, 0.16) 19px 20px),
+        repeating-linear-gradient(0deg, transparent 0 25px, rgba(148, 163, 184, 0.16) 26px 27px);
+      position: relative;
+    }
+
+    .chart:after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 82px;
+      height: 2px;
+      background: linear-gradient(90deg, #ef4444, #10b981, #0ea5e9);
+      transform: skewY(-10deg);
+      box-shadow: 28px -26px 0 -1px #10b981, 72px 18px 0 -1px #ef4444, 126px -8px 0 -1px #10b981;
+    }
+
+    .section-label {
+      margin: 16px 0 10px;
+      color: var(--blue);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .accounts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .account-card {
+      position: relative;
+      min-height: 164px;
+      padding: 19px 22px 16px;
+      border: 1.5px solid #b8ccff;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(0, 64, 193, 0.08);
+    }
+
+    .account-card.recommended {
+      border-color: var(--blue);
+      box-shadow: 0 18px 44px rgba(0, 64, 193, 0.15);
+    }
+
+    .rec-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 10px;
+      font-family: var(--mono);
+      font-weight: 800;
+    }
+
+    .account-card h3 {
+      margin-bottom: 4px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .account-card p {
+      margin-bottom: 12px;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .spec-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 22px;
+      border-bottom: 1px solid #edf2fb;
+      color: #25324b;
+      font-size: 11px;
+    }
+
+    .verify {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .mini-btn {
+      display: grid;
+      place-items: center;
+      margin-top: 14px;
+      height: 30px;
+      border-radius: 7px;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .recommended .mini-btn {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .reg-strip,
+    .process-row,
+    .benefit-row,
+    .faq-box,
+    .cta-banner,
+    .footer-wire {
+      margin-top: 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .reg-strip {
+      height: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .badge-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #192741;
+      font-size: 13px;
+      font-weight: 800;
+      border-right: 1px solid var(--border);
+    }
+
+    .badge-cell:last-child {
+      border-right: 0;
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      min-height: 68px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 22px;
+      border-right: 1px solid var(--border);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step-no {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .step h3,
+    .benefit h3 {
+      color: var(--blue);
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .step p,
+    .benefit p {
+      color: #69778d;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .benefit-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 10px;
+      border: 0;
+      background: transparent;
+    }
+
+    .benefit {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: center;
+      min-height: 70px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .benefit-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--blue-3);
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .benefit-icon.line {
+      color: #fff;
+      background: var(--line);
+      font-size: 11px;
+    }
+
+    .faq-box {
+      padding: 10px 16px;
+    }
+
+    .faq-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 28px;
+      border-bottom: 1px solid #edf2fb;
+      color: #1f2d45;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .faq-line:last-child {
+      border-bottom: 0;
+    }
+
+    .cta-banner {
+      height: 76px;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 0 28px;
+      background: linear-gradient(90deg, #edf4ff, #ffffff);
+    }
+
+    .cta-banner h3 {
+      color: var(--blue);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-banner p {
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    .footer-wire {
+      height: 90px;
+      display: grid;
+      grid-template-columns: 220px repeat(5, 1fr);
+      gap: 20px;
+      padding: 18px 0 0;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .footer-wire strong {
+      display: block;
+      color: #10203f;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .chat-bubble {
+      position: absolute;
+      right: 42px;
+      bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 44px;
+      padding: 0 16px 0 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 14px 36px rgba(15, 35, 80, 0.15);
+      color: #182640;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .chat-bubble .line-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      font-size: 9px;
+    }
+
+    .svg-24 {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    html[data-export] body {
+      background: #fff;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    html[data-export] .page-shell {
+      width: 1600px;
+      margin: 0;
+    }
+
+    html[data-export] .topbar {
+      display: none;
+    }
+
+    html[data-export] .board-stack {
+      display: block;
+    }
+
+    html[data-export] .artboard {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    html[data-export="sitemap"] .artboard:not(#sitemap),
+    html[data-export="accounts"] .artboard:not(#accounts) {
+      display: none;
+    }
+
+    @media (max-width: 1648px) {
+      .artboard {
+        transform: scale(calc((100vw - 48px) / 1600));
+        transform-origin: top left;
+      }
+
+      .board-stack {
+        gap: 0;
+      }
+
+      .artboard + .artboard {
+        margin-top: calc(-1000px + (100vw - 48px) / 1600 * 1000px + 32px);
+      }
+
+      html[data-export] .artboard {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand"><span class="mark">b</span><span>beston</span></div>
+      <div class="meta">
+        <span>Relume-style visual source</span>
+        <span>Fizens light blue</span>
+        <span>Compliance-safe draft</span>
+      </div>
+    </header>
+
+    <div class="board-stack">
+      <section class="artboard" id="sitemap" aria-label="Beston sitemap">
+        <div class="board-head">
+          <div class="board-title">
+            <div class="logo-inline"><span class="mark">b</span><span>beston</span></div>
+            <div class="divider"></div>
+            <div>
+              <h1>BestonFX Public Website</h1>
+              <p class="subtitle">Sitemap - conversion spine: เปิดบัญชี / LINE @bestonfx</p>
+            </div>
+          </div>
+          <div class="board-tools">
+            <span class="tool-item"><span class="tool-icon">01</span>Planning board</span>
+            <span class="tool-item"><span class="tool-icon">TH</span>Thai-first</span>
+            <span class="tool-item"><span class="tool-icon">v1</span>Wireframe phase</span>
+          </div>
+        </div>
+
+        <svg class="connector" width="1600" height="1000" viewBox="0 0 1600 1000" aria-hidden="true">
+          <path d="M800 244 V292 M800 292 H170 M170 292 V316 M800 292 H320 M320 292 V316 M800 292 H470 M470 292 V316 M800 292 H620 M620 292 V316 M800 292 H770 M770 292 V316 M800 292 H920 M920 292 V316 M800 292 H1070 M1070 292 V316 M800 292 H1220 M1220 292 V316 M800 292 H1370 M1370 292 V316" />
+          <path d="M1370 414 V486 H1450 V538" />
+          <circle cx="170" cy="316" r="4" /><circle cx="320" cy="316" r="4" /><circle cx="470" cy="316" r="4" /><circle cx="620" cy="316" r="4" /><circle cx="770" cy="316" r="4" /><circle cx="920" cy="316" r="4" /><circle cx="1070" cy="316" r="4" /><circle cx="1220" cy="316" r="4" /><circle cx="1370" cy="316" r="4" /><circle cx="1450" cy="538" r="4" />
+        </svg>
+
+        <div class="node node-root">
+          <strong>beston</strong>
+        </div>
+
+        <div class="node" style="left:92px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-5h5v5"/></svg>
+          <strong>Home</strong><small>/</small>
+        </div>
+        <div class="node" style="left:242px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2l-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3z"/></svg>
+          <strong>Why beston</strong><small>/why-bestonfx</small>
+        </div>
+        <div class="node" style="left:392px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-8"/><path d="M22 19V3"/><path d="M2 19h22"/></svg>
+          <strong>Markets</strong><small>/markets</small>
+        </div>
+        <div class="node" style="left:542px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
+          <strong>Accounts</strong><small>/accounts</small>
+        </div>
+        <div class="node" style="left:692px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="m14 7 3-3 3 3-3 3z"/><path d="m5 17 5-5"/><path d="M4 20h6"/><path d="m12 10 2 2 5 5a2.1 2.1 0 0 1-3 3l-5-5-2-2"/></svg>
+          <strong>Tools</strong><small>/tools</small>
+        </div>
+        <div class="node" style="left:842px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="m8 12 3 3 6-6"/><path d="M2 12h5"/><path d="M17 12h5"/><path d="M7 7h10v10H7z"/></svg>
+          <strong>Partners</strong><small>/partners</small>
+        </div>
+        <div class="node" style="left:992px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h2v-8H6a2 2 0 0 0-2 2z"/><path d="M20 13v4a2 2 0 0 1-2 2h-2v-8h2a2 2 0 0 1 2 2z"/></svg>
+          <strong>Support</strong><small>/support</small>
+        </div>
+        <div class="node" style="left:1142px;top:316px;">
+          <svg class="svg-24" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+          <strong>Articles</strong><small>/articles</small>
+        </div>
+        <div class="node" style="left:1368px;top:538px;min-width:150px;min-height:66px;">
+          <strong>Article detail</strong><small>/articles/[slug]</small>
+        </div>
+
+        <div class="cluster" style="left:88px;top:610px;width:760px;height:144px;">
+          <div class="cluster-label">Utility / footer pages</div>
+          <div class="mini-node" style="left:26px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>Risk<br>disclosure</div>
+          <div class="mini-node" style="left:190px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M14 3v5h5"/></svg>Terms</div>
+          <div class="mini-node" style="left:354px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 2.8 7.4 7 9 4.2-1.6 7-4.5 7-9V6z"/><circle cx="12" cy="11" r="2.5"/></svg>Privacy /<br>AML-KYC</div>
+          <div class="mini-node" style="left:518px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg>Regulatory<br>disclosures</div>
+          <div class="mini-node" style="left:646px;top:30px;width:88px;"><svg class="svg-24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 10a4 4 0 0 1 8 0c0 3-4 3-4 6"/><path d="M12 19h.01"/></svg>404</div>
+        </div>
+
+        <div class="cluster" style="left:898px;top:610px;width:612px;height:144px;">
+          <div class="cluster-label">External conversion app - traders.bestonfx.com</div>
+          <div class="mini-node" style="left:56px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2.5 21a6.5 6.5 0 0 1 13 0"/><path d="M19 8v6"/><path d="M16 11h6"/></svg>Register</div>
+          <div class="mini-node" style="left:240px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M14 4h5v16h-5"/></svg>Login</div>
+          <div class="mini-node" style="left:424px;top:30px;"><svg class="svg-24" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-7"/></svg>Demo</div>
+        </div>
+
+        <div class="conversion-spine">
+          <div class="spine-title">
+            <span class="pill-icon"><svg class="svg-24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M21 3l-6 6"/></svg></span>
+            Conversion spine
+          </div>
+          <div class="spine-path">
+            <span class="pill-icon"><svg class="svg-24" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2.5 21a6.5 6.5 0 0 1 13 0"/><path d="M19 8v6"/><path d="M16 11h6"/></svg></span>
+            <span>เปิดบัญชี</span>
+            <span style="color:var(--blue);font-family:var(--mono);">------></span>
+            <span class="line-badge">LINE</span>
+            <span>LINE @bestonfx</span>
+          </div>
+        </div>
+        <p class="tiny-note">Planning artifact. External URLs, license numbers, account conditions, and trading figures require verification before publish.</p>
+      </section>
+
+      <section class="artboard" id="accounts" aria-label="Accounts page wireframe">
+        <div class="board-head">
+          <div class="board-title">
+            <div class="logo-inline"><span class="mark">b</span><span>beston</span></div>
+            <div class="divider"></div>
+            <div>
+              <h1>Accounts Page Wireframe</h1>
+              <p class="subtitle">Route /accounts - conversion hub, MT5, LINE-first support</p>
+            </div>
+          </div>
+          <div class="board-tools">
+            <span class="tool-item"><span class="tool-icon">10</span>Sections</span>
+            <span class="tool-item"><span class="tool-icon">[v]</span>Verify gated</span>
+            <span class="tool-item"><span class="tool-icon">MT5</span>Platform</span>
+          </div>
+        </div>
+
+        <div class="wire-shell">
+          <aside class="wire-index">
+            <div class="index-row"><span class="index-dot">1</span>Risk Bar</div>
+            <div class="index-row"><span class="index-dot">2</span>Navbar</div>
+            <div class="index-row"><span class="index-dot">3</span>SplitHero</div>
+            <div class="index-row"><span class="index-dot">4</span>AccountComparison</div>
+            <div class="index-row"><span class="index-dot">5</span>RegulatoryStrip</div>
+            <div class="index-row"><span class="index-dot">6</span>3-step Process</div>
+            <div class="index-row"><span class="index-dot">7</span>Benefits Grid</div>
+            <div class="index-row"><span class="index-dot">8</span>FAQ Accordion</div>
+            <div class="index-row"><span class="index-dot">9</span>CTA Banner</div>
+            <div class="index-row"><span class="index-dot">10</span>Footer</div>
+          </aside>
+
+          <div class="wire-page">
+            <div class="riskbar">Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ <strong>อ่านเพิ่มเติม</strong></div>
+            <div class="navline">
+              <div class="nav-logo"><span class="mark">b</span><span>bestonFX</span></div>
+              <nav class="nav-items">
+                <span>หน้าหลัก</span><span>ทำไมต้อง beston</span><span>ตลาด</span><span style="color:var(--blue);">บัญชี</span><span>เครื่องมือ</span><span>พาร์ทเนอร์</span><span>ช่วยเหลือ</span><span>บทความ</span>
+              </nav>
+              <div class="nav-actions"><span class="btn" style="min-width:100px;">เข้าสู่ระบบ</span><span class="btn primary">เปิดบัญชีจริง</span></div>
+            </div>
+
+            <div class="hero-wire">
+              <div>
+                <div class="eyebrow">ประเภทบัญชี (Account Types)</div>
+                <h2>เลือกบัญชีที่ใช่<br>สำหรับสไตล์การเทรดของคุณ</h2>
+                <p>เปรียบเทียบเงื่อนไข เลือกบัญชี และเริ่มเทรดบน MT5 ด้วยข้อมูลที่ตรวจสอบได้ก่อนตัดสินใจ</p>
+                <div class="hero-actions"><span class="btn primary">เปิดบัญชีจริง</span><span class="btn">ทดลอง Demo ฟรี</span></div>
+                <div class="trust-row"><span>เปิดบัญชีไว</span><span>ปลอดภัยตามมาตรฐานสากล</span><span>ซัพพอร์ตภาษาไทย</span></div>
+              </div>
+              <div class="terminal">
+                <div class="terminal-inner">
+                  <div class="terminal-side">
+                    <div class="nav-logo" style="font-size:14px;"><span class="mark" style="width:20px;height:20px;border-radius:6px;font-size:12px;">b</span>bestonFX</div>
+                    <div class="terminal-item"></div><div class="terminal-item" style="background:#dbe8ff;"></div><div class="terminal-item"></div><div class="terminal-item"></div><div class="terminal-item"></div>
+                  </div>
+                  <div class="terminal-main">
+                    <div>
+                      <div class="terminal-card" style="height:76px;margin-bottom:12px;">
+                        <div style="height:10px;width:120px;background:#dbe8ff;border-radius:999px;"></div>
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;">
+                          <div style="height:24px;background:#f2f6ff;border-radius:6px;"></div><div style="height:24px;background:#f2f6ff;border-radius:6px;"></div><div style="height:24px;background:#0040c1;border-radius:6px;"></div>
+                        </div>
+                      </div>
+                      <div class="terminal-card" style="height:124px;">
+                        <div style="height:10px;width:96px;background:#dbe8ff;border-radius:999px;margin-bottom:12px;"></div>
+                        <div style="height:14px;background:#f2f6ff;border-radius:5px;margin-bottom:8px;"></div>
+                        <div style="height:14px;background:#f2f6ff;border-radius:5px;margin-bottom:8px;width:88%;"></div>
+                        <div style="height:14px;background:#f2f6ff;border-radius:5px;width:72%;"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="chart"></div>
+                      <div class="terminal-card" style="height:44px;margin-top:12px;color:#64748b;font-size:11px;">Positions - illustrative data only</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-label">AccountComparison - pricing full</div>
+            <div class="accounts-grid">
+              <div class="account-card">
+                <h3>Standard</h3>
+                <p>เหมาะสำหรับผู้เริ่มต้น</p>
+                <div class="spec-row"><span>Spread เริ่มต้น</span><span class="verify">[verify] pips</span></div>
+                <div class="spec-row"><span>Commission</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>ฝากขั้นต่ำ</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>Leverage สูงสุด</span><span class="verify">[verify]</span></div>
+                <div class="mini-btn">เปิดบัญชี Standard</div>
+              </div>
+              <div class="account-card recommended">
+                <div class="rec-tag">แนะนำ (Recommended)</div>
+                <h3>Pro</h3>
+                <p>สำหรับเทรดเดอร์ที่ต้องการเงื่อนไขยืดหยุ่น</p>
+                <div class="spec-row"><span>Spread เริ่มต้น</span><span class="verify">[verify] pips</span></div>
+                <div class="spec-row"><span>Commission</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>ฝากขั้นต่ำ</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>Leverage สูงสุด</span><span class="verify">[verify]</span></div>
+                <div class="mini-btn">เปิดบัญชี Pro</div>
+              </div>
+              <div class="account-card">
+                <h3>ECN</h3>
+                <p>สำหรับผู้มีประสบการณ์และเน้นค่าธรรมเนียม</p>
+                <div class="spec-row"><span>Spread เริ่มต้น</span><span class="verify">[verify] pips</span></div>
+                <div class="spec-row"><span>Commission</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>ฝากขั้นต่ำ</span><span class="verify">[verify]</span></div>
+                <div class="spec-row"><span>Leverage สูงสุด</span><span class="verify">[verify]</span></div>
+                <div class="mini-btn">เปิดบัญชี ECN</div>
+              </div>
+            </div>
+
+            <div style="margin-top:8px;text-align:center;color:#7b879d;font-size:11px;">หมายเหตุ: เงื่อนไขทั้งหมดเป็นข้อมูลที่ต้องยืนยันก่อนเผยแพร่</div>
+
+            <div class="reg-strip">
+              <div class="badge-cell">FSCA <span class="verify">[verify]</span></div>
+              <div class="badge-cell">CySEC <span class="verify">[verify]</span></div>
+              <div class="badge-cell">MSB <span class="verify">[verify]</span></div>
+              <div class="badge-cell">MetaTrader 5 <span class="verify">verified</span></div>
+            </div>
+
+            <div class="process-row">
+              <div class="step"><span class="step-no">1</span><div><h3>สมัคร + ยืนยันตัวตน (KYC)</h3><p>สมัครบัญชีและส่งข้อมูลตามขั้นตอน</p></div></div>
+              <div class="step"><span class="step-no">2</span><div><h3>ฝากเงิน</h3><p>เลือกช่องทางที่สะดวกและปลอดภัย [verify]</p></div></div>
+              <div class="step"><span class="step-no">3</span><div><h3>เริ่มเทรดบน MT5</h3><p>เข้าสู่ตลาดด้วย MetaTrader 5</p></div></div>
+            </div>
+
+            <div class="benefit-row">
+              <div class="benefit"><span class="benefit-icon line">LINE</span><div><h3>ซัพพอร์ตภาษาไทย</h3><p>ทีมงานพร้อมดูแลผ่าน LINE @bestonfx</p></div></div>
+              <div class="benefit"><span class="benefit-icon">S</span><div><h3>ถอนเงินรวดเร็ว ปลอดภัย</h3><p>กระบวนการถอนเงินต้องตรวจสอบได้ทุกขั้นตอน [verify]</p></div></div>
+              <div class="benefit"><span class="benefit-icon">%</span><div><h3>รับ Rebate ตามเงื่อนไข</h3><p>สิทธิประโยชน์ขึ้นกับเงื่อนไขบริษัท [verify]</p></div></div>
+            </div>
+
+            <div class="section-label" style="margin-top:7px;">คำถามที่พบบ่อย (FAQ)</div>
+            <div class="faq-box">
+              <div class="faq-line"><span>ต้องใช้เอกสารอะไรบ้างในการเปิดบัญชี?</span><span>v</span></div>
+              <div class="faq-line"><span>ใช้เวลานานแค่ไหนในการยืนยันตัวตน (KYC)?</span><span>v</span></div>
+              <div class="faq-line"><span>มีค่าธรรมเนียมหรือคอมมิชชั่นหรือไม่?</span><span>v</span></div>
+              <div class="faq-line"><span>สามารถเปลี่ยนประเภทบัญชีได้หรือไม่?</span><span>v</span></div>
+            </div>
+
+            <div class="cta-banner">
+              <div><h3>พร้อมเริ่มต้นการเทรดแล้วหรือยัง?</h3><p>เปิดบัญชีจริงวันนี้ เพื่อเข้าถึงโอกาสในตลาดระดับโลก</p></div>
+              <span class="btn primary">เปิดบัญชีจริง</span>
+              <span class="btn">ทดลองเทรดฟรี</span>
+            </div>
+
+            <div class="footer-wire">
+              <div><strong>bestonFX</strong>เทรดมั่นใจ โปร่งใส และตรวจสอบได้</div>
+              <div><strong>ตลาด</strong>Forex<br>โลหะ<br>ดัชนี</div>
+              <div><strong>บัญชี</strong>ประเภทบัญชี<br>เงื่อนไข<br>ค่าธรรมเนียม</div>
+              <div><strong>เครื่องมือ</strong>ดาวน์โหลด MT5<br>เครื่องคำนวณ</div>
+              <div><strong>ช่วยเหลือ</strong>ศูนย์ช่วยเหลือ<br>ติดต่อเรา</div>
+              <div><strong>บริษัท</strong>เกี่ยวกับเรา<br>พาร์ทเนอร์<br>ข่าวสาร</div>
+            </div>
+            <div class="chat-bubble"><span class="line-badge">LINE</span><span>AI Chat @bestonfx</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

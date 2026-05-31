@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>beston — Wireframe + Copy Validation v4.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0040c1;--blue-light:#eef3ff;--blue-mid:#2b54f5;
+  --navy:#0c1322;--amber:#f59e0b;--green:#16a34a;--red:#dc2626;--line:#06C755;
+  --gray:#56657f;--bg:#f7f9fc;--white:#ffffff;
+  --border:#e5e7eb;--text:#0c1322;--muted:#56657f;
+  --font:'Prompt',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-width:360px;padding-bottom:48px}
+.sec-divider{border:none;border-top:2px solid var(--border);margin:40px 0}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,#0040c1 0%,#001e5e 100%);color:#fff;padding:80px 48px;min-height:460px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.cover .brand-mark{font-size:64px;font-weight:700;letter-spacing:-.04em;line-height:1;background:rgba(255,255,255,.16);width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:24px;margin-bottom:16px}
+.cover h1{font-size:32px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.cover .subtitle{font-size:15px;opacity:.82;margin-bottom:36px}
+.cover-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.cover-stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:16px 22px;min-width:96px}
+.cover-stat .n{font-size:26px;font-weight:700;line-height:1}
+.cover-stat .l{font-size:11px;opacity:.82;margin-top:4px}
+.cover-pages{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:640px}
+.cover-page-badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500}
+.cover-meta{margin-top:28px;font-size:12px;opacity:.62;line-height:1.7}
+
+/* WRAP */
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+/* TOC */
+.toc{background:var(--white);border:1px solid var(--border);border-radius:16px;margin:32px auto;max-width:920px;overflow:hidden;box-shadow:0 8px 30px rgba(13,28,63,.06)}
+.toc-head{background:var(--navy);color:#fff;padding:16px 24px;font-size:14px;font-weight:600}
+.toc-body{padding:20px 24px}
+.toc-section{margin-bottom:16px}
+.toc-section-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.toc-row{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-radius:8px}
+.toc-row:hover{background:var(--blue-light)}
+.toc-row .num{font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:600;min-width:30px}
+.toc-row .name{font-size:13px;flex:1;padding:0 8px}
+.toc-row a{color:inherit;text-decoration:none;flex:1}
+
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:600;font-family:var(--mono);white-space:nowrap}
+.badge-hero{background:#fff3cd;color:#856404}
+.badge-trust{background:#d1e7dd;color:#0a3622}
+.badge-convert{background:#cfe2ff;color:#084298}
+.badge-compare{background:#e2d9f3;color:#432874}
+.badge-filter{background:#fff3cd;color:#664d03}
+.badge-faq{background:#f8d7da;color:#842029}
+.badge-content{background:#d1ecf1;color:#0c5460}
+.badge-nav{background:#e2e3e5;color:#383d41}
+.badge-legal{background:#fde2e2;color:#7a1010}
+.badge-gated{background:#ececec;color:#6b7280}
+
+/* PAGE HEADER */
+.page-hdr{background:var(--navy);color:#fff;padding:20px 24px;border-radius:16px 16px 0 0}
+.page-hdr .pg-num{font-size:10px;opacity:.6;font-family:var(--mono);margin-bottom:4px}
+.page-hdr h2{font-size:22px;font-weight:700}
+.page-hdr .goal{font-size:12px;opacity:.82;margin-top:8px;line-height:1.7}
+.page-hdr .goal b{color:#9ec1ff}
+
+/* SECTION CARD */
+.section-card{background:var(--white);border:1px solid var(--border);border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 4px 16px rgba(13,28,63,.04)}
+.section-head{padding:11px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);background:#f8faff}
+.section-head .sec-id{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--blue)}
+.section-head .sec-title{font-size:14px;font-weight:600;flex:1}
+.section-body{padding:18px}
+.audience-note{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:9px 13px;font-size:12px;margin-bottom:13px}
+.audience-note strong{color:var(--blue)}
+
+/* WIREFRAME BOX */
+.wf-box{border:2px dashed #93c5fd;border-radius:10px;padding:14px;margin-bottom:13px;background:#f8fbff}
+.wf-row{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.wf-block{background:#dbeafe;border:1px solid #93c5fd;border-radius:6px;padding:8px 10px;font-size:11px;font-weight:600;color:#1e3a8a;flex:1;min-width:70px;text-align:center;min-height:34px;display:flex;align-items:center;justify-content:center}
+.wf-block.accent{background:var(--blue);color:#fff;border-color:var(--blue)}
+.wf-block.line{background:var(--line);color:#fff;border-color:var(--line)}
+.wf-block.ghost{background:transparent;border:1.5px solid #93c5fd;color:#1e40af}
+.wf-block.ph{background:#e0e7ff;min-height:64px;font-style:italic;color:#4338ca}
+.wf-block.amber{background:#fff7ed;border-color:#fcd34d;color:#b45309}
+.wf-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;font-family:var(--mono)}
+.wf-heading{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.wf-sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.wf-chip{display:inline-flex;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:600;margin-bottom:6px}
+.wf-chip.blue{background:var(--blue-light);color:var(--blue);border:1px solid #b8caff}
+.wf-chip.amber{background:#fef9c3;color:#713f12;border:1px solid #fde047}
+
+/* COPY TABLE */
+.copy-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}
+.copy-table th{background:#f1f5f9;padding:8px 12px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:2px solid var(--border);font-weight:600}
+.copy-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.copy-table tr:last-child td{border-bottom:none}
+.copy-table tr:hover td{background:#f8faff}
+.copy-table td:first-child{font-weight:600;color:var(--muted);white-space:nowrap;font-size:11px}
+.th-copy{color:var(--navy);font-weight:500}
+.en-copy{color:var(--blue)}
+.status-ok{color:var(--green);font-weight:600;font-family:var(--mono);font-size:10px;white-space:nowrap}
+.status-warn{color:#b45309;font-weight:600;font-family:var(--mono);font-size:10px;white-space:nowrap}
+.status-missing{color:var(--red);font-weight:600;font-family:var(--mono);font-size:10px;white-space:nowrap}
+
+/* NOTES */
+.warn-note{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:10px 13px;font-size:12px;margin-top:10px;display:flex;gap:8px;align-items:flex-start}
+.warn-note::before{content:'⚠';flex-shrink:0}
+.info-note{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 13px;font-size:12px;margin-top:10px;display:flex;gap:8px;align-items:flex-start}
+.info-note::before{content:'ℹ';flex-shrink:0}
+
+/* APPENDIX */
+.appendix-card{background:var(--white);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;overflow:hidden}
+.appendix-head{padding:12px 18px;background:#1e293b;color:#fff;font-size:13px;font-weight:600}
+.appendix-body{padding:18px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.check-item:last-child{border-bottom:none}
+.check-icon{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:2px}
+.check-icon.ok{background:#dcfce7;color:#15803d}
+.check-icon.warn{background:#fef9c3;color:#854d0e}
+.check-icon.miss{background:#fde2e2;color:#b91c1c}
+.check-item .check-text{font-size:12px}
+.check-item .check-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+.page-footer{text-align:center;padding:24px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:600px){.cover{padding:56px 24px}.wf-box [style*="grid-template-columns"]{display:block!important}}
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<div class="cover">
+  <div class="brand-mark">b</div>
+  <div style="font-size:26px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">beston</div>
+  <h1>Wireframe + Copy Validation</h1>
+  <p class="subtitle">Document v4.0 — Full Site (9 pages) · Framer × Fizens handoff</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="n">9</div><div class="l">หน้า</div></div>
+    <div class="cover-stat"><div class="n">18</div><div class="l">Components</div></div>
+    <div class="cover-stat"><div class="n">TH+EN</div><div class="l">ภาษา</div></div>
+    <div class="cover-stat"><div class="n">Light+Blue</div><div class="l">#0040c1</div></div>
+  </div>
+  <div class="cover-pages">
+    <span class="cover-page-badge">Home</span>
+    <span class="cover-page-badge">Why beston</span>
+    <span class="cover-page-badge">Markets</span>
+    <span class="cover-page-badge">Accounts</span>
+    <span class="cover-page-badge">Tools</span>
+    <span class="cover-page-badge">Partners (IB)</span>
+    <span class="cover-page-badge">Support</span>
+    <span class="cover-page-badge">Articles</span>
+    <span class="cover-page-badge">Legal / Risk</span>
+  </div>
+  <p class="cover-meta">จัดทำโดย DX Enterprise · พฤษภาคม 2026 · v4.0<br>Brand: light + royal blue (Fizens-native) + Prompt · gold/dark-navy dropped<br>Copy: Angle 0 approved · ทุกตัวเลข [verify] รอ claim_registry · ไม่มี fake stats/testimonials</p>
+</div>
+
+<!-- ══════════ TOC ══════════ -->
+<div class="wrap" style="margin-top:32px">
+<div class="toc">
+  <div class="toc-head">สารบัญ (Table of Contents)</div>
+  <div class="toc-body">
+    <div class="toc-section">
+      <div class="toc-section-title">หน้าหลัก (Primary · persuade → transact)</div>
+      <div class="toc-row"><span class="num">01</span><a class="name" href="#p-home">Home — /</a><span class="badge badge-convert">Convert</span></div>
+      <div class="toc-row"><span class="num">02</span><a class="name" href="#p-why">Why beston — /why-bestonfx</a><span class="badge badge-trust">Trust</span></div>
+      <div class="toc-row"><span class="num">03</span><a class="name" href="#p-markets">Markets — /markets</a><span class="badge badge-trust">Trust</span></div>
+      <div class="toc-row"><span class="num">04</span><a class="name" href="#p-accounts">Accounts — /accounts</a><span class="badge badge-compare">Compare</span></div>
+      <div class="toc-row"><span class="num">05</span><a class="name" href="#p-tools">Tools — /tools</a><span class="badge badge-convert">Convert</span></div>
+      <div class="toc-row"><span class="num">06</span><a class="name" href="#p-partners">Partners (IB) — /partners</a><span class="badge badge-convert">Convert</span></div>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Support & Content</div>
+      <div class="toc-row"><span class="num">07</span><a class="name" href="#p-support">Support — /support</a><span class="badge badge-faq">Help</span></div>
+      <div class="toc-row"><span class="num">08</span><a class="name" href="#p-articles">Articles — /articles</a><span class="badge badge-content">Content</span></div>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Utility (inform · low-immersion)</div>
+      <div class="toc-row"><span class="num">09</span><a class="name" href="#p-legal">Risk Disclosure — /legal/risk-disclosure</a><span class="badge badge-legal">Legal</span></div>
+      <div class="toc-row"><span class="num">A</span><a class="name" href="#appendix">Appendix — Validation Checklist + Legend</a><span class="badge badge-nav">Ref</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════ PAGE 01 — HOME ════════ -->
+<hr class="sec-divider" id="p-home">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 01 / 09</div>
+  <h2>Home — /</h2>
+  <div class="goal"><b>Goal:</b> สื่อ "regulated, transparent, Thai-first + rebate" ใน 5 วินาที → route ไป เปิดบัญชี / LINE &nbsp;·&nbsp; <b>Primary CTA:</b> เปิดบัญชี &nbsp;·&nbsp; <b>Immersion:</b> Full</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">H0</span><span class="sec-title">RiskDisclosureBar — Sticky</span><span class="badge badge-legal">Compliance</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block amber" style="flex:5">⚠ risk warning (one line)</div><div class="wf-block ghost" style="flex:1">อ่านเพิ่มเติม</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Risk warning</td><td class="th-copy">Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</td><td class="en-copy">Forex/CFD and leverage carry high risk and may result in loss of capital. Study the risks before deciding.</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Link</td><td class="th-copy">อ่านเพิ่มเติม</td><td class="en-copy">Read more</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+    <div class="info-note">Sticky บนทุกหน้า · exact copy locked · ชี้ไป /legal/risk-disclosure</div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">N</span><span class="sec-title">Navbar — Default → Condensed</span><span class="badge badge-nav">Navigation</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row" style="align-items:center">
+      <div class="wf-block" style="max-width:90px;flex:0 0 auto;background:var(--navy);color:#fff">beston</div>
+      <div class="wf-block" style="font-size:10px">เหตุผลที่เลือก · ตลาด · บัญชี · เครื่องมือ · พาร์ทเนอร์ · ช่วยเหลือ</div>
+      <div class="wf-block ghost" style="max-width:72px;flex:0 0 auto;font-size:10px">เข้าสู่ระบบ</div>
+      <div class="wf-block accent" style="max-width:88px;flex:0 0 auto;font-size:10px">เปิดบัญชี</div>
+    </div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Primary CTA</td><td class="th-copy">เปิดบัญชี</td><td class="en-copy">Open Account</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Secondary</td><td class="th-copy">เข้าสู่ระบบ</td><td class="en-copy">Log In</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Nav items</td><td class="th-copy">เหตุผลที่เลือก beston · ตลาด · บัญชี · เครื่องมือ · พาร์ทเนอร์ · ช่วยเหลือ</td><td class="en-copy">Why · Markets · Accounts · Tools · Partners · Support</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+    <div class="warn-note">CTA URL traders.bestonfx.com/register ยังไม่เชื่อม · LINE @bestonfx รอ URL จริง</div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01</span><span class="sec-title">Hero — TerminalHero (left copy / right device)</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <div class="audience-note"><strong>Goal:</strong> wow + trust + value prop + CTA ใน viewport เดียว — section ที่ leverage สูงสุด</div>
+    <div class="wf-box"><div style="display:grid;grid-template-columns:3fr 2fr;gap:14px">
+      <div>
+        <div class="wf-chip blue">โบรกเกอร์ Forex สำหรับเทรดเดอร์ไทย</div>
+        <div class="wf-heading">Trade Smarter<br>Not Harder</div>
+        <div class="wf-sub">เทรดกับ beston — รับ Rebate เงินคืน $5/lot · MT5 · ซัพพอร์ตผ่าน LINE</div>
+        <div class="wf-row"><div class="wf-block accent" style="max-width:140px">เปิดบัญชีทันที</div><div class="wf-block ghost" style="max-width:130px">ทดลอง Demo ฟรี</div></div>
+      </div>
+      <div class="wf-block ph">device mockup<br>"ตัวอย่างแดชบอร์ด<br>— ไม่ใช่ข้อมูลจริง"</div>
+    </div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">โบรกเกอร์ Forex สำหรับเทรดเดอร์ไทย</td><td class="en-copy">Forex broker for Thai traders</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline L1</td><td class="th-copy">Trade Smarter</td><td class="en-copy">Trade Smarter</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline L2</td><td class="th-copy">Not Harder</td><td class="en-copy">Not Harder</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">เทรดกับ beston — รับ Rebate เงินคืน $5/lot · MT5 · ซัพพอร์ตผ่าน LINE</td><td class="en-copy">Trade with beston — $5/lot rebate · MT5 · LINE support</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Proof — users</td><td class="th-copy">100,000+ ผู้ใช้ลงทะเบียน</td><td class="en-copy">100,000+ registered users</td><td class="status-warn">⚠ verify ops</td></tr>
+      <tr><td>Proof — other</td><td class="th-copy">ถอนเงินได้ทุกวัน · MetaTrader 5</td><td class="en-copy">Daily withdrawals · MetaTrader 5</td><td class="status-warn">⚠ verify SLA</td></tr>
+      <tr><td>CTA primary</td><td class="th-copy">เปิดบัญชีทันที</td><td class="en-copy">Open account now</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA secondary</td><td class="th-copy">ทดลอง Demo ฟรี</td><td class="en-copy">Try free demo</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Device label</td><td class="th-copy">ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง</td><td class="en-copy">Illustrative dashboard — not real data</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+    <div class="info-note">Angle 0 APPROVED. "Smarter" = tools/rebate/support ไม่ใช่ guaranteed profit. ห้ามใช้ retired "เทรดมากขึ้น ได้มากขึ้น"</div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">02</span><span class="sec-title">RegulatoryStrip — Logo Cloud</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block">FSCA</div><div class="wf-block">CySEC</div><div class="wf-block">MSB</div><div class="wf-block">MetaTrader 5</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Label</td><td class="th-copy">กำกับดูแล & แพลตฟอร์ม</td><td class="en-copy">Regulation & platform</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>License no.</td><td class="th-copy">ใบอนุญาต FSCA เลขที่ [verify]</td><td class="en-copy">FSCA licence no. [verify]</td><td class="status-missing">❌ missing</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">03</span><span class="sec-title">FeatureGrid 3-col — trust pillars</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ph">ความโปร่งใส</div><div class="wf-block ph">ความเสี่ยงมาก่อน</div><div class="wf-block ph">ดูแลแบบไทย</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Header</td><td class="th-copy">ทำไมต้อง beston</td><td class="en-copy">Why beston</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Card 1</td><td class="th-copy">ความโปร่งใส — ค่าธรรมเนียมและสเปรดชัดเจน ตรวจสอบได้บน MT5</td><td class="en-copy">Transparency — clear fees & spreads, verifiable on MT5</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Card 2</td><td class="th-copy">ความเสี่ยงมาก่อน — เราเตือนความเสี่ยงตรงไปตรงมา ไม่ขายฝันกำไรเกินจริง</td><td class="en-copy">Risk-first — honest risk warnings, no hype</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Card 3</td><td class="th-copy">ดูแลแบบไทย — ทีมซัพพอร์ตภาษาไทยผ่าน LINE @bestonfx</td><td class="en-copy">Thai-first care — Thai support via LINE @bestonfx</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">04</span><span class="sec-title">MarketsTicker — Gallery/marquee</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block">EURUSD</div><div class="wf-block">XAUUSD</div><div class="wf-block">US30</div><div class="wf-block">USOIL</div><div class="wf-block">BTCUSD</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Label</td><td class="th-copy">ตัวอย่าง — ไม่ใช่ราคาจริง</td><td class="en-copy">Illustrative — not live prices</td><td class="status-warn">⚠ verify feed</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">05</span><span class="sec-title">AccountComparison — Pricing preview (3 cards)</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ph">Standard</div><div class="wf-block ph">Pro ★แนะนำ</div><div class="wf-block ph">ECN</div></div><div class="wf-row"><div class="wf-block ghost">เทียบบัญชีทั้งหมด →</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Account names</td><td class="th-copy">Standard · Pro · ECN</td><td class="en-copy">Standard · Pro · ECN</td><td class="status-warn">⚠ verify names</td></tr>
+      <tr><td>Specs</td><td class="th-copy">Spread [verify] · Commission [verify] · ฝากขั้นต่ำ [verify]</td><td class="en-copy">Spread/Commission/Min deposit [verify]</td><td class="status-missing">❌ missing</td></tr>
+      <tr><td>Card CTA</td><td class="th-copy">เลือกบัญชีนี้</td><td class="en-copy">Choose this account</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Link</td><td class="th-copy">เทียบบัญชีทั้งหมด</td><td class="en-copy">Compare all accounts</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">06</span><span class="sec-title">StepProcess 3-step — open account</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block">1 สมัคร</div><div class="wf-block">2 ฝากเงิน</div><div class="wf-block">3 เริ่มเทรด</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Header</td><td class="th-copy">เปิดบัญชีใน 3 ขั้นตอน</td><td class="en-copy">Open an account in 3 steps</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Step 1</td><td class="th-copy">สมัคร — กรอกข้อมูลและยืนยันตัวตน (KYC)</td><td class="en-copy">Register — fill in details + KYC</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Step 2</td><td class="th-copy">ฝากเงิน — เลือกช่องทางฝาก</td><td class="en-copy">Deposit — choose a method</td><td class="status-warn">⚠ verify channels</td></tr>
+      <tr><td>Step 3</td><td class="th-copy">เริ่มเทรด — ดาวน์โหลด MT5 แล้วเริ่มเทรดได้ทันที</td><td class="en-copy">Trade — download MT5 and start</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">07</span><span class="sec-title">FeatureSplit ImageRight — Rebate program</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div style="display:grid;grid-template-columns:3fr 2fr;gap:14px"><div><div class="wf-heading">Rebate เงินคืน $5 ต่อ lot</div><div class="wf-sub">จ่ายทุกวันจันทร์ 12:00 (GMT+7)</div></div><div class="wf-block ph">visual</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Headline</td><td class="th-copy">Rebate เงินคืน $5 ต่อ lot</td><td class="en-copy">$5 rebate per lot</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Body</td><td class="th-copy">รับเงินคืนทุก lot ที่เข้าเงื่อนไข จ่ายทุกวันจันทร์ 12:00 น. (GMT+7)</td><td class="en-copy">Cashback per qualifying lot, paid every Monday 12:00 (GMT+7)</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Bullet 1</td><td class="th-copy">Lot ค้างอย่างน้อย 1 นาที</td><td class="en-copy">Order open ≥ 1 min</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Bullet 2</td><td class="th-copy">BTCUSD/US30/USOIL คิด lot ÷ 10</td><td class="en-copy">BTCUSD/US30/USOIL: lot ÷ 10</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Bullet 3</td><td class="th-copy">ไม่ใช่สัญญากำไร — เป็นเงินคืนตาม T&C</td><td class="en-copy">Not a profit guarantee — cashback per T&C</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">08</span><span class="sec-title">Stats 3-col — GATED</span><span class="badge badge-gated">Gated</span></div>
+  <div class="section-body">
+    <div class="wf-box" style="opacity:.5"><div class="wf-row"><div class="wf-block ph">— —</div><div class="wf-block ph">— —</div><div class="wf-block ph">— —</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>All figures</td><td class="th-copy">[disabled until verified]</td><td class="en-copy">[disabled until verified]</td><td class="status-missing">❌ disabled</td></tr>
+    </tbody></table>
+    <div class="warn-note">ปิดทั้ง section จนกว่าตัวเลขจะ verify — ไม่ ship fake number (กระทบ trust โดยตรง). Count-up animation off.</div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">09</span><span class="sec-title">Testimonial Carousel — GATED</span><span class="badge badge-gated">Gated</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Quotes</td><td class="th-copy">[disabled — รอ quote จริงที่ได้ consent]</td><td class="en-copy">[disabled — pending real consented quotes]</td><td class="status-missing">❌ disabled</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">10</span><span class="sec-title">ArticleGrid Teaser (3–4)</span><span class="badge badge-content">Content</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ph">บทความ 1</div><div class="wf-block ph">บทความ 2</div><div class="wf-block ph">บทความ 3</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Header</td><td class="th-copy">เรียนรู้การเทรด</td><td class="en-copy">Learn trading</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Sample titles</td><td class="th-copy">เริ่มต้นใช้ MT5 ใน 10 นาที · จัดการความเสี่ยงก่อนวางออเดอร์แรก · Rebate ทำงานอย่างไร</td><td class="en-copy">MT5 in 10 min · Risk management first · How rebate works</td><td class="status-warn">⚠ CMS content</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">11</span><span class="sec-title">FAQ Accordion (top 5)</span><span class="badge badge-faq">FAQ</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Question</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Q1</td><td class="th-copy">beston กำกับดูแลโดยใคร?</td><td class="status-warn">⚠ license no.</td></tr>
+      <tr><td>Q2</td><td class="th-copy">ฝากขั้นต่ำเท่าไร?</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>Q3</td><td class="th-copy">ใช้แพลตฟอร์มไหน? (MT5)</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Q4</td><td class="th-copy">Rebate $5/lot คืออะไร?</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Q5</td><td class="th-copy">ถอนเงินใช้เวลานานแค่ไหน?</td><td class="status-warn">⚠ verify SLA</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">12</span><span class="sec-title">CTABanner — LineFirst</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block line" style="flex:2">เพิ่มเพื่อน LINE @bestonfx</div><div class="wf-block ghost">เปิดบัญชี</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Headline</td><td class="th-copy">พร้อมเริ่มเทรดกับ beston?</td><td class="en-copy">Ready to trade with beston?</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">เปิดบัญชีฟรี หรือสอบถามทีมไทยผ่าน LINE</td><td class="en-copy">Open free, or ask our Thai team on LINE</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA primary</td><td class="th-copy">เพิ่มเพื่อน LINE @bestonfx</td><td class="en-copy">Add LINE @bestonfx</td><td class="status-warn">⚠ LINE URL</td></tr>
+      <tr><td>CTA secondary</td><td class="th-copy">เปิดบัญชี</td><td class="en-copy">Open account</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">F</span><span class="sec-title">Footer — Default</span><span class="badge badge-legal">Compliance</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Legal entity</td><td class="th-copy">บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Address</td><td class="th-copy">111 ประดิษฐ์มนูธรรม แขวงลาดพร้าว กรุงเทพฯ 10230</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Email</td><td class="th-copy">support@bestonfx.com</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Risk block</td><td class="th-copy">[full risk warning — same as H0]</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Regulator line</td><td class="th-copy">FSCA / CySEC ใบอนุญาตเลขที่ [verify]</td><td class="status-missing">❌ missing</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 02 — WHY ════════ -->
+<hr class="sec-divider" id="p-why">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 02 / 09</div>
+  <h2>Why beston — /why-bestonfx</h2>
+  <div class="goal"><b>Goal:</b> ทลายข้อโต้แย้ง "เชื่อใจได้ไหม" ด้วย regulation + transparency + Thai-first &nbsp;·&nbsp; <b>CTA:</b> เปิดบัญชี / ดูใบอนุญาต &nbsp;·&nbsp; <b>Immersion:</b> Full</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01</span><span class="sec-title">Hero — SplitHero</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">ทำไมต้อง beston</td><td class="en-copy">Why beston</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">โบรกเกอร์ที่เลือกความโปร่งใส มากกว่าคำสัญญา</td><td class="en-copy">A broker that chooses transparency over promises</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">เราเชื่อว่าความไว้ใจสร้างจากข้อมูลจริง ไม่ใช่ตัวเลขที่ปั้นขึ้น</td><td class="en-copy">Trust comes from real data, not invented numbers</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA</td><td class="th-copy">เปิดบัญชี · ดูข้อมูลใบอนุญาต</td><td class="en-copy">Open account · View licences</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">02</span><span class="sec-title">FeatureSplit ImageLeft — Regulation</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Headline</td><td class="th-copy">กำกับดูแลภายใต้มาตรฐานสากล</td><td class="en-copy">Regulated to international standards</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Body</td><td class="th-copy">beston ดำเนินงานภายใต้การกำกับของ FSCA และมาตรฐาน AML/KYC</td><td class="en-copy">beston operates under FSCA + AML/KYC standards</td><td class="status-warn">⚠ verify scope</td></tr>
+      <tr><td>Bullets</td><td class="th-copy">FSCA ใบอนุญาต [verify] · CySEC [verify] · ปฏิบัติตาม AML/KYC</td><td class="en-copy">FSCA [verify] · CySEC [verify] · AML/KYC compliant</td><td class="status-missing">❌ license no.</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">03</span><span class="sec-title">FeatureSplit ImageRight — Transparency</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Headline</td><td class="th-copy">ค่าธรรมเนียมที่คุณตรวจสอบได้เอง</td><td class="en-copy">Fees you can verify yourself</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Body</td><td class="th-copy">สเปรดและค่าธรรมเนียมแสดงบน MT5 แบบเรียลไทม์ ไม่มีค่าซ่อนเร้น</td><td class="en-copy">Spreads & fees shown live on MT5 — no hidden costs</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Bullets</td><td class="th-copy">สเปรดลอยตัวดูบน MT5 · Rebate เปิดเผยเต็ม T&C · ถอนได้ทุกวัน</td><td class="en-copy">Floating spread on MT5 · full rebate T&C · daily withdrawals</td><td class="status-warn">⚠ verify SLA</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">04</span><span class="sec-title">FeatureGrid 3-col — Thai-first care</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Header</td><td class="th-copy">ดูแลแบบเข้าใจคนไทย</td><td class="en-copy">Care that understands Thais</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Cards</td><td class="th-copy">ซัพพอร์ตภาษาไทยผ่าน LINE · ฝาก/ถอนช่องทางไทย · เนื้อหาความรู้ภาษาไทย</td><td class="en-copy">Thai LINE support · Thai deposit channels · Thai education</td><td class="status-warn">⚠ verify channels</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">05–06</span><span class="sec-title">RegulatoryStrip · Stats(gated) · Testimonial(gated)</span><span class="badge badge-gated">Mixed</span></div>
+  <div class="section-body">
+    <div class="info-note">RegulatoryStrip = เหมือน Home #02. Stats + Testimonial = GATED (ปิดจนกว่า verify). ArticleGrid teaser (trust/education) + CTABanner AccountFirst "ตัดสินใจด้วยข้อมูล ไม่ใช่คำสัญญา" + Footer.</div>
+  </div>
+</div>
+
+<!-- ════════ PAGE 03 — MARKETS ════════ -->
+<hr class="sec-divider" id="p-markets">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 03 / 09</div>
+  <h2>Markets — /markets</h2>
+  <div class="goal"><b>Goal:</b> "ตลาดที่ฉันอยากเทรดมีไหม" → แสดง instrument breadth &nbsp;·&nbsp; <b>CTA:</b> เปิดบัญชี / ดูสเปรดบน MT5 &nbsp;·&nbsp; <b>Immersion:</b> High</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01</span><span class="sec-title">Hero — SplitHero</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">ตลาดที่เทรดได้</td><td class="en-copy">Tradable markets</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">ตลาดทั่วโลก ในที่เดียว</td><td class="en-copy">Global markets in one place</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">Forex, โลหะมีค่า, ดัชนีหุ้นโลก, น้ำมัน และคริปโต — เทรดผ่าน MT5</td><td class="en-copy">FX, metals, indices, oil & crypto — on MT5</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA</td><td class="th-copy">เปิดบัญชี · ดูสเปรดสดบน MT5</td><td class="en-copy">Open account · See live spreads on MT5</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">02–03</span><span class="sec-title">MarketsTicker · FeatureGrid 2-col (asset classes)</span><span class="badge badge-trust">Trust</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ph">Forex</div><div class="wf-block ph">โลหะมีค่า</div></div><div class="wf-row"><div class="wf-block ph">ดัชนีหุ้นโลก</div><div class="wf-block ph">พลังงาน</div><div class="wf-block ph">คริปโต</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Header</td><td class="th-copy">ประเภทสินทรัพย์</td><td class="en-copy">Asset classes</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Forex</td><td class="th-copy">คู่เงินหลักและรอง</td><td class="en-copy">Major & minor pairs</td><td class="status-warn">⚠ verify จำนวนคู่</td></tr>
+      <tr><td>โลหะ/ดัชนี/พลังงาน/คริปโต</td><td class="th-copy">XAUUSD, XAGUSD · US30, NAS100 · USOIL · BTCUSD</td><td class="en-copy">XAUUSD/XAGUSD · US30/NAS100 · USOIL · BTCUSD</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Ticker label</td><td class="th-copy">ตัวอย่าง — ไม่ใช่ราคาจริง</td><td class="en-copy">Illustrative — not live prices</td><td class="status-warn">⚠ verify feed</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">04–05</span><span class="sec-title">FeatureSplit (conditions) · FAQ · CTABanner · Footer</span><span class="badge badge-faq">Mixed</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Conditions H2</td><td class="th-copy">เงื่อนไขการเทรด — สเปรดลอยตัวตามตลาด ตรวจสอบสดบน MT5</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Leverage</td><td class="th-copy">Leverage 1:50–1:1000</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>FAQ</td><td class="th-copy">มีสินทรัพย์อะไรบ้าง · Spread เริ่มต้น (เช็คสดบน MT5) · Leverage · Copy Trading</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>CTA</td><td class="th-copy">เริ่มเทรดตลาดที่คุณถนัด</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+    <div class="warn-note">ห้ามระบุ spread pip ตายตัวใน FAQ — "ตรวจสอบสเปรดสดบน MT5" เท่านั้น</div>
+  </div>
+</div>
+
+<!-- ════════ PAGE 04 — ACCOUNTS ════════ -->
+<hr class="sec-divider" id="p-accounts">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 04 / 09</div>
+  <h2>Accounts — /accounts</h2>
+  <div class="goal"><b>Goal:</b> conversion hub — เปรียบเทียบ → self-select → เปิดบัญชี &nbsp;·&nbsp; <b>CTA:</b> เปิดบัญชีนี้ &nbsp;·&nbsp; <b>Immersion:</b> Medium (no pin)</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01</span><span class="sec-title">Hero — SplitHero</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">ประเภทบัญชี</td><td class="en-copy">Account types</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">เลือกบัญชีที่ใช่สำหรับสไตล์การเทรดของคุณ</td><td class="en-copy">Choose the account that fits your style</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">เปรียบเทียบเงื่อนไข เลือกบัญชี และเริ่มเทรดบน MT5</td><td class="en-copy">Compare, choose, and start on MT5</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">02</span><span class="sec-title">AccountComparison — Pricing FULL ⭐</span><span class="badge badge-compare">Compare</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ph">Standard</div><div class="wf-block ph">Pro ★</div><div class="wf-block ph">ECN</div></div></div>
+    <table class="copy-table"><thead><tr><th>Row</th><th>Value (TH)</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Account names</td><td class="th-copy">Standard · Pro · ECN</td><td class="status-warn">⚠ verify names</td></tr>
+      <tr><td>Spread เริ่มต้น</td><td class="th-copy">[verify] / [verify] / [verify] pip</td><td class="status-missing">❌ missing</td></tr>
+      <tr><td>Commission</td><td class="th-copy">ไม่มี / [verify] / [verify]</td><td class="status-missing">❌ missing</td></tr>
+      <tr><td>ฝากขั้นต่ำ</td><td class="th-copy">[verify]</td><td class="status-missing">❌ missing</td></tr>
+      <tr><td>Leverage สูงสุด</td><td class="th-copy">1:1000</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>แพลตฟอร์ม</td><td class="th-copy">MT5</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Swap-Free</td><td class="th-copy">สำหรับผู้มีสิทธิ์</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>CTA</td><td class="th-copy">เปิดบัญชีนี้</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">03–07</span><span class="sec-title">RegulatoryStrip · StepProcess · FeatureGrid · FAQ · CTABanner · Footer</span><span class="badge badge-convert">Mixed</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>StepProcess</td><td class="th-copy">สมัคร+KYC → ฝากเงิน → เริ่มเทรดบน MT5</td><td class="status-warn">⚠ channels</td></tr>
+      <tr><td>Benefits grid</td><td class="th-copy">ถอนได้ทุกวัน · ซัพพอร์ต LINE · Rebate $5/lot</td><td class="status-warn">⚠ verify SLA</td></tr>
+      <tr><td>FAQ</td><td class="th-copy">ฝากขั้นต่ำ · Commission/Swap · KYC · Demo</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>CTA</td><td class="th-copy">พร้อมเปิดบัญชีแล้วหรือยัง?</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 05 — TOOLS ════════ -->
+<hr class="sec-divider" id="p-tools">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 05 / 09</div>
+  <h2>Tools — /tools</h2>
+  <div class="goal"><b>Goal:</b> พิสูจน์ MT5 + calculator สร้าง commitment &nbsp;·&nbsp; <b>CTA:</b> เปิดบัญชี / ดาวน์โหลด MT5 &nbsp;·&nbsp; <b>Immersion:</b> Medium (calc = instant)</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01–02</span><span class="sec-title">Hero CenteredHero · FeatureGrid (MT5 platforms)</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">แพลตฟอร์ม & เครื่องมือ</td><td class="en-copy">Platform & tools</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">เครื่องมือที่ช่วยให้คุณเทรดอย่างมั่นใจ</td><td class="en-copy">Tools to trade with confidence</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">MetaTrader 5 พร้อมเครื่องคำนวณ Rebate, Pip และ Margin</td><td class="en-copy">MT5 + rebate, pip & margin calculators</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>MT5 platforms</td><td class="th-copy">Desktop (Win/macOS) · Mobile (iOS/Android) · Web</td><td class="en-copy">Desktop · Mobile · Web</td><td class="status-warn">⚠ verify Win/macOS/Web</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">03</span><span class="sec-title">Calculator — RebateEstimator ⭐</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div class="wf-block ph">inputs: lot/เดือน · สินทรัพย์</div><div class="wf-block ph">result: เงินคืนโดยประมาณ</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Result label</td><td class="th-copy">เงินคืนโดยประมาณ</td><td class="en-copy">Estimated rebate</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Disclaimer</td><td class="th-copy">ผลลัพธ์เป็นการประมาณการตาม T&C ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10</td><td class="en-copy">Estimate per T&C, not a guarantee · BTCUSD/US30/USOIL lot ÷ 10</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA</td><td class="th-copy">เปิดบัญชีเพื่อรับ Rebate</td><td class="en-copy">Open account to earn rebate</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">04–08</span><span class="sec-title">PipCalculator · FeatureSplit (MT5) · FAQ · CTABanner · Footer</span><span class="badge badge-faq">Mixed</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>PipCalc disclaimer</td><td class="th-copy">ใช้เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>MT5 capabilities</td><td class="th-copy">กราฟ/อินดิเคเตอร์ครบ · EA/Automated · จัดการความเสี่ยง</td><td class="status-warn">⚠ verify EA</td></tr>
+      <tr><td>CTA</td><td class="th-copy">ลองเครื่องมือจริงบนบัญชี Demo</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 06 — PARTNERS ════════ -->
+<hr class="sec-divider" id="p-partners">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 06 / 09</div>
+  <h2>Partners (IB) — /partners</h2>
+  <div class="goal"><b>Goal:</b> recruit IB/affiliate ด้วย commission model + earnings estimator &nbsp;·&nbsp; <b>CTA:</b> สมัครเป็นพาร์ทเนอร์ &nbsp;·&nbsp; <b>Immersion:</b> Med-High</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01</span><span class="sec-title">Hero — SplitHero</span><span class="badge badge-hero">Hero</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">โปรแกรมพาร์ทเนอร์ / IB</td><td class="en-copy">Partner / IB program</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">แนะนำเทรดเดอร์ รับค่าคอมมิชชั่นต่อเนื่อง</td><td class="en-copy">Refer traders, earn recurring commission</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">เข้าร่วมโปรแกรม IB ของ beston — โครงสร้างค่าตอบแทนโปร่งใส จ่ายตรงเวลา</td><td class="en-copy">Join beston IB — transparent payout, paid on time</td><td class="status-warn">⚠ verify structure</td></tr>
+      <tr><td>CTA</td><td class="th-copy">สมัครเป็นพาร์ทเนอร์ · เข้าสู่ระบบพาร์ทเนอร์</td><td class="en-copy">Become a partner · Partner login</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">02–04</span><span class="sec-title">FeatureGrid · StepProcess · Calculator IBCommissionEstimator ⭐</span><span class="badge badge-convert">Convert</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div class="wf-block ph">inputs: ลูกค้า · ปริมาณ/lot</div><div class="wf-block ph">result: commission โดยประมาณ</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Why-partner grid</td><td class="th-copy">ค่าคอมโปร่งใส · แดชบอร์ดเรียลไทม์ · ซัพพอร์ตพาร์ทเนอร์ไทย</td><td class="en-copy">Transparent payout · live dashboard · Thai partner support</td><td class="status-warn">⚠ verify structure</td></tr>
+      <tr><td>Estimator disclaimer</td><td class="th-copy">ตัวเลขเป็นการประมาณการ ไม่ใช่การการันตีรายได้ ขึ้นกับกิจกรรมจริงของลูกค้า</td><td class="en-copy">Estimate only, not an income guarantee — depends on client activity</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Commission rate</td><td class="th-copy">[verify อัตรา]</td><td class="en-copy">[verify rate]</td><td class="status-missing">❌ missing</td></tr>
+      <tr><td>CTA</td><td class="th-copy">สมัครเป็นพาร์ทเนอร์</td><td class="en-copy">Become a partner</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">05–07</span><span class="sec-title">FeatureSplit (dashboard preview) · FAQ · CTABanner · Footer</span><span class="badge badge-faq">Mixed</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Dashboard label</td><td class="th-copy">ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>FAQ</td><td class="th-copy">ค่าคอมคิดอย่างไร · จ่ายเมื่อไร · ลูกค้าขั้นต่ำ · เอกสารสมัคร</td><td class="status-missing">❌ verify all</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 07 — SUPPORT ════════ -->
+<hr class="sec-divider" id="p-support">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 07 / 09</div>
+  <h2>Support — /support</h2>
+  <div class="goal"><b>Goal:</b> ช่วยเหลือเข้าถึงใน 1 คลิก · LINE-first · deflect ผ่าน FAQ &nbsp;·&nbsp; <b>CTA:</b> LINE @bestonfx &nbsp;·&nbsp; <b>Immersion:</b> Low</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01–02</span><span class="sec-title">Hero CenteredHero · SupportChannels</span><span class="badge badge-faq">Help</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block line">LINE @bestonfx</div><div class="wf-block">Email</div><div class="wf-block">เวลาทำการ</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Headline</td><td class="th-copy">ต้องการความช่วยเหลือ? ทีมไทยพร้อมดูแล</td><td class="en-copy">Need help? Our Thai team is here</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>LINE</td><td class="th-copy">LINE @bestonfx — ตอบเร็วที่สุด</td><td class="en-copy">LINE @bestonfx — fastest reply</td><td class="status-warn">⚠ LINE URL</td></tr>
+      <tr><td>Email</td><td class="th-copy">support@bestonfx.com</td><td class="en-copy">support@bestonfx.com</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Hours</td><td class="th-copy">เวลาทำการ [verify]</td><td class="en-copy">Hours [verify]</td><td class="status-warn">⚠ verify</td></tr>
+      <tr><td>Address</td><td class="th-copy">บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด · 111 ประดิษฐ์มนูธรรม แขวงลาดพร้าว กรุงเทพฯ 10230</td><td class="en-copy">Beston International Group Co., Ltd.</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">03–04</span><span class="sec-title">FAQ (full 15) · CTABanner LineFirst · Footer</span><span class="badge badge-faq">FAQ</span></div>
+  <div class="section-body">
+    <div class="info-note">FAQ ชุดเต็ม 15 ข้อ (validated structure) → feed FAQPage JSON-LD. ตัวเลขทั้งหมดถือ ⚠ verify (deposit, withdraw, leverage, KYC, commission). Spread = "เช็คสดบน MT5". Rebate $5/lot ✓.</div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>CTA</td><td class="th-copy">ยังหาคำตอบไม่เจอ? ทักทีมไทยผ่าน LINE ได้เลย</td><td class="status-warn">⚠ LINE URL</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 08 — ARTICLES ════════ -->
+<hr class="sec-divider" id="p-articles">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 08 / 09</div>
+  <h2>Articles — /articles (+ /articles/[slug])</h2>
+  <div class="goal"><b>Goal:</b> capture organic search + educate → soft conversion &nbsp;·&nbsp; <b>CTA:</b> ทดลอง Demo / เปิดบัญชี &nbsp;·&nbsp; <b>Immersion:</b> Low-Med</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01–02</span><span class="sec-title">Hero CenteredHero · ArticleGrid Full</span><span class="badge badge-content">Content</span></div>
+  <div class="section-body">
+    <div class="wf-box"><div class="wf-row"><div class="wf-block ghost">ทั้งหมด</div><div class="wf-block ghost">MT5</div><div class="wf-block ghost">ความเสี่ยง</div><div class="wf-block ghost">Rebate</div></div><div class="wf-row"><div class="wf-block ph">card</div><div class="wf-block ph">card</div><div class="wf-block ph">card</div><div class="wf-block ph">card</div></div></div>
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">บทความ & ความรู้</td><td class="en-copy">Articles & knowledge</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">เรียนรู้การเทรดอย่างเข้าใจความเสี่ยง</td><td class="en-copy">Learn trading with risk awareness</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Category chips</td><td class="th-copy">ทั้งหมด · MT5 · ความเสี่ยง · Rebate · เริ่มต้น</td><td class="en-copy">All · MT5 · Risk · Rebate · Getting started</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Sample titles</td><td class="th-copy">เริ่มต้นใช้ MT5 ใน 10 นาที · จัดการความเสี่ยงก่อนวางออเดอร์แรก · Rebate $5/lot ทำงานอย่างไร · อ่านใบอนุญาตโบรกเกอร์อย่างไร</td><td class="en-copy">[CMS articles]</td><td class="status-warn">⚠ CMS content</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">D</span><span class="sec-title">/articles/[slug] — CMS detail template</span><span class="badge badge-content">Content</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>ArticleHero</td><td class="th-copy">category chip · H1 (title) · โดยทีม beston · [date] · 5 นาทีอ่าน · cover</td><td class="status-warn">⚠ CMS</td></tr>
+      <tr><td>ArticleBody</td><td class="th-copy">single column ~680px · headings · risk callouts</td><td class="status-ok">✓ structure</td></tr>
+      <tr><td>Related</td><td class="th-copy">บทความที่เกี่ยวข้อง (3)</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>CTA</td><td class="th-copy">อยากลองใช้จริงไหม? — ทดลอง Demo ฟรี</td><td class="status-ok">✓ Validated</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════ PAGE 09 — LEGAL ════════ -->
+<hr class="sec-divider" id="p-legal">
+<div class="page-hdr">
+  <div class="pg-num">PAGE 09 / 09</div>
+  <h2>Risk Disclosure — /legal/risk-disclosure</h2>
+  <div class="goal"><b>Goal:</b> inform + comply (ไม่มี conversion) &nbsp;·&nbsp; <b>CTA:</b> none &nbsp;·&nbsp; <b>Immersion:</b> Minimal · AIChatWidget OFF</div>
+</div>
+
+<div class="section-card">
+  <div class="section-head"><span class="sec-id">01–02</span><span class="sec-title">Hero CenteredHero (compact) · LegalBody</span><span class="badge badge-legal">Legal</span></div>
+  <div class="section-body">
+    <table class="copy-table"><thead><tr><th>Element</th><th>Thai Copy</th><th>English Copy</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Eyebrow</td><td class="th-copy">เอกสารทางกฎหมาย</td><td class="en-copy">Legal document</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Headline</td><td class="th-copy">การเปิดเผยความเสี่ยง (Risk Disclosure)</td><td class="en-copy">Risk Disclosure</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Subhead</td><td class="th-copy">โปรดอ่านอย่างละเอียดก่อนตัดสินใจเทรด</td><td class="en-copy">Please read carefully before trading</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Mandatory warning</td><td class="th-copy">Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</td><td class="en-copy">Forex/CFD and leverage carry high risk...</td><td class="status-ok">✓ Validated</td></tr>
+      <tr><td>Sections</td><td class="th-copy">1 ลักษณะความเสี่ยง · 2 Leverage · 3 สภาพคล่อง/ผันผวน · 4 ไม่รับประกันกำไร · 5 ความเหมาะสม · 6 กำกับดูแล · 7 ติดต่อ/ร้องเรียน</td><td class="en-copy">7-section legal structure</td><td class="status-warn">⚠ license no.</td></tr>
+    </tbody></table>
+    <div class="info-note">Siblings (same template, [to be written]): /legal/terms · /legal/privacy · /regulatory-disclosures</div>
+  </div>
+</div>
+
+<!-- ════════ APPENDIX ════════ -->
+<hr class="sec-divider" id="appendix">
+<div class="page-hdr"><div class="pg-num">APPENDIX</div><h2>Validation Checklist + Legend</h2></div>
+
+<div class="appendix-card">
+  <div class="appendix-head">Status legend</div>
+  <div class="appendix-body">
+    <div class="legend">
+      <span><span class="dot" style="background:#16a34a"></span> ✓ Validated — copy ผ่าน compliance review</span>
+      <span><span class="dot" style="background:#f59e0b"></span> ⚠ verify — รอยืนยันตัวเลข/ข้อมูล/URL</span>
+      <span><span class="dot" style="background:#dc2626"></span> ❌ missing/disabled — ยังไม่มี / gated</span>
+    </div>
+  </div>
+</div>
+
+<div class="appendix-card">
+  <div class="appendix-head">Pre-launch validation checklist</div>
+  <div class="appendix-body">
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">FSCA + CySEC license numbers</div><div class="check-sub">RegulatoryStrip, Footer, Why, Legal — verify on registry ก่อนแสดง</div></div></div>
+    <div class="check-item"><div class="check-icon miss">✕</div><div><div class="check-text">Account names + spread/commission/min deposit/leverage</div><div class="check-sub">AccountComparison — รอ ops/product verify ทุกค่า</div></div></div>
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">Deposit/withdrawal channels + SLA</div><div class="check-sub">StepProcess, FAQ, benefits — รอ finance verify</div></div></div>
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">Trader count 100,000+</div><div class="check-sub">Hero proof line — verify ops หรือเปลี่ยนเป็น milestone ที่ยืนยันได้</div></div></div>
+    <div class="check-item"><div class="check-icon miss">✕</div><div><div class="check-text">Stats + Testimonials</div><div class="check-sub">GATED — ปิดทั้ง section จนกว่าจะมีข้อมูลจริง/consent</div></div></div>
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">CTA URLs (register/login/demo) + LINE @bestonfx</div><div class="check-sub">traders.bestonfx.com ยังไม่เชื่อม · LINE URL รอจริง</div></div></div>
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">MarketsTicker live feed</div><div class="check-sub">label "ตัวอย่าง" จนกว่าเชื่อม feed จริง</div></div></div>
+    <div class="check-item"><div class="check-icon warn">⚠</div><div><div class="check-text">IB commission rate + structure</div><div class="check-sub">Partners estimator — รอยืนยันอัตรา/รอบจ่าย</div></div></div>
+    <div class="check-item"><div class="check-icon ok">✓</div><div><div class="check-text">Risk warning copy + Rebate T&C + company info</div><div class="check-sub">Locked — ใช้ได้เลย</div></div></div>
+  </div>
+</div>
+
+<div class="appendix-card">
+  <div class="appendix-head">Compliance hard rules (ห้ามละเมิด)</div>
+  <div class="appendix-body">
+    <div class="check-item"><div class="check-icon ok">✓</div><div class="check-text">"beston" lowercase ใน body · ไม่ใช่ "BestonFX"</div></div>
+    <div class="check-item"><div class="check-icon ok">✓</div><div class="check-text">MT5 เท่านั้น — ไม่มี MT4/cTrader ใน marketing copy</div></div>
+    <div class="check-item"><div class="check-icon ok">✓</div><div class="check-text">ไม่มี guaranteed-profit / risk-free / ได้แน่นอน</div></div>
+    <div class="check-item"><div class="check-icon ok">✓</div><div class="check-text">RiskDisclosureBar sticky ทุกหน้า + full risk block ใน footer</div></div>
+    <div class="check-item"><div class="check-icon ok">✓</div><div class="check-text">ทุกตัวเลขผ่าน claim_registry ก่อน publish</div></div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="page-footer">beston — Wireframe + Copy Validation v4.0 · DX Enterprise · พฤษภาคม 2026<br>Markdown source: docs/wireframes/ · Brand: light + royal blue #0040c1 + Prompt</div>
+
+</body>
+</html>

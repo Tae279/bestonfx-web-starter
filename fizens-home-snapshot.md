@@ -1,0 +1,124 @@
+- generic [active] [ref=e1] [box=0,0,1496,14316]:
+  - generic [ref=e3] [box=0,0,1496,14316]:
+    - navigation [ref=e6] [box=0,0,1496,112]:
+      - generic [ref=e11] [box=100,32,1296,48]:
+        - link "f i z e n s" [ref=e15] [cursor=pointer] [box=100,32,97,48]:
+          - /url: ./
+          - paragraph [ref=e1916] [box=128,41,69,30]
+        - generic [ref=e28] [box=398,32,699,48]:
+          - link "Home" [ref=e31] [cursor=pointer] [box=398,32,110,48]:
+            - /url: ./
+          - link "F e a t u r e s" [ref=e37] [cursor=pointer] [box=508,32,131,48]:
+            - /url: ./features
+          - link "A b o u t" [ref=e52] [cursor=pointer] [box=639,32,110,48]:
+            - /url: ./about
+          - link "P r i c i n g" [ref=e64] [cursor=pointer] [box=749,32,116,48]:
+            - /url: ./pricing
+          - link "B l o g" [ref=e78] [cursor=pointer] [box=865,32,97,48]:
+            - /url: ./articles
+          - link "A l l p a g e s" [ref=e89] [cursor=pointer] [box=962,32,136,48]:
+            - /url: ./overview
+        - link "G e t T e m p l a t e" [ref=e105] [cursor=pointer] [box=1238,32,158,48]:
+          - /url: https://kota.lemonsqueezy.com/checkout/buy/5bfe6c88-c4c2-4e5d-a5a3-d36f5107ad77
+          - paragraph [ref=e1967] [box=1262,44,110,24]
+    - generic [ref=e122] [box=0,0,0,0]:
+      - generic [box=0,0,1496,850]:
+        - generic [box=0,0,1496,850]:
+          - generic [box=0,0,1496,850]
+      - main [ref=e123] [box=0,0,1496,13764]:
+        - generic [ref=e125] [box=100,184,1296,969]:
+          - generic [ref=e126] [box=100,184,1296,336]
+          - generic [ref=e194] [box=100,590,1296,563]
+        - generic [ref=e240] [box=100,1353,1296,496]:
+          - heading "O u r a p p i s a n a l l - i n - o n e s o l u t i o n f o r m a n a g i n g y o u r m o n e y a n d f i n a n c i a l g o a l s ." [level=2] [ref=e242] [box=398,1353,700,288]
+          - generic [ref=e322] [box=100,1705,1296,144]
+        - generic [ref=e354] [box=100,2149,1296,1352]:
+          - generic [ref=e355] [box=100,2149,1296,204]
+          - generic [ref=e373] [box=100,2417,1296,1084]
+        - generic [ref=e487] [box=100,3701,1296,834]:
+          - heading "...and more additional features" [level=3] [ref=e490] [box=454,3701,588,52]
+          - generic [ref=e495] [box=205,3801,1086,216]
+          - generic [ref=e551] [box=100,4065,1296,470]
+        - generic [ref=e566] [box=100,4735,1296,2172]:
+          - generic [ref=e567] [box=470,4735,557,204]
+          - generic [ref=e589] [box=738,5125,610,364]
+          - generic [ref=e669] [box=738,5781,610,364]
+          - generic [ref=e743] [box=738,6437,610,364]
+        - generic [ref=e820] [box=100,7107,1296,648]:
+          - generic [ref=e821] [box=470,7107,557,204]
+          - generic [ref=e839] [box=100,7375,1296,380]
+        - generic [ref=e881] [box=100,7855,1296,1185]:
+          - generic [ref=e882] [box=140,7955,1216,204]
+          - generic [ref=e912] [box=683,8268,535,642]
+        - generic [ref=e964] [box=100,9140,1296,700]:
+          - generic [ref=e965] [box=100,9276,528,428]
+          - generic [ref=e1021] [box=652,9140,744,700]
+        - generic [ref=e1245] [box=100,10040,1296,1013]:
+          - generic [ref=e1246] [box=287,10040,922,204]
+          - generic [ref=e1268] [box=100,10308,1296,745]
+        - generic [ref=e1488] [box=100,11253,1296,834]:
+          - generic [ref=e1489] [box=100,11253,1296,204]
+          - generic [ref=e1506] [box=100,11521,1296,566]
+        - generic [ref=e1586] [box=100,12287,1296,745]:
+          - generic [ref=e1587] [box=100,12287,1296,132]
+          - generic [ref=e1603] [box=230,12483,1037,549]
+        - generic [ref=e1660] [box=323,13232,850,432]:
+          - generic [ref=e1661] [box=323,13232,850,288]
+          - generic [ref=e1674] [box=565,13616,367,48]
+    - contentinfo [ref=e1701] [box=0,13764,1496,552]:
+      - generic [ref=e1702] [box=100,13864,1296,200]:
+        - generic [ref=e1704] [box=100,13888,636,167]:
+          - link "f i z e n s" [ref=e1707] [cursor=pointer] [box=100,13888,173,43]:
+            - /url: ./
+          - generic [ref=e1719] [box=100,13963,450,92]
+        - generic [ref=e1740] [box=760,13864,636,200]:
+          - generic [ref=e1741] [box=760,13888,196,200]
+          - generic [ref=e1760] [box=980,13888,196,200]
+          - generic [ref=e1779] [box=1200,13888,196,136]
+      - generic [ref=e1792] [box=100,14164,1296,96]:
+        - paragraph [ref=e1795] [box=100,14216,411,40]:
+          - text: © 2025 Copyright - Fizens | Designed by
+          - link "LoganCee Studio" [ref=e1796] [cursor=pointer] [box=381,14216,119,20]:
+            - /url: https://dribbble.com/logancee_studio
+          - text: "|"
+          - link "Made by Kota" [ref=e1797] [cursor=pointer] [box=100,14236,96,20]:
+            - /url: https://x.com/madebykota
+          - text: "| Powered by"
+          - link "Framer" [ref=e1798] [cursor=pointer] [box=293,14236,50,20]:
+            - /url: https://www.framer.com/
+        - generic [ref=e1799] [box=664,14218,168,36]:
+          - link [ref=e1802] [cursor=pointer] [box=664,14218,36,36]:
+            - /url: https://www.facebook.com/
+          - link [ref=e1806] [cursor=pointer] [box=708,14218,36,36]:
+            - /url: https://www.instagram.com/
+          - link [ref=e1810] [cursor=pointer] [box=752,14218,36,36]:
+            - /url: https://x.com/madebykota
+          - link [ref=e1814] [cursor=pointer] [box=796,14218,36,36]:
+            - /url: https://www.linkedin.com/
+        - link "G e t T e m p l a t e N o w" [ref=e1818] [cursor=pointer] [box=1199,14212,197,48]:
+          - /url: https://kota.lemonsqueezy.com/checkout/buy/5bfe6c88-c4c2-4e5d-a5a3-d36f5107ad77
+          - paragraph [ref=e2738] [box=1223,14224,149,24]
+  - link "Create a free website with Framer, the website builder loved by startups, designers and agencies." [ref=e2755] [cursor=pointer] [box=1336,792,140,38]:
+    - /url: https://www.framer.com
+    - paragraph [ref=e1839] [box=1406,811,0,0]: Create a free website with Framer, the website builder loved by startups, designers and agencies.
+  - img [ref=e1840] [box=0,850,657,406]
+  - img [ref=e1850] [box=0,1273,101,20]
+  - img [ref=e1854] [box=0,1296,101,20]
+  - img [ref=e1858] [box=0,1319,99,24]
+  - img [ref=e1862] [box=0,1346,85,20]
+  - img [ref=e1866] [box=0,1369,72,18]
+  - img [ref=e1871] [box=0,1390,45,18]
+  - img [ref=e1874] [box=0,1411,18,84]
+  - img [ref=e1876] [box=0,1498,91,42]
+  - img [ref=e1878] [box=0,1543,48,44]
+  - img [ref=e1880] [box=0,1590,20,58]
+  - img [ref=e1882] [box=0,1651,87,39]
+  - img [ref=e1884] [box=0,1693,108,50]
+  - img [ref=e1886] [box=0,1746,366,358]
+  - img [ref=e1896] [box=0,2107,32,32]
+  - img [ref=e1898] [box=0,2142,256,64]
+  - img [ref=e1900] [box=0,2209,88,88]
+  - img [ref=e1902] [box=0,2300,12,12]
+  - img [ref=e1904] [box=0,2315,162,160]
+  - img [ref=e1911] [box=0,2478,101,35]
+  - img [ref=e1913] [box=0,2516,106,33]

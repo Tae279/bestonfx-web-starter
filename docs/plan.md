@@ -42,6 +42,8 @@ _Last updated: 2026-06-01_
 - `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.html` — polished founder/Framer/agency operator dashboard
 - `docs/research/bestonfx-framer-perfect-research-2026-06-01.md` + `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.md` — expanded research and operator handoff
 - `docs/research/bestonfx-framer-design-craft-playbook-2026-06-01.md` — design/motion/Framer-craft/copy/trust/anti-AI-slop deep-dive (Claude, 2026-06-01)
+- `docs/research/bestonfx-chatgpt-image-prompt-pack-2026-06-01.html` — **canonical image-generation prompt pack** (ChatGPT + reference-first; blue `#0040c1`, res ~1536x1024 + upscale). Supersedes the prompt section of the 2026-05-31 visual image plan.
+- `docs/research/bestonfx-forex-broker-visual-image-plan-2026-05-31.html` — image strategy, 9-asset system, per-section visual map, art-direction + compliance guardrails (prompt section superseded by the 2026-06-01 pack)
 - `docs/wireframes/sitemap.md`, `docs/wireframes/pages/*.md`, `docs/wireframes/components.md` — page-level Framer build specs
 - `docs/framer-poc-map.md` — Fizens template inventory and legacy section map; do not use it to override wireframes
 - `docs/reports/home-ia-drift-handoff.md` — Home IA correction log

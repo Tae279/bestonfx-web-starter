@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <title>BestonFX ChatGPT Image Prompt Pack - 2026-06-01</title>
+  <style>
+    :root {
+      --blue: #024ada;
+      --royal: #0040c1;
+      --bright: #2970ff;
+      --soft: #f5f8ff;
+      --paper: #ffffff;
+      --paper-2: #fbfdff;
+      --ink: #101828;
+      --muted: #667085;
+      --line: #d8e3f0;
+      --green: #06c755;
+      --amber: #fff7ed;
+      --amber-ink: #9a5b00;
+      --red: #dc2626;
+      --red-soft: #fff1f2;
+      --shadow: 0 18px 50px rgba(16, 24, 40, .08);
+      --font: Prompt, "Noto Sans Thai", "IBM Plex Sans Thai", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", "JetBrains Mono", Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #101b2e;
+        --paper-2: #0b1425;
+        --soft: #0e1d38;
+        --ink: #eef4ff;
+        --muted: #a8b3c7;
+        --line: #263854;
+        --amber: #2f230d;
+        --amber-ink: #ffd28a;
+        --red-soft: #35151b;
+        --shadow: 0 18px 60px rgba(0, 0, 0, .3);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(2, 74, 218, .09), transparent 360px),
+        linear-gradient(90deg, rgba(2, 74, 218, .05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(2, 74, 218, .05) 1px, transparent 1px),
+        var(--paper-2);
+      background-size: auto, 56px 56px, 56px 56px, auto;
+      font-family: var(--font);
+      line-height: 1.56;
+      letter-spacing: 0;
+    }
+
+    a { color: var(--royal); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { line-height: 1.08; letter-spacing: 0; }
+    h1 { max-width: 980px; margin-top: 18px; font-size: 64px; font-weight: 900; }
+    h2 { font-size: 34px; font-weight: 900; }
+    h3 { font-size: 19px; font-weight: 850; }
+    p { color: var(--muted); font-size: 15px; }
+    code, pre, .mono { font-family: var(--mono); }
+    code {
+      display: inline-block;
+      border: 1px solid rgba(2, 74, 218, .12);
+      border-radius: 6px;
+      padding: 1px 6px;
+      color: var(--royal);
+      background: rgba(2, 74, 218, .08);
+      font-size: .92em;
+    }
+
+    .shell { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+    .hero { padding: 70px 0 34px; }
+    .eyebrow {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--royal);
+      background: rgba(255,255,255,.78);
+      font: 850 12px/1 var(--mono);
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(2,74,218,.07);
+    }
+    @media (prefers-color-scheme: dark) {
+      .eyebrow { background: rgba(16,27,46,.82); }
+    }
+    .lead { max-width: 830px; margin-top: 16px; font-size: 18px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: end;
+      margin-top: 24px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .card { background: rgba(16,27,46,.82); }
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(18px);
+    }
+    @media (prefers-color-scheme: dark) {
+      .nav { background: rgba(16,27,46,.88); }
+    }
+    .nav .shell {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+    .nav a {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--muted);
+      background: var(--paper);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    section { padding: 54px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    .kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--royal);
+      font: 850 12px/1 var(--mono);
+      text-transform: uppercase;
+    }
+    .grid { display: grid; gap: 14px; }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: var(--muted);
+      background: var(--paper);
+      font: 850 11px/1 var(--mono);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge.ok { border-color: rgba(6,199,85,.28); color: #087333; background: #eaf8ef; }
+    .badge.warn { border-color: #fed7aa; color: var(--amber-ink); background: var(--amber); }
+    .badge.stop { border-color: rgba(220,38,38,.24); color: var(--red); background: var(--red-soft); }
+    .prompt-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .prompt-card header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding: 14px;
+      background: var(--soft);
+    }
+    .prompt-card header p { margin-top: 4px; }
+    .copy-btn {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 11px;
+      color: #fff;
+      background: var(--royal);
+      font: 850 12px/1 var(--font);
+      cursor: pointer;
+    }
+    .copy-btn:active { transform: translateY(1px); }
+    .prompt-body {
+      padding: 15px;
+      color: var(--ink);
+      white-space: pre-wrap;
+      font: 500 14px/1.58 var(--mono);
+    }
+    .notes {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 0;
+      list-style: none;
+    }
+    .notes li {
+      border-bottom: 1px solid var(--line);
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .notes li:last-child { border-bottom: 0; }
+    .callout {
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 14px;
+      color: var(--amber-ink);
+      background: var(--amber);
+      font-size: 14px;
+    }
+    .footer { padding: 34px 0 52px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 860px) {
+      h1 { font-size: 42px; }
+      h2 { font-size: 29px; }
+      .hero-grid, .section-head, .cols-2, .cols-3 { grid-template-columns: 1fr; }
+      section { padding: 42px 0; }
+      .prompt-card header { grid-template-columns: 1fr; }
+      .copy-btn { width: max-content; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero shell">
+    <span class="eyebrow">BestonFX · ChatGPT Image Prompt Pack · 1 June 2026</span>
+    <h1>Prompt pack สำหรับ gen รูปใน ChatGPT โดยไม่หลุด brand และ compliance</h1>
+    <p class="lead">ใช้ทีละ prompt. อย่าสั่งให้ ChatGPT ทำทุกภาพในครั้งเดียว เพราะ style จะ drift. ทุกภาพใช้ BestonFX Framer/Fizens direction: light royal-blue fintech, Prompt-friendly, product/trust/support first, no fake claims.</p>
+    <div class="hero-grid">
+      <div class="grid cols-3">
+        <div class="card"><strong>Brand</strong><p>Light fintech, white surfaces, royal blue <code>#0040c1</code>, soft blue glow.</p></div>
+        <div class="card"><strong>Output</strong><p>Use 16:9 for desktop Framer sections; generate 4:5 or 9:16 only when a mobile crop is needed.</p></div>
+        <div class="card"><strong>Compliance</strong><p>No profit, no fake numbers, no fake regulator seal, no testimonial face, no deposit CTA.</p></div>
+      </div>
+      <div style="display:grid; gap:10px;">
+        <div class="callout">Default: no readable text inside the image. Add Thai copy, CTA, labels, and legal warnings later in Framer.</div>
+        <div class="callout" style="border-color: rgba(2,74,218,.28); color: var(--royal); background: rgba(2,74,218,.06);"><strong>Reference-first (สำคัญสุด):</strong> แนบรูป reference 1–2 ใบ (Fizens shot / real broker UI / Mobbin) ใน ChatGPT พร้อม prompt ทุกครั้ง โดยเฉพาะ Hero / Trust / Markets — กัน output หลุดเป็น generic AI dashboard.</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Prompt sections">
+    <div class="shell">
+      <a href="#base">Base</a>
+      <a href="#hero">Hero</a>
+      <a href="#trust">Trust</a>
+      <a href="#markets">Markets</a>
+      <a href="#rebate">Rebate</a>
+      <a href="#line">LINE</a>
+      <a href="#articles">Articles</a>
+      <a href="#optional">Optional 3D</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="shell" id="base">
+      <div class="section-head">
+        <div>
+          <span class="kicker">00 · Use With Every Prompt</span>
+          <h2>กฎกลางก่อนกด generate</h2>
+          <p>Copy ก้อนนี้ไปต่อท้าย prompt ทุกอัน ถ้า ChatGPT เริ่มออกดำทอง, neon, คนยิ้ม stock, ตัวเลขกำไร, หรือ official seal ให้ regenerate ทันที.</p>
+        </div>
+        <span class="badge warn">Paste every time</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Global BestonFX Image Rules</h3>
+            <p>ใช้เป็น style and compliance suffix สำหรับทุกภาพ</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-base">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-base">BestonFX visual direction: light premium fintech website, white and soft blue surfaces, royal blue accent #0040c1 only, subtle #2970ff hover-blue glow, clean rounded UI cards, Prompt Thai-font friendly spacing, calm broker-sober mood, generous whitespace, credible product UI, Thai-first audience, Fizens-inspired finance SaaS layout rhythm.
+
+Strict constraints: no black-and-gold luxury styling, no dark navy page background, no casino or gambling mood, no cyberpunk neon, no fake profit chart, no visible P&L, no account balance, no fake spread/leverage/license numbers, no official regulator logo or seal, no testimonial faces, no star ratings, no "trusted by millions", no text-heavy layout, no garbled Thai text, no brand logo inside the image unless provided separately.
+
+Composition rules: leave clean negative space for Thai headline and CTA overlays, keep important objects away from the edges for responsive Framer cropping, use crisp UI shapes and realistic soft shadows, avoid clutter, avoid stock-photo people.
+
+Output: one high-resolution still image, 16:9 landscape, requested at the largest size ChatGPT supports (about 1536x1024 px), web landing-page asset, no explanation, no extra variations unless asked.</div>
+      </article>
+      <ul class="notes">
+        <li><strong>Reference:</strong> สำหรับ Hero / Trust / Markets แนบรูป reference ใน ChatGPT พร้อม prompt — text-only ออกง่ายเป็น generic AI art.</li>
+        <li><strong>Upscale:</strong> ChatGPT ออกราว 1536x1024. ถ้าต้องการ target ใน 9-asset plan (เช่น Hero 2400x1600) ให้ upscale ต่อ (Magnific / fal) ก่อน export เป็น WebP/AVIF.</li>
+      </ul>
+    </section>
+
+    <section class="shell" id="hero">
+      <div class="section-head">
+        <div>
+          <span class="kicker">01 · Home Hero</span>
+          <h2>Hero trading terminal / command center</h2>
+          <p>ภาพสำคัญที่สุด. ใช้แทน Fizens finance-app hero ให้เห็นว่า beston เป็น broker/platform จริง แต่ไม่ใส่ข้อมูลเงินจริง.</p>
+        </div>
+        <span class="badge ok">P0</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 1A - Desktop hero 16:9</h3>
+            <p>ใช้กับ Home hero right visual หรือ full-bleed hero media</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-hero">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-hero">Create a premium Forex/CFD broker landing-page hero visual for BestonFX.
+
+Scene: a clean, light-themed trading command center interface floating on a white and very pale blue workspace. The interface is inspired by MT5-style market watch panels, order widgets, symbol cards, and risk/rebate modules, but it must be abstract and non-functional, with no readable prices, no P&L, no account balance, no spread numbers, no leverage values, no profit percentage.
+
+Visual layout: asymmetric composition. Right side contains the main terminal mockup with layered rounded white cards, thin #e5e7eb borders, royal blue #0040c1 accent lines, subtle #2970ff glow, and small neutral grey chart lines. Left side has clean negative space for Thai headline overlay in Framer. Use a soft blue bloom behind the terminal, not neon.
+
+Objects to include: market watch card with abstract market rows (no readable ticker symbols, no readable numbers — use blurred placeholder glyphs only); risk notice chip; rebate/T&C chip; LINE support chip; small device frame or floating dashboard panel. Real symbol names and numbers are added as Framer chips later, never inside the image.
+
+Mood: calm, credible, premium, transparent-cost broker, not hype. It should feel like a real product UI, not a generic AI dashboard.
+
+Lighting and style: daylight fintech, white surface, soft shadows, high clarity, realistic web UI render, no dark-gold luxury, no cyberpunk, no smiling trader, no stock photo, no official regulator seal, no fake logo, no fake testimonial.
+
+Aspect ratio: 16:9 landscape. Resolution: request the largest size ChatGPT offers (~1536x1024). Leave safe crop margins for desktop and mobile Framer responsive use. Generate one image only.</div>
+      </article>
+
+      <ul class="notes">
+        <li><strong>File target:</strong> <code>beston-home-hero-command-center.webp</code></li>
+        <li><strong>Framer note:</strong> Add label in Framer, not inside the image: <code>ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง</code></li>
+      </ul>
+    </section>
+
+    <section class="shell" id="trust">
+      <div class="section-head">
+        <div>
+          <span class="kicker">02 · Trust / Compliance</span>
+          <h2>Trust stack / regulatory proof metaphor</h2>
+          <p>ใช้ตรง RegulatoryStrip, Why beston, Footer trust. ห้ามให้ AI สร้าง official seal ปลอม.</p>
+        </div>
+        <span class="badge warn">No fake seals</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 2 - Trust compliance stack</h3>
+            <p>ภาพเอกสาร, shield, checklist, platform proof แบบ abstract</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-trust">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-trust">Create a trust and compliance visual for a Thai Forex/CFD broker website, BestonFX.
+
+Scene: a clean white desk-like digital surface with layered verification cards, document cards, a subtle shield outline, and platform proof cards arranged in a neat stack. Use abstract badges only, not official regulator seals. The cards can suggest "entity verification", "risk disclosure", "platform", and "support", but do not use readable license numbers, regulator logos, or official emblems.
+
+Visual style: light fintech, white and soft blue surfaces, royal blue #0040c1 accent, thin #e5e7eb borders, subtle blue glow, professional document-card metaphor, high credibility. Use crisp vector-like UI inside a photoreal web-render composition.
+
+Composition: horizontal 16:9 section image. Leave empty space on one side for Framer text overlay. Keep all documents and chips inside safe margins. Make the visual feel structured and trustworthy, not decorative.
+
+What to include: 4 to 6 stacked cards, abstract shield line icon, neutral check marks, a small platform card, a small risk disclosure card, soft blue verification ribbon. Text should be unreadable or placeholder lines only.
+
+Avoid: fake regulator logo, fake license number, fake award, star rating, "trusted by" claims, passport/KYC sensitive document photo, gold seal, stamp, black-gold private bank style, cyber security padlock cliché, human testimonial portrait.
+
+Aspect ratio: 16:9 landscape, largest size ChatGPT offers (~1536x1024). Generate one image only.</div>
+      </article>
+    </section>
+
+    <section class="shell" id="markets">
+      <div class="section-head">
+        <div>
+          <span class="kicker">03 · Markets</span>
+          <h2>Markets universe / ticker visual</h2>
+          <p>แสดง market range แบบมีชีวิต แต่ต้องไม่เหมือน fake live trading profit.</p>
+        </div>
+        <span class="badge warn">Sample data</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 3 - Markets universe</h3>
+            <p>ใช้บน Home ticker, Markets page hero, market card background</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-markets">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-markets">Create a premium "markets universe" visual for BestonFX, a Forex/CFD broker website.
+
+Scene: a clean grid of market category cards floating on a white and pale blue fintech interface. Suggest categories through abstract cards: Forex, Gold, Indices, Crypto, Oil. Each card shows a tiny icon and abstract line-chart shapes only — no readable ticker symbols, no readable price, no percentage, no profit/loss, no real-time claim. Category and symbol names are added as Framer chips later, not inside the image.
+
+Visual style: Fizens-inspired light finance SaaS, white cards, thin borders, royal blue #0040c1 accents, soft blue hover glow, neutral grey secondary lines, calm spacious layout. It should look like a polished Framer section visual, not a trading terminal screenshot.
+
+Composition: 16:9 landscape. Place the most detailed cards in the center-right and leave clean negative space on the left for Thai copy overlay. Keep a horizontal ticker rhythm, with some cards slightly staggered for depth.
+
+Compliance: include subtle "sample data" feeling through placeholder chips or abstract dots, but do not write long text. Do not show live prices, returns, account balances, candles implying a guaranteed uptrend, green profit visuals, or a large upward arrow.
+
+Avoid: casino energy, neon chart, green-money rain, aggressive trading desk, dark Bloomberg clone, gold, fake "low spread" or "fast withdraw" labels.
+
+Aspect ratio: 16:9 landscape, largest size ChatGPT offers (~1536x1024). Generate one image only.</div>
+      </article>
+    </section>
+
+    <section class="shell" id="rebate">
+      <div class="section-head">
+        <div>
+          <span class="kicker">04 · Rebate</span>
+          <h2>Rebate flow diagram</h2>
+          <p>ภาพนี้ต้องอธิบาย mechanism ไม่ใช่ promise income. ใช้กับ Home rebate section และ Tools page.</p>
+        </div>
+        <span class="badge stop">No profit claim</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 4 - Rebate flow</h3>
+            <p>lot to rebate to T&C diagram, clean and compliance-safe</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-rebate">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-rebate">Create a clean rebate-flow explanatory visual for BestonFX, a Thai Forex/CFD broker website.
+
+Scene: a minimal flow diagram made from premium rounded cards on a white and pale blue background. The flow should communicate the concept: trading volume input, eligible lot check, rebate calculation, T&C review, payout status placeholder. Use abstract UI modules and arrows, but no real numbers, no currency amount, no income projection, no guarantee.
+
+Visual style: light fintech UI, royal blue #0040c1 for main path, amber accent only for T&C/risk note chip, neutral grey secondary lines, white cards, thin #e5e7eb borders, subtle shadow, calm product-education feeling.
+
+Composition: 16:9 landscape. The diagram should be readable as a web section visual, with space for Thai headline and explanation on either left or right. Use three to five flow nodes, simple icons, and placeholder line text only.
+
+Mandatory compliance direction: the image must feel like "how rebate is calculated under conditions", not "make more money". Avoid profit symbols, money stacks, cash rain, guaranteed income, big dollar signs, "win", green up arrows, celebratory confetti, or any payout number.
+
+Suggested visual elements: small lot icon, checkmark list, T&C card, risk amber chip, neutral payout placeholder panel, clean blue connector lines.
+
+Aspect ratio: 16:9 landscape, largest size ChatGPT offers (~1536x1024). Generate one image only.</div>
+      </article>
+    </section>
+
+    <section class="shell" id="line">
+      <div class="section-head">
+        <div>
+          <span class="kicker">05 · LINE Support</span>
+          <h2>LINE support visual</h2>
+          <p>ใช้กับ CTA banner และ Support page. ต้องสื่อว่ามีทีมไทยช่วยเรื่องบัญชี ไม่ใช่ให้คำแนะนำเทรด.</p>
+        </div>
+        <span class="badge ok">Thai conversion</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 5 - LINE support chat</h3>
+            <p>LINE-first support mock, QR placeholder, Thai admin care</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-line">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-line">Create a LINE-first support visual for BestonFX, a Thai Forex/CFD broker website.
+
+Scene: a clean support chat composition with a smartphone or chat panel mockup showing a LINE-style conversation layout, a QR placeholder card, and a Thai support/admin cue. The chat bubbles must be visual placeholders only, with no readable advice, no response-time claim, no trading signal, no buy/sell recommendation.
+
+Visual style: light premium fintech, white and soft blue surfaces, royal blue #0040c1 accent for brand UI, LINE green #06C755 only on the LINE button or small support cue, thin borders, soft shadows, friendly but not playful.
+
+Composition: 16:9 landscape. Put chat mockup on the right, leave clean copy space on the left. Keep QR as a generic placeholder square, not an actual QR code. Add small support channel cards like "LINE", "Email", "Help Center" as abstract UI chips without long readable text.
+
+Mood: reassuring Thai customer support, practical account guidance, calm and trustworthy. It should feel like a service channel for account setup and documents, not trading advice.
+
+Avoid: human face closeups, fake "reply in 1 min" claim, fake rating, fake user count, trading tips in chat, green profit chart, confetti, cartoon mascot, over-bright LINE green background.
+
+Aspect ratio: 16:9 landscape, largest size ChatGPT offers (~1536x1024). Generate one image only.</div>
+      </article>
+    </section>
+
+    <section class="shell" id="articles">
+      <div class="section-head">
+        <div>
+          <span class="kicker">06 · Article Covers</span>
+          <h2>Article cover set 4 ภาพ</h2>
+          <p>gen ทีละใบ 4 turn: turn 1 ออก Cover 1 = lock style, turn 2–4 สั่ง "same style as previous". อย่าทำเป็น grid. ใช้กับ Articles CMS.</p>
+        </div>
+        <span class="badge ok">CMS set</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 6 - Article cover series</h3>
+            <p>4 consistent editorial covers: risk, MT5, rebate, account setup</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-articles">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-articles">Create a consistent set of 4 editorial article cover images for BestonFX educational content.
+
+Shared style for all 4 covers: light premium fintech editorial, white and pale blue background, royal blue #0040c1 accent, subtle neutral grey UI lines, generous whitespace, rounded card motif, calm risk-aware tone, Thai-first audience, no readable Thai text inside the image. Each cover must feel part of the same series.
+
+Cover 1 topic: risk education. Visual metaphor: amber risk note card, leverage slider as abstract UI, shield outline, calm warning cue. No fearmongering, no crash chart.
+
+Cover 2 topic: MT5 basics. Visual metaphor: simplified platform window, market watch list, order panel placeholders, blue focus ring. No real prices, no P&L, no account balance.
+
+Cover 3 topic: rebate explained. Visual metaphor: clean lot-to-rebate flow, T&C card, neutral calculator widget. No cash, no income promise, no dollar amount.
+
+Cover 4 topic: account setup. Visual metaphor: checklist cards, document placeholder, support chip, LINE cue. No personal ID details, no real forms, no KYC document photo.
+
+Workflow: generate the covers ONE AT A TIME across 4 separate turns — never a 2x2 grid. In this turn generate ONLY Cover 1 and treat it as the style anchor; in later turns request Cover 2, 3, then 4 with "same style, same UI language, same camera as the previous cover." Each cover is its own square 1:1 file.
+
+Avoid: stock-photo people, smiley trader, fake awards, fake license, gold/black luxury, neon, upward profit charts, casino mood, clutter.
+
+Resolution: 1024x1024 per cover (ChatGPT square max). One cover per turn — do not output a grid.</div>
+      </article>
+    </section>
+
+    <section class="shell" id="optional">
+      <div class="section-head">
+        <div>
+          <span class="kicker">07 · Optional</span>
+          <h2>3D / Spline-style hero accent</h2>
+          <p>ไม่จำเป็นสำหรับ POC แรก แต่ถ้าอยากเพิ่ม wow ให้ Framer โดยไม่หนักเกิน ใช้ภาพนี้เป็น direction ไปทำ Spline หรือ static fallback.</p>
+        </div>
+        <span class="badge warn">Optional</span>
+      </div>
+
+      <article class="prompt-card">
+        <header>
+          <div>
+            <h3>Prompt 7 - Subtle 3D trading scene</h3>
+            <p>ใช้เป็น reference, ไม่ควรแทน hero terminal mock หลัก</p>
+          </div>
+          <button class="copy-btn" data-copy-target="prompt-3d">Copy</button>
+        </header>
+        <div class="prompt-body" id="prompt-3d">Create a subtle 3D visual reference for a BestonFX Framer hero accent.
+
+Scene: abstract trading command center geometry made from clean low-poly glass-free panels, soft white and pale blue material, royal blue #0040c1 accent lines, floating market glyphs, a few thin connector paths, and a central matte device-like dashboard form. It should feel lightweight enough for a Framer/Spline web scene.
+
+Style: minimal 3D product visualization, not plastic, not glossy glassmorphism, no neon, no cyberpunk, no black-gold, no dark Bloomberg screen. Use daylight, soft shadows, clean material, restrained fintech.
+
+Composition: 16:9 landscape with the 3D object on the right and empty copy space on the left. Keep geometry simple and web-optimized, with no tiny text and no readable numbers.
+
+Compliance: no profit chart, no P&L, no account balance, no regulator seal, no official logo, no fake numbers.
+
+Purpose: use as a Spline direction or static fallback for a subtle hero accent. The main product proof should still be the TerminalHero UI mock.
+
+Aspect ratio: 16:9 landscape, largest size ChatGPT offers (~1536x1024). Generate one image only.</div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    Prepared for BestonFX Framer/Fizens POC. These prompts generate visual assets only. Add legal text, CTA labels, risk warnings, and verified details in Framer after human review.
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-copy-target]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        const text = target.innerText.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = button.textContent;
+          button.textContent = "Copied";
+          window.setTimeout(() => {
+            button.textContent = original;
+          }, 1100);
+        } catch (error) {
+          button.textContent = "Select text";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

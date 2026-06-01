@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>beston — Detailed Wireframes + Sitemap (dark)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#5b8cff;--blue-2:#7aa5ff;--surf:#16213d;--surf2:#1b2742;--head:#dbe5fb;--ink:#e7edf9;--muted:#aebbd6;--muted2:#8595b5;--border:#28324e;--bg:#0a0f1e;--card:#131a2e;--card2:#0f1626;--line:#06C755;--amber:#fbbf24;--amber-bg:#2b2110;--amber-bd:#5a4316;--green:#34d399;--red:#f87171;--font:'Prompt',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--sh:0 1px 2px rgba(0,0,0,.4),0 14px 30px -14px rgba(0,0,0,.7)}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px 90px}
+.cover{background:radial-gradient(700px 340px at 82% -12%,rgba(91,140,255,.4),transparent 60%),linear-gradient(140deg,#16317a,#0e2256 55%,#0a1430);border:1px solid var(--border);padding:42px 36px;border-radius:0 0 22px 22px;box-shadow:var(--sh)}
+.cover .k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#b9c9ef}
+.cover h1{font-size:27px;font-weight:600;letter-spacing:-.02em;margin:12px 0 6px;color:#fff}
+.cover p{color:#c9d6f2;max-width:600px;font-size:14px}
+.cover .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.cover .meta span{font-family:var(--mono);font-size:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 10px;color:#dbe5fb}
+h2{font-size:19px;font-weight:600;color:var(--head);margin:38px 0 4px;letter-spacing:-.01em;border-bottom:1px solid var(--border);padding-bottom:8px}
+.sub{color:var(--muted2);font-size:12.5px;margin:3px 0 14px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:14px 0}
+.legend span{display:flex;align-items:center;gap:5px}
+.sw{width:24px;height:14px;border-radius:4px;display:inline-block}
+.tree{font-family:var(--mono);font-size:11.5px;background:#070c18;border:1px solid var(--border);color:#cbd7f1;padding:16px;border-radius:10px;line-height:1.7;overflow-x:auto;white-space:pre;margin:10px 0}
+.tree .c{color:#7fa6ef}.tree .e{color:#fbbf24}
+table{width:100%;border-collapse:collapse;font-size:11.5px;margin:10px 0;background:var(--card);border-radius:10px;overflow:hidden}
+th{background:var(--blue);color:#08122c;text-align:left;padding:7px 10px;font-size:10.5px;font-weight:600}
+td{padding:7px 10px;border-top:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:var(--surf)}
+.ok{color:var(--green);font-family:var(--mono);font-size:10px;font-weight:600}.warn{color:var(--amber);font-family:var(--mono);font-size:10px;font-weight:600}
+.journey{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0;font-size:11.5px}
+.jb{background:var(--surf);border:1px solid var(--surf2);border-radius:8px;padding:8px 12px;color:var(--ink)}
+.jb.ext{background:var(--card);border-style:dashed}
+.jar{color:var(--blue);font-family:var(--mono)}
+/* wireframe frame */
+.wf{border:1px solid var(--border);border-radius:14px;margin:14px 0;overflow:hidden;box-shadow:var(--sh);background:var(--card)}
+.wf-h{display:flex;align-items:center;gap:9px;padding:9px 14px;background:var(--card2);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.wf-id{font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:600}
+.wf-t{font-size:12.5px;font-weight:600;flex:1}.wf-t .en{color:var(--blue-2)}
+.bd{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:5px}
+.bd.hero{background:#3a2f08;color:#fbbf24}.bd.conv{background:#0f3a26;color:#5ee0a3}.bd.trust{background:#13294f;color:#8fb4ff}.bd.legal{background:#2a1d3d;color:#c4a3e8}.bd.p0{background:var(--blue);color:#08122c}
+.canvas{padding:14px;background:repeating-linear-gradient(135deg,#0e1730,#0e1730 14px,#101a34 14px,#101a34 28px)}
+.goal{font-size:10.5px;color:var(--muted2);margin-bottom:9px;font-family:var(--mono)}
+.row{display:flex;gap:7px;margin-bottom:7px;flex-wrap:wrap}
+.row.s{align-items:stretch}
+.b{background:#1c2a4d;border:1px solid #34467a;border-radius:6px;padding:8px 9px;color:#c5d3f3;flex:1;min-width:50px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10.5px;min-height:30px}
+.b.a{background:var(--blue);color:#08122c;border-color:var(--blue);font-weight:600}
+.b.l{background:var(--line);color:#063318;border-color:var(--line);font-weight:600}
+.b.g{background:transparent;border:1.4px dashed #34467a}
+.b.txt{justify-content:flex-start;text-align:left;flex-direction:column;align-items:flex-start;gap:3px;padding:10px}
+.b.ph{background:#13203f;color:#8fa3d6;font-style:italic;min-height:64px}
+.b.r{background:var(--amber-bg);border-color:var(--amber-bd);color:var(--amber)}
+.b.hd{font-size:15px;font-weight:600;color:var(--head);background:transparent;border:none;justify-content:flex-start;min-height:auto;padding:2px 0}
+.b.hd .en{color:var(--blue-2)}
+.b.sm{font-size:9.5px;color:var(--muted2)}
+.cap{font-size:10px;color:var(--muted2);padding:7px 14px;border-top:1px solid var(--border);font-family:var(--mono)}
+.note{border-radius:9px;padding:9px 13px;font-size:11.5px;margin:10px 0}
+.warnote{background:var(--amber-bg);border:1px solid var(--amber-bd);color:var(--amber)}.info{background:var(--surf);border:1px solid var(--surf2);color:var(--muted)}
+code{font-family:var(--mono);font-size:.85em;background:var(--surf);color:var(--blue-2);padding:1px 5px;border-radius:4px}
+.pgband{background:linear-gradient(135deg,#11204a,#0c1733);border:1px solid var(--border);border-radius:12px;padding:13px 18px;margin-top:30px}
+.pgband .pn{font-family:var(--mono);font-size:9.5px;color:var(--muted2)}.pgband h3{color:#fff;font-size:16px;margin-top:3px}.pgband .a{font-size:11px;color:var(--muted);margin-top:4px}
+.foot{text-align:center;padding:26px;font-family:var(--mono);font-size:10px;color:var(--muted2);border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="k">beston · detailed wireframes + sitemap · pairs with master spec v7 (copy)</div>
+  <h1>Wireframes + Sitemap — ฉบับละเอียด</h1>
+  <p>Layout จริงทุก section (Home 13 + sub-pages 8) + sitemap + user journey. ทุกบล็อก = ของจริงบนเว็บ (REWARD axis · MT5 · register A · ข้อมูลจาก bestonfx.com).</p>
+  <div class="meta"><span>2026-06-01</span><span>dark</span><span>REWARD · MT5</span><span>copy → v7</span></div>
+</div>
+<div class="wrap">
+
+<div class="legend">
+  <span><i class="sw" style="background:var(--blue)"></i> primary CTA / accent</span>
+  <span><i class="sw" style="background:var(--line)"></i> LINE CTA</span>
+  <span><i class="sw" style="background:#1c2a4d;border:1px solid #34467a"></i> content block</span>
+  <span><i class="sw" style="background:#13203f"></i> image/visual</span>
+  <span><i class="sw" style="background:var(--amber-bg);border:1px solid var(--amber-bd)"></i> risk/compliance</span>
+  <span><i class="sw" style="border:1.4px dashed #34467a"></i> ghost/secondary</span>
+</div>
+
+<!-- SITEMAP -->
+<h2>0 · Sitemap</h2>
+<p class="sub">9 หน้า public + legal · Framer (Fizens) · shared chrome ทุกหน้า</p>
+<pre class="tree">bestonfx.com  <span class="c">(Framer · Fizens)</span>
+│
+├─ <b>/</b>                       Home            <span class="c">13 sections · persuade + route   </span><span class="e">P0</span>
+├─ /why-bestonfx           Why beston      <span class="c">reward + trust proof             </span>P1
+├─ /markets                Markets         <span class="c">asset classes · MT5 conditions   </span>P1
+├─ /accounts               Accounts        <span class="c">Standard + Demo + rebate         </span>P1
+├─ /tools                  Tools           <span class="c">MT5 + calculators                </span>P1
+├─ /partners               Partners        <span class="c">refer &amp; earn (points)            </span>P2
+├─ /support                Support         <span class="c">Thai 24/7 · LINE                 </span>P1
+├─ /articles[/slug]        Articles        <span class="c">CMS education                    </span>P2
+├─ /legal/risk-disclosure  Risk            <span class="c">mandatory risk                   </span>P1
+├─ /legal/terms · /privacy Legal           <span class="c">terms · privacy/AML-KYC          </span>P2
+└─ *                       404             <span class="c">branded recover                  </span>P2
+
+<span class="c">External (ไม่ใช่หน้า Framer):</span>  cp.bestonfx.com/newAccount.html · /sign-in.html · LINE @bestonfx
+<span class="c">Shared chrome:</span>  RiskBar(sticky) · Navbar(condense) · Footer(entity+risk) · AIChatWidget(float)</pre>
+
+<table><thead><tr><th>Route</th><th>document.title</th><th>หน้าที่</th><th>Priority</th></tr></thead><tbody>
+  <tr><td>/</td><td>beston — Trade Smarter Not Harder</td><td>brand + reward hook + route</td><td class="ok">P0</td></tr>
+  <tr><td>/why-bestonfx</td><td>ทำไมต้อง beston</td><td>reward detail + trust</td><td class="warn">P1</td></tr>
+  <tr><td>/markets</td><td>ตลาด · beston</td><td>asset discovery</td><td class="warn">P1</td></tr>
+  <tr><td>/accounts</td><td>บัญชี · beston</td><td>Standard/Demo + rebate (conversion hub)</td><td class="warn">P1</td></tr>
+  <tr><td>/tools</td><td>เครื่องมือ · beston</td><td>MT5 + calculators</td><td class="warn">P1</td></tr>
+  <tr><td>/partners</td><td>พาร์ทเนอร์ · beston</td><td>refer &amp; earn points</td><td>P2</td></tr>
+  <tr><td>/support</td><td>ช่วยเหลือ · beston</td><td>Thai support + LINE</td><td class="warn">P1</td></tr>
+  <tr><td>/articles</td><td>บทความ · beston</td><td>education + SEO</td><td>P2</td></tr>
+  <tr><td>/legal/*</td><td>ข้อกำหนด/ความเสี่ยง · beston</td><td>legal</td><td class="warn">P1</td></tr>
+</tbody></table>
+
+<h3 style="font-size:14px;color:var(--muted);margin-top:18px">User journey</h3>
+<div class="journey">
+  <span class="jb">Ad / SEO</span><span class="jar">→</span><span class="jb">Home (reward hook)</span><span class="jar">→</span><span class="jb">/accounts หรือ /partners</span><span class="jar">→</span><span class="jb ext">เปิดบัญชี (portal)</span>
+</div>
+<div class="journey">
+  <span class="jb">ลังเล</span><span class="jar">→</span><span class="jb l" style="background:var(--surf)">ทัก LINE OA</span><span class="jar">→</span><span class="jb">ทีมไทยคุย/nurture</span><span class="jar">→</span><span class="jb ext">เปิดบัญชี</span>
+</div>
+
+<!-- GLOBAL CHROME -->
+<div class="wf"><div class="wf-h"><span class="wf-id">G1</span><span class="wf-t">Navbar — condense on scroll</span><span class="bd trust">global</span></div>
+<div class="canvas"><div class="row">
+  <div class="b" style="max-width:80px">logo</div><div class="b g">ทำไมต้อง beston</div><div class="b g">ตลาด</div><div class="b g">บัญชี</div><div class="b g">พาร์ทเนอร์</div><div class="b g">บทความ</div><div class="b g" style="max-width:70px">เข้าระบบ</div><div class="b a" style="max-width:80px">เปิดบัญชี</div>
+</div></div><div class="cap">scrollY&gt;40 → blur 12px, height −8px</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">G2</span><span class="wf-t">RiskBar (sticky top) + AI widget (float)</span><span class="bd legal">global</span></div>
+<div class="canvas"><div class="row"><div class="b r" style="flex:4">⚠ Forex/CFD และ Leverage มีความเสี่ยงสูง... <span style="margin-left:auto">อ่านเพิ่มเติม →</span></div></div>
+<div class="row"><div class="b g" style="flex:5;justify-content:flex-start">(page content)</div><div class="b" style="max-width:70px">💬 AI</div></div></div><div class="cap">risk bar คงที่บนสุด · AI bubble ลอยมุมขวาล่าง — label "ไม่ใช่คำแนะนำการลงทุน"</div></div>
+
+<!-- ============ HOME ============ -->
+<div class="pgband"><div class="pn">PAGE 1 / 9 · P0</div><h3>Home — /</h3><div class="a">Arc: สะดุด → reward → เข้าใจ → ลงมือ · 13 sections</div></div>
+
+<!-- 03 HERO -->
+<div class="wf"><div class="wf-h"><span class="wf-id">03</span><span class="wf-t">Hero <span class="en">★</span></span><span class="bd hero">hero</span><span class="bd p0">P0</span></div>
+<div class="canvas"><div class="goal">2-col desktop: copy ซ้าย / Calm-Canvas visual ขวา · ทุกอย่างเหนือ fold</div>
+<div class="row s">
+  <div style="flex:1;display:flex;flex-direction:column;gap:7px">
+    <div class="b sm" style="justify-content:flex-start;min-height:auto;border:none;background:transparent;padding:0">eyebrow: Forex &amp; CFD · for Thai traders</div>
+    <div class="b hd"><span class="en">Trade Smarter Not Harder</span></div>
+    <div class="b txt">ทุก lot ที่เทรด เปลี่ยนเป็น Rebate คืนกลับ</div>
+    <div class="row"><div class="b a">เปิดบัญชี</div><div class="b l">ทัก LINE OA</div></div>
+    <div class="b r" style="min-height:auto;font-size:9.5px">การเทรดมีความเสี่ยง โปรดศึกษาก่อนตัดสินใจ</div>
+    <div class="b sm" style="border:none;background:transparent;padding:0;justify-content:flex-start">proof: Rebate $5/lot · MT5 · ทีมไทย 24/7</div>
+  </div>
+  <div class="b ph" style="flex:1;min-height:180px">Calm Canvas<br>(floating white cards + blue bloom + hairlines)<br>label "ตัวอย่าง — ไม่ใช่ข้อมูลจริง"</div>
+</div></div><div class="cap">mobile: copy บน, CTA เต็มกว้าง, visual ล่าง · H1 56→34px · motion M1 bloom + M2 scrub</div></div>
+
+<!-- 04 proof strip -->
+<div class="wf"><div class="wf-h"><span class="wf-id">04</span><span class="wf-t">Why-beston proof strip</span><span class="bd trust">trust</span></div>
+<div class="canvas"><div class="row"><div class="b">Rebate $5/lot</div><div class="b">MT5</div><div class="b">ทีมไทย 24/7</div><div class="b">ฝากเริ่ม $50</div><div class="b g">regulator [verify]</div></div></div><div class="cap">แทน RegulatoryStrip ชั่วคราว — regulator badge ใส่เมื่อได้เอกสาร · ห้าม WikiFX</div></div>
+
+<!-- 05 rewards -->
+<div class="wf"><div class="wf-h"><span class="wf-id">05</span><span class="wf-t">Rewards — <span class="en">What you get with beston</span> ★</span><span class="bd conv">convert</span><span class="bd p0">P0</span></div>
+<div class="canvas"><div class="goal">2 การ์ด = 2 อย่างที่ Exness ไม่ให้</div><div class="row s">
+  <div class="b txt" style="flex:1;min-height:90px"><b style="color:var(--blue-2);font-size:13px">Rebate on every lot</b><span class="sm">รับเงินคืน $5 ต่อ lot ที่เทรด คิดจากปริมาณ ไม่ใช่ผลกำไร · จ่ายจันทร์</span></div>
+  <div class="b txt" style="flex:1;min-height:90px"><b style="color:var(--blue-2);font-size:13px">Refer &amp; earn rewards</b><span class="sm">แนะนำเพื่อนที่เทรด สะสมแต้มแลกของรางวัล (1 ปี)</span></div>
+</div></div><div class="cap">motion M4 stagger · card hover lift −4px</div></div>
+
+<!-- 06 markets ticker -->
+<div class="wf"><div class="wf-h"><span class="wf-id">06</span><span class="wf-t">MarketsTicker — <span class="en">Every market, one platform</span></span><span class="bd trust">energy</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px">Every market, one platform</div><div class="row"><div class="b">EURUSD</div><div class="b">XAUUSD</div><div class="b">US30</div><div class="b">NAS100</div><div class="b">USOIL</div><div class="b">BTCUSD</div></div></div><div class="cap">marquee loop 40–60s · pause hover · label "ตัวอย่าง — ไม่ใช่ราคาจริง" · FX/ทอง/ดัชนี/น้ำมัน/คริปโต บน MT5</div></div>
+
+<!-- 07 account -->
+<div class="wf"><div class="wf-h"><span class="wf-id">07</span><span class="wf-t">AccountPreview — <span class="en">One account. Built for all.</span></span><span class="bd conv">convert</span></div>
+<div class="canvas"><div class="row s">
+  <div class="b txt a" style="flex:2;min-height:80px"><b>Standard</b><span style="font-size:9.5px;color:#0a1838">เทรดจริง MT5 · ฝากเริ่ม $50 · Rebate $5/lot</span><span style="font-size:9.5px;color:#0a1838">→ เปิดบัญชี</span></div>
+  <div class="b txt g" style="flex:1;min-height:80px"><b>Demo</b><span class="sm">ลองก่อนด้วยเงินจำลอง</span><span class="sm">→ ทัก LINE</span></div>
+</div></div><div class="cap">บัญชีเดียว ไม่ต้องเลือกให้ยุ่งยาก · Demo = โหมดลอง ไม่ใช่ tier แข่ง</div></div>
+
+<!-- 08 steps -->
+<div class="wf"><div class="wf-h"><span class="wf-id">08</span><span class="wf-t">StepProcess — <span class="en">Start in 3 steps</span></span><span class="bd conv">convert</span></div>
+<div class="canvas"><div class="row s">
+  <div class="b txt" style="flex:1"><b style="color:var(--blue-2)">1</b><span class="sm">สมัคร</span></div>
+  <div class="b txt" style="flex:1"><b style="color:var(--blue-2)">2</b><span class="sm">ยืนยันตัวตน</span></div>
+  <div class="b txt" style="flex:1"><b style="color:var(--blue-2)">3</b><span class="sm">เริ่มเทรดบน MT5</span></div>
+  <div class="b a" style="max-width:90px">เปิดบัญชี</div>
+</div></div><div class="cap">motion: stacking cards on scroll (สงบ)</div></div>
+
+<!-- 09 rebate band -->
+<div class="wf"><div class="wf-h"><span class="wf-id">09</span><span class="wf-t">Rebate USP band — <span class="en">Earn on every lot</span> ★</span><span class="bd conv">convert</span><span class="bd p0">P0</span></div>
+<div class="canvas"><div class="goal">sticky proof story: copy ซ้าย / diagram ขวา · T&amp;C + risk ติดเสมอ</div><div class="row s">
+  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+    <div class="b hd"><span class="en">Earn on every lot</span></div>
+    <div class="b txt">รับเงินคืน $5 ต่อ lot ที่เทรด ตามปริมาณ ไม่ใช่ผลกำไร</div>
+    <div class="b r" style="min-height:auto;font-size:9.5px">$5/lot · จ่ายจันทร์ 12:00 · ออเดอร์&gt;1นาที · BTCUSD/US30/USOIL ÷10 · ไม่ใช่สัญญากำไร</div>
+    <div class="row"><div class="b a" style="max-width:140px">ดูเงื่อนไข Rebate</div></div>
+  </div>
+  <div class="b ph" style="flex:1;min-height:120px">diagram: lot → $5 flow</div>
+</div></div></div>
+
+<!-- 10-13 -->
+<div class="wf"><div class="wf-h"><span class="wf-id">10</span><span class="wf-t">Articles — <span class="en">Learn before you trade</span></span><span class="bd trust">content</span></div>
+<div class="canvas"><div class="row s"><div class="b txt" style="flex:1;min-height:70px"><div class="b ph" style="min-height:34px;width:100%">cover</div><span class="sm">เริ่มใช้ MT5</span></div><div class="b txt" style="flex:1;min-height:70px"><div class="b ph" style="min-height:34px;width:100%">cover</div><span class="sm">จัดการความเสี่ยง</span></div><div class="b txt" style="flex:1;min-height:70px"><div class="b ph" style="min-height:34px;width:100%">cover</div><span class="sm">Rebate ทำงานยังไง</span></div></div></div><div class="cap">CMS · cover zoom hover</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">11</span><span class="wf-t">FAQ</span><span class="bd trust">faq</span></div>
+<div class="canvas"><div class="row"><div class="b g" style="flex:5;justify-content:space-between">เปิดบัญชีทำยังไง<span>+</span></div></div><div class="row"><div class="b g" style="flex:5;justify-content:space-between">Rebate คิดยังไง จ่ายเมื่อไร<span>+</span></div></div><div class="row"><div class="b g" style="flex:5;justify-content:space-between">ฝาก-ถอนช่องทางไหน<span>+</span></div></div><div class="row"><div class="b g" style="flex:5;justify-content:space-between">ความเสี่ยง Forex/CFD<span>+</span></div></div></div><div class="cap">accordion spring .35s</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">12</span><span class="wf-t">Final CTA — <span class="en">Earn on every trade</span></span><span class="bd conv">convert</span></div>
+<div class="canvas" style="text-align:center"><div class="b hd" style="justify-content:center;font-size:15px"><span class="en">Earn on every trade</span></div><div class="b txt" style="align-items:center;text-align:center;border:none;background:transparent">เปิดบัญชีวันนี้ รับ Rebate ตั้งแต่ lot แรก</div><div class="row" style="justify-content:center"><div class="b a" style="max-width:120px">เปิดบัญชี</div><div class="b l" style="max-width:120px">ทัก LINE OA</div></div></div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">13</span><span class="wf-t">Footer</span><span class="bd legal">legal</span></div>
+<div class="canvas"><div class="row s"><div class="b txt" style="flex:1"><b class="sm">beston</b><span class="sm">tagline reward</span></div><div class="b txt" style="flex:1"><span class="sm">เมนู</span><span class="sm">ตลาด/บัญชี/พาร์ทเนอร์</span></div><div class="b txt" style="flex:1"><span class="sm">ติดต่อ</span><span class="sm">LINE · email · ที่อยู่</span></div></div><div class="row"><div class="b r" style="flex:5;min-height:auto;font-size:9.5px">© 2026 beston · full risk warning block</div></div></div><div class="cap">entity: บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด · 111 ประดิษฐ์มนูธรรม ลาดพร้าว กทม. 10230 · support@bestonfx.com · fb/ig</div></div>
+
+<!-- ============ SUB PAGES ============ -->
+<div class="pgband"><div class="pn">PAGES 2–9</div><h3>Sub-pages — wireframe ต่อหน้า</h3><div class="a">register A · hero EN H1 + TH sub · section stack</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P2</span><span class="wf-t">Why beston <code>/why-bestonfx</code></span><span class="bd trust">trust</span></div>
+<div class="canvas"><div class="row"><div class="b txt" style="flex:1"><div class="b hd" style="font-size:13px"><span class="en">Why beston</span></div><span class="sm">โบรกที่คืนให้คุณมากกว่า ทุก lot</span></div><div class="b ph" style="flex:1;min-height:54px">visual</div></div><div class="row"><div class="b">Rewards detail (Rebate+Refer)</div><div class="b">เงินลูกค้าแยกบัญชี</div></div><div class="row"><div class="b">ทีมไทย 24/7</div><div class="b">MT5</div><div class="b g">FAQ</div><div class="b a" style="max-width:90px">เปิดบัญชี</div></div></div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P3</span><span class="wf-t">Markets <code>/markets</code></span><span class="bd trust">trust</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px"><span class="en">Every market, one platform</span></div><div class="row"><div class="b">FX</div><div class="b">ทอง</div><div class="b">ดัชนี</div><div class="b">น้ำมัน</div><div class="b">คริปโต-CFD</div></div><div class="row"><div class="b g" style="flex:3">เงื่อนไขเทรด [verify] · risk/asset</div><div class="b a" style="max-width:90px">เปิดบัญชี</div></div></div><div class="cap">การ์ด asset = icon + microchart abstract · no readable price</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P4</span><span class="wf-t">Accounts <code>/accounts</code> (conversion hub)</span><span class="bd conv">convert</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px"><span class="en">One account. Built for all.</span></div><div class="row s"><div class="b txt a" style="flex:2;min-height:64px"><b>Standard</b><span style="font-size:9px;color:#0a1838">$50 · Rebate $5/lot · MT5</span></div><div class="b txt g" style="flex:1;min-height:64px"><b>Demo</b><span class="sm">เงินจำลอง</span></div></div><div class="row"><div class="b">3 steps</div><div class="b">rebate eligibility</div><div class="b g">fees [verify]</div><div class="b a" style="max-width:90px">เปิดบัญชี</div></div></div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P5</span><span class="wf-t">Tools <code>/tools</code></span><span class="bd trust">trust</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px"><span class="en">Tools that do the math</span></div><div class="row"><div class="b ph" style="flex:1;min-height:50px">MT5 mock</div><div class="b" style="flex:1">Rebate calc ($5×lot)</div></div><div class="row"><div class="b">Pip calc</div><div class="b">Margin calc</div><div class="b r" style="flex:2;min-height:auto;font-size:9.5px">ใช้เพื่อการศึกษา ไม่ใช่คำแนะนำ</div></div></div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P6</span><span class="wf-t">Partners <code>/partners</code></span><span class="bd conv">convert</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px"><span class="en">Refer &amp; earn rewards</span></div><div class="row"><div class="b">แนะนำเพื่อน</div><div class="jar" style="align-self:center">→</div><div class="b">เพื่อนเทรด</div><div class="jar" style="align-self:center">→</div><div class="b">สะสมแต้ม</div><div class="jar" style="align-self:center">→</div><div class="b">แลกของรางวัล</div></div><div class="row"><div class="b g" style="flex:3">เงื่อนไข (สะสม 1 ปี) [verify]</div><div class="b l" style="max-width:110px">ทัก LINE OA</div></div></div><div class="cap">points-based (ไม่ใช่คอมมิชชัน %) · disclaimer ไม่การันตีรายได้</div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P7</span><span class="wf-t">Support <code>/support</code></span><span class="bd trust">trust</span></div>
+<div class="canvas"><div class="b hd" style="font-size:13px;margin-bottom:7px"><span class="en">Thai support, 24/7</span></div><div class="row s"><div class="b txt l" style="flex:1;min-height:54px"><b>LINE OA</b><span style="font-size:9px;color:#063318">ตอบเร็วสุด</span></div><div class="b txt" style="flex:1;min-height:54px"><b class="sm">Email</b><span class="sm">support@bestonfx.com</span></div><div class="b txt" style="flex:1;min-height:54px"><b class="sm">Office</b><span class="sm">ลาดพร้าว กทม.</span></div></div><div class="row"><div class="b g" style="flex:5">FAQ</div></div></div></div>
+
+<div class="wf"><div class="wf-h"><span class="wf-id">P8 · P9</span><span class="wf-t">Articles <code>/articles</code> + Legal <code>/legal/*</code></span><span class="bd legal">content/legal</span></div>
+<div class="canvas"><div class="row"><div class="b" style="flex:1">Articles: grid + chips (MT5/ความเสี่ยง/Rebate) + CMS</div></div><div class="row"><div class="b r" style="flex:1;min-height:auto;justify-content:flex-start;text-align:left">Legal: mandatory risk + 7 sections · terms · privacy/AML-KYC · AIChat OFF · ห้าม tone การตลาด</div></div></div></div>
+
+<div class="note info"><b>copy เต็ม + why-converts + animation + compliance:</b> ดู master spec <code>beston-spec-v7-2026-06-01.html</code>. ไฟล์นี้ = layout/wireframe + sitemap ละเอียด (visual).</div>
+<div class="note warnote"><b>เหลือก่อน build:</b> ต่อ Framer MCP · เอกสาร regulator · spread/leverage/fees จาก ops.</div>
+
+<div class="foot">beston detailed wireframes + sitemap · dark · 2026-06-01 · branch feat/content-conversion-revamp-2026-06-01<br>Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>beston · Content + Conversion Revamp Plan (2026-06-01)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0040c1; --blue-600:#1257e6; --blue-500:#2970ff; --blue-100:#eff4ff; --blue-50:#f5faff;
+    --ink-900:#171717; --ink-700:#374151; --ink-600:#4b5563; --ink-500:#6b7280; --ink-200:#e5e7eb; --ink-100:#f3f4f6;
+    --line:#06C755; --risk:#b45309; --risk-bg:#fff7ed;
+    --bg:#ffffff; --card:#ffffff;
+    --radius:18px; --shadow:0 1px 3px rgba(16,24,40,.06),0 12px 28px -12px rgba(16,24,40,.12);
+    --glow:0 15px 44px rgba(0,64,193,.18);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+    radial-gradient(1200px 600px at 80% -5%, #eff4ff 0%, rgba(239,244,255,0) 60%),
+    var(--bg);
+    color:var(--ink-900);font-family:'Prompt',system-ui,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  header.hero{padding:64px 0 30px}
+  .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:600}
+  h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.06;letter-spacing:-.03em;font-weight:600;margin:.35em 0 .25em}
+  h1 .hl{color:var(--blue)}
+  .lede{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--ink-600);max-width:760px}
+  .meta{margin-top:18px;font-size:13.5px;color:var(--ink-500);display:flex;gap:18px;flex-wrap:wrap}
+  .meta b{color:var(--ink-700);font-weight:600}
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--ink-200);margin-top:26px}
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px}
+  nav.toc a{white-space:nowrap;font-size:13px;color:var(--ink-600);text-decoration:none;padding:6px 11px;border-radius:999px;font-weight:500}
+  nav.toc a:hover{background:var(--blue-100);color:var(--blue)}
+  section{padding:44px 0;border-top:1px solid var(--ink-100)}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.02em;font-weight:600;margin:0 0 6px}
+  h2 .n{color:var(--blue);font-variant-numeric:tabular-nums;margin-right:10px}
+  h3{font-size:1.18rem;font-weight:600;margin:26px 0 8px;letter-spacing:-.01em}
+  h4{font-size:1rem;font-weight:600;margin:18px 0 6px;color:var(--ink-700)}
+  p{margin:.5em 0;color:var(--ink-700)}
+  .sub{color:var(--ink-500);font-size:14.5px;margin-top:-2px}
+  ul,ol{color:var(--ink-700);padding-left:20px}
+  li{margin:5px 0}
+  strong{color:var(--ink-900);font-weight:600}
+  code{background:var(--ink-100);border-radius:6px;padding:1px 6px;font-size:.86em;font-family:'Prompt',monospace;color:var(--blue-600)}
+  .card{background:var(--card);border:1px solid var(--ink-200);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--ink-200);vertical-align:top}
+  th{background:var(--blue-50);color:var(--ink-700);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+  tr:hover td{background:#fcfdff}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;line-height:1.7}
+  .p-blue{background:var(--blue-100);color:var(--blue)} .p-green{background:#e8f9ef;color:#06893b}
+  .p-amber{background:var(--risk-bg);color:var(--risk)} .p-gray{background:var(--ink-100);color:var(--ink-600)}
+  .kill{background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:14px 16px}
+  .keep{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px}
+  .risk{background:var(--risk-bg);border:1px solid #fed7aa;border-radius:12px;padding:12px 15px;color:var(--risk);font-size:14px}
+  .copyblock{background:var(--blue-50);border:1px solid var(--blue-100);border-left:3px solid var(--blue);border-radius:12px;padding:14px 16px;margin:10px 0}
+  .copyblock .th{font-size:1.06rem;color:var(--ink-900);font-weight:500}
+  .copyblock .en{font-size:13px;color:var(--ink-500);font-style:italic;margin-top:3px}
+  .copyblock .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:600;margin-bottom:4px}
+  .h1lock{background:linear-gradient(124deg,#0040c1,#2739c7 55%,#495ad9);color:#fff;border-radius:var(--radius);padding:26px 26px;box-shadow:var(--glow)}
+  .h1lock .big{font-size:clamp(2rem,6vw,3.4rem);font-weight:700;letter-spacing:-.03em;line-height:1.02}
+  .h1lock .tag{font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.85;font-weight:600}
+  .h1lock p{color:rgba(255,255,255,.9)}
+  .why-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0;border:1px solid var(--ink-200);border-radius:12px;overflow:hidden;margin:10px 0}
+  .why-row>div{padding:13px 15px;border-right:1px solid var(--ink-100)}
+  .why-row>div:last-child{border-right:0}
+  .why-row .lab{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-500);font-weight:600;margin-bottom:3px}
+  @media(max-width:760px){.why-row{grid-template-columns:1fr}.why-row>div{border-right:0;border-bottom:1px solid var(--ink-100)}}
+  .num{display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;background:var(--blue);color:#fff;border-radius:999px;font-size:13px;font-weight:600;margin-right:8px}
+  .foot{padding:40px 0 70px;color:var(--ink-500);font-size:13px}
+  .tl{font-size:14px}
+  .check li{list-style:none;position:relative;padding-left:26px}
+  .check li:before{content:"";position:absolute;left:2px;top:9px;width:13px;height:13px;border:2px solid var(--blue);border-radius:4px}
+  .badge{display:inline-block;background:var(--blue);color:#fff;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px}
+  .src{font-size:12.5px;color:var(--ink-500)}
+  .src a{color:var(--blue-600)}
+  hr.soft{border:0;border-top:1px dashed var(--ink-200);margin:18px 0}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">beston · content + conversion revamp</div>
+  <h1>เลิกขายฝัน. <span class="hl">ขายความจริง</span> ให้เป็นเครื่องมือ conversion.</h1>
+  <p class="lede">แผนยกเครื่อง content + การนำเสนอ + copy ไทย + แผนรูป hero + animation สำหรับ Framer POC (Fizens) — พร้อมคำตอบว่า <b>ทำไมการนำเสนอแบบนี้ถึงทำให้ trader เป้าหมายสนใจและ convert</b>.</p>
+  <div class="meta">
+    <span><b>วันที่</b> 2026-06-01</span>
+    <span><b>Branch</b> feat/content-conversion-revamp-2026-06-01</span>
+    <span><b>Surface</b> Framer / Fizens (POC) → Next.js (later)</span>
+    <span><b>H1 LOCKED</b> Trade Smarter Not Harder</span>
+  </div>
+</div></header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#tldr">TL;DR</a>
+  <a href="#diag">ปัญหาเดิม</a>
+  <a href="#persona">Persona</a>
+  <a href="#pos">Positioning</a>
+  <a href="#ia">IA + การนำเสนอ</a>
+  <a href="#copy">Copy ใหม่</a>
+  <a href="#hero">Hero image</a>
+  <a href="#anim">Animation</a>
+  <a href="#why">★ ทำไมถึง convert</a>
+  <a href="#exec">แผนลงมือ</a>
+  <a href="#verify">ต้องยืนยัน</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- TLDR -->
+<section id="tldr">
+  <h2><span class="n">00</span>TL;DR</h2>
+  <div class="card">
+  <ul class="tl">
+    <li><b>Thesis:</b> คู่แข่งทุกเจ้าขายฝัน (อันดับ 1 / ดีที่สุด / spread 0.0) — beston ทำไม่ได้เพราะ compliance → <b>พลิกเป็นจุดขายที่ลอกไม่ได้: "เทรดบนความจริง"</b>. ความซื่อตรงคือสิ่งเดียวที่คู่แข่งก๊อปไม่ได้โดยไม่ทิ้ง hype ของตัวเอง.</li>
+    <li><b>เลิกทำ:</b> content เดิม (<code>v2-home.ts</code>) เต็มไปด้วย "รอยืนยัน / Placeholder / Demo / POC" → อ่านเหมือนเอกสารขอโทษ ไม่ใช่โบรกเกอร์ที่มั่นใจ. defensive = ฆ่า conversion.</li>
+    <li><b>H1 ล็อค:</b> <code>Trade Smarter Not Harder</code> (CEO) — English hook + Thai subhead ทำหน้าที่ขยายความ + คุม compliance.</li>
+    <li><b>3 เสาทุกหน้าวน:</b> เห็นต้นทุนจริง · Rebate คืนทุก lot · ทีมไทยตอบเอง.</li>
+    <li><b>Hero:</b> "Calm Canvas" — light + royal blue floating cards (ไม่ใช่ dark terminal) → โดดในทะเลโบรกเกอร์ dark+hype. prompt พร้อม gen.</li>
+    <li><b>Animation:</b> 1 wow จริงที่ hero (scroll-scrub depth) + reveal สุภาพทุก section. compliance text นิ่งเสมอ.</li>
+    <li><b>Dual CTA:</b> <span class="pill p-blue">เปิดบัญชี</span> (พร้อม) + <span class="pill p-green">ทัก LINE OA</span> (ยังลังเล) — ตรงกับนิสัย trader ไทยที่อยากคุยคนก่อนตัดสินใจ.</li>
+  </ul>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section id="diag">
+  <h2><span class="n">01</span>ทำไม content ตอนนี้ไม่เวิร์ก</h2>
+  <p class="sub">วิเคราะห์จากของจริงในรีโป — มี <b>2 ระบบ copy ที่ขัดกันเอง</b> และตัวที่ live อยู่คือตัวที่อ่อนที่สุด.</p>
+
+  <div class="grid g2">
+    <div class="kill">
+      <h4 style="color:#b91c1c;margin-top:0">❌ ตัวที่ใช้อยู่ — defensive (<code>v2-home.ts</code>)</h4>
+      <ul>
+        <li>Hero "เห็นทุกต้นทุน คืนทุกการเทรด" + mock cards ลอย ๆ ไม่มี hook</li>
+        <li>Tools เขียน <code>Placeholder</code> / <code>Coming soon</code> / <code>Mock</code> โชว์ลูกค้าตรง ๆ</li>
+        <li><code>รอยืนยันข้อมูลจากฝ่ายกำกับดูแล</code> โผล่ทั่วหน้า = เหมือนยังไม่พร้อมขาย</li>
+        <li>Account ที่ 3 "DX Exclusive — แนวคิดบัญชีระดับสูง" คลุมเครือ + ผิด lock (Standard/Demo เท่านั้น)</li>
+        <li>IB "จำลองวิธีคิด...แบบไม่ใช่ข้อมูลจริง" = บอกลูกค้าว่ามันปลอม</li>
+      </ul>
+      <p style="margin-bottom:0"><b>ผล:</b> trader อ่านแล้วไม่เชื่อมั่น. compliance ที่ดี ≠ copy ที่ขี้กลัว.</p>
+    </div>
+    <div class="keep">
+      <h4 style="color:#15803d;margin-top:0">✅ ตัวที่ดีแต่ยังไม่ได้ใช้ (<code>copy-deck-punchy.md</code>)</h4>
+      <ul>
+        <li>Spine "เทรดบนความจริง" + honesty-contrast vs Exness/XM/IC</li>
+        <li>Rebate $5/lot "ชัด ไม่ใช่ % งง ๆ"</li>
+        <li>คำคู่ขนาน/จังหวะ (เห็น↔คืน · ได้↔เสีย · ก่อน↔ทีหลัง)</li>
+        <li>"ได้หรือเสีย ก็ได้คืนทุก lot" = USP ที่จริง + ทรงพลัง</li>
+      </ul>
+      <p style="margin-bottom:0"><b>แผนนี้:</b> เอา spine นี้มาเป็นแกน + เคลียร์ defensive tone ทิ้ง + ล็อค H1 ของ CEO.</p>
+    </div>
+  </div>
+
+  <h3>4 โรคหลักที่ต้องผ่า</h3>
+  <table>
+    <tr><th>โรค</th><th>อาการ (ของเดิม)</th><th>ยา (แผนใหม่)</th></tr>
+    <tr><td><b>1. Defensive hedging</b></td><td>"รอยืนยัน/Placeholder" รั่วลง public copy</td><td>compliance อยู่ใน <code>[verify]</code> ภายใน + ประโยค public มั่นใจ+จริง</td></tr>
+    <tr><td><b>2. ไม่มี hook</b></td><td>headline กลาง ๆ ใครก็เขียนได้</td><td>honesty-contrast + H1 ที่ CEO เลือก + outcome-first</td></tr>
+    <tr><td><b>3. นำเสนอแบน</b></td><td>list ของ ไม่มี narrative / ไม่มี proof จังหวะถูก</td><td>IA เล่าเรื่อง (เชื่อ→อยาก→ลงมือ) + proof ติด CTA</td></tr>
+    <tr><td><b>4. Hero/รูปไม่มีตัวตน</b></td><td>mock cards generic / รูปไม่ตรงแบรนด์</td><td>"Calm Canvas" light+blue เอกลักษณ์ + prompt คุม compliance</td></tr>
+  </table>
+</section>
+
+<!-- PERSONA -->
+<section id="persona">
+  <h2><span class="n">02</span>Trader เป้าหมาย (grounded)</h2>
+  <p class="sub">จาก web research + live-site facts — ไม่ใช่เดา.</p>
+  <div class="grid g3">
+    <div class="card"><span class="pill p-blue">ใครคือเขา</span>
+      <p>รายย่อยไทย เทรด Forex/CFD ผ่านโบรกเกอร์ <b>offshore</b> (Exness/XM/FBS/IC) เพราะไทยไม่มี forex regulator จริง. คุ้นศัพท์เทรดอังกฤษ (MT5, lot, spread, leverage). มือใหม่–กลาง, มือถือเป็นหลัก.</p>
+    </div>
+    <div class="card"><span class="pill p-blue">เขาต้องการ</span>
+      <ul style="margin:4px 0">
+        <li>Leverage สูง (1:500–1:1000)</li>
+        <li>ฝาก/ถอน ผ่านแบงก์ไทย เร็ว ไม่มีค่าธรรมเนียม</li>
+        <li><b>Rebate/cashback</b> — วัฒนธรรมเงินคืนแรงในไทย</li>
+        <li>ซัพพอร์ตภาษาไทย คุยกับคนได้</li>
+      </ul>
+    </div>
+    <div class="card"><span class="pill p-amber">เขากลัว</span>
+      <ul style="margin:4px 0">
+        <li>โดนโกง / โบรกเกอร์เชิด</li>
+        <li>ถอนเงินไม่ได้ / ถอนช้า</li>
+        <li>ต้นทุนซ่อน (spread/swap)</li>
+        <li>เสียเงินเพราะไม่รู้ความเสี่ยง</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h4 style="margin-top:0">ทำไม Exness ชนะในไทย (= เกณฑ์ที่ beston ต้องแตะให้ถึง)</h4>
+    <p style="margin-bottom:0">ถอนเงินผ่านแบงก์ไทย (KBank/KTB/BBL) <b>ไม่กี่วินาที แม้วันหยุด</b> · ซัพพอร์ตไทย 24/7 · ชื่อเสียง+regulation ระดับโลก (แม้ไม่มี Thai SEC). → trader ไทยให้น้ำหนัก <b>ความน่าเชื่อถือ + ถอนได้จริง + คนไทยดูแล</b> มากกว่าโลโก้ Thai SEC. นี่คือสนามที่ beston ต้องเล่น.</p>
+  </div>
+  <p class="src" style="margin-top:12px"><b>Sources:</b>
+    <a href="https://www.forexbrokers.com/guides/thailand">forexbrokers.com/thailand</a> ·
+    <a href="https://topbrokers.com/cashback-forex-rebate-brokers/">topbrokers cashback</a> ·
+    <a href="https://tradersunion.com/brokers/forex/view/exness/exness-thailand/">TU Exness Thailand</a> ·
+    <a href="https://wsa.design/news/how-to-build-a-forex-broker-website-that-converts-traders-in-2026">WSA broker CRO 2026</a>
+  </p>
+</section>
+
+<!-- POSITIONING -->
+<section id="pos">
+  <h2><span class="n">03</span>Positioning + แกน campaign</h2>
+  <div class="h1lock">
+    <div class="tag">Hero H1 · LOCKED (CEO)</div>
+    <div class="big">Trade Smarter Not Harder</div>
+    <p style="margin:.5em 0 0">Thai subhead รับช่วงความหมาย: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น — เห็นต้นทุนจริง · ได้ Rebate คืนทุก lot ตาม T&amp;C · ทีมไทยดูแลผ่าน LINE OA</p>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <h4 style="margin-top:0">The one idea</h4>
+      <p><b>คู่แข่งขายฝัน — beston ขายความจริง.</b> ทุก headline วน 3 ความจริงที่ตรวจสอบได้:</p>
+      <p><span class="pill p-blue">เห็นต้นทุนจริง</span> <span class="pill p-blue">Rebate คืนทุก lot</span> <span class="pill p-blue">ทีมไทยตอบเอง</span></p>
+      <p style="margin-bottom:0">Key move: <i>"ทุกโบรกเกอร์บอกว่าตัวเองดีที่สุด เราขอบอกความจริง"</i> — legal + ไม่มีใครกล้าเล่นเพราะต้องทิ้ง hype ตัวเอง.</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">Voice (elegant-punchy)</h4>
+      <ul style="margin:4px 0">
+        <li>ประโยคสั้น ชนผนัง — ความจริงที่เฉพาะเจาะจง</li>
+        <li>เลข+ของจริง = พลัง ($5/lot · 5 นาที · MT5)</li>
+        <li>คำคู่ขนาน/ตรงข้ามให้จังหวะ</li>
+        <li>มั่นใจแบบไม่ตะโกน — ไม่มี <code>!</code></li>
+        <li><b>ห้าม:</b> กำไรแน่นอน · อันดับ 1 · ดีที่สุด · รวยเร็ว · ไม่มีความเสี่ยง</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IA -->
+<section id="ia">
+  <h2><span class="n">04</span>IA หน้าแรก + การนำเสนอข้อมูล</h2>
+  <p class="sub">Home มีงานเดียว: ทำให้ trader ไทยเชื่อว่า "โปร่งใส จริง คุ้มที่จะเปิดบัญชี/ทัก LINE". Narrative arc = <b>สะดุด → เชื่อ → เข้าใจคุณค่า → อยาก → ลงมือ</b>. (ไม่มี Tools grid เต็ม / ไม่มี IB block บน Home)</p>
+  <table>
+    <tr><th>#</th><th>Section</th><th>หน้าที่ (funnel)</th><th>นำเสนอยังไง</th><th>Motion</th></tr>
+    <tr><td>1</td><td>RiskBar (sticky)</td><td>วางความเสี่ยงก่อนโน้มน้าว = สร้างความน่าเชื่อ</td><td>amber bar นิ่ง + ลิงก์อ่านเพิ่ม</td><td><span class="pill p-gray">นิ่ง</span></td></tr>
+    <tr><td>2</td><td>Navbar</td><td>route + เปิดบัญชี เสมอ</td><td>Thai labels, CTA blue pill</td><td><span class="pill p-gray">condense</span></td></tr>
+    <tr><td>3</td><td><b>TerminalHero</b></td><td>hook + คุณค่า + 2 CTA + proof + risk</td><td>H1 อังกฤษ + Thai subhead + Calm Canvas visual ขวา</td><td><span class="pill p-blue">Full wow</span></td></tr>
+    <tr><td>4</td><td>RegulatoryStrip</td><td>proof ทันทีหลัง claim (badge-in-hero ดัน conversion)</td><td>FSCA·CySEC·MSB·MT5 badges <code>[verify]</code></td><td><span class="pill p-gray">fade</span></td></tr>
+    <tr><td>5</td><td>Trust 3 เสา</td><td>โปร่งใส / เสี่ยงมาก่อน / ทีมไทย</td><td>3 cards, icon เส้น, PAS สั้นต่อเสา</td><td><span class="pill p-blue">reveal stagger</span></td></tr>
+    <tr><td>6</td><td>MarketsTicker</td><td>พลังงานตลาด ไม่รก</td><td>marquee chips, label "ตัวอย่าง"</td><td><span class="pill p-blue">marquee</span></td></tr>
+    <tr><td>7</td><td>AccountPreview (2)</td><td>เลือกง่าย Standard vs Demo</td><td>2 cards เท่านั้น, self-select</td><td><span class="pill p-gray">fade</span></td></tr>
+    <tr><td>8</td><td>StepProcess (3)</td><td>ลด friction การเปิดบัญชี</td><td>สมัคร→ทัก LINE→เริ่มเทรด (stacking cards)</td><td><span class="pill p-blue">stack scroll</span></td></tr>
+    <tr><td>9</td><td><b>Rebate Explainer</b></td><td>ตอก USP ให้ชัด+compliant</td><td>สูตร lot→rebate + T&amp;C/risk ติดกัน (sticky proof)</td><td><span class="pill p-blue">sticky story</span></td></tr>
+    <tr><td>10</td><td>Articles teaser</td><td>trust ผ่านความรู้</td><td>3 cards บทความ Thai</td><td><span class="pill p-gray">fade</span></td></tr>
+    <tr><td>11</td><td>FAQ</td><td>ตอบ objection ก่อน bounce</td><td>accordion 5 ข้อ รวมข้อความเสี่ยง</td><td><span class="pill p-gray">accordion</span></td></tr>
+    <tr><td>12</td><td>CTABanner (LINE-first)</td><td>ปิดแบบไม่กดดัน</td><td>"พร้อมเทรดบนความจริง?" + LINE/เปิดบัญชี</td><td><span class="pill p-gray">fade</span></td></tr>
+    <tr><td>13</td><td>Footer</td><td>identity + full risk block</td><td>entity จริง + risk + nav</td><td><span class="pill p-gray">นิ่ง</span></td></tr>
+  </table>
+  <p class="sub">Gated ถาวร: Stats / Testimonials (ห้ามตัวเลข/รีวิวปลอม). Sub-pages: Why / Markets / Accounts (hub) / Tools / Partners / Support / Articles / Legal — ใช้ hero variant + reveal เดียวกัน.</p>
+</section>
+
+<!-- COPY -->
+<section id="copy">
+  <h2><span class="n">05</span>Copy ไทยใหม่ (paste-ready)</h2>
+  <p class="sub">มั่นใจ + compliant + ไม่ defensive. EN = stakeholder review เท่านั้น, production = ไทย. ตัวเลขที่ยังไม่ยืนยันใส่ <code>[verify]</code> แต่ประโยคยังอ่านมั่นใจ.</p>
+
+  <h3>Hero</h3>
+  <div class="copyblock"><div class="lbl">Eyebrow</div><div class="th">โบรกเกอร์ Forex/CFD เพื่อคนไทย</div></div>
+  <div class="copyblock"><div class="lbl">H1 · LOCKED</div><div class="th" style="font-size:1.5rem;font-weight:600;color:var(--blue)">Trade Smarter Not Harder</div><div class="en">render 2 บรรทัดได้: Trade Smarter / Not Harder</div></div>
+  <div class="copyblock"><div class="lbl">Subhead (ไทย — รับความหมาย)</div><div class="th">เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น — เห็นต้นทุนจริง ได้ Rebate คืนทุก lot ตาม T&amp;C และมีทีมไทยดูแลผ่าน LINE OA</div><div class="en">Trade on MT5 with clearer information — real costs, rebate on every lot (per T&amp;C), and a Thai team on LINE.</div></div>
+  <div class="copyblock"><div class="lbl">Proof line (ไม่มี fake stats)</div><div class="th">เทรดบน MT5 · Rebate ตาม T&amp;C · ทีมไทยตอบเอง</div></div>
+  <div class="risk" style="margin:10px 0"><b>Risk note (ใน hero):</b> การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง</div>
+  <div class="grid g2">
+    <div class="copyblock" style="margin:0"><div class="lbl">Primary CTA</div><div class="th">เปิดบัญชี <span class="sub">· microcopy: เริ่มวันนี้ ใน 5 นาที</span></div></div>
+    <div class="copyblock" style="margin:0;border-left-color:var(--line);background:#f1fdf6"><div class="lbl" style="color:#06893b">Secondary CTA</div><div class="th">ทัก LINE OA ติดต่อ admin <span class="sub">· คนไทยตอบเอง</span></div></div>
+  </div>
+  <p class="sub">Device label: <code>ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง</code></p>
+
+  <h3>Trust 3 เสา (header: ทำไมต้อง beston)</h3>
+  <div class="grid g3">
+    <div class="card"><b>เห็นทุกต้นทุน</b><p class="sub">เปิด MT5 ดูสเปรดและค่าธรรมเนียมเองได้ทุกบาท ไม่มีค่าที่ซ่อน</p></div>
+    <div class="card"><b>เตือนก่อนเสี่ยง</b><p class="sub">เราบอกความเสี่ยงก่อน CTA สำคัญ ไม่ใช่ตอนสายเกินไป</p></div>
+    <div class="card"><b>ดูแลด้วยใจ</b><p class="sub">ทัก LINE OA ทีมไทยตอบเอง เรื่องบัญชี เอกสาร และการใช้งาน</p></div>
+  </div>
+
+  <h3>Rebate (USP) — band ที่ต้องดังสุด</h3>
+  <div class="copyblock"><div class="lbl">H2</div><div class="th" style="font-size:1.3rem;font-weight:600">ได้หรือเสีย ก็ได้คืนทุก lot</div><div class="en">Win or lose, you get rebate on every lot. (safer alt ถ้า Legal ค้าน: "ทุก lot ที่เทรด ได้ Rebate คืน")</div></div>
+  <div class="copyblock"><div class="lbl">Sub</div><div class="th">Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร — เห็นชัด ไม่ต้องเดา</div></div>
+  <div class="risk" style="margin:8px 0">Bullets T&amp;C (จริง): จ่ายทุกวันจันทร์ 12:00 (GMT+7) · Lot ค้าง ≥1 นาที · BTCUSD/US30/USOIL คิด lot ÷ 10 · <b>ไม่ใช่สัญญากำไร เป็นเงินคืนตาม T&amp;C</b></div>
+
+  <h3>Accounts preview · Steps · Final CTA</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4 style="margin-top:0">Accounts (2 แบบ)</h4>
+      <p class="sub"><b>H2:</b> เลือกบัญชีง่าย ๆ แค่ 2 แบบ<br>
+      <b>Standard</b> — เทรดจริงบน MT5 พร้อม Rebate ตาม T&amp;C · CTA เปิดบัญชี<br>
+      <b>Demo</b> — ลองระบบ ฝึก MT5 ด้วยเงินจำลอง · CTA ทัก LINE OA</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">3 ขั้นเปิดบัญชี</h4>
+      <p class="sub"><span class="num">1</span>สมัคร + KYC → <span class="num">2</span>ทัก LINE OA → <span class="num">3</span>เตรียม MT5 และอ่านความเสี่ยง</p>
+      <hr class="soft">
+      <h4 style="margin-top:0">Final CTA (LINE-first)</h4>
+      <p class="sub"><b>H2:</b> พร้อมเทรดบนความจริงแล้วหรือยัง?<br>sub: เปิดบัญชี หรือทักทีมไทยก่อนก็ได้ — เราไม่เร่งคุณ</p>
+    </div>
+  </div>
+
+  <h3>Sub-page hero H1 (เร็ว)</h3>
+  <table>
+    <tr><th>หน้า</th><th>H1</th><th>Sub</th></tr>
+    <tr><td>Why</td><td>เราโชว์ตัวเลขจริง ไม่ใช่ตัวเลขสวย</td><td>ข้อมูลที่คุณตรวจสอบเองได้ สำคัญกว่าคำโฆษณา</td></tr>
+    <tr><td>Markets</td><td>เทรดตลาดที่คุณถนัด ครบในที่เดียว</td><td>FX · ทอง · ดัชนี · น้ำมัน · คริปโต — เห็นสเปรดก่อนกด</td></tr>
+    <tr><td>Accounts</td><td>เลือกบัญชีให้ตรงจังหวะการเทรด</td><td>มีแค่ 2 ทางเลือก: Standard และ Demo</td></tr>
+    <tr><td>Tools</td><td>เห็นต้นทุนและความเสี่ยง ก่อนกดเทรด</td><td>MT5 + เครื่องคำนวณ Rebate/Pip/Margin — ตัวช่วยวางแผน ไม่ใช่คำแนะนำ</td></tr>
+    <tr><td>Partners</td><td>แนะนำเทรดเดอร์ รับคอมมิชชันโปร่งใส จ่ายตรงเวลา</td><td>อัตราจริง <code>[verify]</code> · ตัวเลขบนหน้าเป็นตัวอย่าง</td></tr>
+  </table>
+</section>
+
+<!-- HERO IMAGE -->
+<section id="hero">
+  <h2><span class="n">06</span>แผนรูป Hero — "Calm Canvas"</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h4 style="margin-top:0">Concept (เลือกแล้ว)</h4>
+      <p>กลุ่ม <b>floating white cards ลอยบนพื้นขาว+ฟ้าอ่อน</b> + soft blue bloom 1 จุด + hairline ฟ้าเชื่อมการ์ด = "ระบบที่ตรวจสอบได้". <b>ไม่ใช่ dark terminal แน่น ๆ.</b></p>
+      <p style="margin-bottom:0"><b>ทำไม:</b> ตลาดโบรกเกอร์ปี 2026 ไป dark+gradient หมด → beston อยู่ daylight = โดดทันที + ตรงกับ positioning "โปร่งใส/จริง". 94% ของ first impression มาจาก design.</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">Pipeline (พร้อมแล้ว)</h4>
+      <ol style="margin:4px 0">
+        <li>แนบ ref: <code>ref-fizens-home-base.png</code> + Revolut Business (Mobbin) + CALFINEX</li>
+        <li>วาง prompt (มีใน <code>assets/references/P0-generate-handoff.md</code>) → ChatGPT image-gen</li>
+        <li>QA (accept/reject ตาม checklist) → upscale → export WebP &lt;200KB</li>
+        <li>ใส่ Framer: URL → tmpfiles <code>/dl/</code> → <code>updateXmlForNode backgroundImage</code></li>
+      </ol>
+    </div>
+  </div>
+  <div class="risk" style="margin-top:12px"><b>QA / compliance รูป:</b> light + royal blue เท่านั้น · abstract — อ่านราคา/ticker/P&amp;L ไม่ได้ · ไม่มี seal/โลโก้ regulator · ไม่มีคนยิ้ม stock · ไม่มี gold/dark/casino · ตัวเลข+symbol จริงใส่เป็น Framer chips ทีหลัง ไม่ใช่ในรูป. (assets เดิม hero/about/cta เคย gen+swap แล้ว — regen ให้ตรง Calm Canvas ถ้ามีเวลา ไม่งั้นใช้ของเดิมไปก่อน)</p></div>
+</section>
+
+<!-- ANIMATION -->
+<section id="anim">
+  <h2><span class="n">07</span>Animation (Framer · 1 wow + reveal สุภาพ)</h2>
+  <p class="sub">หลัก: ใช้ <b>Scroll Transform + Section in View</b> (ไม่ใช่ global scroll), animate <b>transform+opacity เท่านั้น</b> (GPU), ≤12 layers/viewport, reveal subtle ≤40px, reduced-motion ทุกอัน, compliance text นิ่งเสมอ.</p>
+  <table>
+    <tr><th>ID</th><th>Effect</th><th>ที่</th><th>ค่า (Framer)</th></tr>
+    <tr><td>M1</td><td>Hero bloom reveal</td><td>hero on load</td><td>opacity 0→1, Y 32→0, blur 8→0, .65s, ease (.16,1,.3,1)</td></tr>
+    <tr><td>M2</td><td><b>Terminal depth (scroll-scrub)</b> = the wow</td><td>45–60vh แรก</td><td>scale .92→1, rotateX 8°→0; layers bg/mid/fg ต่าง speed</td></tr>
+    <tr><td>M4</td><td>Card reveal cascade</td><td>trust/accounts/articles</td><td>opacity+Y 24–40→0, stagger 80ms, once</td></tr>
+    <tr><td>M3</td><td>Sticky proof story</td><td>Rebate band</td><td>sticky media + text fade in/out ขณะ scroll</td></tr>
+    <tr><td>—</td><td>Stacking cards</td><td>StepProcess</td><td>sticky + top-offset เพิ่ม + scale-down เล็ก</td></tr>
+    <tr><td>M5</td><td>Marquee</td><td>MarketsTicker</td><td>loop 40–60s, pause on hover/tap</td></tr>
+    <tr><td>M6</td><td>Micro hover</td><td>ทุกปุ่ม/การ์ด</td><td>btn scale 1.02 + glow 120ms; card Y −4px, border→brand</td></tr>
+    <tr><td>M8</td><td>Nav condense</td><td>global</td><td>scrollY&gt;40 → backdrop blur 12px, height −8px</td></tr>
+  </table>
+  <p class="sub"><b>ห้าม:</b> parallax บน risk/legal text · scroll-jacking/snap · count-up stats · autoplay video เสียง. <br><b>หมายเหตุ MCP:</b> bloom/reveal/marquee/hover ตั้งใน Framer canvas ได้ตรง ๆ; scroll-scrub depth (M2) + Lenis อาจต้อง <code>createCodeFile</code> override — ทำหลัง copy เสร็จ.</p>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <h2><span class="n">08</span>★ ทำไมการนำเสนอแบบนี้ถึง convert</h2>
+  <p class="sub">map: ความต้องการ/ความกลัวของ trader → ทางเลือกในแผน → ทำไมเกิดความสนใจ → ทำไมเกิด conversion.</p>
+
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>Honesty-contrast<br>"เทรดบนความจริง"</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>trader ไทยโดน hype มาเยอะ + กลัวโกง → ประโยคที่ "ยอมรับความจริง" สะดุดทันทีเพราะสวนทางทุกโฆษณา</div>
+    <div><div class="lab">→ conversion</div>ความเชื่อใจคือเงื่อนไขก่อนเปิดบัญชี. คู่แข่งลอกไม่ได้ (ต้องทิ้ง hype) = ตำแหน่งที่ป้องกันได้</div>
+  </div>
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>Rebate $5/lot<br>"ได้คืนแม้ขาดทุน"</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>วัฒนธรรม cashback แรงในไทย (research ยืนยัน). loss-averse → "ได้คืนแม้ขาดทุน" = บรรเทาความเจ็บ. $ ชัดกว่า %</div>
+    <div><div class="lab">→ conversion</div>เหตุผลทางการเงินที่จับต้องได้ให้กดเปิด + ตัวเลขจริง = น่าเชื่อ ไม่ใช่ลม</div>
+  </div>
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>เปิด MT5 ดูต้นทุนเอง</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>ตอบ fear "ต้นทุนซ่อน" ตรง ๆ — "ดูเองได้" = อำนาจอยู่ที่ผู้ใช้</div>
+    <div><div class="lab">→ conversion</div>verifiable = ลดข้อกังขา → ก้าวข้าม friction ทางใจที่ใหญ่สุด</div>
+  </div>
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>ทีมไทย + LINE-first</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>คนไทยอยากคุยกับคนก่อนวางเงิน. LINE = ช่องทางพื้นเมือง. Exness ชนะด้วย Thai support — beston แตะถึง</div>
+    <div><div class="lab">→ conversion</div>secondary CTA (LINE) เก็บคนที่ "ยังไม่พร้อมสมัคร" ไว้ในกรวย แทนปล่อยหลุด</div>
+  </div>
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>Risk-honesty ใน hero</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>โบรกเกอร์ที่ยอมพูดเรื่องเสี่ยง = ดูโต/จริงใจ → หลุดจาก pattern "โบรกเกอร์ขายฝัน"</div>
+    <div><div class="lab">→ conversion</div>คนขี้สงสัยเชื่อคนที่ยอมรับข้อเสีย + ผ่าน compliance สากล (FCA/ESMA style)</div>
+  </div>
+  <div class="why-row">
+    <div><div class="lab">ทางเลือก</div><b>H1 อังกฤษ<br>Trade Smarter Not Harder</b></div>
+    <div><div class="lab">จิตวิทยา → สนใจ</div>trader ไทยคุ้นศัพท์เทรดอังกฤษ + มอง "อินเตอร์ = น่าเชื่อถือ" (เหมือนแบรนด์ offshore ที่เขาใช้อยู่). สั้น จำง่าย</div>
+    <div><div class="lab">→ conversion</div>ส่งสัญญาณ global/pro ทันที; Thai subhead รับความหมายให้ชัด = ได้ทั้ง impact + clarity (= สัญชาตญาณ CEO ตรงกับการรับรู้ของกลุ่มเป้าหมาย)</div>
+  </div>
+
+  <h3>ตอบ objection ของ trader ขี้สงสัย</h3>
+  <table>
+    <tr><th>"แต่..."</th><th>แผนตอบยังไง</th></tr>
+    <tr><td>กลัวโดนโกง</td><td>risk-first + entity/address จริง + เปิด MT5 ดูเอง + ไม่มี stat ปลอม = สัญญาณ "ไม่มีอะไรซ่อน"</td></tr>
+    <tr><td>ถอนเงินได้จริงไหม</td><td>ฝาก/ถอนช่องทางไทย <code>[verify SLA]</code> + ทีมไทยคุยก่อนได้ทาง LINE (ลดความกลัว)</td></tr>
+    <tr><td>"โบรกไหนก็พูดงี้"</td><td>เราไม่อ้างอันดับ/ดีที่สุด — เราชวนตรวจสอบ ("เปิด MT5 ดูเอง") = พิสูจน์ได้ ไม่ใช่คุย</td></tr>
+    <tr><td>ไม่มี Thai SEC</td><td>benchmark offshore (XM/Exness ก็ไม่มี) + กำกับสากล FSCA/CySEC/MSB <code>[verify]</code> — ไม่นำด้วยความกลัว Thai SEC</td></tr>
+    <tr><td>Rebate จริงหรือลวง</td><td>โชว์ T&amp;C จริง (รอบจ่าย/เงื่อนไข lot) + ระบุ "ไม่ใช่สัญญากำไร" = น่าเชื่อเพราะมีเงื่อนไข</td></tr>
+    <tr><td>ทำไมไม่ใช้ Exness</td><td>ความชัดของ $5/lot + ทีมไทยที่ "ตอบเอง" + โปร่งใสต้นทุนเป็นจุดยืน ไม่ใช่ feature แถม</td></tr>
+  </table>
+
+  <h3>Funnel + สมมุติฐานที่วัดได้</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4 style="margin-top:0">Dual-path funnel</h4>
+      <p class="sub"><b>Hard:</b> เปิดบัญชี → portal ภายนอก (พร้อมแล้ว)<br><b>Soft:</b> ทัก LINE OA → คุยคนไทย (ยังไม่พร้อม) → nurture → เปิดบัญชี<br>เหมาะกับ audience ขี้สงสัยที่อยากคุยก่อน — ไม่บังคับ KYC ทันที</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">สมมุติฐาน (วัด GA4 — ไม่โชว์บนเว็บ)</h4>
+      <ul class="sub" style="margin:4px 0">
+        <li>Demo/registration conversion 3–8% บน targeted traffic (&lt;1% = พังเชิงโครงสร้าง)</li>
+        <li>LINE-click rate (วัด soft-path)</li>
+        <li>Hero CTA CTR · scroll-depth ถึง Rebate band</li>
+        <li>Rebate section = section ที่ engagement สูงสุด (สมมุติฐาน USP)</li>
+        <li>mobile bounce ลดเมื่อ LCP &lt;2.5s</li>
+      </ul>
+    </div>
+  </div>
+  <p class="src" style="margin-top:10px">benchmark = external industry evidence (WSA/Unbounce) ใช้พิสูจน์ <i>ทำไม pattern ได้ผล</i> — ไม่ใช่ตัวเลข beston, ห้ามขึ้นเว็บ.</p>
+</section>
+
+<!-- EXEC -->
+<section id="exec">
+  <h2><span class="n">09</span>แผนลงมือ — วันนี้ → online พรุ่งนี้</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h4 style="margin-top:0">วันนี้ (Framer Fizens)</h4>
+      <ul class="check">
+        <li>เปิด Framer → cmd-K → MCP plugin (ปลด block — ตอนนี้ MCP ไม่ต่อ)</li>
+        <li>Swap copy ทั้ง 13 section ด้วย deck §05 (Claude ทำผ่าน MCP — เคย swap ได้ทั้งหน้า)</li>
+        <li>ล็อค H1 = Trade Smarter Not Harder + Thai subhead ใหม่</li>
+        <li>ตั้ง animation M1/M4/M5/M6/M8 ใน canvas (เร็ว)</li>
+        <li>regen hero image "Calm Canvas" (ถ้าทัน) ไม่งั้นใช้ของเดิม</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">ก่อน online (พรุ่งนี้)</h4>
+      <ul class="check">
+        <li>M2 scroll-scrub depth (code override) ที่ hero</li>
+        <li>responsive 390/810 + reduced-motion test</li>
+        <li>logo BestonFX, footer full risk block</li>
+        <li>compliance scan: ไม่มี banned phrase / fake stat / mock label หลุด</li>
+        <li>publish + sitemap + redirects</li>
+      </ul>
+    </div>
+  </div>
+  <div class="risk" style="margin-top:12px"><b>เรื่องจริงที่ต้องรู้:</b> Workflow tool (multi-agent) <b>ใช้ไม่ได้ใน env นี้</b> → Claude ทำ inline. Framer <b>publish เป็น action ใน Framer UI</b> (Tae กดเอง). MCP ต้องต่อก่อนถึงจะ swap copy ได้.</p>
+</section>
+
+<!-- VERIFY -->
+<section id="verify">
+  <h2><span class="n">10</span>ต้องยืนยันก่อน (blocker จริง)</h2>
+  <p class="sub">ของพวกนี้ขาด = ใส่ <code>[verify]</code> ได้ แต่บางอันบล็อก "online จริง". ที่ขีดเส้นใต้ = ด่วนสุดสำหรับพรุ่งนี้.</p>
+  <table>
+    <tr><th>ต้องการ</th><th>ใช้ที่</th><th>ด่วน?</th></tr>
+    <tr><td><b>LINE OA URL + QR</b></td><td>secondary CTA ทุกหน้า = conversion path</td><td><span class="pill p-amber">ด่วนมาก</span></td></tr>
+    <tr><td><b>register/portal URL</b></td><td>primary CTA เปิดบัญชี</td><td><span class="pill p-amber">ด่วนมาก</span></td></tr>
+    <tr><td>Spread/Commission/Leverage/ฝากขั้นต่ำ (Standard)</td><td>Accounts/Markets</td><td><span class="pill p-gray">[verify] ได้</span></td></tr>
+    <tr><td>License # (FSCA/CySEC/MSB) + entity wording</td><td>RegulatoryStrip/footer/legal</td><td><span class="pill p-gray">[verify] ได้</span></td></tr>
+    <tr><td>Rebate $5/lot: ยืนยันอัตรา + eligibility + T&amp;C</td><td>Rebate band</td><td><span class="pill p-amber">ควรมี</span></td></tr>
+    <tr><td>เวลาทำการ + SLA ถอน</td><td>Support/CTA</td><td><span class="pill p-gray">[verify] ได้</span></td></tr>
+  </table>
+</section>
+
+<div class="foot wrap">
+  beston · content + conversion revamp plan · 2026-06-01 · branch <code>feat/content-conversion-revamp-2026-06-01</code><br>
+  source: SOT + craft-playbook + copy-deck (punchy/v2) + tokens + visual-direction + persona web research · H1 locked per CEO.<br>
+  <span class="risk" style="display:inline-block;margin-top:10px">Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</span>
+</div>
+
+</main>
+</body>
+</html>

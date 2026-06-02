@@ -2,7 +2,7 @@
 
 _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`._
 
-> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `Trade Smarter Not Harder`: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น, เข้าใจ Rebate ตาม T&C, เห็นความเสี่ยงที่ควรรู้ และมีทีมไทยช่วยดูแล แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
+> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `Trade Smarter Not Harder`: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น, เข้าใจ Rebate $5/lot, เห็นความเสี่ยงที่ควรรู้ และมีทีมไทยช่วยตอบทาง LINE แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
 > **CTA หลัก:** `เปิดบัญชี` · **CTA รอง:** `ทัก LINE OA ติดต่อ admin`
 > **ระดับเอฟเฟกต์:** เต็ม — ใช้ hero ที่ pin ตอน scroll และ layered parallax ได้ แต่ฐานต้องนิ่ง น่าเชื่อถือ และไม่กลบข้อความความเสี่ยง.
 > **Component ที่ใช้:** Navbar · RiskDisclosureBar · Hero/TerminalHero · RegulatoryStrip · FeatureGrid · MarketsTicker · AccountComparison(preview) · StepProcess · FeatureSplit · Stats(gated) · Testimonial(gated) · ArticleGrid(teaser) · FAQ · CTABanner · Footer · AIChatWidget
@@ -29,12 +29,12 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **ข้อความ (founder override — Angle 1):**
   - Eyebrow: `โบรกเกอร์ Forex/CFD เพื่อคนไทย`
   - H1: **`Trade Smarter Not Harder`**
-  - Subhead: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
+  - Subhead: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: Rebate $5/lot, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
   - Risk note: `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง`
-  - Proof line: `เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]`
+  - Proof line: `เทรดบน MT5 · Rebate $5/lot · รายละเอียดบัญชี [verify]`
   - CTA หลัก: `เปิดบัญชี` · CTA รอง: `ทัก LINE OA ติดต่อ admin`
   - Device label: `ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง`
-- **เหตุผล UX:** ใช้ English headline สั้นแบบ campaign hook ที่ CEO/founder ชอบ แล้วให้ subhead ภาษาไทยขยาย value ที่ตรวจสอบได้: MT5, ต้นทุน, Rebate ตาม T&C, ความเสี่ยง และ LINE support.
+- **เหตุผล UX:** ใช้ English headline สั้นแบบ campaign hook ที่ CEO/founder ชอบ แล้วให้ subhead ภาษาไทยขยาย value ที่ตรวจสอบได้: MT5, Rebate $5/lot, ความเสี่ยง และ LINE support.
 - **การตอบสนอง:** stack เป็น copy ก่อนภาพ; H1 จาก `56→34px`; CTA เต็มความกว้าง.
 
 ### 4. RegulatoryStrip — `Logo Cloud`
@@ -43,15 +43,26 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **เหตุผล UX:** หลัง value claim ต้องรีบให้ proof เพื่อปิด objection เรื่องความน่าเชื่อถือก่อนที่ผู้ใช้จะสงสัย.
 - **การตอบสนอง:** เดสก์ท็อป 4 คอลัมน์; มือถือ เป็น grid 2×2.
 
-### 5. FeatureGrid — `3-col` (trust pillars)
-- **โครง:** header + icon cards 3 ใบ.
-- **ข้อความ:**
+### 5. Why beston Bento — `BentoGrid`
+- **โครง:** masonry/bento grid แบบ Fizens + reference จาก Exness: card ใหญ่ 1 ใบ, card กว้าง 2 ใบ, card กลาง 3–4 ใบ. พื้นขาว/soft-blue, blue glow, radius 24–32.
+- **ข้อความ:** หัวข้อ tile เป็น English phrase ที่อ่านแล้วเข้าใจ benefit ทันที; คำอธิบายใต้หัวข้อเป็นภาษาไทยสั้นๆ.
   - Header: `ทำไมต้อง beston`
-  - Card 1 — `เห็นทุกต้นทุน`: `เปิด MT5 ดูเองได้ทุกบาท ไม่มีค่าที่ซ่อน`
-  - Card 2 — `เตือนก่อนเสี่ยง`: `เราบอกความเสี่ยงก่อน ไม่ใช่ตอนสายเกินไป`
-  - Card 3 — `ดูแลด้วยใจ`: `ทัก LINE OA ติดต่อ admin ทีมไทยตอบเอง`
-- **เหตุผล UX:** 3 pillars ทำให้จุดต่างของแบรนด์ชัด: โปร่งใส, risk-first, และทีมไทย ไม่ใช่ hype แบบโบรกเกอร์ทั่วไป.
-- **การตอบสนอง:** 3 คอลัมน์ → 1 คอลัมน์ พร้อม reveal ทีละใบแบบเบา ๆ.
+  - Hero tile — `Cash Back`: `รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์ 12:00`
+  - Tile — `Start from $10`: `เริ่มง่ายด้วยเงินขั้นต่ำ $10 เพื่อทดลองระบบจริงด้วยทุนเล็กก่อนขยับขนาด [verify account condition]`
+  - Tile — `Thai Support 24/7`: `คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา [verify support hours]`
+  - Tile — `Leverage 1:1000`: `เลือกเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว [verify]`
+  - Tile — `Fast Execution`: `ส่งคำสั่งบน MT5 ได้รวดเร็ว ลดจังหวะพลาดช่วงตลาดเคลื่อนไหวแรง [verify benchmark]`
+  - Tile — `Regulated License`: `มีข้อมูลกำกับดูแลและเอกสารบริษัทให้ตรวจสอบก่อนตัดสินใจ [verify exact wording]`
+- **Visual + motion:**
+  - `Cash Back`: rebate meter + cash-back receipt.
+  - `Start from $10`: small balance card + first-order ticket.
+  - `Thai Support 24/7`: LINE chat stack + 24/7 clock ring.
+  - `Leverage 1:1000`: leverage slider + margin ratio.
+  - `Fast Execution`: order ticket + speed trail.
+  - `Regulated License`: document stack + registry cards.
+  - Motion ใช้ `opacity/transform` เท่านั้น, stagger 80–120ms, duration 500–900ms, easing `cubic-bezier(.16,1,.3,1)`, และต้องมี `prefers-reduced-motion`.
+- **เหตุผล UX:** bento ทำให้ section นี้ดู premium และเปลี่ยน Why จาก feature list เป็น benefit ที่ user เข้าใจทันที: เงินคืน, เงินเริ่มต้นต่ำ, ทีมไทย, leverage, execution, และ proof. MT5, calendar และ account path ยังมี section/page เฉพาะของตัวเอง ไม่ใช่ tile หลักใน Why bento.
+- **การตอบสนอง:** desktop ใช้ 6-column bento; tablet 2 columns; mobile stack เป็น cards โดย hero tile อยู่ใบแรก.
 
 ### 6. MarketsTicker — `Gallery/marquee`
 - **โครง:** chips แนวนอนแบบเลื่อนได้ (symbol · price · %) และต้องติด label ว่าเป็นภาพตัวอย่าง.
@@ -80,10 +91,10 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **โครง:** copy + bullets ทางซ้าย, visual ทางขวา.
 - **ข้อความ:**
   - H2: `ได้หรือเสีย ก็ได้คืนทุก lot`
-  - Body: `Rebate $5 ต่อ lot คิดจากการเทรด ไม่ใช่ผลกำไร — เห็นชัด ไม่ต้องเดา (ตาม T&C ไม่ใช่สัญญากำไร)`
-  - Bullets: `Lot ค้างอย่างน้อย 1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `ไม่ใช่สัญญากำไร — เป็นเงินคืนตาม T&C`
+  - Body: `Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร — เห็นชัด ไม่ต้องเดา`
+  - Bullets: `Lot ค้างอย่างน้อย 1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `ไม่ใช่สัญญากำไร — เป็นเงินคืนจากปริมาณการเทรด`
   - CTA: `ดูเงื่อนไข Rebate`
-- **เหตุผล UX:** Rebate เป็น hook หลัก แต่ต้องวางคู่กับ T&C/risk copy เพื่อไม่ให้ดูเหมือนสัญญากำไร.
+- **เหตุผล UX:** Rebate เป็น hook หลัก แต่ต้องวางคู่กับ risk copy เพื่อไม่ให้ดูเหมือนสัญญากำไร.
 - **การตอบสนอง:** stack และวาง visual ใต้ copy.
 
 ### 10. Stats — `3-col` `[GATED — disabled]`

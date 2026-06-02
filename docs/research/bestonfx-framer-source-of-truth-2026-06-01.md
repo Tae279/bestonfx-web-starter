@@ -17,7 +17,7 @@ _Scope: broker website IA, Framer/Fizens adaptation, motion, copy, trust, and Fr
 | Primary CTAs | `เปิดบัญชี` and `ทัก LINE OA ติดต่อ admin` |
 | Home IA | Persuade and route. No full tools grid. No IB block. No fake stats/testimonials. |
 | Source priority | This file -> `bestonfx-framer-design-craft-playbook-2026-06-01.md` (design/motion/Framer craft) -> `docs/wireframes/*` -> `DESIGN.md` -> `docs/framer-poc-map.md` inventory |
-| Compliance posture | International-regulator style proof, risk-first copy, no Thai SEC framing as controlling gate |
+| Compliance posture | International-regulator style proof, visible risk reminders, no Thai SEC framing as controlling gate |
 
 ## Research Anchors
 
@@ -75,11 +75,11 @@ Home should not be a feature dump. Home has one job: **make a Thai trader believ
 | 2 | Navbar | Persistent route + `เปิดบัญชี` | Keep Fizens nav structure, Thai labels |
 | 3 | Hero / TerminalHero | Value prop, CTAs, terminal visual | Replace Fizens personal-finance hero |
 | 4 | RegulatoryStrip | Proof immediately after claim | Replace logo cloud with regulator/platform badges |
-| 5 | Trust 3 Pillars | Transparency, risk-first, Thai care | Adapt Fizens feature cards |
+| 5 | Why beston Bento | Phrase-based benefit tiles: Cash Back, Start from $10 `[verify]`, Thai Support 24/7 `[verify]`, Leverage 1:1000 `[verify]`, Fast Execution `[verify]`, Regulated License `[verify wording]` | Adapt Fizens feature cards into bento grid |
 | 6 | MarketsTicker | Live market energy without calculator clutter | Use ticker/slideshow pattern; mark sample data |
 | 7 | AccountPreview | Standard vs Demo path | Adapt Pricing cards, only 2 preview cards |
 | 8 | Open Account Steps | Reduce friction | Adapt HowItWorkSection |
-| 9 | Rebate Explainer | Make the hook clear and compliant | FeatureSplit with T&C/risk note |
+| 9 | Rebate Explainer | Make the hook clear without legal shorthand | FeatureSplit with detail/risk note |
 | 10 | Articles Teaser | Trust through education | Use Fizens Articles CMS cards |
 | 11 | FAQ | Answer objections before bounce | Keep Fizens FAQ accordion |
 | 12 | LINE CTA Banner | Thai conversion path, no pressure | Replace generic CTA with LINE-first CTA |
@@ -103,7 +103,7 @@ Home should not be a feature dump. Home has one job: **make a Thai trader believ
 | Markets | Hero, asset class cards, major symbols, trading hours/conditions placeholders, risk note per asset, "not real-time" labels, CTA |
 | Accounts | Hero, Standard/Demo comparison, account steps, required documents/KYC, rebate eligibility, fees placeholders, FAQ, CTA |
 | Tools | Hero, MT5 platform proof, rebate calculator, pip/margin calculators, economic calendar placeholder, tool disclaimers, CTA |
-| Partners | Hero, IB program model, estimator mock, eligibility, payout/T&C placeholders, compliance disclaimer, lead form/LINE CTA |
+| Partners | Hero, IB program model, estimator mock, eligibility, payout-detail placeholders, compliance disclaimer, lead form/LINE CTA |
 | Support | Hero, LINE-first channel cards, email, office, hours `[verify]`, FAQ, escalation flow, CTA |
 | Articles | CMS grid, categories (MT5, risk, rebate, beginner, platform), SEO metadata, no trading advice, soft CTA |
 | Risk disclosure | Full risk copy, CFD/leverage explanation, no advice notice, legal links, responsible trading resources |
@@ -112,14 +112,14 @@ Home should not be a feature dump. Home has one job: **make a Thai trader believ
 
 **Core approved angle (founder override):** `Trade Smarter Not Harder`
 
-Use the English H1 as the short campaign hook. The Thai subheadline must carry the concrete, compliance-safe meaning: MT5, clear account/trading information, Rebate according to T&C, risk visibility, and Thai LINE support.
+Use the English H1 as the short campaign hook. The Thai subheadline must carry the concrete, compliance-safe meaning: MT5, Rebate $5/lot, risk visibility, and Thai LINE support.
 
 | Copy layer | Rule | Example |
 |---|---|---|
-| Hero | Short English hook + Thai compliance-safe explanation | `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้` |
+| Hero | Short English hook + Thai compliance-safe explanation | `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: Rebate $5/lot, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้` |
 | CTA | Two-path conversion | `เปิดบัญชี` + `ทัก LINE OA ติดต่อ admin` |
 | Risk note | Near high-intent CTA | `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง` |
-| Rebate | Explain mechanism, not profit | `Rebate คิดจากปริมาณการเทรดตาม T&C ไม่ใช่การรับประกันกำไร` |
+| Rebate | Explain mechanism, not profit | `Rebate คิดจากปริมาณการเทรด ไม่ใช่การรับประกันกำไร` |
 | Trust | Show evidence, avoid hype | `เลขทะเบียน/ใบอนุญาตรอยืนยันก่อนเผยแพร่` |
 | Education | Reduce fear, not promise success | `ความรู้ที่ใช้ได้จริง ก่อนเสียเงินจริง` |
 
@@ -154,7 +154,7 @@ Fizens gives the site its premium base: light, spacious, rounded, blue-led, soft
 | Trading terminal hero | Above fold hero | Must be labelled `ตัวอย่าง — ไม่ใช่ข้อมูลจริง` until live data exists |
 | Market universe image | Markets ticker/Markets page | Use real symbols but sample prices |
 | Trust compliance stack | Why/Regulatory section | Show document/badge/card metaphor, not fake seals |
-| Rebate math visual | Home + Tools | Show formula and T&C disclaimer |
+| Rebate math visual | Home + Tools | Show formula, detail note, and risk reminder |
 | LINE support visual | Support + CTA | QR/link only after official URL verified |
 | Education covers | Articles | Thai-first editorial, not stock-chart hype |
 

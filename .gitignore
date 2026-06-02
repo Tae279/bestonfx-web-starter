@@ -25,6 +25,7 @@ docs/wireframes/generated/
 docs/wireframes/snapshots/
 assets/generated/
 
-# Heavy reference / snapshot images (share outside git)
-docs/wireframes/**/*.png
-assets/references/**/*.png
+# Heavy reference / snapshot images (share outside git) — keep public/ & src/ images
+docs/**/*.png
+assets/**/*.png
+/*.png

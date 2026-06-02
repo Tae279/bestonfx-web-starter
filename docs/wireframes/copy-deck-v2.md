@@ -63,14 +63,12 @@
 ### Hero (TerminalHero)
 - Eyebrow เดิม: `โบรกเกอร์ Forex สำหรับเทรดเดอร์ไทย` → ✅ `โบรกเกอร์ Forex/CFD เพื่อคนไทย`
 - H1 เดิม: `Trade Smarter / Not Harder`
-- ✅ ใหม่ H1: **`เทรดอย่างมีโครงสร้าง คืน Rebate ทุก lot`**
-- ✅ A/B H1: **`เทรด Forex ที่เห็นต้นทุนจริง`**
-- _EN:_ Trade with structure. Rebate on every lot.
-- _ทำไม:_ "Trade Smarter Not Harder" เป็น cliché ตลาด (ใครก็ใช้) + ภาษาอังกฤษล้วนขัด Thai-first. H1 ใหม่นำด้วย hook จริงของแบรนด์ (rebate ทุก lot) + ownable.
+- ✅ Founder override H1: **`Trade Smarter Not Harder`**
+- _ทำไม:_ founder เลือก short English hook เพราะสั้น กระชับ impact คล้าย Fizens/finance-template rhythm. ให้ Thai subhead ทำหน้าที่ขยายความและคุม compliance.
 
 - Subhead เดิม: `เทรดกับ beston — รับ Rebate เงินคืน $5/lot · MT5 · ซัพพอร์ตผ่าน LINE`
-- ✅ ใหม่: `Rebate เงินคืน $5 ต่อ lot ตาม T&C · เทรดบน MT5 · ทีมไทยดูแลผ่าน LINE`
-- _ทำไม:_ คง $5/lot (hook จริง) + เติม "ตาม T&C" กัน implied guarantee.
+- ✅ ใหม่: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
+- _ทำไม:_ headline เป็น hook กว้างได้ แต่ subhead ต้องทำให้คำว่า smarter หมายถึงข้อมูลที่ตรวจสอบได้ ไม่ใช่ผลลัพธ์การเทรด.
 
 - Proof line: **ดู ⚠️ Top fix ด้านบน**
 - CTA เดิม: `เปิดบัญชีทันที` · `ทัก LINE OA ติดต่อ admin` → ✅ คงเดิม + microcopy `ใช้เวลาไม่กี่นาที` / `คุยกับ admin ก่อนเริ่มใช้งาน`

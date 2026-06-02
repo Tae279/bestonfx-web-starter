@@ -6,7 +6,7 @@ Starter repo สำหรับ **BestonFX public website + Framer POC handoff +
 
 ## Current project phase
 
-> **Current phase: Framer/Fizens POC.** Source of truth: [`docs/plan.md`](docs/plan.md).
+> **Current phase: Framer/Fizens POC.** Source of truth: [`docs/plan.md`](docs/plan.md) + [`docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`](docs/research/bestonfx-framer-source-of-truth-2026-06-01.md).
 
 - The current deliverable is a presentable **Framer POC** (`BestonFX Framer POC v0.1`), built by adapting the purchased Fizens template.
 - This repo is used to coordinate **docs, prompts, compliance rules, and the future production foundation** — not as the current build target.
@@ -71,6 +71,9 @@ npm run compliance:scan
 Use the docs in:
 
 ```text
+docs/research/bestonfx-framer-source-of-truth-2026-06-01.md
+docs/research/bestonfx-framer-perfect-handoff-2026-06-01.md
+docs/wireframes/sitemap.md
 docs/framer-poc-map.md
 prompts/workshop-components.md
 prompts/framer-mcp-claude.md

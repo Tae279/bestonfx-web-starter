@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BestonFX Hero Copy Sprint - 2026-06-01</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --blue: #0040c1;
+      --blue-2: #2970ff;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #06c755;
+      --amber: #b45309;
+      --paper: #f7f9fc;
+      --card: #ffffff;
+      --border: #dbe4f0;
+      --soft: #eef4ff;
+      --ok: #15803d;
+      --warn: #a16207;
+      --shadow: 0 24px 80px rgba(15, 23, 42, .10);
+      --font: Prompt, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f8fafc;
+        --muted: #aab7cc;
+        --paper: #07111f;
+        --card: #101b2d;
+        --border: #22344f;
+        --soft: #10264f;
+        --shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(41, 112, 255, .18), transparent 34rem),
+        linear-gradient(180deg, var(--paper), color-mix(in oklch, var(--paper), var(--card) 60%));
+      color: var(--ink);
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px) saturate(160%);
+      background: color-mix(in oklch, var(--card), transparent 14%);
+      border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 20%);
+    }
+
+    .topbar .wrap {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      box-shadow: 0 10px 28px rgba(0, 64, 193, .28);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .nav a:hover { background: var(--soft); color: var(--blue); }
+
+    .hero {
+      padding: clamp(56px, 7vw, 96px) 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+      gap: clamp(28px, 6vw, 74px);
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--card), transparent 8%);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0 18px;
+      font-size: clamp(40px, 5.6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.55;
+    }
+
+    .hero-card {
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: color-mix(in oklch, var(--card), transparent 3%);
+      box-shadow: var(--shadow);
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .score div {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: color-mix(in oklch, var(--soft), transparent 45%);
+    }
+
+    .score strong {
+      display: block;
+      font-size: 22px;
+      color: var(--blue);
+    }
+
+    .score span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section { padding: 38px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.14;
+    }
+
+    .section-desc {
+      max-width: 730px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 8px 0 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: color-mix(in oklch, var(--card), transparent 2%);
+      padding: 22px;
+      min-height: 100%;
+    }
+
+    .card.highlight {
+      border-color: color-mix(in oklch, var(--blue), var(--border) 34%);
+      box-shadow: 0 20px 60px rgba(0, 64, 193, .14);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .label.ok { color: var(--ok); background: color-mix(in oklch, var(--ok), transparent 88%); }
+    .label.warn { color: var(--warn); background: color-mix(in oklch, var(--amber), transparent 88%); }
+
+    .territory-title {
+      margin: 16px 0 10px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .territory-enemy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .copy-set {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .copy-box {
+      position: relative;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: color-mix(in oklch, var(--paper), var(--card) 48%);
+    }
+
+    .copy-box h3 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.18;
+    }
+
+    .copy-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .copy-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .copy-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--blue);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font: 700 12px var(--font);
+      cursor: pointer;
+    }
+
+    .copy-btn:hover { border-color: var(--blue); }
+
+    .rubric {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .rubric th,
+    .rubric td {
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .rubric th {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--soft);
+    }
+
+    .rubric tr:last-child td { border-bottom: 0; }
+    .rubric td { color: var(--muted); line-height: 1.55; }
+    .rubric strong { color: var(--ink); }
+
+    .winner {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .mock-hero {
+      min-height: 420px;
+      display: grid;
+      align-content: center;
+      padding: clamp(24px, 4vw, 44px);
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(41, 112, 255, .24), transparent 18rem),
+        linear-gradient(135deg, color-mix(in oklch, var(--card), var(--soft) 18%), var(--card));
+      box-shadow: var(--shadow);
+    }
+
+    .mock-hero h3 {
+      margin: 12px 0 14px;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.06;
+      max-width: 620px;
+    }
+
+    .mock-hero p {
+      max-width: 570px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .cta {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 18px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .cta.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(0, 64, 193, .24);
+    }
+
+    .cta.secondary {
+      background: color-mix(in oklch, var(--card), transparent 10%);
+      border-color: var(--border);
+      color: var(--blue);
+    }
+
+    .note {
+      margin-top: 18px;
+      color: var(--amber);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .terminal {
+      min-height: 420px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      padding: 18px;
+      background: #07111f;
+      color: #e6f0ff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: #91a4c4;
+      font-size: 12px;
+    }
+
+    .terminal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .terminal-panel {
+      min-height: 112px;
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .terminal-panel strong { display: block; font-size: 22px; }
+    .terminal-panel span { color: #91a4c4; font-size: 12px; }
+
+    .bar {
+      height: 72px;
+      border-radius: 16px;
+      margin-top: 12px;
+      background:
+        linear-gradient(90deg, rgba(41, 112, 255, .20) 0 35%, transparent 35% 42%, rgba(6, 199, 85, .20) 42% 62%, transparent 62% 69%, rgba(245, 158, 11, .22) 69% 100%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 30px);
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .checklist li::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--blue), transparent 82%);
+      box-shadow: inset 0 0 0 5px color-mix(in oklch, var(--blue), transparent 72%);
+    }
+
+    .footer {
+      padding: 42px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .winner,
+      .grid,
+      .grid.two,
+      .grid.four {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .nav { display: none; }
+      .score { grid-template-columns: 1fr; }
+      .terminal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="mark"></span><span>BestonFX Hero Copy Sprint</span></div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#strategy">Strategy</a>
+        <a href="#territories">Territories</a>
+        <a href="#shortlist">Shortlist</a>
+        <a href="#winner">Winner</a>
+        <a href="#framer">Framer Fields</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="kicker">COPY SPRINT · 2026-06-01</span>
+          <h1>Founder override: Trade Smarter Not Harder</h1>
+          <p class="lead">หลัง copy sprint ผู้ก่อตั้งเลือกใช้ English hook ที่สั้น กระชับ และมี rhythm แบบ campaign line. Thai subheadline จึงต้องเป็นตัวขยายความให้ชัดว่า smarter = MT5, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยทาง LINE OA.</p>
+        </div>
+        <aside class="hero-card">
+          <span class="label ok">Approved direction</span>
+          <div class="score">
+            <div><strong>5</strong><span>copy territories</span></div>
+            <div><strong>42</strong><span>headline/subheadline routes</span></div>
+            <div><strong>6</strong><span>shortlist candidates</span></div>
+            <div><strong>1</strong><span>founder override</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="strategy">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Creative Strategy</h2>
+            <p class="section-desc">Hero ต้องมี enemy ที่ชัด: ไม่ใช่ตลาด, ไม่ใช่ความเสี่ยง, แต่คือการเปิดบัญชีจากข้อมูลไม่ครบและคำโฆษณาที่พูดสวยเกินจริง.</p>
+          </div>
+        </div>
+        <div class="grid four">
+          <article class="card">
+            <span class="label">Audience</span>
+            <h3 class="territory-title">เทรดเดอร์ไทยที่ระวังโบรกเกอร์</h3>
+            <p class="territory-enemy">เขาอาจรู้จัก MT5, Rebate, LINE support แล้ว แต่ยังไม่อยากเปิดบัญชีถ้าเงื่อนไขสำคัญไม่ชัด.</p>
+          </article>
+          <article class="card">
+            <span class="label">Desired belief</span>
+            <h3 class="territory-title">ที่นี่กล้าบอกก่อน</h3>
+            <p class="territory-enemy">ไม่ต้องเชื่อคำโฆษณาอย่างเดียว เพราะ cost, T&C, risk และ support path ถูกเปิดให้เห็นตั้งแต่หน้าแรก.</p>
+          </article>
+          <article class="card">
+            <span class="label">Conversion</span>
+            <h3 class="territory-title">สองทางเลือก ไม่เร่งเกินไป</h3>
+            <p class="territory-enemy">เปิดบัญชีถ้าพร้อม หรือทัก LINE OA ติดต่อ admin ถ้ายังอยากถามก่อน. นี่เข้ากับพฤติกรรมผู้ใช้ไทย.</p>
+          </article>
+          <article class="card">
+            <span class="label warn">Compliance</span>
+            <h3 class="territory-title">แรงได้ แต่ห้ามหลุด claim</h3>
+            <p class="territory-enemy">ไม่มีสัญญาผลลัพธ์, ไม่มีอันดับหนึ่ง, ไม่มี fake stats, ไม่มี license wording ที่ยังไม่ verify.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rubric">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Scoring Rubric</h2>
+            <p class="section-desc">คะแนนไม่ได้วัดว่าเพราะแค่ไหน แต่วัดว่าทำให้คนอยู่ต่อและเชื่อพอจะกด CTA หรือทัก LINE ไหม.</p>
+          </div>
+        </div>
+        <table class="rubric">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>What good looks like</th>
+              <th>Reject if</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Specific pain</strong></td>
+              <td>แตะปัญหาจริง: เงื่อนไขไม่ชัด, ต้นทุนไม่เห็น, support ไม่ถึง, risk ถูกซ่อน.</td>
+              <td>ฟังเหมือน broker template: smarter, better, powerful, world-class.</td>
+            </tr>
+            <tr>
+              <td><strong>Immediate clarity</strong></td>
+              <td>อ่านแล้วรู้ใน 3 วินาทีว่า beston ต่างเพราะความชัดเจน + Rebate + ทีมไทย.</td>
+              <td>ต้องอ่าน subhead ยาว ๆ ถึงจะเข้าใจ.</td>
+            </tr>
+            <tr>
+              <td><strong>Trust posture</strong></td>
+              <td>กล้าบอกความเสี่ยงและเงื่อนไขก่อนขาย.</td>
+              <td>ฟังเหมือนชวนเทรดเร็ว, โอกาสใหญ่, หรือความสำเร็จ.</td>
+            </tr>
+            <tr>
+              <td><strong>Framer fit</strong></td>
+              <td>H1 สั้นพอสำหรับ two-line hero, subhead ไม่แน่นเกิน, CTA อยู่ต่อได้.</td>
+              <td>ยาวจน mobile hero หนักหรือแตก typography.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="territories">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>5 Copy Territories</h2>
+            <p class="section-desc">แต่ละ territory คือคนละมุม positioning ไม่ใช่แค่เปลี่ยนคำ. ให้เลือกทิศที่ CEO/Founder รู้สึกว่าเป็น beston ที่สุด.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card highlight">
+            <span class="label ok">T1 · Recommended</span>
+            <h3 class="territory-title">Real Money, Real Clarity</h3>
+            <p class="territory-enemy">Enemy: เงินจริงลงตลาด แต่ข้อมูลสำคัญยังไม่ชัด. Hook แรงเพราะมันแตะความเสี่ยงโดยตรงโดยไม่ทำให้คนกลัวเกิน.</p>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="ก่อนเงินจริงลงตลาด ทุกเงื่อนไขต้องชัด&#10;ดูต้นทุน เงื่อนไข Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางทีมไทยผ่าน LINE ก่อนตัดสินใจเปิดบัญชี Forex/CFD">
+                <h3>ก่อนเงินจริงลงตลาด ทุกเงื่อนไขต้องชัด</h3>
+                <p>ดูต้นทุน เงื่อนไข Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางทีมไทยผ่าน LINE ก่อนตัดสินใจเปิดบัญชี Forex/CFD</p>
+                <div class="copy-meta"><span class="label ok">Best balance</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="เงินจริงต้องมากับข้อมูลจริง&#10;beston วางต้นทุน Rebate ตาม T&C ความเสี่ยง และช่องทางคุยกับทีมไทยไว้ให้เห็นก่อนคุณเริ่ม">
+                <h3>เงินจริงต้องมากับข้อมูลจริง</h3>
+                <p>beston วางต้นทุน Rebate ตาม T&C ความเสี่ยง และช่องทางคุยกับทีมไทยไว้ให้เห็นก่อนคุณเริ่ม</p>
+                <div class="copy-meta"><span class="label">Punchy</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="เทรดจริง เริ่มจากข้อมูลจริง&#10;รู้เงื่อนไขบัญชี เห็น Rebate ตาม T&C ใช้ MT5 และคุยกับทีมไทยได้ก่อนตัดสินใจเปิดบัญชี">
+                <h3>เทรดจริง เริ่มจากข้อมูลจริง</h3>
+                <p>รู้เงื่อนไขบัญชี เห็น Rebate ตาม T&C ใช้ MT5 และคุยกับทีมไทยได้ก่อนตัดสินใจเปิดบัญชี</p>
+                <div class="copy-meta"><span class="label">Simple</span><button class="copy-btn">Copy</button></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="label">T2 · Anti-hype</span>
+            <h3 class="territory-title">No Big Promises</h3>
+            <p class="territory-enemy">Enemy: เว็บ broker ที่เริ่มด้วยคำสัญญาสวย ๆ ก่อนบอก risk/T&C. มุมนี้ทำให้ beston ดูจริงใจและต่าง.</p>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="เราไม่เริ่มด้วยคำสัญญา เราเริ่มด้วยความชัดเจน&#10;ก่อนเปิดบัญชี คุณจะเห็นเงื่อนไข Rebate ตาม T&C ความเสี่ยงของ Forex/CFD และช่องทางคุยกับทีมไทยอย่างตรงไปตรงมา">
+                <h3>เราไม่เริ่มด้วยคำสัญญา เราเริ่มด้วยความชัดเจน</h3>
+                <p>ก่อนเปิดบัญชี คุณจะเห็นเงื่อนไข Rebate ตาม T&C ความเสี่ยงของ Forex/CFD และช่องทางคุยกับทีมไทยอย่างตรงไปตรงมา</p>
+                <div class="copy-meta"><span class="label ok">Strong trust</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="ไม่มีคำสวยเกินจริง มีแต่ข้อมูลที่คุณควรรู้ก่อนเทรด&#10;MT5, Rebate ตามเงื่อนไข, risk disclosure และทีมไทยทาง LINE ถูกวางไว้ให้ตรวจสอบก่อนตัดสินใจ">
+                <h3>ไม่มีคำสวยเกินจริง มีแต่ข้อมูลที่คุณควรรู้ก่อนเทรด</h3>
+                <p>MT5, Rebate ตามเงื่อนไข, risk disclosure และทีมไทยทาง LINE ถูกวางไว้ให้ตรวจสอบก่อนตัดสินใจ</p>
+                <div class="copy-meta"><span class="label">Direct</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="เลือกโบรกเกอร์จากความชัดเจน ไม่ใช่เสียงโฆษณา&#10;ดูข้อมูลสำคัญก่อนเปิดบัญชี: เงื่อนไขบัญชี Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางซัพพอร์ตภาษาไทย">
+                <h3>เลือกโบรกเกอร์จากความชัดเจน ไม่ใช่เสียงโฆษณา</h3>
+                <p>ดูข้อมูลสำคัญก่อนเปิดบัญชี: เงื่อนไขบัญชี Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางซัพพอร์ตภาษาไทย</p>
+                <div class="copy-meta"><span class="label">Challenger</span><button class="copy-btn">Copy</button></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="label">T3 · Hidden Terms</span>
+            <h3 class="territory-title">Nothing Important Hidden</h3>
+            <p class="territory-enemy">Enemy: เงื่อนไขสำคัญถูกซ่อนไว้ท้ายเว็บหรือหลังสมัคร. มุมนี้ practical และเข้าใจง่าย.</p>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="เปิดบัญชีเทรด เมื่อข้อมูลสำคัญไม่ถูกซ่อน&#10;เห็นต้นทุน เงื่อนไข Rebate ตาม T&C ความเสี่ยง และช่องทางทีมไทยก่อนตัดสินใจ ไม่ต้องไล่หาคำตอบหลังสมัคร">
+                <h3>เปิดบัญชีเทรด เมื่อข้อมูลสำคัญไม่ถูกซ่อน</h3>
+                <p>เห็นต้นทุน เงื่อนไข Rebate ตาม T&C ความเสี่ยง และช่องทางทีมไทยก่อนตัดสินใจ ไม่ต้องไล่หาคำตอบหลังสมัคร</p>
+                <div class="copy-meta"><span class="label ok">Clear pain</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="เงื่อนไขสำคัญควรอยู่ก่อนปุ่มเปิดบัญชี&#10;beston ทำให้ข้อมูลบัญชี Rebate ตาม T&C MT5 และคำเตือนความเสี่ยงอ่านง่ายก่อนคุณเลือกเส้นทางต่อไป">
+                <h3>เงื่อนไขสำคัญควรอยู่ก่อนปุ่มเปิดบัญชี</h3>
+                <p>beston ทำให้ข้อมูลบัญชี Rebate ตาม T&C MT5 และคำเตือนความเสี่ยงอ่านง่ายก่อนคุณเลือกเส้นทางต่อไป</p>
+                <div class="copy-meta"><span class="label">Memorable</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="รู้ก่อนเปิดบัญชี เห็นก่อนเริ่มเทรด&#10;ต้นทุน เงื่อนไข Rebate ความเสี่ยง และทีมซัพพอร์ตภาษาไทยอยู่ในเส้นทางเดียวกัน ตั้งแต่หน้าแรกจนถึง LINE OA">
+                <h3>รู้ก่อนเปิดบัญชี เห็นก่อนเริ่มเทรด</h3>
+                <p>ต้นทุน เงื่อนไข Rebate ความเสี่ยง และทีมซัพพอร์ตภาษาไทยอยู่ในเส้นทางเดียวกัน ตั้งแต่หน้าแรกจนถึง LINE OA</p>
+                <div class="copy-meta"><span class="label">Compact</span><button class="copy-btn">Copy</button></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="label">T4 · Human Support</span>
+            <h3 class="territory-title">Ask Before You Commit</h3>
+            <p class="territory-enemy">Enemy: สมัครแล้วไม่รู้จะถามใคร. เหมาะถ้า LINE-first เป็นแกน conversion หลักที่สุด.</p>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="ชัดก่อนเปิดบัญชี คุยกับทีมไทยก่อนเริ่มเทรด&#10;ดูเงื่อนไข Rebate ตาม T&C ใช้ MT5 และทัก LINE OA ติดต่อ admin เพื่อถามขั้นตอนบัญชีก่อนตัดสินใจได้">
+                <h3>ชัดก่อนเปิดบัญชี คุยกับทีมไทยก่อนเริ่มเทรด</h3>
+                <p>ดูเงื่อนไข Rebate ตาม T&C ใช้ MT5 และทัก LINE OA ติดต่อ admin เพื่อถามขั้นตอนบัญชีก่อนตัดสินใจได้</p>
+                <div class="copy-meta"><span class="label">LINE-first</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="ไม่ต้องเริ่มคนเดียว ก่อนเปิดบัญชีถามทีมไทยได้&#10;beston รวมข้อมูลบัญชี MT5 Rebate ตามเงื่อนไข และคำเตือนความเสี่ยง พร้อมช่องทาง LINE OA สำหรับคำถามก่อนสมัคร">
+                <h3>ไม่ต้องเริ่มคนเดียว ก่อนเปิดบัญชีถามทีมไทยได้</h3>
+                <p>beston รวมข้อมูลบัญชี MT5 Rebate ตามเงื่อนไข และคำเตือนความเสี่ยง พร้อมช่องทาง LINE OA สำหรับคำถามก่อนสมัคร</p>
+                <div class="copy-meta"><span class="label">Support-led</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="เปิดบัญชีง่าย แต่ไม่ต้องรีบตัดสินใจลำพัง&#10;อ่านเงื่อนไขสำคัญให้ครบ แล้วเลือกเปิดบัญชีหรือทัก LINE OA ติดต่อ admin เพื่อคุยกับทีมไทยก่อน">
+                <h3>เปิดบัญชีง่าย แต่ไม่ต้องรีบตัดสินใจลำพัง</h3>
+                <p>อ่านเงื่อนไขสำคัญให้ครบ แล้วเลือกเปิดบัญชีหรือทัก LINE OA ติดต่อ admin เพื่อคุยกับทีมไทยก่อน</p>
+                <div class="copy-meta"><span class="label">Warm</span><button class="copy-btn">Copy</button></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="label">T5 · Premium Minimal</span>
+            <h3 class="territory-title">Apple-style Restraint</h3>
+            <p class="territory-enemy">Enemy: hero ที่พยายามพูดทุกอย่างจนไม่เหลือพลัง. มุมนี้เหมาะกับ Fizens ที่ CEO ชอบ เพราะสั้น นิ่ง และ premium.</p>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="ก่อนเทรด ต้องเห็นให้ครบ&#10;ต้นทุน Rebate ตาม T&C ความเสี่ยง MT5 และทีมไทยทาง LINE อยู่ตรงนี้ก่อนคุณตัดสินใจ">
+                <h3>ก่อนเทรด ต้องเห็นให้ครบ</h3>
+                <p>ต้นทุน Rebate ตาม T&C ความเสี่ยง MT5 และทีมไทยทาง LINE อยู่ตรงนี้ก่อนคุณตัดสินใจ</p>
+                <div class="copy-meta"><span class="label ok">Fizens fit</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="ข้อมูลชัดก่อนการตัดสินใจ&#10;บัญชี MT5, Rebate ตามเงื่อนไข, risk disclosure และทีมไทย ถูกจัดให้เห็นง่ายตั้งแต่หน้าแรก">
+                <h3>ข้อมูลชัดก่อนการตัดสินใจ</h3>
+                <p>บัญชี MT5, Rebate ตามเงื่อนไข, risk disclosure และทีมไทย ถูกจัดให้เห็นง่ายตั้งแต่หน้าแรก</p>
+                <div class="copy-meta"><span class="label">Calm</span><button class="copy-btn">Copy</button></div>
+              </div>
+              <div class="copy-box" data-copy="โบรกเกอร์ที่อธิบายก่อนให้คุณเลือก&#10;ดูข้อมูลสำคัญของบัญชีเทรด Forex/CFD ก่อนเปิดบัญชี หรือทัก LINE OA ติดต่อ admin ถ้ายังมีคำถาม">
+                <h3>โบรกเกอร์ที่อธิบายก่อนให้คุณเลือก</h3>
+                <p>ดูข้อมูลสำคัญของบัญชีเทรด Forex/CFD ก่อนเปิดบัญชี หรือทัก LINE OA ติดต่อ admin ถ้ายังมีคำถาม</p>
+                <div class="copy-meta"><span class="label">Plain</span><button class="copy-btn">Copy</button></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="label warn">Rejected direction</span>
+            <h3 class="territory-title">Why not Rebate-only?</h3>
+            <p class="territory-enemy">Headline ที่เริ่มด้วย Rebate จะ convert ได้เร็วกว่า แต่เสี่ยงทำให้แบรนด์ดูเหมือน broker promotion และเบี่ยงออกจาก trust-first positioning. ให้เก็บ Rebate ไปเป็น proof line หรือ section 9 แทน.</p>
+            <div class="copy-set">
+              <div class="copy-box">
+                <h3>ใช้ได้เป็น section copy ไม่ใช่ Hero หลัก</h3>
+                <p>เช่น `Rebate ตามปริมาณการเทรด ไม่ใช่สัญญาผลลัพธ์` เหมาะใน Rebate Explainer เพราะมีพื้นที่อธิบาย T&C มากกว่า.</p>
+                <div class="copy-meta"><span class="label warn">Use later</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="shortlist">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Shortlist 6 ชุดที่ควรเอาไปให้ CEO ดู</h2>
+            <p class="section-desc">เรียงจาก strongest strategic fit ไปถึง safest implementation fit. ทุกชุดยังคง CTA เดิมและไม่เพิ่ม claim ที่ต้อง verify.</p>
+          </div>
+        </div>
+        <table class="rubric">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Headline</th>
+              <th>Subheadline</th>
+              <th>Why it works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><strong>ก่อนเงินจริงลงตลาด ทุกเงื่อนไขต้องชัด</strong></td>
+              <td>ดูต้นทุน เงื่อนไข Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางทีมไทยผ่าน LINE ก่อนตัดสินใจเปิดบัญชี Forex/CFD</td>
+              <td>มี emotional weight จากคำว่าเงินจริง แต่ยัง sober และไม่ชวนเทรดเกินจริง.</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td><strong>เราไม่เริ่มด้วยคำสัญญา เราเริ่มด้วยความชัดเจน</strong></td>
+              <td>ก่อนเปิดบัญชี คุณจะเห็นเงื่อนไข Rebate ตาม T&C ความเสี่ยงของ Forex/CFD และช่องทางคุยกับทีมไทยอย่างตรงไปตรงมา</td>
+              <td>Challenger brand ชัดมาก เหมาะถ้าอยากหนีภาพ broker ทั่วไป.</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>เปิดบัญชีเทรด เมื่อข้อมูลสำคัญไม่ถูกซ่อน</strong></td>
+              <td>เห็นต้นทุน เงื่อนไข Rebate ตาม T&C ความเสี่ยง และช่องทางทีมไทยก่อนตัดสินใจ ไม่ต้องไล่หาคำตอบหลังสมัคร</td>
+              <td>Practical pain ชัด อ่านแล้วรู้เลยว่าปัญหาคือ hidden information.</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td><strong>ก่อนเทรด ต้องเห็นให้ครบ</strong></td>
+              <td>ต้นทุน Rebate ตาม T&C ความเสี่ยง MT5 และทีมไทยทาง LINE อยู่ตรงนี้ก่อนคุณตัดสินใจ</td>
+              <td>สั้นที่สุดและเข้ากับ Fizens hero ดี แต่พลังเชิง brand น้อยกว่า 1-3.</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td><strong>เลือกโบรกเกอร์จากความชัดเจน ไม่ใช่เสียงโฆษณา</strong></td>
+              <td>ดูข้อมูลสำคัญก่อนเปิดบัญชี: เงื่อนไขบัญชี Rebate ตาม T&C แพลตฟอร์ม MT5 และช่องทางซัพพอร์ตภาษาไทย</td>
+              <td>จำง่ายและมี enemy ชัด แต่ tone อาจชน broker อื่นแรงไปนิด.</td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td><strong>ชัดก่อนเปิดบัญชี คุยกับทีมไทยก่อนเริ่มเทรด</strong></td>
+              <td>ดูเงื่อนไข Rebate ตาม T&C ใช้ MT5 และทัก LINE OA ติดต่อ admin เพื่อถามขั้นตอนบัญชีก่อนตัดสินใจได้</td>
+              <td>เหมาะถ้าต้องการ LINE-first มากกว่า brand statement.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="winner">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Founder-Approved Winner</h2>
+            <p class="section-desc">ใช้ English headline เป็น hook สั้น ๆ แล้วให้ Thai subheadline ขยายความแบบ compliance-safe. นี่คือชุดที่จะ sync เข้า Home + Workshop prompt.</p>
+          </div>
+        </div>
+        <div class="winner">
+          <article class="mock-hero">
+            <span class="kicker">Forex/CFD Broker สำหรับเทรดเดอร์ไทย</span>
+            <h3>Trade Smarter Not Harder</h3>
+            <p>เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้</p>
+            <div class="cta-row">
+              <a class="cta primary" href="#">เปิดบัญชี</a>
+              <a class="cta secondary" href="#">ทัก LINE OA ติดต่อ admin</a>
+            </div>
+            <p class="note">การเทรดมีความเสี่ยง - โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</p>
+          </article>
+          <aside class="terminal">
+            <div class="terminal-top">
+              <strong>ตัวอย่างแดชบอร์ด - ไม่ใช่ข้อมูลจริง</strong>
+              <span>POC</span>
+            </div>
+            <div class="terminal-grid">
+              <div class="terminal-panel"><strong>MT5</strong><span>Platform</span><div class="bar"></div></div>
+              <div class="terminal-panel"><strong>Rebate</strong><span>T&C</span><div class="bar"></div></div>
+              <div class="terminal-panel"><strong>Account details</strong><span>รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่</span></div>
+              <div class="terminal-panel"><strong>Risk</strong><span>ต้องเห็นก่อน CTA สำคัญ</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="framer">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Framer Component Fields</h2>
+            <p class="section-desc">ชุดนี้คือ founder override ที่พร้อมเอาไปใส่ `TerminalHero` และ source of truth หลัก.</p>
+          </div>
+        </div>
+        <div class="grid two">
+          <article class="card highlight">
+            <span class="label ok">Paste-ready</span>
+            <div class="copy-set">
+              <div class="copy-box" data-copy="Eyebrow: Forex/CFD Broker สำหรับเทรดเดอร์ไทย&#10;Headline: Trade Smarter Not Harder&#10;Subheadline: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้&#10;Primary CTA: เปิดบัญชี&#10;Secondary CTA: ทัก LINE OA ติดต่อ admin&#10;Risk note: การเทรดมีความเสี่ยง - โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ&#10;Proof line: เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]&#10;Device label: ตัวอย่างแดชบอร์ด - ไม่ใช่ข้อมูลจริง">
+                <h3>Hero copy fields</h3>
+                <p><strong>Eyebrow:</strong> Forex/CFD Broker สำหรับเทรดเดอร์ไทย<br>
+                <strong>Headline:</strong> Trade Smarter Not Harder<br>
+                <strong>Subheadline:</strong> เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้<br>
+                <strong>Primary CTA:</strong> เปิดบัญชี<br>
+                <strong>Secondary CTA:</strong> ทัก LINE OA ติดต่อ admin<br>
+                <strong>Risk note:</strong> การเทรดมีความเสี่ยง - โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ<br>
+                <strong>Proof line:</strong> เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]<br>
+                <strong>Device label:</strong> ตัวอย่างแดชบอร์ด - ไม่ใช่ข้อมูลจริง</p>
+                <div class="copy-meta"><button class="copy-btn">Copy all fields</button></div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <span class="label warn">Founder review needed</span>
+            <h3 class="territory-title">ก่อน sync source of truth</h3>
+            <ul class="checklist">
+              <li>เลือก winner: Rank 1, 2, 3, หรือให้ผสมระหว่างสองชุด.</li>
+              <li>เช็คว่า tone เป็น beston ที่ CEO อยากให้ public เห็นหรือยัง.</li>
+              <li>ถ้าเลือกแล้ว ค่อย update `docs/wireframes/pages/home.md` และ `prompts/workshop-components.md`.</li>
+              <li>หลัง update ต้อง run `npm run compliance:scan`.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      Source hierarchy: `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md` -> this sprint -> founder-selected copy -> `docs/wireframes/pages/home.md` -> `prompts/workshop-components.md`.
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".copy-box .copy-btn").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const box = button.closest(".copy-box");
+        const text = box && box.dataset.copy ? box.dataset.copy : box.innerText;
+        try {
+          await navigator.clipboard.writeText(text.trim());
+          const original = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => { button.textContent = original; }, 1100);
+        } catch {
+          button.textContent = "Select text";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

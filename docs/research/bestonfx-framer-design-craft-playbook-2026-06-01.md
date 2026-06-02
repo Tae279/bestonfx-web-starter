@@ -39,7 +39,7 @@ Two failure modes to escape. Ordinary broker sites = hype, gold/black "luxury", 
 | **Uniform 16px radius + 24px padding** | Intentional variation: pills `999px` (CTA/chips) · cards `24px` · inputs `14px`. Section padding `120/64px`. Hierarchy through *varied* scale, not one radius. |
 | **Generic fade-in on everything / no hover** | Purposeful, tiered motion (§6–8). Every interactive element has a hover. Motion communicates state / directs attention / carries brand calm. |
 | **Stock photos, AI 3D blobs** | Real MT5 terminal mock (labelled `ตัวอย่าง`), real LINE chat UI, regulator badges (SVG), rebate diagram. No smiling-trader stock, no plastic 3D. |
-| **Vague aspirational headlines** ("Build the future") | Specific, verifiable, honesty-contrast copy: `เห็นทุกต้นทุน คืนทุกการเทรด`. |
+| **Vague aspirational headlines** ("Build the future") | Founder-approved short hook: `Trade Smarter Not Harder`, with Thai subcopy carrying the concrete MT5/Rebate/risk/LINE meaning. |
 | **Hedging copy** ("may help", "best-in-class") | Founder-voice, concrete, risk-aware. Test: "would the CEO actually say this?" |
 | **Layout that fits any industry** | Broker-specific blocks: RiskDisclosureBar, RegulatoryStrip, AccountComparison, MarketsTicker, RebateExplainer. |
 
@@ -80,7 +80,7 @@ The existing **14-route IA** (6 primary nav + support/content + legal cluster + 
 | Pattern beston already uses | External evidence it pays | Source |
 |---|---|---|
 | Regulator badges high (RegulatoryStrip right after hero) | FCA badge footer→hero lifted broker conversion **2.1% → 3.4%**; another report **+17% demo starts in 30 days** | WSA; broker CRO |
-| Outcome-led headline (`เห็นทุกต้นทุน คืนทุกการเทรด`) | Feature→outcome headline = **+78% conversion** (copy only, 2,200 sessions) | WSA fintech |
+| Short campaign hook + concrete subcopy (`Trade Smarter Not Harder` + Thai value proof) | Feature→outcome headline = **+78% conversion** (copy only, 2,200 sessions); apply the outcome detail in the subhead | WSA fintech |
 | Single primary CTA + 1 secondary | Multiple competing CTAs can cut conversion **up to 266%**; single-goal pages **2.4–2.8×** | LandingPageFlow; Unbounce |
 | Short forms / defer KYC | 11 fields → email+password lifted completion **18% → 54%** | WSA fintech |
 | Speed as launch criteria | 1s mobile delay = **−20%** conversions; **53%** abandon >3s; CWV: LCP<2.5s, CLS<0.1, INP<200ms | WSA; finxsol |
@@ -97,10 +97,10 @@ The existing **14-route IA** (6 primary nav + support/content + legal cluster + 
 The single highest-leverage section. Rules (research-backed):
 
 - **Everything essential above the fold**: H1, subhead, both CTAs, proof line, risk note, terminal visual — no scroll required to see the offer.
-- **Clear > clever.** H1 states value plainly (`เห็นทุกต้นทุน คืนทุกการเทรด`); save rhythm/wordplay for subhead. Vague/clever headlines lose skimmers.
+- **Short hook + clear subhead.** Founder override: H1 can be the English campaign hook `Trade Smarter Not Harder`; the Thai subhead must immediately make it concrete with MT5, Rebate according to T&C, risk visibility, and LINE support.
 - **Confident type.** Oversized H1 (`clamp(2.5rem,6vw,4rem)`, weight 600, tracking `-0.03em`) + generous white = premium, intentional.
 - **One primary CTA** (`เปิดบัญชี`, blue pill) + **one secondary** (`ทัก LINE OA ติดต่อ admin`). Never a third.
-- **Trust within the hero**: proof line `ถอนได้ทุกวัน [verify] · เทรดบน MT5 · Rebate ทุก lot ตาม T&C` + RegulatoryStrip immediately after (badge-in-hero is the proven conversion lever).
+- **Trust within the hero**: proof line `เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]` + RegulatoryStrip immediately after (badge-in-hero is the proven conversion lever).
 - **Risk note in the hero**, not just the bar: `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง`. Signals maturity, escapes "hype broker" pattern.
 - **The visual = product, not decoration.** Real MT5 terminal mock, light UI, blue accent, label `ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง`. Interactive/animated mock > static screenshot > stock photo (interactive demos out-convert illustrations).
 - **LCP discipline.** Hero image is the LCP element → export WebP/AVIF, target <200KB, set explicit dimensions (no CLS).
@@ -111,7 +111,7 @@ Layout: two-column desktop (copy left / terminal right). Mobile: copy first, CTA
 
 ## 5. Copywriting that converts (frameworks → beston)
 
-beston already has an excellent locked spine (`เทรดบนความจริง` / `เห็นทุกต้นทุน คืนทุกการเทรด`). This formalises *why* it works and gives the operator framework hooks per section.
+beston now uses a founder-approved campaign spine: `Trade Smarter Not Harder` as the short hero hook, with Thai supporting copy explaining the concrete broker value. This formalises *how to keep that hook from becoming generic hype*.
 
 ### Framework cheat-sheet (pick per section)
 | Framework | Shape | Best beston use |

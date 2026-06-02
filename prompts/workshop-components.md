@@ -1,21 +1,27 @@
-# BestonFX Framer Workshop Component Prompts
+# BestonFX Framer Code Component Specs
 
-_Last updated: 2026-05-27 — T006 Workshop component handoff_
+_Last updated: 2026-06-01 — T006 Framer Code Component handoff_
 
 ## Purpose
 
-Use this file as the canonical Framer Workshop handoff for `BestonFX Framer POC v0.1`.
+Use this file as the canonical Framer Code Component handoff for `BestonFX Framer POC v0.1`.
+
+The filename is intentionally unchanged so older docs and agents can still find the specs. Build these primarily as Framer Code Components following https://www.framer.com/developers/components-introduction; use Workshop only as an optional starting-point generator.
+
+Before using these prompts, read `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md` and `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.html`.
 
 The current design direction is **Fizens-derived light + royal blue + Prompt**. Do not use the old dark navy / champagne gold direction unless the founder explicitly reverses it.
+
+Signature concept = **Calm Canvas** (airy floating white cards, one soft blue bloom, thin royal-blue hairlines, generous negative space — not a dense terminal). Full direction: `docs/brand/visual-direction.md`. **Build these as real Code Components, not AI raster** — diffusion image-gen fabricates fake numbers/charts/logos (see `assets/generated/_qa-report.md`).
 
 ## Framer execution status
 
 | Item | Status |
 |---|---|
-| Framer MCP / Workshop access in this worker | blocked-by-tool |
+| Framer MCP / Code Component canvas execution in this worker | blocked-by-tool |
 | Canvas edits completed by this worker | No |
-| Output from this task | Precise Workshop prompts + component acceptance specs |
-| Next operator | Human / Claude Code with Framer MCP or Workshop access |
+| Output from this task | Precise Code Component prompts + component acceptance specs |
+| Next operator | Human / Claude Code with Framer MCP and Framer Code Component access |
 
 ## Non-negotiable compliance guardrails
 
@@ -41,7 +47,7 @@ Default risk warning:
 Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ
 ```
 
-## Shared Workshop style system
+## Shared Code Component style system
 
 Apply to every component unless a component says otherwise:
 
@@ -58,23 +64,24 @@ Apply to every component unless a component says otherwise:
 - Radius: large rounded cards (`24px` to `32px`) and pill CTAs
 - Shadow: soft neutral card shadow plus subtle blue glow on primary actions
 - Layout: mobile-first, generous whitespace, calm premium broker feel
+- Signature (Calm Canvas, locked 2026-06-01): airy floating white cards + one soft blue radial bloom + thin royal-blue hairlines + generous negative space. Build real UI — no AI raster.
 - Avoid: dark page background, champagne gold, glassmorphism-on-dark, playful pink, casino/gambling cues
 
 ## Component creation order
 
 1. RiskDisclosureBar
-2. PremiumTradingHero
+2. TerminalHero
 3. TrustStackCards
 4. LineSupportCTA
-5. TradingToolsGrid
-6. IBCommissionEstimatorMock
+5. TradingToolsGrid (`/tools` only)
+6. IBCommissionEstimatorMock (`/partners` only)
 7. AIChatBotMock
 
 ---
 
 ## 1. RiskDisclosureBar
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a sticky top risk disclosure bar for BestonFX, a Thai-market pre-launch Forex/CFD broker website.
@@ -120,12 +127,12 @@ Component properties:
 
 ---
 
-## 2. PremiumTradingHero
+## 2. TerminalHero
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
-Create a premium hero section for BestonFX, a Thai-market pre-launch Forex/CFD broker website.
+Create a premium, airy Calm-Canvas hero section for BestonFX, a Thai-market pre-launch Forex/CFD broker website.
 
 Design system:
 - Light theme, white page background, soft blue radial glow
@@ -134,12 +141,12 @@ Design system:
 - Large rounded white cards with thin #E5E7EB borders
 - Primary CTA is royal-blue pill with soft blue glow
 - Secondary CTA is white or soft-blue outlined pill
-- Calm, trust-first, broker-sober — no gambling or hype styling
+- Calm Canvas direction: airy cluster of floating rounded white cards, one soft blue radial bloom, thin royal-blue hairlines linking cards, generous negative space — NOT a dense terminal. Trust-first, broker-sober, no gambling or hype styling (see docs/brand/visual-direction.md)
 
 Layout:
 - Desktop: two columns
   - Left: eyebrow, headline, subheadline, CTA row, small risk note
-  - Right: abstract trading command-center mockup made from placeholder cards
+  - Right: an airy cluster of 3-4 floating rounded white cards (not a dense terminal) on white, with one soft blue radial bloom behind and thin royal-blue hairlines linking them; generous negative space around the cluster
 - Mobile: single column
   - Risk disclosure remains above
   - Headline first
@@ -148,28 +155,34 @@ Layout:
 
 Thai copy:
 Eyebrow:
-"BESTONFX POC"
+"โบรกเกอร์ Forex/CFD เพื่อคนไทย"
 
 Headline:
-"โครงสร้างการเทรดระดับมืออาชีพ สำหรับนักเทรดไทยที่ต้องการความโปร่งใสและการดูแลจริง"
+"Trade Smarter Not Harder"
 
 Subheadline:
-"รวมข้อมูลบัญชี เครื่องมือช่วยคำนวณความเสี่ยง เนื้อหาการเรียนรู้ และช่องทาง LINE support ไว้ในประสบการณ์เดียว โดยไม่แทนที่การตัดสินใจของผู้ลงทุน"
+"เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้"
 
 Primary CTA:
-"ดูบัญชีทดลอง"
+"เปิดบัญชี"
 
 Secondary CTA:
-"คุยกับทีมทาง LINE"
+"ทัก LINE OA ติดต่อ admin"
 
 Small risk note:
-"ไม่มีการรับประกันผลตอบแทน การเทรด Forex/CFD มีความเสี่ยงสูง"
+"การเทรดมีความเสี่ยง เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง"
+
+Proof line:
+"เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]"
+
+Device label:
+"ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง"
 
 Right mockup cards:
-- "Risk-first onboarding" with status "POC"
-- "LINE support" with status "รอยืนยันช่องทาง"
-- "Account conditions" with value "รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่"
-- "Tools" with status "Demo only"
+- "MT5" with status "Platform"
+- "Rebate" with status "T&C"
+- "Account details" with value "รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่"
+- "Dashboard" with status "ตัวอย่าง — ไม่ใช่ข้อมูลจริง"
 
 Component properties:
 - eyebrow: string
@@ -180,12 +193,14 @@ Component properties:
 - secondaryCtaText: string
 - secondaryCtaUrl: string
 - riskNote: string
+- proofLine: string
+- deviceLabel: string
 - showMockup: boolean
 ```
 
 ### Acceptance spec
 
-- LINE CTA visible above the fold on mobile
+- `เปิดบัญชี` and `ทัก LINE OA ติดต่อ admin` visible above the fold on mobile
 - No fake user count, fake country count, fake ratings, or fake execution metrics
 - Hero mockup uses labels like `POC`, `Demo only`, or approved placeholders
 - Does not claim regulation, account conditions, spreads, leverage, speed, or profitability
@@ -194,7 +209,7 @@ Component properties:
 
 ## 3. TrustStackCards
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a trust stack card grid for BestonFX.
@@ -247,7 +262,7 @@ Component properties:
 
 ## 4. LineSupportCTA
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a LINE-first support CTA section for BestonFX.
@@ -309,7 +324,7 @@ Component properties:
 
 ## 5. TradingToolsGrid
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a trading tools grid for BestonFX.
@@ -376,7 +391,7 @@ Component properties:
 
 ## 6. IBCommissionEstimatorMock
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a non-production IB commission estimator mock for BestonFX partner/IB page.
@@ -436,7 +451,7 @@ Component properties:
 
 ## 7. AIChatBotMock
 
-### Workshop prompt
+### Code Component prompt
 
 ```text
 Create a floating AI customer-service bot mock component for BestonFX.
@@ -516,7 +531,7 @@ Before presenting the Framer POC:
 ```text
 Framer status:
 - MCP connected: yes/no
-- Workshop available: yes/no
+- Code Components available: yes/no
 - Components created: [list]
 - Components only spec'd: [list]
 - Pages touched: [list]

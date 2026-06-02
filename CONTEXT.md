@@ -28,7 +28,7 @@ The repo supports:
 - Light theme with royal blue (`#0040c1`) accent and the Prompt typeface — derived from the
   Fizens template (CEO-preferred). This replaces the prior dark-navy + champagne-gold direction.
 - See `DESIGN.md` and `docs/brand/tokens.json` for the brand system
-- Next.js is the _future_ production foundation, built after the Framer POC is approved. Current phase is the Framer/Fizens POC — source of truth: `docs/plan.md`.
+- Next.js is the _future_ production foundation, built after the Framer POC is approved. Current phase is the Framer/Fizens POC — source of truth: `docs/plan.md` + `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`.
 
 ## Compliance Boundaries
 

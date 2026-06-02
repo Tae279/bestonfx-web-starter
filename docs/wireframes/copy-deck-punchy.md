@@ -53,11 +53,11 @@
 
 ### Hero
 **Eyebrow:** `โบรกเกอร์ Forex/CFD เพื่อคนไทย` · _EN: A Forex/CFD broker for Thai traders._
-**🔥 H1 (locked):** **`เห็นทุกต้นทุน คืนทุกการเทรด`**
-- _EN:_ See every cost. Rebate on every trade.
-- ทางเลือก: `เทรดด้วยความจริง ไม่ใช่ความหวัง` · `เงินคุณ ต้นทุนคุณ — คุณควรเห็นทุกบาท`
-**Subhead:** `ต้นทุนที่เห็นชัด · เงินคืนที่จับต้องได้ · ทีมไทยที่อยู่ข้างคุณเสมอ`
-- _EN:_ Costs you can see · rebate you can hold · a Thai team always by your side.
+**🔥 H1 (founder override):** **`Trade Smarter Not Harder`**
+- _TH expansion:_ เทรดให้ฉลาดขึ้น = เห็นข้อมูลสำคัญก่อนเริ่ม ไม่ใช่สัญญาผลลัพธ์.
+- Render note: วางเป็น 2 บรรทัดใน Framer ได้ (`Trade Smarter` / `Not Harder`) ถ้าช่วย rhythm บน hero.
+**Subhead:** `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
+- _EN:_ Trade on MT5 with clearer information: costs, Rebate by T&C, key risk notes, and Thai LINE support.
 **Risk note:** `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง` · _EN: Trading carries risk — we'd rather you know first, not after._
 **Proof line:** `เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]` _(ห้ามใส่ "100,000+" — no fake stats)_
 **CTA:** `เปิดบัญชี` (`เริ่มวันนี้ ใน 5 นาที`) · `ทัก LINE OA ติดต่อ admin`

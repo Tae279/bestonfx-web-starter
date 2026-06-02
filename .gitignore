@@ -15,3 +15,16 @@ supabase/.temp
 # MCP tool working dirs (session artifacts, not project)
 .mcpower
 .playwright-mcp
+
+# Personal / local agent config — never commit to repo
+.claude/
+.cursor/hooks/state/
+
+# Generated artifacts (rebuild from scripts/, no need to track)
+docs/wireframes/generated/
+docs/wireframes/snapshots/
+assets/generated/
+
+# Heavy reference / snapshot images (share outside git)
+docs/wireframes/**/*.png
+assets/references/**/*.png

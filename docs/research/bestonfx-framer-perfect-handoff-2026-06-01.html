@@ -799,6 +799,14 @@
         border-bottom: 0;
         padding: 10px 12px;
       }
+      td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 6px;
+        color: var(--royal);
+        font: 850 11px/1.2 var(--mono);
+        text-transform: uppercase;
+      }
       tr {
         display: block;
         border-bottom: 1px solid var(--line);
@@ -949,7 +957,7 @@
         <div class="decision-list">
           <div class="decision-item"><div class="decision-key">Execution</div><div><strong>Framer POC first</strong><p>ใช้ Fizens template เป็นฐาน เพราะ CEO ชอบ. Next.js เป็น future production foundation หลัง POC approved.</p></div></div>
           <div class="decision-item"><div class="decision-key">Visual</div><div><strong>Light fintech + royal blue</strong><p>ใช้ Prompt, light surfaces, premium whitespace, royal blue <code>#0040c1</code>, LINE green เฉพาะ LINE CTA.</p></div></div>
-          <div class="decision-item"><div class="decision-key">Positioning</div><div><strong>เห็นทุกต้นทุน คืนทุกการเทรด</strong><p>ความต่างคือ transparent cost, rebate, Thai LINE support, visible risk/trust proof.</p></div></div>
+          <div class="decision-item"><div class="decision-key">Positioning</div><div><strong>Trade Smarter Not Harder</strong><p>Founder override: use a short English campaign hook, then let Thai subcopy explain MT5, Rebate by T&C, risk visibility, and Thai LINE support.</p></div></div>
           <div class="decision-item"><div class="decision-key">Home IA</div><div><strong>Persuade and route</strong><p>Home ไม่ใช่ feature dump. ใช้ flow สร้าง trust ก่อน conversion.</p></div></div>
           <div class="decision-item"><div class="decision-key">Compliance</div><div><strong>Risk-first, evidence-backed</strong><p>ใช้ international-regulator style proof. ไม่ใช้ Thai SEC เป็น controlling gate.</p></div></div>
         </div>
@@ -994,7 +1002,7 @@
       <div class="rail">
         <div class="flow-step"><div class="num">01</div><div><strong>RiskDisclosureBar</strong><p>Risk before persuasion. Sticky top, amber, visible before first CTA.</p></div><span class="badge warn">Legal</span></div>
         <div class="flow-step"><div class="num">02</div><div><strong>Navbar</strong><p>Route clarity + เปิดบัญชี pill. Condensed variant after scroll.</p></div><span class="badge ok">Fizens adapt</span></div>
-        <div class="flow-step"><div class="num">03</div><div><strong>TerminalHero</strong><p>Use angle: เห็นทุกต้นทุน คืนทุกการเทรด. Terminal visual labelled sample.</p></div><span class="badge ok">Hero wow</span></div>
+        <div class="flow-step"><div class="num">03</div><div><strong>TerminalHero</strong><p>Use angle: Trade Smarter Not Harder. Terminal visual labelled sample.</p></div><span class="badge ok">Hero wow</span></div>
         <div class="flow-step"><div class="num">04</div><div><strong>RegulatoryStrip</strong><p>Immediate proof layer. Use verified entity/platform badges only.</p></div><span class="badge warn">Verify</span></div>
         <div class="flow-step"><div class="num">05</div><div><strong>Trust 3 Pillars</strong><p>Transparency, risk-first, Thai care. Not generic feature cards.</p></div><span class="badge ok">Trust</span></div>
         <div class="flow-step"><div class="num">06</div><div><strong>MarketsTicker</strong><p>Live-market energy without calculator clutter. Mark data as sample.</p></div><span class="badge warn">Sample</span></div>
@@ -1047,13 +1055,13 @@
       <table aria-label="Framer Workshop component queue">
         <thead><tr><th>Order</th><th>Workshop component</th><th>Place in Framer</th><th>Why Workshop</th><th>Guardrail</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>RiskDisclosureBar</td><td>All pages, above Navbar</td><td>Custom sticky risk surface; Fizens has no broker risk bar.</td><td><span class="badge warn">No dismiss</span></td></tr>
-          <tr><td>2</td><td>TerminalHero</td><td>Home Hero</td><td>Replaces finance-app hero with broker terminal visual and CTA pair.</td><td><span class="badge warn">Sample data only</span></td></tr>
-          <tr><td>3</td><td>TrustStackCards</td><td>Home trust pillars + Why page</td><td>Turns generic Fizens features into transparent-cost/risk-first proof.</td><td><span class="badge stop">No fake stats</span></td></tr>
-          <tr><td>4</td><td>LineSupportCTA</td><td>Home final CTA + Support page</td><td>LINE is the Thai conversion path and needs a distinct component.</td><td><span class="badge warn">No advice claim</span></td></tr>
-          <tr><td>5</td><td>TradingToolsGrid</td><td><code>/tools</code> only</td><td>Calculators and tool cards should live on Tools, not Home.</td><td><span class="badge stop">Not Home</span></td></tr>
-          <tr><td>6</td><td>IBCommissionEstimatorMock</td><td><code>/partners</code> only</td><td>Explains partner logic visually without real rates or income promises.</td><td><span class="badge stop">Mock only</span></td></tr>
-          <tr><td>7</td><td>AIChatBotMock</td><td>Floating helper, all marketing pages</td><td>Shows AI support concept and LINE escalation without production bot logic.</td><td><span class="badge warn">No trading advice</span></td></tr>
+          <tr><td data-label="Order">1</td><td data-label="Workshop component">RiskDisclosureBar</td><td data-label="Place in Framer">All pages, above Navbar</td><td data-label="Why Workshop">Custom sticky risk surface; Fizens has no broker risk bar.</td><td data-label="Guardrail"><span class="badge warn">No dismiss</span></td></tr>
+          <tr><td data-label="Order">2</td><td data-label="Workshop component">TerminalHero</td><td data-label="Place in Framer">Home Hero</td><td data-label="Why Workshop">Replaces finance-app hero with broker terminal visual and CTA pair.</td><td data-label="Guardrail"><span class="badge warn">Sample data only</span></td></tr>
+          <tr><td data-label="Order">3</td><td data-label="Workshop component">TrustStackCards</td><td data-label="Place in Framer">Home trust pillars + Why page</td><td data-label="Why Workshop">Turns generic Fizens features into transparent-cost/risk-first proof.</td><td data-label="Guardrail"><span class="badge stop">No fake stats</span></td></tr>
+          <tr><td data-label="Order">4</td><td data-label="Workshop component">LineSupportCTA</td><td data-label="Place in Framer">Home final CTA + Support page</td><td data-label="Why Workshop">LINE is the Thai conversion path and needs a distinct component.</td><td data-label="Guardrail"><span class="badge warn">No advice claim</span></td></tr>
+          <tr><td data-label="Order">5</td><td data-label="Workshop component">TradingToolsGrid</td><td data-label="Place in Framer"><code>/tools</code> only</td><td data-label="Why Workshop">Calculators and tool cards should live on Tools, not Home.</td><td data-label="Guardrail"><span class="badge stop">Not Home</span></td></tr>
+          <tr><td data-label="Order">6</td><td data-label="Workshop component">IBCommissionEstimatorMock</td><td data-label="Place in Framer"><code>/partners</code> only</td><td data-label="Why Workshop">Explains partner logic visually without real rates or income promises.</td><td data-label="Guardrail"><span class="badge stop">Mock only</span></td></tr>
+          <tr><td data-label="Order">7</td><td data-label="Workshop component">AIChatBotMock</td><td data-label="Place in Framer">Floating helper, all marketing pages</td><td data-label="Why Workshop">Shows AI support concept and LINE escalation without production bot logic.</td><td data-label="Guardrail"><span class="badge warn">No trading advice</span></td></tr>
         </tbody>
       </table>
 
@@ -1118,8 +1126,8 @@
         <article class="copy-card">
           <header><h3>Hero block</h3><button class="copy-btn" data-copy-target="copy-hero">Copy</button></header>
           <div class="copy-content" id="copy-hero">Eyebrow: โบรกเกอร์ Forex/CFD เพื่อคนไทย
-H1: เห็นทุกต้นทุน คืนทุกการเทรด
-Sub: ต้นทุนที่เห็นชัด · เงินคืนที่จับต้องได้ · ทีมไทยที่อยู่ข้างคุณเสมอ
+H1: Trade Smarter Not Harder
+Sub: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้
 Risk note: การเทรดมีความเสี่ยง เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง
 Proof: เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]
 Mock label: ตัวอย่างแดชบอร์ด ไม่ใช่ข้อมูลจริง

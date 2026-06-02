@@ -2,7 +2,7 @@
 
 _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`._
 
-> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `เทรดบนความจริง`: เห็นต้นทุนชัด, เข้าใจ Rebate, มีทีมไทยช่วยดูแล แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
+> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `Trade Smarter Not Harder`: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น, เข้าใจ Rebate ตาม T&C, เห็นความเสี่ยงที่ควรรู้ และมีทีมไทยช่วยดูแล แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
 > **CTA หลัก:** `เปิดบัญชี` · **CTA รอง:** `ทัก LINE OA ติดต่อ admin`
 > **ระดับเอฟเฟกต์:** เต็ม — ใช้ hero ที่ pin ตอน scroll และ layered parallax ได้ แต่ฐานต้องนิ่ง น่าเชื่อถือ และไม่กลบข้อความความเสี่ยง.
 > **Component ที่ใช้:** Navbar · RiskDisclosureBar · Hero/TerminalHero · RegulatoryStrip · FeatureGrid · MarketsTicker · AccountComparison(preview) · StepProcess · FeatureSplit · Stats(gated) · Testimonial(gated) · ArticleGrid(teaser) · FAQ · CTABanner · Footer · AIChatWidget
@@ -26,15 +26,15 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 
 ### 3. Hero — `TerminalHero`
 - **โครง:** สองคอลัมน์. ซ้ายเป็น eyebrow · H1 สองบรรทัด · subhead · CTA คู่ · proof line. ขวาเป็น trading terminal mockup พร้อม soft blue bloom และต้องมี label ว่าเป็นภาพตัวอย่าง.
-- **ข้อความ (approved — Angle 0):**
+- **ข้อความ (founder override — Angle 1):**
   - Eyebrow: `โบรกเกอร์ Forex/CFD เพื่อคนไทย`
-  - H1: **`เห็นทุกต้นทุน คืนทุกการเทรด`**
-  - Subhead: `ต้นทุนที่เห็นชัด · เงินคืนที่จับต้องได้ · ทีมไทยที่อยู่ข้างคุณเสมอ`
+  - H1: **`Trade Smarter Not Harder`**
+  - Subhead: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
   - Risk note: `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง`
   - Proof line: `เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]`
   - CTA หลัก: `เปิดบัญชี` · CTA รอง: `ทัก LINE OA ติดต่อ admin`
   - Device label: `ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง`
-- **เหตุผล UX:** วาง framing แบบตรงไปตรงมา: beston ไม่ต้องอ้างว่าเก่งที่สุด แต่โชว์ต้นทุน, Rebate, support และความเสี่ยงตั้งแต่จอแรก.
+- **เหตุผล UX:** ใช้ English headline สั้นแบบ campaign hook ที่ CEO/founder ชอบ แล้วให้ subhead ภาษาไทยขยาย value ที่ตรวจสอบได้: MT5, ต้นทุน, Rebate ตาม T&C, ความเสี่ยง และ LINE support.
 - **การตอบสนอง:** stack เป็น copy ก่อนภาพ; H1 จาก `56→34px`; CTA เต็มความกว้าง.
 
 ### 4. RegulatoryStrip — `Logo Cloud`

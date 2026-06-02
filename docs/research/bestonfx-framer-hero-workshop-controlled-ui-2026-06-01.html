@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BestonFX Framer Hero Workshop - Controlled UI</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --blue-900: #0b2a73;
+        --blue-700: #0040c1;
+        --blue-500: #2970ff;
+        --blue-200: #d1e0ff;
+        --blue-100: #eff4ff;
+        --blue-50: #f5faff;
+        --ink-900: #171717;
+        --ink-700: #374151;
+        --ink-600: #4b5563;
+        --ink-500: #6b7280;
+        --ink-300: #d1d5db;
+        --ink-200: #e5e7eb;
+        --ink-100: #f3f4f6;
+        --ink-50: #fafafa;
+        --line: #06c755;
+        --risk: #b45309;
+        --risk-bg: #fff7ed;
+        --paper: #ffffff;
+        --shadow-card: 0 24px 70px rgba(15, 23, 42, 0.08);
+        --shadow-blue: 0 18px 54px rgba(0, 64, 193, 0.18);
+        --ease: cubic-bezier(0.32, 0.72, 0, 1);
+        --font: Prompt, "Noto Sans Thai", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 72% 20%, rgba(41, 112, 255, 0.12), transparent 28rem),
+          radial-gradient(circle at 14% 0%, rgba(0, 64, 193, 0.07), transparent 26rem),
+          linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        color: var(--ink-900);
+        font-family: var(--font);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+
+      .mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--blue-700);
+        color: #fff;
+        box-shadow: var(--shadow-blue);
+      }
+
+      .mark svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        color: var(--ink-600);
+        font-size: 13px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 8px 12px;
+        border: 1px solid var(--ink-200);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+      }
+
+      .pill strong {
+        color: var(--blue-700);
+        font-weight: 650;
+      }
+
+      .panel {
+        overflow: hidden;
+        border: 1px solid rgba(209, 224, 255, 0.82);
+        border-radius: 34px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 35px 110px rgba(15, 23, 42, 0.08);
+      }
+
+      .riskbar {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 13px 18px;
+        border-bottom: 1px solid #fed7aa;
+        background: linear-gradient(90deg, #fff7ed 0%, #ffffff 74%);
+        color: var(--ink-700);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .risk-icon {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 999px;
+        background: #ffedd5;
+        color: var(--risk);
+      }
+
+      .risk-link {
+        color: var(--risk);
+        font-weight: 650;
+        white-space: nowrap;
+      }
+
+      .hero-preview {
+        position: relative;
+        display: grid;
+        min-height: 680px;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        gap: 20px;
+        padding: 62px;
+        background:
+          radial-gradient(circle at 70% 45%, rgba(41, 112, 255, 0.16), transparent 24rem),
+          radial-gradient(circle at 89% 18%, rgba(0, 64, 193, 0.09), transparent 20rem),
+          linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        align-self: center;
+        max-width: 520px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--blue-700);
+        font-size: 13px;
+        font-weight: 650;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-copy h1 {
+        max-width: 10ch;
+        margin: 0;
+        color: var(--ink-900);
+        font-size: clamp(48px, 6vw, 76px);
+        font-weight: 650;
+        letter-spacing: -0.052em;
+        line-height: 0.96;
+      }
+
+      .hero-copy p {
+        margin: 22px 0 0;
+        color: var(--ink-600);
+        font-size: 17px;
+        line-height: 1.78;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 12px 18px 12px 22px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-size: 15px;
+        font-weight: 650;
+        text-decoration: none;
+        transition:
+          transform 500ms var(--ease),
+          box-shadow 500ms var(--ease),
+          border-color 500ms var(--ease);
+      }
+
+      .button:active {
+        transform: translateY(1px) scale(0.99);
+      }
+
+      .button-primary {
+        background: var(--blue-700);
+        color: #fff;
+        box-shadow: var(--shadow-blue);
+      }
+
+      .button-secondary {
+        border-color: rgba(6, 199, 85, 0.28);
+        background: rgba(6, 199, 85, 0.08);
+        color: #067a35;
+      }
+
+      .button span {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .button-secondary span {
+        background: #fff;
+      }
+
+      .proof-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .proof-chip {
+        border: 1px solid var(--blue-200);
+        border-radius: 999px;
+        background: rgba(245, 250, 255, 0.82);
+        color: var(--ink-600);
+        padding: 8px 11px;
+        font-size: 12px;
+        font-weight: 550;
+      }
+
+      .risk-note {
+        margin-top: 18px;
+        color: var(--risk);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .hero-visual {
+        position: relative;
+        z-index: 1;
+        min-height: 520px;
+        align-self: center;
+      }
+
+      .blue-bloom {
+        position: absolute;
+        inset: 78px 14px auto auto;
+        width: min(88%, 560px);
+        height: 340px;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle at 54% 52%, rgba(41, 112, 255, 0.22), transparent 44%),
+          radial-gradient(circle at 44% 42%, rgba(0, 64, 193, 0.16), transparent 38%);
+        filter: blur(18px);
+        transform: rotate(-8deg);
+      }
+
+      .connector {
+        position: absolute;
+        inset: 64px 8px 0 0;
+        width: 94%;
+        height: 430px;
+        opacity: 0.6;
+      }
+
+      .connector path {
+        fill: none;
+        stroke: rgba(0, 64, 193, 0.26);
+        stroke-width: 1.3;
+        stroke-dasharray: 6 11;
+        animation: pathFlow 8s linear infinite;
+      }
+
+      .card-field {
+        position: absolute;
+        inset: 0;
+        transform: translateZ(0);
+      }
+
+      .ui-card {
+        position: absolute;
+        border: 1px solid rgba(209, 224, 255, 0.92);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow-card);
+        transform: translate3d(0, 0, 0);
+        animation: floatCard 7s var(--ease) infinite;
+      }
+
+      .ui-card::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: inherit;
+        border: 1px solid rgba(255, 255, 255, 0.88);
+        pointer-events: none;
+      }
+
+      .dashboard-card {
+        right: 44px;
+        top: 54px;
+        width: 372px;
+        min-height: 248px;
+        padding: 22px;
+      }
+
+      .market-card {
+        right: 12px;
+        top: 218px;
+        width: 244px;
+        min-height: 184px;
+        padding: 18px;
+        animation-delay: -2s;
+      }
+
+      .risk-card {
+        right: 346px;
+        top: 265px;
+        width: 188px;
+        min-height: 116px;
+        padding: 16px;
+        animation-delay: -3.5s;
+      }
+
+      .line-card {
+        right: 108px;
+        top: 396px;
+        width: 226px;
+        min-height: 102px;
+        padding: 16px;
+        animation-delay: -1.3s;
+      }
+
+      .rebate-card {
+        right: 346px;
+        top: 116px;
+        width: 178px;
+        min-height: 120px;
+        padding: 16px;
+        animation-delay: -4.2s;
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .card-title {
+        color: var(--ink-900);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .card-state {
+        border: 1px solid var(--blue-200);
+        border-radius: 999px;
+        background: var(--blue-50);
+        color: var(--blue-700);
+        padding: 5px 9px;
+        font-size: 11px;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+
+      .placeholder-lines {
+        display: grid;
+        gap: 10px;
+      }
+
+      .line {
+        overflow: hidden;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #edf3ff, #dbe8ff, #f4f8ff);
+      }
+
+      .line.thin {
+        height: 8px;
+      }
+
+      .line.short {
+        width: 56%;
+      }
+
+      .line.mid {
+        width: 74%;
+      }
+
+      .abstract-chart {
+        position: relative;
+        height: 82px;
+        margin: 22px 0 18px;
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(245, 250, 255, 0.8), rgba(255, 255, 255, 0.8)),
+          repeating-linear-gradient(90deg, transparent 0 36px, rgba(209, 224, 255, 0.5) 37px 38px);
+        border: 1px solid rgba(209, 224, 255, 0.62);
+      }
+
+      .abstract-chart svg {
+        position: absolute;
+        inset: 12px;
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+      }
+
+      .abstract-chart path {
+        fill: none;
+        stroke: rgba(0, 64, 193, 0.55);
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+      .bars {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: end;
+        gap: 8px;
+        height: 52px;
+      }
+
+      .bar {
+        border-radius: 999px 999px 8px 8px;
+        background: linear-gradient(180deg, rgba(41, 112, 255, 0.28), rgba(41, 112, 255, 0.08));
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 9px;
+        align-items: center;
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.72);
+      }
+
+      .row:last-child {
+        border-bottom: 0;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--blue-500);
+        box-shadow: 0 0 0 5px rgba(41, 112, 255, 0.1);
+      }
+
+      .dot.line-dot {
+        background: var(--line);
+        box-shadow: 0 0 0 5px rgba(6, 199, 85, 0.12);
+      }
+
+      .caption {
+        position: absolute;
+        right: 46px;
+        bottom: 14px;
+        display: inline-flex;
+        max-width: 360px;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid rgba(209, 224, 255, 0.92);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink-500);
+        padding: 9px 12px;
+        font-size: 12px;
+        box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+      }
+
+      .sections {
+        display: grid;
+        grid-template-columns: 1.04fr 0.96fr;
+        gap: 20px;
+        margin-top: 22px;
+      }
+
+      .section-card {
+        border: 1px solid var(--ink-200);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 18px 56px rgba(15, 23, 42, 0.05);
+        padding: 24px;
+      }
+
+      .section-card h2 {
+        margin: 0 0 14px;
+        font-size: 22px;
+        letter-spacing: -0.025em;
+      }
+
+      .section-card p {
+        margin: 0;
+        color: var(--ink-600);
+        line-height: 1.72;
+      }
+
+      .layer-list,
+      .qa-list {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .layer-list li,
+      .qa-list li {
+        display: grid;
+        grid-template-columns: 132px 1fr;
+        gap: 12px;
+        align-items: start;
+        border-top: 1px solid var(--ink-200);
+        padding-top: 10px;
+        color: var(--ink-600);
+        line-height: 1.55;
+        font-size: 14px;
+      }
+
+      .layer-list strong,
+      .qa-list strong {
+        color: var(--ink-900);
+      }
+
+      .workshop-prompt {
+        overflow: auto;
+        max-height: 360px;
+        margin: 18px 0 0;
+        border: 1px solid rgba(209, 224, 255, 0.92);
+        border-radius: 22px;
+        background: #fbfdff;
+        color: var(--ink-700);
+        padding: 18px;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 12px;
+        line-height: 1.65;
+        white-space: pre-wrap;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 22px 0;
+      }
+
+      .control {
+        border: 1px solid var(--blue-200);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--blue-700);
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 650;
+        padding: 9px 13px;
+        transition:
+          transform 360ms var(--ease),
+          background 360ms var(--ease);
+      }
+
+      .control[aria-pressed="true"] {
+        background: var(--blue-700);
+        color: #fff;
+      }
+
+      .mobile-frame .hero-preview {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 26px 20px 36px;
+      }
+
+      .mobile-frame .riskbar {
+        grid-template-columns: auto 1fr;
+      }
+
+      .mobile-frame .risk-link {
+        grid-column: 2;
+      }
+
+      .mobile-frame .hero-copy h1 {
+        max-width: 9ch;
+        font-size: 42px;
+      }
+
+      .mobile-frame .cta-row,
+      .mobile-frame .button {
+        width: 100%;
+      }
+
+      .mobile-frame .hero-visual {
+        min-height: 430px;
+      }
+
+      .mobile-frame .dashboard-card {
+        right: 8px;
+        top: 24px;
+        width: min(88vw, 330px);
+      }
+
+      .mobile-frame .market-card {
+        right: 16px;
+        top: 220px;
+      }
+
+      .mobile-frame .risk-card,
+      .mobile-frame .rebate-card {
+        left: 0;
+        right: auto;
+        width: 170px;
+      }
+
+      .mobile-frame .risk-card {
+        top: 276px;
+      }
+
+      .mobile-frame .rebate-card {
+        top: 138px;
+      }
+
+      .mobile-frame .line-card {
+        right: 18px;
+        top: 360px;
+      }
+
+      .mobile-frame .caption {
+        left: 0;
+        right: 0;
+        bottom: -20px;
+        border-radius: 18px;
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate3d(0, -10px, 0) rotate(-0.7deg);
+        }
+      }
+
+      @keyframes pathFlow {
+        to {
+          stroke-dashoffset: -80;
+        }
+      }
+
+      .motion-off * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      @media (max-width: 880px) {
+        .topbar,
+        .sections {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          display: grid;
+        }
+
+        .meta {
+          justify-content: flex-start;
+        }
+
+        .hero-preview {
+          grid-template-columns: 1fr;
+          padding: 34px 24px 46px;
+        }
+
+        .riskbar {
+          grid-template-columns: auto 1fr;
+        }
+
+        .risk-link {
+          grid-column: 2;
+        }
+
+        .hero-visual {
+          min-height: 470px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          width: min(100% - 20px, 1180px);
+          padding-top: 12px;
+        }
+
+        .panel {
+          border-radius: 26px;
+        }
+
+        .hero-preview {
+          padding: 28px 18px 42px;
+        }
+
+        .hero-copy h1 {
+          font-size: 42px;
+        }
+
+        .cta-row,
+        .button {
+          width: 100%;
+        }
+
+        .dashboard-card {
+          right: 0;
+          top: 24px;
+          width: min(88vw, 326px);
+        }
+
+        .market-card {
+          right: 4px;
+          top: 220px;
+          width: 222px;
+        }
+
+        .risk-card,
+        .rebate-card {
+          left: 0;
+          right: auto;
+          width: 168px;
+        }
+
+        .risk-card {
+          top: 278px;
+        }
+
+        .rebate-card {
+          top: 136px;
+        }
+
+        .line-card {
+          right: 4px;
+          top: 362px;
+          width: 214px;
+        }
+
+        .caption {
+          left: 0;
+          right: 0;
+          bottom: -22px;
+          border-radius: 18px;
+        }
+
+        .layer-list li,
+        .qa-list li {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" id="workshop">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 15.8 10.4 4h7.1l-3.9 7.2h5.1L10.5 20l2.3-7.1H8.2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <div>BestonFX Framer Workshop</div>
+            <div style="color: var(--ink-500); font-size: 12px; font-weight: 500">Hero component-controlled UI</div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill"><strong>Mode</strong> Framer layers, not raster UI</span>
+          <span class="pill"><strong>Brand</strong> #0040c1 Calm Canvas</span>
+        </div>
+      </header>
+
+      <div class="controls" aria-label="Preview controls">
+        <button class="control" type="button" data-toggle="mobile" aria-pressed="false">Mobile preview</button>
+        <button class="control" type="button" data-toggle="motion" aria-pressed="false">Reduced motion</button>
+      </div>
+
+      <section class="panel" aria-label="Controlled hero preview">
+        <div class="riskbar">
+          <div class="risk-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.5 3.8 18.2a1.5 1.5 0 0 0 1.3 2.3h13.8a1.5 1.5 0 0 0 1.3-2.3L12 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M12 9v4.4M12 16.8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ</div>
+          <a class="risk-link" href="/legal/risk-disclosure">อ่านคำเตือนความเสี่ยง</a>
+        </div>
+
+        <div class="hero-preview">
+          <div class="hero-copy">
+            <p class="eyebrow">โบรกเกอร์ Forex/CFD เพื่อคนไทย</p>
+            <h1>Trade Smarter Not Harder</h1>
+            <p>เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&amp;C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้</p>
+            <div class="cta-row">
+              <a class="button button-primary" href="#open-account">เปิดบัญชี <span aria-hidden="true">›</span></a>
+              <a class="button button-secondary" href="#line-admin">ทัก LINE OA ติดต่อ admin <span aria-hidden="true">›</span></a>
+            </div>
+            <div class="proof-strip" aria-label="Proof line">
+              <span class="proof-chip">MT5</span>
+              <span class="proof-chip">Rebate ตาม T&amp;C</span>
+              <span class="proof-chip">รายละเอียดบัญชี [verify]</span>
+            </div>
+            <div class="risk-note">การเทรดมีความเสี่ยง เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง</div>
+          </div>
+
+          <div class="hero-visual" aria-label="Component-controlled dashboard mockup">
+            <div class="blue-bloom" aria-hidden="true"></div>
+            <svg class="connector" viewBox="0 0 620 430" aria-hidden="true">
+              <path d="M145 242 C230 180, 286 132, 404 126" />
+              <path d="M246 310 C300 270, 398 278, 488 220" />
+              <path d="M256 112 C310 146, 334 194, 482 254" />
+              <path d="M358 356 C404 330, 456 334, 540 302" />
+            </svg>
+
+            <div class="card-field">
+              <article class="ui-card dashboard-card">
+                <div class="card-head">
+                  <div class="card-title">Dashboard</div>
+                  <div class="card-state">ตัวอย่าง</div>
+                </div>
+                <div class="placeholder-lines">
+                  <div class="line mid"></div>
+                  <div class="line short thin"></div>
+                </div>
+                <div class="abstract-chart">
+                  <svg viewBox="0 0 280 64" preserveAspectRatio="none">
+                    <path d="M0 38 C34 22, 54 42, 84 29 S142 36, 174 24 S228 34, 280 21" />
+                  </svg>
+                </div>
+                <div class="bars" aria-hidden="true">
+                  <div class="bar" style="height: 44%"></div>
+                  <div class="bar" style="height: 64%"></div>
+                  <div class="bar" style="height: 52%"></div>
+                  <div class="bar" style="height: 72%"></div>
+                  <div class="bar" style="height: 56%"></div>
+                </div>
+              </article>
+
+              <article class="ui-card market-card">
+                <div class="card-head">
+                  <div class="card-title">Markets</div>
+                  <div class="card-state">sample</div>
+                </div>
+                <div class="row"><span class="dot"></span><span class="line thin"></span></div>
+                <div class="row"><span class="dot"></span><span class="line thin mid"></span></div>
+                <div class="row"><span class="dot"></span><span class="line thin short"></span></div>
+                <div class="row"><span class="dot"></span><span class="line thin"></span></div>
+              </article>
+
+              <article class="ui-card risk-card">
+                <div class="card-head">
+                  <div class="card-title">Risk</div>
+                  <div class="card-state" style="color: var(--risk); border-color: #fed7aa; background: #fff7ed">visible</div>
+                </div>
+                <div class="placeholder-lines">
+                  <div class="line"></div>
+                  <div class="line thin mid"></div>
+                  <div class="line thin short"></div>
+                </div>
+              </article>
+
+              <article class="ui-card line-card">
+                <div class="card-head">
+                  <div class="card-title">LINE OA</div>
+                  <div class="card-state" style="color: #067a35; border-color: rgba(6,199,85,.24); background: rgba(6,199,85,.08)">admin</div>
+                </div>
+                <div class="row"><span class="dot line-dot"></span><span class="line thin mid"></span></div>
+              </article>
+
+              <article class="ui-card rebate-card">
+                <div class="card-head">
+                  <div class="card-title">Rebate</div>
+                  <div class="card-state">T&amp;C</div>
+                </div>
+                <div class="placeholder-lines">
+                  <div class="line thin"></div>
+                  <div class="line thin short"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="caption">
+              <span class="dot" aria-hidden="true"></span>
+              ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sections">
+        <article class="section-card">
+          <h2>Framer layer map</h2>
+          <p>เปลี่ยน hero จากภาพ AI ก้อนเดียวเป็น layer ที่แก้เองได้ใน Framer ทุกจุด ทั้งข้อความ, chip, CTA, risk note, connector และ motion.</p>
+          <ul class="layer-list">
+            <li><strong>Backdrop</strong><span>Frame 16:9, white surface, one soft blue bloom. ใช้ image หรือ radial layer ได้ แต่ไม่ใส่ข้อมูลในภาพ.</span></li>
+            <li><strong>Copy group</strong><span>H1, subheadline, CTA pair, proof chips, risk note เป็น text layer ทั้งหมด.</span></li>
+            <li><strong>Card cluster</strong><span>5 card components: Dashboard, Markets, Risk, LINE OA, Rebate. ทุก card ใช้ placeholder line แทนเลข.</span></li>
+            <li><strong>Connectors</strong><span>เส้น hairline royal blue เป็น SVG/path layer แยก เพื่อทำ scroll transform หรือ opacity reveal.</span></li>
+            <li><strong>Motion</strong><span>Appear + y 28 to 0 + opacity 0 to 1, card stagger 0.08s, parallax เฉพาะ card cluster ไม่แตะ risk warning.</span></li>
+          </ul>
+        </article>
+
+        <article class="section-card">
+          <h2>QA decision</h2>
+          <p>แนวนี้ควบคุม compliance ดีกว่าการให้ AI วาด UI เพราะไม่มี text/number ฝังในภาพ และสามารถแก้ copy/legal ได้ทันที.</p>
+          <ul class="qa-list">
+            <li><strong>Accept</strong><span>ซ้ายมี negative space ชัด, CTA อยู่เหนือ fold, mockup ดูเป็น product universe ไม่ใช่ screenshot เทรด.</span></li>
+            <li><strong>Accept</strong><span>ไม่มี fake stats, star rating, testimonial, regulator seal, account balance, spread, leverage, P&amp;L.</span></li>
+            <li><strong>Reject</strong><span>ถ้า card cluster กลับไปเป็น terminal แน่น ๆ, chart เขียวพุ่ง, หรือมีตัวเลขอ่านได้.</span></li>
+            <li><strong>Framer next</strong><span>สร้างเป็น Workshop component `TerminalHeroControlled` แล้ว replace HeroSection ใน Fizens Home.</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-card" style="margin-top: 20px">
+        <h2>Copy-ready Workshop prompt</h2>
+        <p>ใช้ prompt นี้ใน Framer Workshop เพื่อสร้าง component จากแนวทางข้างบน โดยคุมให้ UI เป็น layer จริงทั้งหมด.</p>
+        <pre class="workshop-prompt">Create a premium BestonFX TerminalHeroControlled component for a Thai Forex/CFD broker Framer POC.
+
+Build the hero as real editable Framer layers, not as a flat raster dashboard image.
+
+Style system:
+- Light Fizens-derived fintech theme
+- White and pale-blue surfaces
+- Primary royal blue #0040c1
+- Hover blue #2970ff
+- Border #e5e7eb
+- Font Prompt
+- Large rounded white cards, subtle blue glow, thin royal-blue connector hairlines
+- Calm Canvas mood: premium, sober, credible, spacious
+- No dark navy, no gold, no glass-on-dark, no casino/gambling energy
+
+Layout:
+- Desktop: two columns
+- Left 48%: Thai/English hero copy, CTA pair, proof chips, risk note
+- Right 52%: component-controlled abstract card cluster
+- Mobile: single column, CTA buttons full width, mockup below copy, risk warning still visible
+
+Copy:
+Eyebrow: โบรกเกอร์ Forex/CFD เพื่อคนไทย
+Headline: Trade Smarter Not Harder
+Subheadline: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&amp;C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้
+Primary CTA: เปิดบัญชี
+Secondary CTA: ทัก LINE OA ติดต่อ admin
+Proof chips: MT5 / Rebate ตาม T&amp;C / รายละเอียดบัญชี [verify]
+Risk note: การเทรดมีความเสี่ยง เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง
+Mockup label: ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง
+
+Right visual layers:
+- One soft blue bloom behind the cards
+- 5 editable card components: Dashboard, Markets, Risk, LINE OA, Rebate
+- Placeholder lines only; no readable prices, balances, spreads, leverage, percentages, or P&amp;L
+- Neutral abstract microchart only; no green upward-profit visuals
+- Separate SVG hairline connector paths
+
+Motion:
+- Hero copy fade-rise on load
+- Card cluster stagger fade-rise
+- Subtle floating card loop on desktop only
+- Scroll transform: card cluster y 0 to -42 over first 60vh
+- Respect reduced motion
+
+Compliance exclusions:
+- No guaranteed profit language
+- No risk-free trading
+- No fake ratings/testimonials
+- No fake regulator seals/logos/license numbers
+- No account balance, P&amp;L, spread, leverage, or profit percentage
+- No public deposit CTA
+- Use only เปิดบัญชี and ทัก LINE OA ติดต่อ admin as conversion actions
+
+Component props:
+headline, subheadline, primaryCtaText, primaryCtaUrl, secondaryCtaText, secondaryCtaUrl, riskNote, proofChips, mockupLabel, showMotion, reducedMotion.</pre>
+      </section>
+    </main>
+
+    <script>
+      const root = document.getElementById("workshop");
+      const buttons = document.querySelectorAll("[data-toggle]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const toggle = button.getAttribute("data-toggle");
+          const className = toggle === "mobile" ? "mobile-frame" : "motion-off";
+          const isActive = root.classList.toggle(className);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      });
+    </script>
+  </body>
+</html>

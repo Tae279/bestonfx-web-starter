@@ -16,7 +16,7 @@ _Last updated: 2026-06-01_
 
 - Duplicate the Fizens template into `BestonFX Framer POC v0.1`
 - Audit / adapt / remove / replace Fizens sections via Framer MCP
-- Create missing components with Workshop (`prompts/workshop-components.md`)
+- Create missing components as Framer Code Components (`prompts/workshop-components.md` keeps the canonical specs for compatibility)
 - Compliance-safe copy and section mapping (`docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`, `docs/wireframes/*`; `docs/framer-poc-map.md` is Fizens inventory and legacy map only)
 
 ### Not in scope now
@@ -31,7 +31,7 @@ _Last updated: 2026-06-01_
 
 | Surface | Role now |
 |---|---|
-| **Framer (main execution surface)** | Duplicate Fizens, adapt/remove/replace sections, build missing components in Workshop, controlled audit + batch edits via Framer MCP |
+| **Framer (main execution surface)** | Duplicate Fizens, adapt/remove/replace sections, build missing Framer Code Components, controlled audit + batch edits via Framer MCP |
 | **Next.js repo** | Planning repo, prompt library, compliance-rule repository, future production foundation (after POC approval), optional local technical scaffold for repo health only |
 
 ### Related docs (operational detail, governed by this file)
@@ -44,10 +44,11 @@ _Last updated: 2026-06-01_
 - `docs/research/bestonfx-framer-design-craft-playbook-2026-06-01.md` — design/motion/Framer-craft/copy/trust/anti-AI-slop deep-dive (Claude, 2026-06-01)
 - `docs/research/bestonfx-chatgpt-image-prompt-pack-2026-06-01.html` — **canonical image-generation prompt pack** (ChatGPT + reference-first; blue `#0040c1`, res ~1536x1024 + upscale). Supersedes the prompt section of the 2026-05-31 visual image plan.
 - `docs/research/bestonfx-forex-broker-visual-image-plan-2026-05-31.html` — image strategy, 9-asset system, per-section visual map, art-direction + compliance guardrails (prompt section superseded by the 2026-06-01 pack)
+- `docs/brand/visual-direction.md` — **locked visual direction** (concept: Calm Canvas / Fizens+; archetype Trust & Authority; signature move + per-asset art direction). Defined via ui-ux-pro-max + impeccable, 2026-06-01.
 - `docs/wireframes/sitemap.md`, `docs/wireframes/pages/*.md`, `docs/wireframes/components.md` — page-level Framer build specs
 - `docs/framer-poc-map.md` — Fizens template inventory and legacy section map; do not use it to override wireframes
 - `docs/reports/home-ia-drift-handoff.md` — Home IA correction log
-- `prompts/workshop-components.md` — Workshop component specs
+- `prompts/workshop-components.md` — Framer Code Component specs (legacy filename kept for agent compatibility)
 - `prompts/framer-mcp-claude.md` — Framer MCP operator prompts
 - `CONTEXT.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/bestonfx.mdc` — agent guardrails
 - `docs/compliance-copy-rules.md`, `docs/agents/` — compliance + skills
@@ -82,7 +83,7 @@ Ordered by current-phase priority. Framer POC leads; Next.js production work is 
 
 | Priority | Workstream | Goal | Main owner | Supporting tool | Output |
 |---|---|---|---|---|---|
-| 1 | Framer POC | Adapt Fizens into the BestonFX visual concept | Claude Code + Framer MCP | Workshop | Framer preview link + section map |
+| 1 | Framer POC | Adapt Fizens into the BestonFX visual concept | Claude Code + Framer MCP | Framer Code Components | Framer preview link + section map |
 | 2 | Compliance | Review copy, claims, risk warning, bot policy | Human / Legal | Claude Code | Approved copy matrix |
 | 3 | Orchestration | Keep roles, branches, file ownership, task order clear | Claude Code | Human | Updated `docs/task-board.md` |
 | 4 | Repo health | Keep Next.js repo green (typecheck/lint/scan/build) — health only, no production UI build | Codex | — | Check results |
@@ -242,7 +243,7 @@ Before editing Framer:
 ```text
 1. Duplicate the Fizens template
 2. Rename project to BestonFX Framer POC v0.1
-3. Install Workshop
+3. Use Framer Code Components for missing custom blocks
 4. Install MCP plugin
 5. Connect MCP URL to Claude Code or Cursor
 ```
@@ -270,7 +271,7 @@ Rules:
 - Do not claim profit, low risk, or guaranteed IB income.
 ```
 
-### Workshop Components
+### Framer Code Components
 
 Create and review in this order:
 
@@ -303,7 +304,7 @@ Framer-first order (canonical — matches `docs/task-board.md`):
 3.  T003 - Framer MCP audit of the duplicated Fizens project
 4.  T011 - Research-backed Framer/Fizens source-of-truth reset (2026-06-01)
 5.  T004 - Framer/Fizens homepage visual layout
-6.  T005 - Workshop components
+6.  T005 - Framer Code Components
 7.  T006 - Framer page expansion
 8.  T007 - Compliance / copy review
 9.  T008 - Demo walkthrough
@@ -335,7 +336,7 @@ Do not polish Next.js UI as a current deliverable. Next.js rebuild/export happen
 
 - Framer preview link exists
 - Fizens sections are mapped to BestonFX sections
-- Workshop components inserted where Fizens is weak
+- Framer Code Components inserted where Fizens is weak
 - Risky copy removed or replaced with placeholders
 
 ### Compliance
@@ -405,7 +406,7 @@ Send Design / Marketing:
    - LINE green: #06C755 (LINE conversion paths only)
    - Risk amber: #B45309 (compliance/risk surfaces only)
 7. homepage section map
-8. Workshop component list
+8. Framer Code Component list
 ```
 
 ## Hard Rules

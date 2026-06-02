@@ -72,6 +72,20 @@ const config: Config = {
         'hero-radial':
           'radial-gradient(circle at 16% 12%, rgba(41, 112, 255, 0.10), transparent 36%), radial-gradient(circle at 88% 0%, rgba(0, 64, 193, 0.06), transparent 30%)',
         'surface-tint': 'linear-gradient(180deg, #ffffff 0%, #f5faff 100%)'
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' }
+        },
+        'marquee-reverse': {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0)' }
+        }
+      },
+      animation: {
+        marquee: 'marquee var(--marquee-duration, 40s) linear infinite',
+        'marquee-reverse': 'marquee-reverse var(--marquee-duration, 40s) linear infinite'
       }
     }
   },

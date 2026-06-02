@@ -110,11 +110,13 @@ Home should not be a feature dump. Home has one job: **make a Thai trader believ
 
 ## Copywriting System
 
-**Core approved angle:** `เห็นทุกต้นทุน คืนทุกการเทรด`
+**Core approved angle (founder override):** `Trade Smarter Not Harder`
+
+Use the English H1 as the short campaign hook. The Thai subheadline must carry the concrete, compliance-safe meaning: MT5, clear account/trading information, Rebate according to T&C, risk visibility, and Thai LINE support.
 
 | Copy layer | Rule | Example |
 |---|---|---|
-| Hero | Plain, differentiated, risk-aware | `ต้นทุนที่เห็นชัด · เงินคืนที่จับต้องได้ · ทีมไทยที่อยู่ข้างคุณเสมอ` |
+| Hero | Short English hook + Thai compliance-safe explanation | `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้` |
 | CTA | Two-path conversion | `เปิดบัญชี` + `ทัก LINE OA ติดต่อ admin` |
 | Risk note | Near high-intent CTA | `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง` |
 | Rebate | Explain mechanism, not profit | `Rebate คิดจากปริมาณการเทรดตาม T&C ไม่ใช่การรับประกันกำไร` |
@@ -205,7 +207,7 @@ Use "wow" where it tells the story. The goal is premium movement, not motion noi
 - Create global styles first: Prompt font, royal blue, LINE green, risk amber, light surfaces.
 - Convert common patterns to components: RiskBar, Navbar, Hero, SectionHeader, CTA pair, FAQ item, Article card, Account card.
 - Use component variants for `LineFirst` vs `AccountFirst` CTA banners.
-- Use Workshop for missing broker-specific POC components: `RiskDisclosureBar`, `TerminalHero`, `TrustStackCards`, `LineSupportCTA`, `TradingToolsGrid` (`/tools` only), `IBCommissionEstimatorMock` (`/partners` only), and `AIChatBotMock`. Exact prompts live in `prompts/workshop-components.md`.
+- Use Framer Code Components for missing broker-specific POC components: `RiskDisclosureBar`, `TerminalHero`, `TrustStackCards`, `LineSupportCTA`, `TradingToolsGrid` (`/tools` only), `IBCommissionEstimatorMock` (`/partners` only), and `AIChatBotMock`. Exact specs live in `prompts/workshop-components.md` (legacy filename kept for compatibility); follow https://www.framer.com/developers/components-introduction. Workshop is optional fallback only.
 - Use CMS collections for Articles from day one, with fields: title, slug, category, excerpt, cover, read time, meta title, meta description, review status.
 - Add page/CMS metadata in Framer Page Settings; use CMS variables for article metadata.
 - Add descriptive alt text and video posters.

@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { Prompt } from 'next/font/google';
 import './globals.css';
-import { RiskDisclosureBar } from '@/components/site/RiskDisclosureBar';
-import { SiteFooter } from '@/components/site/SiteFooter';
-import { SiteNavigation } from '@/components/site/SiteNavigation';
 import { siteConfig } from '@/lib/constants/site';
 
 const prompt = Prompt({
@@ -30,12 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="th" className={prompt.variable}>
-      <body>
-        <RiskDisclosureBar />
-        <SiteNavigation />
-        <main>{children}</main>
-        <SiteFooter />
-      </body>
+      <body className="min-h-screen font-sans antialiased text-ink-900">{children}</body>
     </html>
   );
 }

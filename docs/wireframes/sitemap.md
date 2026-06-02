@@ -7,6 +7,7 @@ _Last updated: 2026-06-01. Source priority: `docs/research/bestonfx-framer-sourc
 > Routes mirror the Next.js app router in `src/app/(public)/` + the Framer × Fizens redesign handoff.
 
 > **Important:** `docs/framer-poc-map.md` is Fizens inventory/legacy mapping. It must not override this sitemap or the page wireframes.
+> **Home hero copy lock:** `Trade Smarter Not Harder` + Thai subhead in `docs/wireframes/pages/home.md`. Sitemap controls IA; Home wireframe controls exact section copy.
 
 ---
 

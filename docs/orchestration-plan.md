@@ -41,8 +41,11 @@ Claude Code
 Framer MCP
   -> PRIMARY automation: inspect and adapt the Fizens template (this phase)
 
+Framer Code Components
+  -> PRIMARY custom component path for missing Framer sections (this phase)
+
 Framer Workshop
-  -> PRIMARY component generator for missing Framer sections (this phase)
+  -> OPTIONAL fallback only when it is faster than hand-writing the Code Component
 
 Codex
   -> repo health check only this phase (docs/scripts support; no production UI build)
@@ -60,7 +63,8 @@ Cursor Composer 2.5
 | Claude Code | Lead Orchestrator / Framer MCP operator | Maintain docs (SSOT), break down tasks, operate Framer MCP, review compliance-sensitive copy, create task prompts | Do not make broad production edits without scoped task approval |
 | Codex | Repo health check only (this phase) | Run typecheck/lint/compliance:scan/build, fix technical setup, docs/scripts support | Do not build or polish production UI this phase; do not invent financial/regulatory/commission claims |
 | Cursor Composer 2.5 | Optional local reference mockups only | Optional, non-blocking local mockups for reference — not the primary tool for the Framer POC | Do not treat Next.js UI polish as a current deliverable; do not edit API, DB schema, compliance rules, or legal copy |
-| Framer Workshop | **Primary** component generator (this phase) | Create visual POC components: hero, risk bar, LINE CTA, IB estimator mock, tools grid | Do not create production logic/auth/backend |
+| Framer Code Components | **Primary** custom component path (this phase) | Create React-based POC components: hero, risk bar, LINE CTA, IB estimator mock, tools grid; follow https://www.framer.com/developers/components-introduction | Do not create production logic/auth/backend |
+| Framer Workshop | Optional fallback | Generate a starting point only if faster than hand-writing the Code Component | Do not treat generated output as approved without mobile + compliance review |
 | Framer MCP | **Primary** Framer automation (this phase) | Audit the Fizens project, batch-update text/styles, create placeholder pages, insert generated components | Do not run unsupervised whole-site redesigns |
 | Human owner | Final approver | Product decisions, legal-sensitive copy, regulatory wording, final merge | Do not skip approval gates for speed |
 
@@ -146,7 +150,7 @@ Rules:
 | `src/lib/analytics/*` | Codex | Claude Code | Yes |
 | `supabase/migrations/*` | Codex | Claude Code | Yes |
 | Framer canvas edits | Claude Code via MCP | Human | Yes |
-| Workshop components | Human + Claude Code | Cursor | Yes before presentation |
+| Framer Code Components | Human + Claude Code | Cursor | Yes before presentation |
 
 ---
 
@@ -282,7 +286,7 @@ Every agent task should include:
 
 1. Claude Code uses Framer MCP to audit the Fizens structure.
 2. Claude Code updates `docs/framer-poc-map.md`.
-3. Claude Code + Framer MCP build the BestonFX homepage **in Framer** from the section map (Workshop components where Fizens is weak).
+3. Claude Code + Framer MCP build the BestonFX homepage **in Framer** from the section map (Framer Code Components where Fizens is weak).
 4. Codex runs repo-health checks only (no production UI build).
 
 ### Day 3: Core public pages (in Framer)
@@ -293,7 +297,7 @@ Every agent task should include:
 
 ### Day 4: Framer POC polish
 
-1. Workshop generates missing POC components.
+1. Framer Code Components are created/reviewed for missing POC components; Workshop is fallback only.
 2. Framer MCP applies controlled text/style updates.
 3. Claude Code creates demo walkthrough notes.
 

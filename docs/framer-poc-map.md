@@ -1,6 +1,8 @@
 # Framer POC Map
 
-_Last updated: 2026-05-27 — T006 Workshop component handoff_
+_Last updated: 2026-06-01 — Fizens inventory + legacy map; latest IA lives in research/wireframes_
+
+> **Latest source:** Use `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`, `docs/research/bestonfx-framer-perfect-handoff-2026-06-01.md`, and `docs/wireframes/*` for the current broker-site IA and Framer build. This file remains useful for Fizens inventory, risky-copy notes, and legacy mapping context.
 
 ## Goal
 
@@ -27,8 +29,8 @@ This supersedes earlier plan text that mentioned dark navy and champagne gold. U
 |---|---|
 | Source template | Fizens (light-mode SaaS finance-app template) |
 | T003 connection | Framer MCP connected and audited read-only |
-| T006 worker connection | Framer MCP / Workshop unavailable in this worker → `blocked-by-tool` for canvas execution |
-| T006 output | Component specs and Workshop prompts in `prompts/workshop-components.md` |
+| T006 worker connection | Framer MCP / Code Component canvas execution unavailable in this worker -> `blocked-by-tool` |
+| T006 output | Component specs and Code Component prompts in `prompts/workshop-components.md` |
 | Web pages | 17 from T003 audit |
 | Auth design pages | 5 (Sign Up/In, Forgot/Reset Password, Password Protection) |
 | Components | ~64 from T003 audit |
@@ -77,34 +79,46 @@ This supersedes earlier plan text that mentioned dark navy and champagne gold. U
 
 ## Proposed BestonFX HOME section map
 
-1. RiskDisclosureBar *(Workshop — not in Fizens)*
-2. PremiumTradingHero *(replace HeroSection)*
-3. TrustStackCards *(replace AboutSection / BenefitSection)*
-4. AccountPathSelector *(replace PricingSection framing; blocked by D002)*
-5. MarketsPreview *(adapt FeaturesSection; no unverified spread/leverage/execution claims)*
-6. TradingToolsGrid *(adapt AdditionSection)*
-7. DXEcosystemStrip *(repurpose /overview content; no performance framing)*
-8. LineSupportCTA *(Workshop — replace generic CTA)*
-9. IBCommissionEstimatorMock *(Workshop; replaces direct earning/partner promises)*
-10. AIChatBotMock *(Workshop floating layer or inline help block)*
-11. FAQ *(adapt FaqSection — add risk, account, LINE, IB)*
-12. LegalFooter *(custom-build Footer)*
+> **Supersedes 2026-05-27 order.** Source: `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`, `docs/wireframes/pages/home.md`, and `docs/research/bestonfx-framer-perfect-research-2026-06-01.md`.
+> **Do not put Tools or IB on Home** — see `docs/reports/home-ia-drift-handoff.md`.
 
-Remove from home flow: **StaticsSection** (performance/growth framing), **Testimonial** sections, star ratings, and any fake user/review metrics until verified.
+1. RiskDisclosureBar *(Framer Code Component — not in Fizens)*
+2. Navbar *(Main Navbar — Default + Condensed)*
+3. TerminalHero *(replace HeroSection)*
+4. RegulatoryStrip *(replace Fizens partner logo strip / About trust row)*
+5. FeatureGrid 3-col trust pillars *(adapt FeaturesSection — not a feature dump)*
+6. MarketsTicker *(new — marquee; labelled mock data)*
+7. AccountComparison preview — 2 cards *(adapt PricingSection; link → `/accounts`)*
+8. StepProcess — open account 3 steps *(adapt HowItWorkSection)*
+9. FeatureSplit — Rebate program *(adapt BenefitSection row 1)*
+10. ArticleGrid teaser *(adapt BlogSection)*
+11. FAQ *(adapt FaqSection)*
+12. CTABanner LineFirst *(replace generic pre-footer CTA)*
+13. LegalFooter *(custom-build Footer)*
+14. AIChatBotMock *(floating — all public pages)*
+
+**On dedicated pages only (not Home):**
+
+- TradingToolsGrid → `/tools` *(adapt AdditionSection + calculator Code Components)*
+- IBCommissionEstimatorMock → `/partners`
+- Full AccountComparison table → `/accounts`
+- DXEcosystemStrip → optional on `/why-bestonfx` footer strip; not Home
+
+Remove from all pages until verified: **StaticsSection**, **Testimonial**, star ratings, fake user/review metrics.
 
 ---
 
-## T006 Workshop component specs
+## T006 Framer Code Component specs
 
-Canonical prompts live in `prompts/workshop-components.md`. This table maps each component to Framer placement and production handoff intent.
+Canonical specs live in `prompts/workshop-components.md` (legacy filename kept for compatibility). This table maps each component to Framer placement and production handoff intent.
 
 | Component | Framer placement | Handoff tag | Mobile requirement | Compliance requirement | T006 status |
 |---|---|---|---|---|---|
 | RiskDisclosureBar | Global top of home and any claim-bearing page | `rebuild-in-next`, `needs-legal-review` | Sticky/readable at 320px; no dismiss control for POC | Approved risk warning visible before CTA | Spec'd; canvas blocked-by-tool |
-| PremiumTradingHero | Home section 1 after risk bar | `rebuild-in-next` | Single column; stacked full-width CTAs; mockup below copy | No fake stats, no regulation, no account/spread/leverage claims | Spec'd; canvas blocked-by-tool |
+| TerminalHero | Home section 1 after risk bar | `rebuild-in-next` | Single column; stacked full-width CTAs; mockup below copy | No fake stats, no regulation, no account/spread/leverage claims | Spec'd; canvas blocked-by-tool |
 | TrustStackCards | Home trust section | `reuse-in-next` or `rebuild-in-next` | 1-column cards with readable Thai copy | No ratings, awards, testimonials, or “trusted by” count | Spec'd; canvas blocked-by-tool |
 | LineSupportCTA | Home mid/lower CTA and Support page | `rebuild-in-next` | Full-width buttons; QR/chat mockup below copy | No personalized trading advice; support hours placeholder | Spec'd; canvas blocked-by-tool |
-| TradingToolsGrid | Tools preview section | `rebuild-in-next` | 1-column grid; status pill visible | Demo/mock labels; no accuracy or profit claim | Spec'd; canvas blocked-by-tool |
+| TradingToolsGrid | `/tools` only | `rebuild-in-next` | 1-column grid; status pill visible | Demo/mock labels; no accuracy or profit claim | Spec'd; canvas blocked-by-tool |
 | IBCommissionEstimatorMock | Partner/IB section | `visual-only`, `needs-legal-review` | Inputs stack before output; disclaimer always visible | No real commission rate, no guaranteed income | Spec'd; canvas blocked-by-tool |
 | AIChatBotMock | Floating layer or inline Help block | `visual-only`, `needs-legal-review` | Launcher does not cover risk bar, bottom CTA, or legal links | General info only; no investment advice | Spec'd; canvas blocked-by-tool |
 
@@ -169,7 +183,7 @@ See `DESIGN.md` and `docs/brand/tokens.json` for the current design system.
 
 - **Reuse (restyle only):** Button, Main Navbar, Nav Link, FAQ Item/List, Article Card, Blog/Filter
 - **Adapt carefully:** Feature Card, Metric Card, How It Works, Stepper, Bento 1-4, Hero Highlight
-- **Replace with Workshop / rebuild in Next.js:** hero, trust cards, risk bar, LINE CTA, IB estimator, AI bot, tools grid
+- **Replace with Framer Code Components / rebuild in Next.js:** hero, trust cards, risk bar, LINE CTA, IB estimator, AI bot, tools grid
 - **Remove until verified:** Testimonial Card, Star Rating, Sections/Statics, Sections/Testimonial
 - **Legal custom build:** Terms, Privacy, Risk Disclosure, footer legal copy
 
@@ -189,7 +203,7 @@ Recommended tags for T006:
 | Component | Tag |
 |---|---|
 | RiskDisclosureBar | `rebuild-in-next`, `needs-legal-review` |
-| PremiumTradingHero | `rebuild-in-next` |
+| TerminalHero | `rebuild-in-next` |
 | TrustStackCards | `rebuild-in-next` |
 | LineSupportCTA | `rebuild-in-next` |
 | TradingToolsGrid | `rebuild-in-next` |
@@ -208,7 +222,7 @@ Recommended tags for T006:
 
 ## Open dependencies
 
-- Framer Workshop/MCP execution is blocked in this worker because no Framer MCP tools are available here
+- Framer MCP / Code Component canvas execution is blocked in this worker because no Framer MCP tools are available here
 - Project not published -> no stakeholder preview link yet (founder action)
 - D001 legal/regulatory entity wording -> blocks footer/legal/trust wording
 - D002 account types/fees -> blocks Pricing/Accounts replacement
@@ -222,7 +236,7 @@ Recommended tags for T006:
 ## Next Framer operator steps
 
 1. Open `prompts/workshop-components.md`.
-2. Generate components in the specified order.
+2. Create Framer Code Components in the specified order; use Workshop only as an optional starting-point generator.
 3. Apply Prompt font and the light royal-blue token system.
 4. Insert components into the homepage section map above.
 5. Check mobile widths: 320px, 375px, 390px, 430px.

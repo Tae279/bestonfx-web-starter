@@ -52,16 +52,17 @@ Map → asset:
 
 ## 01 · Hero (P0) — `beston-home-hero-command-center.webp`
 
-**แนบ:** `ref-fizens-home-base.png` (brand) + screenshot Revolut Business (light terminal). ถ้าอยากได้ density เพิ่ม แนบ Kraken ด้วย (สั่ง recolor light).
+**Direction = Calm Canvas** (ดู `docs/brand/visual-direction.md`) — airy floating cards, ไม่ใช่ dense terminal.
+**แนบ:** `ref-fizens-home-base.png` (anchor) + Revolut (light cards) + CALFINEX (airy device hero). Kraken/Fey ไม่ต้อง (เว้นแต่อยากได้ density cue ของ market-watch card ใบเดียว).
 
 **Paste นี้:**
 
 ```
 Create a premium Forex/CFD broker landing-page hero visual for BestonFX.
 
-Scene: a clean, light-themed trading command center interface floating on a white and very pale blue workspace. The interface is inspired by MT5-style market watch panels, order widgets, symbol cards, and risk/rebate modules, but it must be abstract and non-functional, with no readable prices, no P&L, no account balance, no spread numbers, no leverage values, no profit percentage.
+Scene: a calm, airy light fintech canvas (Fizens-like finance-SaaS, NOT a dense trading terminal): a small cluster of floating rounded white cards on a white and very pale blue workspace, one soft blue bloom behind them, thin royal blue hairlines suggesting a connected system. A few abstract cards only — one dashboard panel, a compact market-watch card, a risk chip, a rebate/T&C chip — all abstract and non-functional, with no readable prices, no P&L, no account balance, no spread numbers, no leverage values, no profit percentage.
 
-Visual layout: asymmetric composition. Right side contains the main terminal mockup with layered rounded white cards, thin #e5e7eb borders, royal blue #0040c1 accent lines, subtle #2970ff glow, and small neutral grey chart lines. Left side has clean negative space for Thai headline overlay in Framer. Use a soft blue bloom behind the terminal, not neon.
+Visual layout: asymmetric, generous negative space. Right side = the floating card cluster (layered rounded white cards, thin #e5e7eb borders, royal blue #0040c1 hairlines, subtle #2970ff glow, small neutral grey chart lines). Left side = clean negative space for Thai headline overlay in Framer. Airy and calm, not crowded; soft blue bloom behind the cards, not neon.
 
 Objects to include: market watch card with abstract market rows (no readable ticker symbols, no readable numbers — use blurred placeholder glyphs only); risk notice chip; rebate/T&C chip; LINE support chip; small device frame or floating dashboard panel. Real symbol names and numbers are added as Framer chips later, never inside the image.
 

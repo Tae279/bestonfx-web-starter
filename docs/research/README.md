@@ -23,6 +23,8 @@
 | [bestonfx-fizens-framer-redesign-handoff-2026-05-29.html](./bestonfx-fizens-framer-redesign-handoff-2026-05-29.html) | May 2026 | Superseded by Jun MD handoff — keep for history |
 | [bestonfx-framer-motion-research-checklist-2026-05-31.html](./bestonfx-framer-motion-research-checklist-2026-05-31.html) | May 2026 | Motion detail — still valid |
 | [bestonfx-forex-broker-visual-image-plan-2026-05-31.html](./bestonfx-forex-broker-visual-image-plan-2026-05-31.html) | May 2026 | Visual asset brief |
+| [bestonfx-chatgpt-image-prompt-pack-2026-06-01.html](./bestonfx-chatgpt-image-prompt-pack-2026-06-01.html) | Jun 2026 | Copy-ready ChatGPT image prompts for Framer visuals |
+| [bestonfx-framer-hero-workshop-controlled-ui-2026-06-01.html](./bestonfx-framer-hero-workshop-controlled-ui-2026-06-01.html) | Jun 2026 | Controlled Framer hero prototype: editable layers instead of AI-raster UI |
 | [bestonfx-framer-sources-2026-06-01.jsonl](./bestonfx-framer-sources-2026-06-01.jsonl) | Jun 2026 | Source registry for the latest research pass |
 | [../../fizens-home-snapshot.md](../../fizens-home-snapshot.md) | — | Fizens DOM snapshot |
 

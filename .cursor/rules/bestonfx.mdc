@@ -6,7 +6,7 @@ alwaysApply: true
 # BestonFX Core
 
 ## Mission
-**Current phase: Framer/Fizens POC first** — main execution surface = Framer (duplicate Fizens template). Source of truth: `docs/plan.md`.
+**Current phase: Framer/Fizens POC first** — main execution surface = Framer (duplicate Fizens template). Source of truth: `docs/plan.md` + `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`.
 Next.js repo = _future_ production foundation (BestonFX public site + bot + LINE + Supabase) — build only after the Framer POC is approved. Do not duplicate content/tracking between Framer and Next.js.
 
 ## Stack (locked)

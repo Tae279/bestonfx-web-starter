@@ -26,26 +26,26 @@
 
 ### 4. FeatureSplit — `ImageLeft` (Regulation)
 - **ข้อความ:**
-  - H2: `กำกับดูแลจริง ตรวจสอบได้จริง`
-  - Body: `beston ดำเนินงานภายใต้การกำกับของ FSCA และมาตรฐาน AML/KYC`
-  - Bullets: `FSCA (South Africa) ใบอนุญาตเลขที่ [verify]` · `CySEC [verify]` · `ปฏิบัติตาม AML/KYC ตามกฎหมาย`
-  - CTA: `ดูเอกสารใบอนุญาต`
-- **เหตุผล UX:** เริ่ม trust argument ด้วย regulation เพราะเป็น proof ที่แข็งแรงที่สุด.
+  - H2: `เอกสารบริษัทและข้อมูลให้ตรวจสอบ`
+  - Body: `beston แสดงเอกสาร FSCA/MSB และข้อมูลบริษัทสำหรับตรวจสอบก่อนตัดสินใจ`
+  - Bullets: `FSCA (South Africa) เลขที่ [verify]` · `MSB registration [verify]` · `ปฏิบัติตาม AML/KYC ตามกฎหมาย`
+  - CTA: `ดูเอกสารบริษัท`
+- **เหตุผล UX:** เริ่ม trust argument ด้วยข้อมูลที่ตรวจสอบต่อได้ โดยไม่ใช้ wording เกินหลักฐานที่ยืนยันแล้ว.
 - **การตอบสนอง:** stack.
 
-### 5. FeatureSplit — `ImageRight` (Transparency)
+### 5. FeatureSplit — `ImageRight` (Trading conditions)
 - **ข้อความ:**
-  - H2: `อยากรู้ต้นทุน? เปิด MT5 ดูเลย`
-  - Body: `สเปรดและค่าธรรมเนียมแสดงบน MT5 แบบเรียลไทม์ ไม่มีค่าซ่อนเร้น`
-  - Bullets: `สเปรดลอยตัว ดูได้บน MT5` · `เงื่อนไข Rebate เปิดเผยเต็ม T&C` · `ถอนเงินได้ทุกวัน [verify SLA]`
-- **เหตุผล UX:** Transparency ต้องพิสูจน์ได้ จึงควรชวนผู้ใช้ตรวจสอบเองแทนการพูดลอย ๆ.
+  - H2: `เช็คเงื่อนไขบน MT5 ก่อนตัดสินใจ`
+  - Body: `สเปรดและเงื่อนไขการเทรดลอยตัวตามตลาด ตรวจสอบบน MT5 ก่อนเปิดออเดอร์`
+  - Bullets: `สเปรดลอยตัว ดูได้บน MT5` · `เงื่อนไข Rebate อธิบายแยกเป็นข้อ` · `ถอนเงินได้ทุกวัน [verify SLA]`
+- **เหตุผล UX:** Active trader ต้องการข้อมูลที่ตรวจสอบเองได้ จึงควรพาไปดูเงื่อนไขจริงบนแพลตฟอร์มแทนการใช้คำโฆษณา.
 
 ### 6. FeatureGrid — `3-col` (Thai-first care)
 - **ข้อความ:** header `ดูแลแบบเข้าใจคนไทย` · cards: `ซัพพอร์ตภาษาไทยผ่าน LINE` · `ฝาก/ถอนช่องทางไทย [verify]` · `เนื้อหาให้ความรู้ภาษาไทย`
 - **การตอบสนอง:** 3 คอลัมน์ → 1 คอลัมน์.
 
 ### 7. RegulatoryStrip — `Logo Cloud`
-- FSCA · CySEC · MSB · MT5 พร้อม license numbers เป็น `[verify]`.
+- FSCA · MSB · MT5 · เอกสารบริษัท พร้อม registry wording และ numbers เป็น `[verify]`.
 
 ### 8. Stats — `3-col` `[GATED]`
 - ปิดไว้จนกว่าจะมีตัวเลข verified; ถ้าต้องใช้ proof อาจเปลี่ยนเป็น founding year หรือ withdrawals processed เฉพาะเมื่อยืนยันแล้ว.

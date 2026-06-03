@@ -116,9 +116,9 @@ Use the English H1 as the short campaign hook. The Thai subheadline must carry t
 
 | Copy layer | Rule | Example |
 |---|---|---|
-| Hero | Short English hook + Thai compliance-safe explanation | `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: Rebate $5/lot, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้` |
+| Hero | Short English hook + Thai compliance-safe explanation | `เทรดบน MT5 พร้อม Rebate $5/lot, เริ่มได้แบบ No Minimum และมีทีมไทยคุยผ่าน LINE OA 24/7` |
 | CTA | Two-path conversion | `เปิดบัญชี` + `ทัก LINE OA ติดต่อ admin` |
-| Risk note | Near high-intent CTA | `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง` |
+| Risk disclosure | Legal line near high-intent CTA | `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ` |
 | Rebate | Explain mechanism, not profit | `Rebate คิดจากปริมาณการเทรด ไม่ใช่การรับประกันกำไร` |
 | Trust | Show evidence, avoid hype | `เลขทะเบียน/ใบอนุญาตรอยืนยันก่อนเผยแพร่` |
 | Education | Reduce fear, not promise success | `ความรู้ที่ใช้ได้จริง ก่อนเสียเงินจริง` |
@@ -138,7 +138,7 @@ Trust must be structural, not decorative.
 |---|---|
 | Risk warning | Sticky top + hero note + footer full block + legal page |
 | Entity proof | Company name, address, support email, regulator/entity line after verification |
-| Regulator proof | FSCA/MSB docs are visible on the old About page; add CySEC only after registry proof. Use verified wording and numbers; MSB must not be called a forex license |
+| Regulator proof | FSCA/MSB docs are visible on the old About page; add any additional regulator only after registry proof. Use verified wording and numbers; MSB must not be called a forex license |
 | Platform proof | MT5 proof, device support, account management, sample terminal visuals |
 | Cost proof | Account comparison, rebate rules, spread/fee placeholders until verified |
 | Human support | LINE OA admin as primary Thai conversion/support path |

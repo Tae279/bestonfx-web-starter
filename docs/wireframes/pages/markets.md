@@ -1,7 +1,7 @@
 # Wireframe — Markets `/markets`
 
 > **เป้าหมายของหน้า:** ตอบคำถามแรกของ trader ว่า “มีตลาดที่ฉันอยากเทรดไหม?” โดยโชว์ breadth ของสินทรัพย์ (FX, metals, indices, oil, crypto) แล้วพาไป `เปิดบัญชี`.
-> **CTA หลัก:** `เปิดบัญชี` · **CTA รอง:** `ดูสเปรดบน MT5`
+> **CTA หลัก:** `เปิดบัญชี` · **CTA รอง:** `ดูเงื่อนไขบน MT5`
 > **ระดับเอฟเฟกต์:** สูง — ใช้ parallax instrument layers + ticker ได้ แต่ข้อมูลต้องอ่านง่ายและมี label ตัวอย่าง/verify.
 > **Component ที่ใช้:** Navbar · RiskDisclosureBar · Hero/SplitHero · MarketsTicker · FeatureGrid · FeatureSplit · FAQ · CTABanner · Footer · AIChatWidget
 
@@ -16,8 +16,8 @@
 - **ข้อความ:**
   - Eyebrow: `ตลาดที่เทรดได้`
   - H1: `ตลาดที่คุณอยากเทรด ครบในที่เดียว`
-  - Subhead: `เทรดทุกตลาดบนแพลตฟอร์มเดียว เห็นสเปรดก่อนกด`
-  - CTA หลัก: `เปิดบัญชี` · CTA รอง: `ดูสเปรดสดบน MT5`
+  - Subhead: `รองรับ FX, ทอง, ดัชนี, น้ำมัน และคริปโตบน MT5 พร้อมข้อมูลตัวอย่างที่แยกจากราคา real-time`
+  - CTA หลัก: `เปิดบัญชี` · CTA รอง: `ดูเงื่อนไขบน MT5`
 - **เหตุผล UX:** headline ต้องทำให้ trader เห็นตลาดของตัวเองตั้งแต่บรรทัดแรก.
 
 ### 4. MarketsTicker — `Gallery/marquee`
@@ -36,8 +36,8 @@
 
 ### 6. FeatureSplit — `ImageRight` (trading conditions)
 - **ข้อความ:**
-  - H2: `เห็นสเปรดจริง ก่อนเปิดออเดอร์`
-  - Body: `สเปรดลอยตัวตามตลาด ตรวจสอบสดบน MT5 ก่อนเปิดออเดอร์`
+  - H2: `เช็คเงื่อนไขบน MT5 ก่อนเปิดออเดอร์`
+  - Body: `สเปรดและเงื่อนไขการเทรดลอยตัวตามตลาด ตรวจสอบบน MT5 ก่อนเปิดออเดอร์`
   - Bullets: `สเปรด [verify]` · `Leverage 1:50–1:1000 [verify]` · `ดำเนินคำสั่งบน MetaTrader 5`
 - **เหตุผล UX:** Active trader สนใจเงื่อนไขการเทรด แต่ต้องสื่อแบบซื่อสัตย์: ดู live spread ได้ ไม่ใส่ตัวเลข fixed ถ้ายังไม่ verify.
 

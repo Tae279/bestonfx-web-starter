@@ -86,7 +86,7 @@ This supersedes earlier plan text that mentioned dark navy and champagne gold. U
 2. Navbar *(Main Navbar — Default + Condensed)*
 3. TerminalHero *(replace HeroSection)*
 4. RegulatoryStrip *(replace Fizens partner logo strip / About trust row)*
-5. FeatureGrid 3-col trust pillars *(adapt FeaturesSection — not a feature dump)*
+5. WhyBestonBento *(adapt About/Benefit rhythm — phrase-based benefit cards)*
 6. MarketsTicker *(new — marquee; labelled mock data)*
 7. AccountComparison preview — 2 cards *(adapt PricingSection; link → `/accounts`)*
 8. StepProcess — open account 3 steps *(adapt HowItWorkSection)*

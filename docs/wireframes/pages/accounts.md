@@ -27,14 +27,14 @@
   - `เงินที่ใช้` — Standard: `เงินจริง` · Demo Account: `เงินจำลอง`
   - `Spread / Commission` — Standard: `[verify]` · Demo Account: `สภาพแวดล้อมทดลอง ไม่ใช่เงื่อนไขเงินจริง [verify]`
   - `Leverage สูงสุด` — Standard: `[verify]` · Demo Account: `[verify]`
-  - `Rebate` — Standard: `$5/lot ตาม T&C` · Demo Account: `ไม่เข้าเงื่อนไขรับ Rebate`
+  - `Rebate` — Standard: `$5/lot สำหรับรายการที่เข้าเงื่อนไข` · Demo Account: `ไม่เข้าเงื่อนไขรับ Rebate`
   - `แพลตฟอร์ม` — `MT5`
   - CTA: Standard `เปิดบัญชี` · Demo Account `ทัก LINE OA ติดต่อ admin`
 - **เหตุผล UX:** มีแค่ 2 ทางเลือกเพื่อลด cognitive load: เทรดจริง vs ฝึกใช้ระบบด้วยเงินจำลอง. Demo Account ต้องเป็น learning/testing path ไม่ใช่ promise เรื่องผลลัพธ์.
 - **การตอบสนอง:** ตาราง 2 คอลัมน์ → stack เป็นแนวตั้ง cards, หนึ่งบัญชีต่อ card พร้อม CTA ที่หาเจอง่าย.
 
 ### 5. RegulatoryStrip — `Logo Cloud`
-- วาง proof ตรงจุดตัดสินใจ: FSCA · CySEC · MSB · MT5.
+- วางข้อมูลให้ตรวจสอบตรงจุดตัดสินใจ: FSCA · MSB · MT5 · เอกสารบริษัท `[verify registry/wording]`.
 
 ### 6. StepProcess — `3-step` (open account)
 - `สมัคร + KYC` → `ทัก LINE OA ติดต่อ admin` → `เตรียม MT5 และอ่านความเสี่ยง`. CTA `เปิดบัญชี`.

@@ -57,7 +57,7 @@ Wireframes reference components like `[Hero / TerminalHero]` or `[FeatureGrid / 
 ---
 
 ## 2. RiskDisclosureBar `[compliance-bound]`
-**Purpose:** Mandatory risk warning, sticky above the fold — international-regulator convention (FCA/CySEC/ASIC).
+**Purpose:** Mandatory risk warning, sticky above the fold — standard broker-site convention.
 **Variants:** `Sticky` (top, above Navbar) · `Inline` (legal page, full text).
 **Anatomy:** amber shield icon · one-line risk warning · `อ่านเพิ่มเติม` link → `/legal/risk-disclosure`.
 **Copy (validated):** `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`
@@ -80,8 +80,8 @@ Wireframes reference components like `[Hero / TerminalHero]` or `[FeatureGrid / 
 ---
 
 ## 4. RegulatoryStrip (Logo Cloud variant) `[compliance-bound]`
-**Purpose:** Trust signal — regulators + platform badges. Replaces generic "brand partners" logo cloud.
-**Anatomy:** muted strip · label `กำกับดูแล & แพลตฟอร์ม` · badges: FSCA · CySEC · MSB · MetaTrader 5. License numbers `[verify]`.
+**Purpose:** Trust signal — registration/company documents + platform badges. Replaces generic "brand partners" logo cloud.
+**Anatomy:** muted strip · label `ข้อมูลให้ตรวจสอบก่อนเริ่ม` · badges: FSCA · MSB · MetaTrader 5 · เอกสารบริษัท. Registry wording and numbers `[verify]`.
 **Responsive collapse:** 4-across → 2×2 grid on phone; badges keep equal size.
 **Reuse:** Home, Why, Accounts.
 

@@ -2,7 +2,7 @@
 
 _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source-of-truth-2026-06-01.md`._
 
-> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `Trade Smarter Not Harder`: เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น, เข้าใจ Rebate $5/lot, เห็นความเสี่ยงที่ควรรู้ และมีทีมไทยช่วยตอบทาง LINE แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
+> **เป้าหมายของหน้า:** ภายใน 5 วินาทีแรก ต้องสื่อว่า `Trade Smarter Not Harder`: เทรดบน MT5 พร้อม Rebate $5/lot, เริ่มได้แบบ No Minimum, มีทีมไทย 24/7 ทาง LINE แล้วพาผู้ใช้ไปที่ **เปิดบัญชี** หรือ **ทัก LINE OA ติดต่อ admin**.
 > **CTA หลัก:** `เปิดบัญชี` · **CTA รอง:** `ทัก LINE OA ติดต่อ admin`
 > **ระดับเอฟเฟกต์:** เต็ม — ใช้ hero ที่ pin ตอน scroll และ layered parallax ได้ แต่ฐานต้องนิ่ง น่าเชื่อถือ และไม่กลบข้อความความเสี่ยง.
 > **Component ที่ใช้:** Navbar · RiskDisclosureBar · Hero/TerminalHero · RegulatoryStrip · FeatureGrid · MarketsTicker · AccountComparison(preview) · StepProcess · FeatureSplit · Stats(gated) · Testimonial(gated) · ArticleGrid(teaser) · FAQ · CTABanner · Footer · AIChatWidget
@@ -29,16 +29,16 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **ข้อความ (founder override — Angle 1):**
   - Eyebrow: `โบรกเกอร์ Forex/CFD เพื่อคนไทย`
   - H1: **`Trade Smarter Not Harder`**
-  - Subhead: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: Rebate $5/lot, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
-  - Risk note: `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง`
+  - Subhead: `เทรดบน MT5 พร้อม Rebate $5/lot, เริ่มได้แบบ No Minimum และมีทีมไทยคุยผ่าน LINE OA 24/7`
+  - Risk disclosure: `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`
   - Proof line: `เทรดบน MT5 · Rebate $5/lot · รายละเอียดบัญชี [verify]`
   - CTA หลัก: `เปิดบัญชี` · CTA รอง: `ทัก LINE OA ติดต่อ admin`
   - Device label: `ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง`
-- **เหตุผล UX:** ใช้ English headline สั้นแบบ campaign hook ที่ CEO/founder ชอบ แล้วให้ subhead ภาษาไทยขยาย value ที่ตรวจสอบได้: MT5, Rebate $5/lot, ความเสี่ยง และ LINE support.
+- **เหตุผล UX:** ใช้ English headline สั้นแบบ campaign hook ที่ CEO/founder ชอบ แล้วให้ subhead ภาษาไทยขยาย value ที่เข้าใจเร็ว: MT5, Rebate $5/lot, No Minimum และ Thai support 24/7.
 - **การตอบสนอง:** stack เป็น copy ก่อนภาพ; H1 จาก `56→34px`; CTA เต็มความกว้าง.
 
 ### 4. RegulatoryStrip — `Logo Cloud`
-- **โครง:** strip สี muted, มี label และ badge 4 ตัว: FSCA · MSB · MetaTrader 5 · เอกสารบริษัท. เพิ่ม CySEC เฉพาะเมื่อ registry proof พร้อม.
+- **โครง:** strip สี muted, มี label และ badge 4 ตัว: FSCA · MSB · MetaTrader 5 · เอกสารบริษัท. เพิ่ม regulator อื่นเฉพาะเมื่อ registry proof พร้อม.
 - **ข้อความ:** label `ข้อมูลให้ตรวจสอบก่อนเริ่ม` · `FSCA · MSB · MT5 · บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด [verify registry/เลขที่]`
 - **เหตุผล UX:** หลัง value claim ต้องรีบให้ proof เพื่อปิด objection เรื่องความน่าเชื่อถือก่อนที่ผู้ใช้จะสงสัย.
 - **การตอบสนอง:** เดสก์ท็อป 4 คอลัมน์; มือถือ เป็น grid 2×2.
@@ -90,11 +90,11 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 ### 9. FeatureSplit — `ImageRight` (Rebate program)
 - **โครง:** copy + bullets ทางซ้าย, visual ทางขวา.
 - **ข้อความ:**
-  - H2: `ได้หรือเสีย ก็ได้คืนทุก lot`
-  - Body: `Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร — เห็นชัด ไม่ต้องเดา`
-  - Bullets: `Lot ค้างอย่างน้อย 1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `ไม่ใช่สัญญากำไร — เป็นเงินคืนจากปริมาณการเทรด`
+  - H2: `ทุก lot ที่เข้าเงื่อนไข ได้ Rebate คืน`
+  - Body: `Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร และจ่ายเป็นรอบทุกวันจันทร์`
+  - Bullets: `Lot ค้างอย่างน้อย 1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `เป็นเงินคืนจากปริมาณการเทรด ไม่ใช่สัญญากำไร`
   - CTA: `ดูเงื่อนไข Rebate`
-- **เหตุผล UX:** Rebate เป็น hook หลัก แต่ต้องวางคู่กับ risk copy เพื่อไม่ให้ดูเหมือนสัญญากำไร.
+- **เหตุผล UX:** Rebate เป็น hook หลัก แต่ต้องอธิบาย mechanism ให้ชัดว่าเป็นเงินคืนจากปริมาณการเทรด ไม่ใช่ผลลัพธ์การลงทุน.
 - **การตอบสนอง:** stack และวาง visual ใต้ copy.
 
 ### 10. Stats — `3-col` `[GATED — disabled]`
@@ -112,7 +112,7 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 
 ### 13. FAQ — `Accordion` (top 5)
 - **โครง:** accordion 5 แถว + link `ยังมีคำถาม?` ไป Support.
-- **ข้อความ (validated):** `beston กำกับดูแลโดยใคร?` · `ฝากขั้นต่ำเท่าไร? [verify]` · `ใช้แพลตฟอร์มไหน?` (MT5) · `Rebate $5/lot คืออะไร?` · `ถอนเงินใช้เวลานานแค่ไหน? [verify]`
+- **ข้อความ (validated):** `beston กำกับดูแลโดยใคร?` · `ฝากขั้นต่ำเท่าไร?` (No Minimum confirmed) · `ใช้แพลตฟอร์มไหน?` (MT5) · `Rebate $5/lot คืออะไร?` · `ถอนเงินใช้เวลานานแค่ไหน? [verify]`
 - **เหตุผล UX:** ตอบ objection หลักก่อนผู้ใช้ bounce และรองรับ FAQPage JSON-LD.
 - **การตอบสนอง:** accordion เต็มความกว้าง, tap target อย่างน้อย 44px.
 

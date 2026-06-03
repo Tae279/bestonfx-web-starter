@@ -3,21 +3,21 @@
 > Editorial copy pass over the Framer × Fizens wireframes. Sources (verbatim): `docs/wireframes/pages/*.md` · `components.md` · `compliance-copy-rules.md`.
 > **Honest framing:** the existing wireframe copy is already solid and compliance-aware. This pass **sharpens weak headlines, removes one self-inflicted compliance risk, threads the transparency/rebate hook, and adds CTA microcopy** — it does not rewrite what already works. Slots marked **คงเดิม** are good as-is.
 > Per slot: **เดิม** (verbatim current) → **✅ ใหม่** (improved Thai) → _EN_ gloss → _ทำไม_.
-> **Locked facts (do not break):** lowercase **beston** in body · platform **MT5 only** · account types **Standard · Demo Account** · Rebate **$5/lot** ตาม T&C สำหรับ Standard ที่เข้าเงื่อนไข (ไม่ใช่สัญญากำไร) · regulators **FSCA · CySEC · MSB** `[verify license no.]` · Stats & Testimonials **GATED** (ห้ามตัวเลขปลอม) · ทุกตัวเลขที่ยังไม่ยืนยันติด `[verify]`.
+> **Locked facts (do not break):** lowercase **beston** in body · platform **MT5 only** · account types **Standard · Demo Account** · Rebate **$5/lot** สำหรับรายการที่เข้าเงื่อนไข (ไม่ใช่สัญญากำไร) · proof badges **FSCA · MSB · MT5 · เอกสารบริษัท** `[verify registry/wording]` · No Minimum confirmed · Thai Support 24/7 confirmed · Stats & Testimonials **GATED** (ห้ามตัวเลขปลอม) · ทุกตัวเลขที่ยังไม่ยืนยันติด `[verify]`.
 
 ---
 
 ## ⚠️ Top fix (high value) — Home hero proof line
 - เดิม: `100,000+ ผู้ใช้ลงทะเบียน [verify] · ถอนเงินได้ทุกวัน · MetaTrader 5`
-- ✅ ใหม่: `เทรดบน MetaTrader 5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]`
+- ✅ ใหม่: `MT5 · Rebate $5/lot · No Minimum · Thai Support 24/7`
 - _ทำไม:_ แบรนด์ตั้งกฎ Stats = **GATED จนกว่าจะยืนยัน** และชู "ไม่มีสถิติปลอม" เป็นจุดขาย — การโชว์ "100,000+ [verify]" ตั้งแต่ hero **ขัดกับตัวเอง** และเสี่ยงสุดในหน้า. แทนด้วย proof ที่ไม่ใส่ตัวเลขหรือ SLA จนกว่าจะยืนยันจริง.
 
 ---
 
 ## Big idea & positioning
 
-**Positioning:** *เทรดบนความจริง — โปร่งใสเรื่องต้นทุน คืน Rebate ทุก lot ดูแลโดยทีมไทย*
-**Why:** beston ชู honesty vs โบรกเกอร์ offshore ที่ขายฝัน. 3 เสาที่ทุกหน้าควรวน: **โปร่งใส · Rebate · ทีมไทย**. honesty คือ flex ที่ compliant แม้ข้อมูล regulatory ยัง `[verify]`.
+**Positioning:** *เทรดบนความจริง — Rebate ชัด เริ่มง่าย คุยกับทีมไทย*
+**Why:** beston ชู honesty vs โบรกเกอร์ offshore ที่ขายฝัน. 3 เสาที่ทุกหน้าควรวน: **Rebate $5/lot · No Minimum · Thai Support 24/7**. honesty คือ flex ที่ compliant แม้ registry wording ยัง `[verify]`.
 
 ## Voice & tone (8 rules)
 1. **ตรงไปตรงมา** — พูดที่ยืนยันได้ ระบุชัดเมื่อรอยืนยัน.
@@ -50,7 +50,7 @@
 - _ทำไม:_ "ทำไมต้อง beston" สั้น/พูดเหมือนคน > "เหตุผลที่เลือก" + ตรงกับ H-copy หน้านั้น. ปุ่ม `เปิดบัญชี` (blue) · `เข้าสู่ระบบ` คงเดิม.
 
 ### Footer `[compliance]`
-- ✅ Tagline ใต้โลโก้: `โบรกเกอร์ Forex/CFD ที่โปร่งใสเรื่องต้นทุน ดูแลโดยทีมไทย`
+- ✅ Tagline ใต้โลโก้: `Rebate $5/lot สำหรับรายการที่เข้าเงื่อนไข พร้อมทีมไทยทาง LINE และข้อมูลให้ตรวจสอบก่อนเริ่ม`
 - คงเดิม: full risk block · entity `บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด` · `111 ประดิษฐ์มนูธรรม แขวงลาดพร้าว กรุงเทพฯ 10230` · `support@bestonfx.com` · regulator line `[verify]`
 - ✅ Copyright: `© 2026 beston. สงวนลิขสิทธิ์`
 
@@ -67,7 +67,7 @@
 - _ทำไม:_ founder เลือก short English hook เพราะสั้น กระชับ impact คล้าย Fizens/finance-template rhythm. ให้ Thai subhead ทำหน้าที่ขยายความและคุม compliance.
 
 - Subhead เดิม: `เทรดกับ beston — รับ Rebate เงินคืน $5/lot · MT5 · ซัพพอร์ตผ่าน LINE`
-- ✅ ใหม่: `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
+- ✅ ใหม่: `เทรดบน MT5 พร้อม Rebate $5/lot, เริ่มได้แบบ No Minimum และมีทีมไทยคุยผ่าน LINE OA 24/7`
 - _ทำไม:_ headline เป็น hook กว้างได้ แต่ subhead ต้องทำให้คำว่า smarter หมายถึงข้อมูลที่ตรวจสอบได้ ไม่ใช่ผลลัพธ์การเทรด.
 
 - Proof line: **ดู ⚠️ Top fix ด้านบน**
@@ -76,12 +76,15 @@
 
 ### RegulatoryStrip
 - เดิม: label `กำกับดูแล & แพลตฟอร์ม` · `ใบอนุญาต FSCA เลขที่ [verify]`
-- ✅ ใหม่ label: `ดำเนินงานภายใต้การกำกับดูแล` (badges FSCA · CySEC · MSB · MT5, เลขที่ `[verify]`)
+- ✅ ใหม่ label: `ข้อมูลให้ตรวจสอบก่อนเริ่ม` (badges FSCA · MSB · MT5 · เอกสารบริษัท, registry wording `[verify]`)
 
-### FeatureGrid — trust pillars (header `ทำไมต้อง beston`) `[คงเดิม — ดีแล้ว]`
-- `ความโปร่งใส` — ✅ ปรับเล็ก: `เห็นค่าธรรมเนียมและสเปรดจริงบน MT5 ก่อนเปิดออเดอร์` (เดิม: `ค่าธรรมเนียมและสเปรดชัดเจน ตรวจสอบได้บน MT5`)
-- `ความเสี่ยงมาก่อน` — `เราเตือนความเสี่ยงตรงไปตรงมา ไม่ขายฝันกำไรเกินจริง` **คงเดิม (ยอด)**
-- `ดูแลแบบไทย` — `ทีมซัพพอร์ตภาษาไทยผ่าน ทัก LINE OA ติดต่อ admin` **คงเดิม**
+### WhyBestonBento — header `ทำไมต้อง beston`
+- `Cash Back` — `รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์`
+- `No Minimum` — `เริ่มจาก Demo หรือบัญชีจริงได้โดยไม่มีขั้นต่ำ เลือกทุนตามระดับความเสี่ยงที่รับได้`
+- `Thai Support 24/7` — `คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา`
+- `Flexible Leverage` — `ปรับเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว [verify]`
+- `Fast Execution` — `ส่งคำสั่งบน MT5 ได้รวดเร็ว ลดจังหวะพลาดช่วงตลาดเคลื่อนไหวแรง [verify benchmark]`
+- `License & Registration` — `มีเอกสาร FSCA/MSB และข้อมูลบริษัทให้ตรวจสอบก่อนตัดสินใจ [verify registry/wording]`
 
 ### MarketsTicker — `ตัวอย่าง — ไม่ใช่ราคาจริง` `[คงเดิม]`
 
@@ -94,10 +97,10 @@
 
 ### FeatureSplit — Rebate (core USP)
 - H2 เดิม: `Rebate เงินคืน $5 ต่อ lot`
-- ✅ ใหม่ H2: **`คืน Rebate $5 ต่อ lot ทุกการเทรด แม้วันที่ขาดทุน`**
-- _EN:_ $5 rebate per lot on every trade — even on losing days.
-- _ทำไม:_ rebate คิดจาก volume ไม่ใช่ผลกำไร → "แม้วันที่ขาดทุน" เป็นจริงและทรงพลัง + ตอกย้ำว่าเป็นเงินคืนต้นทุน (compliant).
-- Body + bullets **คงเดิม** (T&C จริง): `จ่ายทุกวันจันทร์ 12:00 (GMT+7)` · `Lot ค้าง ≥1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `ไม่ใช่สัญญากำไร — เป็นเงินคืนตาม T&C` · CTA `ดูเงื่อนไข Rebate`
+- ✅ ใหม่ H2: **`ทุก lot ที่เข้าเงื่อนไข ได้ Rebate คืน`**
+- _EN:_ Every eligible lot earns rebate.
+- _ทำไม:_ rebate คิดจาก volume ไม่ใช่ผลกำไร จึงต้องเล่าเป็น mechanism ไม่ใช่ผลลัพธ์การลงทุน.
+- Body + bullets: `Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร และจ่ายเป็นรอบทุกวันจันทร์` · `Lot ค้าง ≥1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · `ไม่ใช่สัญญากำไร — เป็นเงินคืนจากปริมาณการเทรด` · CTA `ดูเงื่อนไข Rebate`
 
 ### Stats / Testimonial — `[GATED — ปิดไว้]` ห้ามใส่ตัวเลข/รีวิวปลอม
 
@@ -119,12 +122,12 @@
 - CTA `เปิดบัญชี` · `ดูข้อมูลใบอนุญาต` **คงเดิม**
 
 ### FeatureSplit — Regulation `[คงเดิม]`
-- H2 `กำกับดูแลภายใต้มาตรฐานสากล` · body `beston ดำเนินงานภายใต้การกำกับของ FSCA และมาตรฐาน AML/KYC` · bullets FSCA/CySEC `[verify]` + AML/KYC · CTA `ดูเอกสารใบอนุญาต`
+- H2 `เอกสารบริษัทและข้อมูลให้ตรวจสอบ` · body `beston แสดงเอกสาร FSCA/MSB และข้อมูลบริษัทสำหรับตรวจสอบก่อนตัดสินใจ` · bullets FSCA `[verify]` · MSB registration `[verify]` · AML/KYC · CTA `ดูเอกสารบริษัท`
 
 ### FeatureSplit — Transparency
 - H2 เดิม: `ค่าธรรมเนียมที่คุณตรวจสอบได้เอง` **คงเดิม (ดี)**
 - Body `สเปรดและค่าธรรมเนียมแสดงบน MT5 แบบเรียลไทม์ ไม่มีค่าซ่อนเร้น` **คงเดิม**
-- bullets คงเดิม: `สเปรดลอยตัว ดูได้บน MT5` · `เงื่อนไข Rebate เปิดเผยเต็ม T&C` · `ถอนเงินได้ทุกวัน [verify SLA]`
+- bullets คงเดิม: `สเปรดลอยตัว ดูได้บน MT5` · `เงื่อนไข Rebate อธิบายแยกเป็นข้อ` · `ถอนเงินได้ทุกวัน [verify SLA]`
 
 ### FeatureGrid — Thai-first (`ดูแลแบบเข้าใจคนไทย`) `[คงเดิม]`
 - `ซัพพอร์ตภาษาไทยผ่าน LINE` · `ฝาก/ถอนช่องทางไทย [verify]` · `เนื้อหาให้ความรู้ภาษาไทย`
@@ -140,7 +143,7 @@
 - H1 เดิม: `ตลาดทั่วโลก ในที่เดียว`
 - ✅ ใหม่ H1: **`เทรดตลาดที่คุณถนัด ครบในที่เดียว`**
 - _ทำไม:_ "ตลาดทั่วโลก ในที่เดียว" generic โบรกเกอร์ → ทำเป็น user-centric.
-- Sub เดิม: `Forex, โลหะมีค่า, ดัชนีหุ้นโลก, น้ำมัน และคริปโต — เทรดผ่าน MT5` **คงเดิม** · CTA `เปิดบัญชี` · `ดูสเปรดสดบน MT5`
+- Sub ใหม่: `รองรับ FX, ทอง, ดัชนี, น้ำมัน และคริปโตบน MT5 พร้อมข้อมูลตัวอย่างที่แยกจากราคา real-time` · CTA `เปิดบัญชี` · `ดูเงื่อนไขบน MT5`
 
 ### FeatureGrid — asset classes `[คงเดิม — concrete ดี]`
 - `Forex` คู่เงินหลัก/รอง `[verify จำนวน]` · `โลหะมีค่า` (XAUUSD, XAGUSD) · `ดัชนีหุ้นโลก` (US30, NAS100) · `พลังงาน` (USOIL) · `คริปโต` (BTCUSD)
@@ -148,7 +151,7 @@
 ### FeatureSplit — trading conditions
 - H2 เดิม: `เงื่อนไขการเทรด`
 - ✅ ใหม่ H2: `เห็นเงื่อนไขจริงก่อนเปิดออเดอร์`
-- Body `สเปรดลอยตัวตามตลาด ตรวจสอบสดบน MT5 ก่อนเปิดออเดอร์` **คงเดิม** · bullets `สเปรด [verify]` · `Leverage 1:50–1:1000 [verify]` · `MetaTrader 5`
+- Body `สเปรดและเงื่อนไขการเทรดลอยตัวตามตลาด ตรวจสอบบน MT5 ก่อนเปิดออเดอร์` · bullets `สเปรด [verify]` · `Leverage 1:50–1:1000 [verify]` · `MetaTrader 5`
 
 ### CTABanner
 - H2 เดิม: `เริ่มเทรดตลาดที่คุณถนัด` **คงเดิม** · `เปิดบัญชี` · `ทัก LINE OA ติดต่อ admin`
@@ -162,7 +165,7 @@
 - ✅ ใหม่ Sub: `มีแค่ 2 ทางเลือก: Standard สำหรับเทรดจริง และ Demo Account สำหรับลองระบบด้วยเงินจำลอง`
 
 ### AccountComparison full (Standard · Demo Account)
-- Standard: `เทรดจริงบน MT5 พร้อม Rebate $5/lot ตาม T&C` · rows `[verify]`: `Spread` · `Commission` · `Leverage` · `แพลตฟอร์ม MT5` · CTA `เปิดบัญชี`
+- Standard: `เทรดจริงบน MT5 พร้อม Rebate $5/lot สำหรับรายการที่เข้าเงื่อนไข` · rows `[verify]`: `Spread` · `Commission` · `Leverage` · `แพลตฟอร์ม MT5` · CTA `เปิดบัญชี`
 - Demo Account: `ลองระบบ ฝึกวางออเดอร์ และทำความคุ้นเคยกับ MT5 ด้วยเงินจำลอง` · rows `[verify]`: `เงินจำลอง` · `สภาพแวดล้อมทดลอง` · `ไม่มี Rebate` · `แพลตฟอร์ม MT5` · CTA `ทัก LINE OA ติดต่อ admin`
 
 ### FeatureGrid — account benefits
@@ -177,14 +180,14 @@
 
 ### Hero (CenteredHero)
 - H1 เดิม: `เครื่องมือที่ช่วยให้คุณเทรดอย่างมั่นใจ`
-- ✅ ใหม่ H1: **`เห็นต้นทุนและความเสี่ยง ก่อนกดเทรด`**
+- ✅ ใหม่ H1: **`MT5 และเครื่องมือคำนวณ ก่อนวางแผนเทรด`**
 - _ทำไม:_ "เทรดอย่างมั่นใจ" คลุมเครือ + เฉียด over-promise → ทำให้เป็นประโยชน์รูปธรรมที่ tool ทำได้จริง.
 - Sub เดิม: `MetaTrader 5 พร้อมเครื่องคำนวณ Rebate, Pip และ Margin` **คงเดิม** · CTA `เปิดบัญชี` · `ดาวน์โหลด MT5`
 
 ### FeatureGrid — MT5 ทุกอุปกรณ์ `[คงเดิม]` (Desktop/Mobile/Web `[verify]`)
 
 ### Calculator — RebateEstimator `[คงเดิม]`
-- result `เงินคืนโดยประมาณ` · disclaimer `ผลลัพธ์เป็นการประมาณการตาม T&C ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
+- result `เงินคืนโดยประมาณ` · disclaimer `ผลลัพธ์เป็นการประมาณการสำหรับรายการที่เข้าเงื่อนไข ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
 
 ### Calculator — PipCalculator — disclaimer `ใช้เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน` `[คงเดิม]`
 
@@ -251,15 +254,15 @@
 
 ### LegalBody `[คงเดิม — โครงสร้างถูกต้อง]`
 - Mandatory: `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`
-- 7 sections: ลักษณะความเสี่ยง · Leverage · สภาพคล่อง/ความผันผวน · ไม่รับประกันผลกำไร · ความเหมาะสม · กำกับดูแล (FSCA/CySEC `[verify]`) · ติดต่อ/ร้องเรียน (`support@bestonfx.com`)
+- 7 sections: ลักษณะความเสี่ยง · Leverage · สภาพคล่อง/ความผันผวน · ไม่รับประกันผลกำไร · ความเหมาะสม · การกำกับดูแลและเขตอำนาจ `[verify registry/wording]` · ติดต่อ/ร้องเรียน (`support@bestonfx.com`)
 - _Note:_ เนื้อหากฎหมายฉบับเต็มรอทีม Legal `[verify]`. AIChatWidget **OFF** บนหน้านี้.
 
 ---
 
 ## [NEEDS INPUT] — ยืนยันก่อน publish (จาก compliance-copy-rules)
-- ใบอนุญาต + เลขที่ FSCA / CySEC / MSB + entity wording — Legal
+- ใบอนุญาต/ทะเบียน FSCA/MSB + entity wording — Legal
 - Spread / Commission / Leverage สำหรับ Standard และเงื่อนไข Demo Account — Ops
-- Rebate $5/lot: ยืนยันอัตรา + eligibility + T&C ฉบับเต็ม — Ops
+- Rebate $5/lot: ยืนยันอัตรา + eligibility + เงื่อนไขฉบับเต็ม — Ops
 - ช่องทางฝาก-ถอน + SLA "ถอนทุกวัน" — Ops/Finance
 - fund segregation (เงินทุนแยกบัญชี) ยืนยันได้แค่ไหน — Legal/Finance
 - อัตรา + รอบจ่ายคอมมิชชัน IB — Ops

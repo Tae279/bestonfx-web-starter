@@ -2,7 +2,7 @@
 
 > Bold, conversion-first copy for the Framer site. Sibling of `copy-deck-v2.md` (calm/compliance baseline).
 > **Pass:** elegant Thai (สั้น · โดน · คล้องจอง คำคู่ขนาน) + English gloss. Punch = ความจริงที่เฉพาะเจาะจง + honesty-contrast + จังหวะ — ไม่ใช่คำโม้.
-> **Locked facts:** beston ตัวเล็ก · MT5 only · account types Standard·Demo Account · Rebate $5/lot ตาม T&C สำหรับ Standard ที่เข้าเงื่อนไข (ไม่ใช่สัญญากำไร) · FSCA·CySEC·MSB `[verify]` · Stats/Testimonials GATED · ทุกตัวเลขไม่ยืนยันติด `[verify]`.
+> **Locked facts:** beston ตัวเล็ก · MT5 only · account types Standard·Demo Account · Rebate $5/lot สำหรับรายการที่เข้าเงื่อนไข (ไม่ใช่สัญญากำไร) · FSCA·MSB `[verify registry/wording]` · Stats/Testimonials GATED · ทุกตัวเลขไม่ยืนยันติด `[verify]`.
 > _EN lines = for stakeholder review only. Production = Thai._
 
 ---
@@ -10,12 +10,13 @@
 ## 🎯 Campaign spine
 
 **Tagline:** **`เทรดบนความจริง`** · _EN: Trade on what's real._
-**The one idea:** คู่แข่งขายฝัน — beston ขายความจริง. ทุก headline วน 3 ความจริงที่ตรวจสอบได้: **เห็นต้นทุน · คืน Rebate ทุก lot · ทีมไทยตอบเอง**.
+**The one idea:** คู่แข่งขายฝัน — beston ขายความจริง. ทุก headline วน 3 ความจริงที่ตรวจสอบได้: **Rebate $5/lot ชัด · เริ่มฟรีไม่ต้องเสี่ยง · ทีมไทยตอบเอง**.
+> **Positioning lock (2026-06-03, grilled):** primary visitor = lead ที่ถูก IB/เพื่อนชวนมา กำลังเช็ค trust ก่อนฝากเงิน · #1 fear = โดนโกง/ถอนไม่ได้ · กลไก trust = **ลด commitment** (เริ่มได้แบบ No Minimum) · hook = **Rebate $5/lot** (confirmed, ชูความชัด ไม่ใช่ "สูงสุด %") · CTA: ทัก LINE → Demo → เปิดจริง (deferred).
 
 ### Benchmark — คู่แข่งพูดอะไร แล้ว beston ต่างยังไง
 | Broker | มุม hero ของเขา | ช่องที่ beston เจาะ |
 |---|---|---|
-| Exness (แรงในไทย) | เชื่อถือได้ · ถอนเร็ว · เงินคืนทุกวัน % | beston ชู "$5/lot ชัด" + "เห็นต้นทุนจริง" |
+| Exness (แรงในไทย) | เชื่อถือได้ · ถอนเร็ว · เงินคืนทุกวัน % | beston ชู "$5/lot ชัด" + "เริ่มฟรี ไม่ต้องฝากก่อน" |
 | XM | "ใหญ่พอจะสำคัญ" + อันดับโลก | ไม่อ้างอันดับ → "เราโชว์ตัวเลขจริง" |
 | IC Markets | "#1 · spread 0.0 pips · <40ms" | ไม่อ้าง #1 → honesty edge + Rebate |
 | Pepperstone TH | "ที่ดีกว่า · 0.0 จุด · copy trading" | ชู Rebate + ทีมไทยตอบเอง |
@@ -44,7 +45,7 @@
 
 # SHARED
 - **RiskBar** `[คงเดิมเป๊ะ — legal]`: `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`
-- **Footer tagline:** `โบรกเกอร์ที่โชว์ต้นทุนจริง คืน Rebate ทุก lot ดูแลโดยทีมไทย` · _EN: The broker that shows real costs, returns rebate on every lot, cared for by a Thai team._ · entity/address/`support@bestonfx.com`/risk block คงเดิม · `© 2026 beston. สงวนลิขสิทธิ์`
+- **Footer tagline:** `โบรกเกอร์ที่คืน Rebate ชัดทุก lot เริ่มฟรีไม่ต้องเสี่ยง ดูแลโดยทีมไทย` · _EN: The broker that returns a clear rebate on every lot, free to start, cared for by a Thai team._ · entity/address/`support@bestonfx.com`/risk block คงเดิม · `© 2026 beston. สงวนลิขสิทธิ์`
 - **AIChat label** `ผู้ช่วยอัตโนมัติ — ไม่ใช่คำแนะนำการลงทุน` `[คงเดิม]`
 
 ---
@@ -56,20 +57,25 @@
 **🔥 H1 (founder override):** **`Trade Smarter Not Harder`**
 - _TH expansion:_ เทรดให้ฉลาดขึ้น = เห็นข้อมูลสำคัญก่อนเริ่ม ไม่ใช่สัญญาผลลัพธ์.
 - Render note: วางเป็น 2 บรรทัดใน Framer ได้ (`Trade Smarter` / `Not Harder`) ถ้าช่วย rhythm บน hero.
-**Subhead:** `เทรดบน MT5 ด้วยข้อมูลที่ชัดเจนขึ้น: ต้นทุน, Rebate ตาม T&C, ความเสี่ยงที่ควรรู้ และทีมไทยที่คุยผ่าน LINE OA ได้`
-- _EN:_ Trade on MT5 with clearer information: costs, Rebate by T&C, key risk notes, and Thai LINE support.
-**Risk note:** `การเทรดมีความเสี่ยง — เราอยากให้คุณรู้ก่อน ไม่ใช่รู้ทีหลัง` · _EN: Trading carries risk — we'd rather you know first, not after._
-**Proof line:** `เทรดบน MT5 · Rebate ตาม T&C · รายละเอียดบัญชี [verify]` _(ห้ามใส่ "100,000+" — no fake stats)_
+**Subhead:** `เทรดบน MT5 พร้อม Rebate $5/lot, เริ่มได้แบบ No Minimum และมีทีมไทยคุยผ่าน LINE OA 24/7`
+- _EN:_ Trade on MT5 with $5/lot Rebate, No Minimum start, and Thai support on LINE OA 24/7.
+**Risk disclosure:** `Forex/CFD และ Leverage มีความเสี่ยงสูง อาจทำให้สูญเสียเงินลงทุน โปรดศึกษาข้อมูลและความเสี่ยงก่อนตัดสินใจ`
+**Proof line:** `MT5 · Rebate $5/lot · No Minimum · Thai Support 24/7` _(ห้ามใส่ "100,000+" — no fake stats)_
 **CTA:** `เปิดบัญชี` (`เริ่มวันนี้ ใน 5 นาที`) · `ทัก LINE OA ติดต่อ admin`
 **Device label:** `ตัวอย่างแดชบอร์ด — ไม่ใช่ข้อมูลจริง`
 
 ### RegulatoryStrip
-`ดำเนินงานภายใต้การกำกับดูแล` — FSCA · CySEC · MSB · MT5 `[verify เลขที่]`
+`ข้อมูลให้ตรวจสอบก่อนเริ่ม` — FSCA · MSB · MT5 · บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด `[verify registry/เลขที่]`
 
-### Trust pillars (`ทำไมต้อง beston`) — คำคู่ขนาน 3 จังหวะ
-- **เห็นทุกต้นทุน** — `เปิด MT5 ดูเองได้ทุกบาท ไม่มีค่าที่ซ่อน` · _EN: Open MT5 and see every baht — nothing hidden._
-- **เตือนก่อนเสี่ยง** — `เราบอกความเสี่ยงก่อน ไม่ใช่ตอนสายเกินไป` · _EN: We flag the risk first, not too late._
-- **ดูแลด้วยใจ** — `ทัก LINE OA ติดต่อ admin ทีมไทยตอบเอง` · _EN: Message us on ทัก LINE OA ติดต่อ admin— a real Thai team replies._ _(ตัด "ไม่ใช่บอท" — เลี่ยงขัดกับ AIChatWidget)_
+### Why beston Bento (`ทำไมต้อง beston`)
+- **Cash Back** — `รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์` · _EN: $5/lot cash back for eligible trading volume, paid every Monday._
+- **No Minimum** — `เริ่มจาก Demo หรือบัญชีจริงได้โดยไม่มีขั้นต่ำ เลือกทุนตามระดับความเสี่ยงที่รับได้` · _EN: Start with Demo or a live account with no minimum._
+- **Thai Support 24/7** — `คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา` · _EN: Thai support on LINE OA for account, documents, MT5, and rebate questions 24/7._
+- **Flexible Leverage** — `ปรับเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว [verify]`
+- **Fast Execution** — `ส่งคำสั่งบน MT5 ได้รวดเร็ว ลดจังหวะพลาดช่วงตลาดเคลื่อนไหวแรง [verify benchmark]`
+- **License & Registration** — `มีเอกสาร FSCA/MSB และข้อมูลบริษัทให้ตรวจสอบก่อนตัดสินใจ [verify registry/wording]`
+
+> Risk disclosure เป็น legal line แยกจาก benefit card; `[verify]` ทุกตัวเลขที่ยังไม่มีหลักฐาน และไม่ใส่ fake stats/testimonials.
 
 ### MarketsGrid — **`ทุกตลาดที่คุณอยากเทรด ครบในที่เดียว`** · _EN: Every market you want, in one place._ · ticker label `ตัวอย่าง — ไม่ใช่ราคาจริง`
 
@@ -80,12 +86,12 @@ H2 `เลือกบัญชีง่าย ๆ แค่ 2 แบบ` · _EN
 `สมัคร + KYC` → `ทัก LINE OA ติดต่อ admin` → `เตรียม MT5 และอ่านความเสี่ยง` · CTA `เปิดบัญชี`
 
 ### Rebate (USP) 🔥
-**H2 (locked):** **`ได้หรือเสีย ก็ได้คืนทุก lot`** · _EN: Win or lose, you get rebate on every lot._
-- ⚠ **compliance-watch:** วาง risk line/`ไม่ใช่สัญญากำไร` ติดกันเสมอ. **safer alt** (ถ้า Legal ค้าน): `ทุก lot ที่เทรด ได้ Rebate คืน`
+**H2 (locked):** **`ทุก lot ที่เข้าเงื่อนไข ได้ Rebate คืน`** · _EN: Every eligible lot earns rebate._
+- ⚠ **compliance-watch:** วาง `ไม่ใช่สัญญากำไร` ติดกันเสมอ.
 - ทางเลือก: `Rebate $5/lot ชัดๆ — ไม่ใช่ % ที่ต้องนั่งเดา`
-**Sub:** `Rebate $5 ต่อ lot คิดจากการเทรด ไม่ใช่ผลกำไร — เห็นชัด ไม่ต้องเดา (ตาม T&C ไม่ใช่สัญญากำไร)`
-- _EN:_ $5 rebate per lot, based on trading volume — not profit. Clear, no guessing (per T&C, not a profit promise).
-Bullets `[T&C จริง]`: `จ่ายทุกวันจันทร์ 12:00 (GMT+7)` · `Lot ค้าง ≥1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `ดูเงื่อนไข Rebate`
+**Sub:** `Rebate $5 ต่อ lot คิดจากปริมาณการเทรด ไม่ใช่ผลกำไร และจ่ายเป็นรอบทุกวันจันทร์`
+- _EN:_ $5 rebate per lot, based on trading volume, not profit, paid every Monday.
+Bullets: `จ่ายทุกวันจันทร์` · `Lot ค้าง ≥1 นาที` · `BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `ดูเงื่อนไข Rebate`
 
 ### Stats/Testimonial `[GATED — ปิด]`
 ### ArticleGrid teaser — `ความรู้ที่ใช้ได้จริง ก่อนเสียเงินจริง` · _EN: Knowledge you can use, before money's on the line._
@@ -104,10 +110,10 @@ Bullets `[T&C จริง]`: `จ่ายทุกวันจันทร์ 
 - CTA `เปิดบัญชี` · `ดูข้อมูลใบอนุญาต`
 
 ### Regulation 🔥
-**H2:** `กำกับดูแลจริง ตรวจสอบได้จริง` · _EN: Truly regulated. Truly verifiable._ · body `beston ดำเนินงานภายใต้การกำกับของ FSCA และมาตรฐาน AML/KYC` · bullets FSCA/CySEC `[verify]` + AML/KYC · CTA `ดูเอกสารใบอนุญาต`
+**H2:** `ข้อมูลบริษัทและเอกสารให้ตรวจสอบ` · _EN: Company and registration documents to review._ · body `beston แสดงเอกสาร FSCA/MSB และข้อมูลบริษัทสำหรับตรวจสอบก่อนตัดสินใจ` · bullets FSCA/MSB `[verify registry/wording]` + AML/KYC · CTA `ดูเอกสารบริษัท`
 
 ### Transparency 🔥
-**H2:** `อยากรู้ต้นทุน? เปิด MT5 ดูเลย` · _EN: Want to know the cost? Open MT5 and see._ · body `สเปรดและค่าธรรมเนียมแสดงสดบน MT5 ไม่มีค่าซ่อนเร้น`
+**H2:** `อยากรู้ค่าธรรมเนียม? เปิด MT5 ดูเลย` · _EN: Want to see the fees? Open MT5._ · body `สเปรดและค่าธรรมเนียมแสดงสดบน MT5 ไม่มีค่าซ่อนเร้น` _(supporting line — ไม่ใช่ pillar; transparency เป็นของแถม ไม่ใช่จุดขายหลัก)_
 
 ### Thai-first
 **H2:** `ดูแลด้วยภาษาที่คุณเข้าใจ` · _EN: Care, in the language you speak._ · cards `ซัพพอร์ตไทยผ่าน LINE` · `ฝาก/ถอนช่องทางไทย [verify]` · `เนื้อหาความรู้ภาษาไทย`
@@ -122,7 +128,7 @@ Bullets `[T&C จริง]`: `จ่ายทุกวันจันทร์ 
 ### Hero
 **🔥 H1:** **`ตลาดที่คุณอยากเทรด ครบในที่เดียว`** · _EN: Every market you want, in one place._
 - ทางเลือก: `FX · ทอง · ดัชนี · น้ำมัน · คริปโต — ครบบน MT5`
-**Sub:** `เทรดทุกตลาดบนแพลตฟอร์มเดียว เห็นสเปรดก่อนกด` · _EN: Trade every market on one platform — see the spread before you click._ · CTA `เปิดบัญชี` · `ดูสเปรดสดบน MT5`
+**Sub:** `รองรับ FX, ทอง, ดัชนี, น้ำมัน และคริปโตบน MT5 พร้อมข้อมูลตัวอย่างที่แยกจากราคา real-time` · _EN: FX, gold, indices, oil, and crypto on MT5, with sample data clearly separated from real-time prices._ · CTA `เปิดบัญชี` · `ดูเงื่อนไขบน MT5`
 
 ### Asset classes `[คงเดิม]` (Forex `[verify]` · XAUUSD/XAGUSD · US30/NAS100 · USOIL · BTCUSD)
 ### Trading conditions 🔥
@@ -138,7 +144,7 @@ Bullets `[T&C จริง]`: `จ่ายทุกวันจันทร์ 
 **Sub:** `มีแค่ 2 ทางเลือก: Standard สำหรับเทรดจริง และ Demo Account สำหรับลองระบบด้วยเงินจำลอง` · _EN: Two paths only: Standard for live trading, Demo Account for practicing with virtual funds._
 
 ### AccountComparison full (Standard·Demo Account)
-**Standard:** `เทรดจริงบน MT5 พร้อม Rebate $5/lot ตาม T&C` · rows `[verify]`: Spread · Commission · Leverage · MT5 · CTA `เปิดบัญชี`
+**Standard:** `เทรดจริงบน MT5 พร้อม Rebate $5/lot สำหรับรายการที่เข้าเงื่อนไข` · rows `[verify]`: Spread · Commission · Leverage · MT5 · CTA `เปิดบัญชี`
 **Demo Account:** `ลองระบบ ฝึกวางออเดอร์ และทำความคุ้นเคยกับ MT5 ด้วยเงินจำลอง` · rows `[verify]`: สภาพแวดล้อมทดลอง · ไม่มี Rebate · MT5 · CTA `ทัก LINE OA ติดต่อ admin`
 
 ### Account benefits — `เงื่อนไขบัญชีไม่ซับซ้อน` · `ทีมไทยตอบเองทาง LINE` · `Rebate $5/lot สำหรับ Standard ที่เข้าเงื่อนไข`
@@ -156,7 +162,7 @@ Bullets `[T&C จริง]`: `จ่ายทุกวันจันทร์ 
 
 ### MT5 ทุกอุปกรณ์ `[คงเดิม]`
 ### RebateEstimator 🔥
-heading `ลองดู Rebate ของคุณได้คืนเท่าไร` · _EN: See how much rebate you'd get back._ · result `เงินคืนโดยประมาณ` · disclaimer `ประมาณการตาม T&C ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
+heading `ลองดู Rebate ของคุณได้คืนเท่าไร` · _EN: See how much rebate you'd get back._ · result `เงินคืนโดยประมาณ` · disclaimer `ประมาณการสำหรับรายการที่เข้าเงื่อนไข ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
 ### PipCalculator — disclaimer `ใช้เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน` `[คงเดิม]`
 ### CTABanner `อยากลองเครื่องมือก่อนเริ่มจริง?` · _EN: Explore the tools with Thai support._ · `เปิดบัญชี` · `ทัก LINE OA ติดต่อ admin`
 
@@ -202,4 +208,4 @@ disclaimer `ตัวเลขเป็นการประมาณการ �
 ---
 
 ## [NEEDS INPUT]
-ใบอนุญาต FSCA/CySEC/MSB · spread/commission/leverage/ฝากขั้นต่ำ ต่อ tier · ชื่อ tier ที่ 3 · Rebate $5/lot eligibility + T&C + รอบจ่าย (รายวันได้ไหม) · ช่องทาง+SLA ถอน · fund segregation · อัตรา/รอบจ่าย IB · LINE OA URL+QR+เวลาทำการ · จำนวนสินทรัพย์ · Swap-Free eligibility · MT5 download links + EA · live feed source · (ถ้าจะเปิด Stats) ตัวเลขจริง + testimonials · Risk/Terms/Privacy ฉบับเต็ม
+ใบอนุญาต/ทะเบียน FSCA/MSB · spread/commission/leverage ต่อ tier · Rebate $5/lot eligibility + รอบจ่าย · ช่องทาง+SLA ถอน · fund segregation · อัตรา/รอบจ่าย IB · LINE OA URL+QR · จำนวนสินทรัพย์ · Swap-Free eligibility · MT5 download links + EA · live feed source · (ถ้าจะเปิด Stats) ตัวเลขจริง + testimonials · Risk/Terms/Privacy ฉบับเต็ม

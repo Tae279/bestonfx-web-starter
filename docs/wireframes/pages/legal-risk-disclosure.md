@@ -31,7 +31,7 @@
   3. `ความเสี่ยงด้านสภาพคล่องและความผันผวน`
   4. `ไม่มีการรับประกันผลกำไร` — ต้องมี no-guarantee statement ชัดเจน
   5. `ความเหมาะสมของนักลงทุน` — ไม่เหมาะกับทุกคน
-  6. `การกำกับดูแลและเขตอำนาจ` — FSCA/CySEC `[verify license numbers]`
+  6. `การกำกับดูแลและเขตอำนาจ` — FSCA/MSB `[verify registry numbers and wording]`
   7. `ข้อมูลติดต่อและการร้องเรียน` — `support@bestonfx.com`
 - **เหตุผล UX:** numbered + anchored + complete ทำให้เอกสารป้องกันความเสี่ยงทางกฎหมายได้ดีขึ้นและให้ข้อมูลจริงกับผู้ใช้.
 - **การตอบสนอง:** readable column เต็มความกว้าง; TOC ยุบเป็น sticky dropdown บนมือถือ.

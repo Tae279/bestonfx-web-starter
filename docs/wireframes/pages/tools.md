@@ -30,7 +30,7 @@
 
 ### 5. Calculator — `RebateEstimator` ⭐
 - **โครง:** input (จำนวน lot/เดือน · สินทรัพย์) → live result (เงินคืนโดยประมาณ) → disclaimer → CTA.
-- **ข้อความ:** heading `ลองดู Rebate ของคุณได้คืนเท่าไร` · result label `เงินคืนโดยประมาณ` · disclaimer `ประมาณการตาม T&C ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
+- **ข้อความ:** heading `ลองดู Rebate ของคุณได้คืนเท่าไร` · result label `เงินคืนโดยประมาณ` · disclaimer `ประมาณการสำหรับรายการที่เข้าเงื่อนไข ไม่ใช่การการันตี · BTCUSD/US30/USOIL คิด lot ÷ 10` · CTA `เปิดบัญชีเพื่อรับ Rebate`
 - **เหตุผล UX:** ตัวเลขส่วนบุคคลทำให้ผู้ใช้เข้าใจ value ของ Rebate ได้เร็ว แต่ต้องย้ำว่าเป็นประมาณการ ไม่ใช่ guarantee.
 - **การตอบสนอง:** เดสก์ท็อป วางคู่กัน; มือถือ stack เป็นแนวตั้ง และ result panel ต้องเห็นง่าย.
 

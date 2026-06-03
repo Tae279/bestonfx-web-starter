@@ -25,6 +25,9 @@ docs/wireframes/generated/
 docs/wireframes/snapshots/
 assets/generated/
 
+# Local brand/logo dumps. Curated Framer-ready files live in assets/framer-ready/.
+assets/logos/
+
 # Heavy reference / snapshot images (share outside git) — keep public/ & src/ images
 docs/**/*.png
 assets/**/*.png

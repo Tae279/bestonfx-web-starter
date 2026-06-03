@@ -38,8 +38,8 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **การตอบสนอง:** stack เป็น copy ก่อนภาพ; H1 จาก `56→34px`; CTA เต็มความกว้าง.
 
 ### 4. RegulatoryStrip — `Logo Cloud`
-- **โครง:** strip สี muted, มี label และ badge 4 ตัว: FSCA · CySEC · MSB · MetaTrader 5.
-- **ข้อความ:** label `ดำเนินงานภายใต้การกำกับดูแล` · `FSCA · CySEC · MSB · MT5 [verify เลขที่]`
+- **โครง:** strip สี muted, มี label และ badge 4 ตัว: FSCA · MSB · MetaTrader 5 · เอกสารบริษัท. เพิ่ม CySEC เฉพาะเมื่อ registry proof พร้อม.
+- **ข้อความ:** label `ข้อมูลให้ตรวจสอบก่อนเริ่ม` · `FSCA · MSB · MT5 · บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด [verify registry/เลขที่]`
 - **เหตุผล UX:** หลัง value claim ต้องรีบให้ proof เพื่อปิด objection เรื่องความน่าเชื่อถือก่อนที่ผู้ใช้จะสงสัย.
 - **การตอบสนอง:** เดสก์ท็อป 4 คอลัมน์; มือถือ เป็น grid 2×2.
 
@@ -47,19 +47,19 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 - **โครง:** masonry/bento grid แบบ Fizens + reference จาก Exness: card ใหญ่ 1 ใบ, card กว้าง 2 ใบ, card กลาง 3–4 ใบ. พื้นขาว/soft-blue, blue glow, radius 24–32.
 - **ข้อความ:** หัวข้อ tile เป็น English phrase ที่อ่านแล้วเข้าใจ benefit ทันที; คำอธิบายใต้หัวข้อเป็นภาษาไทยสั้นๆ.
   - Header: `ทำไมต้อง beston`
-  - Hero tile — `Cash Back`: `รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์ 12:00`
-  - Tile — `Start from $10`: `เริ่มง่ายด้วยเงินขั้นต่ำ $10 เพื่อทดลองระบบจริงด้วยทุนเล็กก่อนขยับขนาด [verify account condition]`
-  - Tile — `Thai Support 24/7`: `คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา [verify support hours]`
-  - Tile — `Leverage 1:1000`: `เลือกเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว [verify]`
+  - Hero tile — `Cash Back`: `รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์`
+  - Tile — `No Minimum`: `เริ่มจาก Demo หรือบัญชีจริงได้โดยไม่มีขั้นต่ำ เลือกทุนตามระดับความเสี่ยงที่รับได้`
+  - Tile — `Thai Support 24/7`: `คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา`
+  - Tile — `Flexible Leverage`: `ปรับเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว [verify]`
   - Tile — `Fast Execution`: `ส่งคำสั่งบน MT5 ได้รวดเร็ว ลดจังหวะพลาดช่วงตลาดเคลื่อนไหวแรง [verify benchmark]`
-  - Tile — `Regulated License`: `มีข้อมูลกำกับดูแลและเอกสารบริษัทให้ตรวจสอบก่อนตัดสินใจ [verify exact wording]`
+  - Tile — `License & Registration`: `มีเอกสาร FSCA/MSB และข้อมูลบริษัทให้ตรวจสอบก่อนตัดสินใจ; wording และเลขทะเบียนต้อง verify ก่อน publish`
 - **Visual + motion:**
   - `Cash Back`: rebate meter + cash-back receipt.
-  - `Start from $10`: small balance card + first-order ticket.
+  - `No Minimum`: small balance card + first-order ticket.
   - `Thai Support 24/7`: LINE chat stack + 24/7 clock ring.
-  - `Leverage 1:1000`: leverage slider + margin ratio.
+  - `Flexible Leverage`: leverage slider + margin ratio.
   - `Fast Execution`: order ticket + speed trail.
-  - `Regulated License`: document stack + registry cards.
+  - `License & Registration`: document stack + registry cards.
   - Motion ใช้ `opacity/transform` เท่านั้น, stagger 80–120ms, duration 500–900ms, easing `cubic-bezier(.16,1,.3,1)`, และต้องมี `prefers-reduced-motion`.
 - **เหตุผล UX:** bento ทำให้ section นี้ดู premium และเปลี่ยน Why จาก feature list เป็น benefit ที่ user เข้าใจทันที: เงินคืน, เงินเริ่มต้นต่ำ, ทีมไทย, leverage, execution, และ proof. MT5, calendar และ account path ยังมี section/page เฉพาะของตัวเอง ไม่ใช่ tile หลักใน Why bento.
 - **การตอบสนอง:** desktop ใช้ 6-column bento; tablet 2 columns; mobile stack เป็น cards โดย hero tile อยู่ใบแรก.
@@ -124,7 +124,7 @@ _Last updated: 2026-06-01. Current source: `docs/research/bestonfx-framer-source
 
 ### 15. Footer — `Default` `[compliance-bound]`
 - **โครง:** link columns 4 ชุด · LINE/social · legal entity + address · full risk block · regulator line · copyright.
-- **ข้อความ:** tagline `โบรกเกอร์ที่โชว์ต้นทุนจริง คืน Rebate ทุก lot ดูแลโดยทีมไทย` · entity `บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด` · address `111 ประดิษฐ์มนูธรรม แขวงลาดพร้าว กรุงเทพฯ 10230` · `support@bestonfx.com` · full risk warning.
+- **ข้อความ:** tagline `Rebate $5/lot สำหรับรายการที่เข้าเงื่อนไข พร้อมทีมไทยทาง LINE และข้อมูลให้ตรวจสอบก่อนเริ่ม` · entity `บริษัท เบสตัน อินเตอร์เนชั่นแนล กรุ๊ป จำกัด` · address `111 ประดิษฐ์มนูธรรม แขวงลาดพร้าว กรุงเทพฯ 10230` · `support@bestonfx.com` · full risk warning.
 - **เหตุผล UX:** ทำหน้าที่เป็น secondary nav + legal disclosure + identity proof เพื่อปิด trust loop.
 - **การตอบสนอง:** 4 คอลัมน์ → stack เป็นแนวตั้ง/accordion; risk block ต้องเป็นข้อความเต็ม.
 

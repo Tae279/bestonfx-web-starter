@@ -75,7 +75,7 @@ Home should not be a feature dump. Home has one job: **make a Thai trader believ
 | 2 | Navbar | Persistent route + `เปิดบัญชี` | Keep Fizens nav structure, Thai labels |
 | 3 | Hero / TerminalHero | Value prop, CTAs, terminal visual | Replace Fizens personal-finance hero |
 | 4 | RegulatoryStrip | Proof immediately after claim | Replace logo cloud with regulator/platform badges |
-| 5 | Why beston Bento | Phrase-based benefit tiles: Cash Back, Start from $10 `[verify]`, Thai Support 24/7 `[verify]`, Leverage 1:1000 `[verify]`, Fast Execution `[verify]`, Regulated License `[verify wording]` | Adapt Fizens feature cards into bento grid |
+| 5 | Why beston Bento | Phrase-based benefit tiles: Cash Back, No Minimum, Thai Support 24/7, Flexible Leverage `[verify]`, Fast Execution `[verify]`, License & Registration `[verify wording/registry]` | Adapt Fizens feature cards into bento grid |
 | 6 | MarketsTicker | Live market energy without calculator clutter | Use ticker/slideshow pattern; mark sample data |
 | 7 | AccountPreview | Standard vs Demo path | Adapt Pricing cards, only 2 preview cards |
 | 8 | Open Account Steps | Reduce friction | Adapt HowItWorkSection |
@@ -138,7 +138,7 @@ Trust must be structural, not decorative.
 |---|---|
 | Risk warning | Sticky top + hero note + footer full block + legal page |
 | Entity proof | Company name, address, support email, regulator/entity line after verification |
-| Regulator proof | FSCA/CySEC/MSB badges only with verified wording and numbers; MSB must not be called a forex license |
+| Regulator proof | FSCA/MSB docs are visible on the old About page; add CySEC only after registry proof. Use verified wording and numbers; MSB must not be called a forex license |
 | Platform proof | MT5 proof, device support, account management, sample terminal visuals |
 | Cost proof | Account comparison, rebate rules, spread/fee placeholders until verified |
 | Human support | LINE OA admin as primary Thai conversion/support path |

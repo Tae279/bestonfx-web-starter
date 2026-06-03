@@ -90,21 +90,21 @@ Home ไม่ควรเป็น encyclopedia ของทุกอย่า�
 
 | Tile phrase | Thai description | Status | Visual | Motion |
 |---|---|---|---|---|
-| `Cash Back` | รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์ 12:00 | Validated | Rebate meter + cash-back receipt | Meter fill + receipt slide |
-| `Start from $10` | เริ่มง่ายด้วยเงินขั้นต่ำ $10 เพื่อทดลองระบบจริงด้วยทุนเล็กก่อนขยับขนาด | Verify account condition | Small balance card + first-order ticket | Balance count-up + card lift |
-| `Thai Support 24/7` | คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา | Verify support hours | LINE chat stack + 24/7 clock ring | Bubble rise + clock sweep |
-| `Leverage 1:1000` | เลือกเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว | Verify leverage/compliance wording | Leverage slider + margin ratio | Slider glide + ratio lock |
+| `Cash Back` | รับ Rebate $5/lot จากปริมาณการเทรดที่เข้าเงื่อนไข และจ่ายเป็นรอบทุกวันจันทร์ | Validated | Rebate meter + cash-back receipt | Meter fill + receipt slide |
+| `No Minimum` | เริ่มจาก Demo หรือบัญชีจริงได้โดยไม่มีขั้นต่ำ เลือกทุนตามระดับความเสี่ยงที่รับได้ | Confirmed | Small balance card + first-order ticket | Balance count-up + card lift |
+| `Thai Support 24/7` | คุยกับทีมไทยผ่าน LINE OA เรื่องบัญชี เอกสาร MT5 และ Rebate ได้ตลอดเวลา | Confirmed | LINE chat stack + 24/7 clock ring | Bubble rise + clock sweep |
+| `Flexible Leverage` | ปรับเลเวอเรจได้สูงสุด 1:1000 สำหรับคนที่เข้าใจ margin และความเสี่ยงแล้ว | Verify leverage/compliance wording | Leverage slider + margin ratio | Slider glide + ratio lock |
 | `Fast Execution` | ส่งคำสั่งบน MT5 ได้รวดเร็ว ลดจังหวะพลาดช่วงตลาดเคลื่อนไหวแรง | Verify execution benchmark | Order ticket + speed trail | Ticket snap + trail fade |
-| `Regulated License` | มีข้อมูลกำกับดูแลและเอกสารบริษัทให้ตรวจสอบก่อนตัดสินใจ | Verify exact license wording | Document stack + registry cards | Stamp reveal + card fan |
+| `License & Registration` | มีเอกสาร FSCA/MSB และข้อมูลบริษัทให้ตรวจสอบก่อนตัดสินใจ; wording และเลขทะเบียนต้อง verify ก่อน publish | Old-site evidence + verify registry | Document stack + registry cards | Stamp reveal + card fan |
 
-**Alternative note:** ถ้าข้อมูลทางการยังเป็น `No minimum deposit` ให้เปลี่ยน tile `Start from $10` เป็น `No Minimum` หรือ `Start Small` แทน เพื่อไม่ให้ copy ชนกับเงื่อนไขจริง.
+**Regulatory note:** เว็บเก่าแสดงไฟล์เอกสาร `msb_registration-6.webp` และ `FSCA-Ceritificate...webp` บนหน้า About แต่ public copy ยังควรใช้คำว่า `License & Registration` หรือ `Regulatory Info` จนกว่าเลขทะเบียนและขอบเขตการกำกับดูแลจะถูกตรวจจาก registry จริง.
 
 ### Bento layout
 
 - `Cash Back` เป็น card ใหญ่สุด กินพื้นที่ 2 columns / 2 rows.
-- `Start from $10` และ `Thai Support 24/7` เป็น strong secondary cards เพราะเข้าใจง่ายและ relate กับคนไทย.
-- `Leverage 1:1000`, `Fast Execution`, `Regulated License` เป็น support cards ที่ต้องมี `[verify]` จนกว่าทีมยืนยัน.
-- Mobile stack: `Cash Back` → `Start from $10` → `Thai Support 24/7` → `Leverage 1:1000` → `Fast Execution` → `Regulated License`.
+- `No Minimum` และ `Thai Support 24/7` เป็น strong secondary cards เพราะเข้าใจง่ายและ relate กับคนไทย.
+- `Flexible Leverage`, `Fast Execution`, `License & Registration` เป็น support cards โดย leverage/execution/license wording ต้อง verify ก่อน publish.
+- Mobile stack: `Cash Back` → `No Minimum` → `Thai Support 24/7` → `Flexible Leverage` → `Fast Execution` → `License & Registration`.
 
 ### Bento motion rules
 

@@ -26,33 +26,33 @@ const pageOrder = [
 ];
 
 const pageSourceMap = {
-  "home.md": { source: "/", live: "https://fizens.framer.ai/", treatment: "Adapt heavily", target: "/" },
-  "why-bestonfx.md": { source: "/about", live: "https://fizens.framer.ai/about", treatment: "Adapt", target: "/why-bestonfx" },
-  "markets.md": { source: "/features", live: "https://fizens.framer.ai/features", treatment: "Adapt", target: "/markets" },
-  "accounts.md": { source: "/pricing", live: "https://fizens.framer.ai/pricing", treatment: "Replace", target: "/accounts" },
+  "home.md": { source: "/", live: "https://fizens.framer.ai/", treatment: "Edit in place", target: "/" },
+  "why-bestonfx.md": { source: "/about", live: "https://fizens.framer.ai/about", treatment: "Edit in place", target: "/why-bestonfx" },
+  "markets.md": { source: "/features", live: "https://fizens.framer.ai/features", treatment: "Edit in place", target: "/markets" },
+  "accounts.md": { source: "/pricing", live: "https://fizens.framer.ai/pricing", treatment: "Edit in place", target: "/accounts" },
   "tools.md": {
     source: "/features + /integration + /download",
     live: "https://fizens.framer.ai/features",
-    treatment: "Adapt",
+    treatment: "Edit in place",
     target: "/tools",
   },
   "partners.md": {
     source: "/pricing + /contact + custom",
     live: "https://fizens.framer.ai/pricing",
-    treatment: "Custom-build",
+    treatment: "Edit in place",
     target: "/partners",
   },
-  "support.md": { source: "/contact", live: "https://fizens.framer.ai/contact", treatment: "Adapt", target: "/support" },
+  "support.md": { source: "/contact", live: "https://fizens.framer.ai/contact", treatment: "Edit in place", target: "/support" },
   "articles.md": {
     source: "/articles + /articles/:slug",
     live: "https://fizens.framer.ai/articles",
-    treatment: "Adapt",
+    treatment: "Edit in place",
     target: "/articles",
   },
   "legal-risk-disclosure.md": {
     source: "/term-and-conditions + /privacy-policy",
     live: "https://fizens.framer.ai/term-and-conditions",
-    treatment: "Custom-build",
+    treatment: "Edit in place",
     target: "/legal/risk-disclosure",
   },
 };
@@ -77,9 +77,9 @@ const pageRoadmap = [
     use: "ใช้ rhythm ของ hero, feature flow, FAQ, CTA และ footer",
     replace: "เปลี่ยน finance-app promise เป็น Trade Smarter Not Harder: MT5, Rebate $5/lot, No Minimum, ทีมไทย, และ risk disclosure ที่แยกจาก benefit",
     framerSteps: [
-      "Duplicate Fizens Home เป็นหน้า /",
-      "Replace HeroSection, Features, Pricing preview, FAQ, CTA",
-      "Hide stats/testimonials until verified",
+      "เปิด Home เดิมของ Fizens ใน Framer แล้วแก้ทีละ section ในหน้าเดิม",
+      "ใส่ Beston copy/CTA ลงใน HeroSection, Features, Pricing preview, FAQ, CTA",
+      "ซ่อน stats/testimonials ที่ยังไม่มีข้อมูลจริง แล้ว screenshot ให้ review",
     ],
     copyPoints: [
       ["Route", "/"],
@@ -100,9 +100,9 @@ const pageRoadmap = [
     use: "ใช้โครง story/about, mission, team/proof rhythm",
     replace: "เปลี่ยน mission/team/review เป็น trust story, regulator proof, no-minimum path และ Thai support",
     framerSteps: [
-      "Duplicate /about แล้ว rename เป็น /why-bestonfx",
-      "ใช้ hero + trust split + regulator strip",
-      "ปิด team/testimonial ถ้าไม่มีข้อมูลจริง",
+      "เปิดหน้า About เดิมใน Fizens แล้วแก้ content ให้เป็น Why beston",
+      "ใส่ Beston copy ลงใน hero, trust split, regulator strip",
+      "ซ่อน team/testimonial ที่ไม่มีข้อมูลจริง แล้ว screenshot ให้ review",
     ],
     copyPoints: [
       ["Route", "/why-bestonfx"],
@@ -120,8 +120,8 @@ const pageRoadmap = [
     use: "ใช้ feature-card grid และ section rhythm สำหรับ market categories",
     replace: "เปลี่ยน app features เป็น Forex, metals, indices, energy, crypto พร้อม label sample data",
     framerSteps: [
-      "Duplicate /features เป็น /markets",
-      "เปลี่ยน cards เป็น market categories",
+      "เปิดหน้า Features เดิมใน Fizens แล้วแก้ให้เป็น Markets",
+      "ใส่ market categories ลงใน cards เดิม",
       "ใส่ disclaimer ทุก ticker/price preview",
     ],
     copyPoints: [
@@ -140,8 +140,8 @@ const pageRoadmap = [
     use: "ใช้ pricing card/table layout เป็น account comparison",
     replace: "เปลี่ยน SaaS plan $0/$20/$40 เป็น 2 account paths: Standard และ Demo Account",
     framerSteps: [
-      "Duplicate /pricing เป็น /accounts",
-      "Rename pricing cards เป็น AccountComparison แบบ 2 cards",
+      "เปิดหน้า Pricing เดิมใน Fizens แล้วแก้ให้เป็น Accounts",
+      "แก้ pricing cards เดิมให้เหลือ AccountComparison แบบ 2 cards",
       "Standard = บัญชีเทรดจริง, Demo Account = บัญชีทดลองด้วยเงินจำลอง",
       "ทุก spread/commission/leverage ต้องมี [verify]",
     ],
@@ -161,8 +161,8 @@ const pageRoadmap = [
     use: "ใช้ integration/download surfaces สำหรับ MT5 และ calculators",
     replace: "เปลี่ยน app integrations เป็น MT5, rebate/pip/margin tools",
     framerSteps: [
-      "สร้าง /tools จาก /features แล้วดึง blocks จาก /integration และ /download",
-      "ใส่ MT5 platform block",
+      "แก้ blocks เดิมของ Features/Integration/Download ให้เป็น Tools",
+      "ใส่ Beston MT5 platform block ลงในพื้นที่ integration เดิม",
       "Calculator ต้องมี disclaimer ไม่ใช่คำแนะนำการลงทุน",
     ],
     copyPoints: [
@@ -181,9 +181,9 @@ const pageRoadmap = [
     use: "ใช้ contact form + pricing card pattern สำหรับ IB onboarding",
     replace: "เปลี่ยน lead form เป็น partner application และ commission estimator แบบ verify-gated",
     framerSteps: [
-      "สร้าง /partners เป็น custom page",
-      "Reuse pricing cards เป็น commission tiers เฉพาะถ้ามีตัวเลข verified",
-      "ใช้ contact form เป็น IB application form",
+      "แก้หน้า/section ที่มี form และ card เดิมของ Fizens ให้เป็น Partners",
+      "ใช้ pricing cards เดิมเป็น commission explainer เฉพาะข้อมูลที่ verified",
+      "แก้ contact form เดิมให้เป็น IB application form",
     ],
     copyPoints: [
       ["Route", "/partners"],
@@ -201,7 +201,7 @@ const pageRoadmap = [
     use: "ใช้ contact page structure สำหรับ LINE-first support",
     replace: "เปลี่ยน generic contact เป็น LINE, email, hours, office address, FAQ",
     framerSteps: [
-      "Duplicate /contact เป็น /support",
+      "เปิดหน้า Contact เดิมใน Fizens แล้วแก้ให้เป็น Support",
       "LINE OA card ต้องมาก่อน form",
       "AI helper ต้อง label ว่าไม่ใช่คำแนะนำการลงทุน",
     ],
@@ -221,7 +221,7 @@ const pageRoadmap = [
     use: "ใช้ blog index + article detail layout",
     replace: "เปลี่ยน investment blog tone เป็น education/risk/MT5/rebate content",
     framerSteps: [
-      "Duplicate /articles เป็น /articles",
+      "เปิด Articles เดิมใน Fizens แล้วแก้ content/CMS field ให้เป็น Beston Articles",
       "ทำ CMS fields: category, title, cover, read time",
       "Article detail ต้องจบด้วย soft CTA ไม่ใช่ hard sell",
     ],
@@ -241,7 +241,7 @@ const pageRoadmap = [
     use: "ใช้ legal document typography และ footer structure",
     replace: "ไม่ใช้ marketing CTA ใน legal page; เน้น readability และ legal defensibility",
     framerSteps: [
-      "Duplicate terms/privacy style เป็น /legal/risk-disclosure",
+      "เปิด Terms/Privacy layout เดิมใน Fizens แล้วแก้ content ให้เป็น Risk Disclosure",
       "ใช้ single readable column + table of contents",
       "ปิด AI widget และ conversion pressure บน legal pages",
     ],
@@ -294,7 +294,7 @@ const scrollStoryboard = [
     image: "assets/fizens-live/home-scroll-07.png",
     title: "CTA + footer close",
     note: "Template footer is usable structurally but public copy must become broker-safe.",
-    framer: "Replace get-template CTA with open-account / LINE CTA + full risk block.",
+    framer: "Edit get-template CTA into open-account / LINE CTA + full risk block.",
   },
 ];
 
@@ -362,7 +362,7 @@ const guidedFlows = [
       ["Tile body", "มีเอกสาร FSCA/MSB และข้อมูลบริษัทให้ตรวจสอบก่อนตัดสินใจ; wording และเลขทะเบียนต้อง verify ก่อน publish"],
     ],
     settings: [
-      "Frame: replace AboutSection copy, keep white/light-blue surfaces",
+      "Frame: edit AboutSection copy in place, keep white/light-blue surfaces",
       "Bento: 6-column desktop grid, 1 hero tile, 2 wide tiles, 3-4 mid tiles, radius 24-32, border #E5E7EB, icon chip #EFF4FF",
       "Visuals: rebate meter + cash-back receipt, small balance card, LINE chat + 24/7 clock, leverage slider, order ticket, document/registry cards",
       "Motion: opacity/transform only, stagger 80-120ms, duration 500-900ms, ease cubic-bezier(.16,1,.3,1), reduced-motion fallback",
@@ -394,7 +394,7 @@ const guidedFlows = [
     ],
     settings: [
       "Frame: reuse FeaturesSection grid spacing",
-      "Replace icons with market/tool icons, no live price numbers unless feed approved",
+      "Swap icons to market/tool icons, no live price numbers unless feed approved",
       "Image: use markets-universe.png for visual panel or section background card",
       "Ticker: if used, label every chip as sample data",
       "Effect: cards fade-rise only; avoid fake-live blinking price movement",
@@ -420,9 +420,9 @@ const guidedFlows = [
       ["Internal note", "Stats/Testimonial gated until verified source and consent exist"],
     ],
     settings: [
-      "Hide or delete StaticsSection from Home",
-      "Hide or delete testimonial carousel and star-rating components",
-      "Do not replace with invented numbers",
+      "Hide StaticsSection from Home until verified",
+      "Hide testimonial carousel and star-rating components until verified",
+      "Do not fill the gap with invented numbers",
       "If stakeholder insists on proof block, use regulator/platform/support proof with [verify] labels",
     ],
   },
@@ -451,9 +451,9 @@ const guidedFlows = [
       ["Demo CTA", "ทัก LINE OA ติดต่อ admin"],
     ],
     settings: [
-      "Duplicate PricingSection then rename to AccountComparison",
+      "Edit PricingSection content in place and label the finished block AccountComparison",
       "Use 2 cards only: Standard and Demo Account",
-      "Replace price fields with purpose, funds type, spread/commission, leverage, rebate eligibility, platform",
+      "Change price fields to purpose, funds type, spread/commission, leverage, rebate eligibility, platform",
       "Do not create Pro, ECN, VIP, Raw Spread, or any unconfirmed tier",
       "Every spread/commission/leverage field must include [verify]",
       "Demo Account must say เงินจำลอง and ไม่มี Rebate",
@@ -484,7 +484,7 @@ const guidedFlows = [
     ],
     settings: [
       "FAQ: reuse Fizens accordion component",
-      "CTA: replace Get Template / App Store block with LineSupportCTA",
+      "CTA: edit Get Template / App Store block into LineSupportCTA",
       "Image: use line-ai-support.png inside Support or CTA section",
       "Footer: remove Made by Kota/template links from public POC",
       "AI widget: visual-only; no trading advice; do not cover legal links on mobile",
@@ -760,6 +760,7 @@ function treatmentDisplayLabel(value) {
     Adapt: "ปรับใช้",
     Replace: "แทนที่",
     "Custom-build": "สร้างใหม่เฉพาะหน้า",
+    "Edit in place": "แก้ใน template เดิม",
   };
   return labels[value] || value;
 }
@@ -774,13 +775,17 @@ function copyChip(label, key) {
 
 function renderMcpExecutionRules(copyStore) {
   const prompt = [
-    "ใช้ handoff นี้เป็น source of truth สำหรับ Framer MCP.",
+    "ใช้ handoff นี้เป็น visual/reference source สำหรับ Framer MCP.",
+    "คำสั่งปฏิบัติการจริงต้องใช้ `docs/framer-mcp-master-prompt.md` เท่านั้น.",
+    "เริ่มด้วย Phase 0 Audit Only และ STOP รอ approval ก่อนแก้ Framer.",
     "ทำ Framer POC จาก Fizens template เท่านั้น ยังไม่ต้องแตะ Next.js production.",
+    "วิธีทำคือแก้ existing Fizens template in place ทีละ section/layer แล้ว screenshot review.",
+    "ห้าม duplicate page, batch replace page, full-page Code Component shell, หรือ rebuild template ใหม่.",
     "CTA public ใช้เฉพาะ `เปิดบัญชี` และ `ทัก LINE OA ติดต่อ admin`.",
     "บัญชีมีแค่ `Standard` และ `Demo Account`; ห้ามสร้าง Pro, ECN, VIP, Raw Spread หรือ tier อื่น.",
     "ห้ามใช้ public deposit CTA, `Demo ฟรี` เป็น CTA กว้าง ๆ, fake stats, fake testimonials, star ratings, หรือข้อความรับประกันผลลัพธ์.",
     "ทุกตัวเลขที่ยังไม่ยืนยันให้ใส่ `[verify]` หรือ `รอยืนยันข้อมูลจากฝ่ายกำกับดูแลก่อนเผยแพร่`.",
-    "ทำตามลำดับ: MCP rules -> Every page -> Scroll map -> Motion/Spline -> Guided build -> Wireframes.",
+    "ทำทีละ phase/page/section พร้อม screenshot; ห้ามแก้ต่อถ้ายังไม่ผ่าน review.",
     "ถ้าต้องใช้ Spline ให้ใช้ asset ที่เป็น abstract fintech/trading เท่านั้น และทำ fallback เป็นภาพนิ่งสำหรับ mobile/reduced motion.",
   ].join("\n");
   copyStore["mcp:execution-prompt"] = prompt;
@@ -790,18 +795,19 @@ function renderMcpExecutionRules(copyStore) {
       <div class="card-head">
         <div>
           <div class="eyebrow">AI / Framer MCP rules</div>
-          <h2>ใช้ handoff นี้สั่ง AI ไปทำใน Framer ได้ แต่ต้องล็อกกติกานี้ก่อน</h2>
-          <p>ส่วนนี้คือ prompt guardrail สำหรับ agent ที่จะไปแก้ Fizens ผ่าน Framer MCP: ให้เดินตาม wireframe, ไม่แต่ง claims ใหม่, และไม่พา CTA หลุดกลับไปเป็นฝากเงินหรือ demo.</p>
+          <h2>ใช้ handoff นี้เป็น reference แล้วแก้ Fizens template ทีละจุด</h2>
+          <p>ส่วนนี้คือ prompt guardrail สำหรับ agent ที่จะไปแก้ Fizens ผ่าน Framer MCP: handoff นี้ใช้ดูโครงและ copy เท่านั้น ส่วนคำสั่งปฏิบัติการจริงให้ใช้ <code>docs/framer-mcp-master-prompt.md</code>.</p>
         </div>
         ${copyButton("Copy MCP prompt", "mcp:execution-prompt", "ghost")}
       </div>
       <div class="markdown-body" style="padding: 28px;">
         ${markdownToHtml(`
 ### Execution order
-1. อ่าน section นี้ก่อน แล้วค่อยทำ \`Every page\`
-2. ทำทีละหน้าใน \`pageRoadmap\` ไม่ข้ามไป invent layout ใหม่
-3. ใช้ \`Scroll map\` และ \`Motion/Spline\` เพื่อเพิ่ม wow layer หลัง copy/layout ถูกแล้ว
-4. ก่อน publish ต้องตรวจ mobile, reduced motion, และ compliance copy
+1. เปิด \`docs/framer-mcp-master-prompt.md\`
+2. รันเฉพาะ Phase 0 Audit Only
+3. STOP รอ approval จาก operator
+4. แก้ existing Fizens template ทีละ phase/page/section พร้อม screenshot review
+5. ก่อน publish ต้องตรวจ mobile, reduced motion, และ compliance copy
 
 ### Locked copy
 | Slot | ใช้ข้อความนี้ |
@@ -812,6 +818,7 @@ function renderMcpExecutionRules(copyStore) {
 | Verify placeholder | \`${reusableCopyPoints.verifyPlaceholder}\` |
 
 ### ห้ามทำ
+- ห้าม duplicate page, batch replace pages, หรือใช้ full-page Code Component shell
 - ห้ามใช้ CTA ฝากเงินเป็น public CTA
 - ห้ามสร้าง account tier อื่นนอกจาก \`Standard\` และ \`Demo Account\`
 - ห้ามใช้ \`ทดลองใช้ฟรี\`, \`Demo ฟรี\` เป็น CTA กว้าง ๆ, fake user count, fake review, fake star rating
@@ -847,14 +854,14 @@ function renderMotionSplineHandoff(copyStore) {
 | Hero cinematic depth | ใช้ Spline หรือ PNG fallback | ใส่ Spline embed/React component เป็น background layer, hero copy อยู่ด้านหน้า, scroll transform y/scale เบาๆ |
 | Phone / dashboard mockup | ใช้ asset existing ก่อน ถ้าไม่พอค่อย gen รูป | ใช้ \`assets/beston/hero-command-center.png\`; ห้ามใส่เงินจริง/สถิติจริงถ้ายังไม่ verify |
 | Scroll card reveal | ไม่ต้อง gen | ใช้ Framer Appear + Scroll Transform: opacity, y, scale, stagger |
-| Floating coin / market glyph | Spline community ได้ถ้า license ok | เลือก generic abstract finance object, duplicate เข้า account, recolor เป็น blue/white |
+| Floating coin / market glyph | Spline community ได้ถ้า license ok | เลือก generic abstract finance object, save copy เข้า account, recolor เป็น blue/white |
 | Section transition glow | ไม่ต้อง gen | ใช้ gradient/blur layer ใน Framer แบบบางมาก, อย่าให้กลายเป็น template SaaS ทั่วไป |
 | Mobile / reduced motion fallback | ต้องมีภาพนิ่ง | Export Spline still หรือใช้ PNG hero asset แล้วปิด heavy 3D |
 
 ### Spline Pro workflow
 1. ค้น Community ด้วยคำว่า \`futuristic dashboard\`, \`abstract fintech\`, \`glass device\`, \`trading interface\`
 2. ใช้เฉพาะ scene ที่เป็น generic object/background ไม่ใช่ UI ของแบรนด์อื่น
-3. Duplicate เข้า Spline account, เปลี่ยนสีเป็น BestonFX blue/white, ลบ logo/text/fake numbers
+3. Save copy เข้า Spline account, เปลี่ยนสีเป็น BestonFX blue/white, ลบ logo/text/fake numbers
 4. ทำ camera state: desktop wide, tablet, mobile crop
 5. Export เป็น Spline public/embed URL และ export still PNG เป็น fallback
 6. ใน Framer ใส่ Spline เฉพาะ hero หรือ 1-2 section สำคัญ อย่าใส่ทุก block
@@ -884,7 +891,7 @@ function renderEveryPageRoadmap(copyStore) {
         <div>
           <div class="eyebrow">Start here</div>
           <h2>ทำทุกหน้าแบบนี้ ไม่ใช่แค่ Home</h2>
-          <p>ดูทีละแถว: หน้า BestonFX ที่ต้องทำ → หน้า Fizens live ที่ใช้เป็นต้นแบบ → จุดที่ต้องแก้ใน Framer → ปุ่ม copy เฉพาะข้อความ/route ที่จะ paste</p>
+          <p>ดูทีละแถว: หน้า BestonFX ที่ต้องทำ → หน้า/section เดิมใน Fizens template → จุดที่ต้องแก้ใน Framer → ปุ่ม copy เฉพาะข้อความ/route ที่จะ paste</p>
         </div>
       </div>
       <div class="roadmap-list">
@@ -916,8 +923,8 @@ function renderEveryPageRoadmap(copyStore) {
                 ${copyChip("Copy URL", liveKey)}
               </div>
               <div class="do-replace-grid">
-                <div><strong>ใช้จาก Fizens</strong><span>${escapeHtml(item.use)}</span></div>
-                <div><strong>ต้องเปลี่ยนเป็น BestonFX</strong><span>${escapeHtml(item.replace)}</span></div>
+                <div><strong>ตำแหน่งใน Fizens</strong><span>${escapeHtml(item.use)}</span></div>
+                <div><strong>ใส่ Beston เข้าไปตรงนี้</strong><span>${escapeHtml(item.replace)}</span></div>
               </div>
               <div class="framer-settings compact-settings">
                 <div class="copy-row">
@@ -1130,14 +1137,14 @@ function renderPagePanel(page, index) {
 
 function renderSitemapBoard(sitemapMd, copyStore) {
   const routes = [
-    ["/", "Home", "Adapt Fizens /"],
-    ["/why-bestonfx", "Why beston", "Adapt /about"],
-    ["/markets", "Markets", "Adapt /features"],
-    ["/accounts", "Accounts", "Replace /pricing"],
-    ["/tools", "Tools", "Adapt features/integration"],
-    ["/partners", "Partners", "Workshop/custom"],
-    ["/support", "Support", "Adapt /contact"],
-    ["/articles", "Articles", "Adapt blog"],
+    ["/", "Home", "Edit Fizens /"],
+    ["/why-bestonfx", "Why beston", "Edit /about"],
+    ["/markets", "Markets", "Edit /features"],
+    ["/accounts", "Accounts", "Edit /pricing"],
+    ["/tools", "Tools", "Edit features/integration"],
+    ["/partners", "Partners", "Edit form/card sections"],
+    ["/support", "Support", "Edit /contact"],
+    ["/articles", "Articles", "Edit blog"],
   ];
 
   return `
@@ -1189,18 +1196,18 @@ function renderFizensMap(framerMapMd, copyKey, copyStore) {
   const proposed = extractDocSection(framerMapMd, "Proposed BestonFX HOME section map");
   const reuse = extractDocSection(framerMapMd, "Components to reuse / adapt / replace");
   const placementRows = [
-    ["00", "Workshop", "Add", "RiskDisclosureBar", "เพิ่มก่อน nav ทุกหน้า เพราะ Fizens ไม่มี block เตือนความเสี่ยง"],
-    ["01", "HeroSection", "Replace", "TerminalHero", "เปลี่ยน hero finance SaaS เป็น broker hero: MT5, Rebate $5/lot, No Minimum, ทีมไทย 24/7"],
-    ["02", "AboutSection", "Replace / adapt", "TrustStackCards", "ใช้ rhythm เดิม แต่เล่า trust story แทน app story"],
-    ["03", "FeaturesSection", "Adapt", "MarketsPreview", "เปลี่ยน feature cards เป็นตลาดที่เทรดได้ พร้อม label sample/verify"],
-    ["04", "AdditionSection", "Adapt", "TradingToolsGrid", "ใช้พื้นที่ visual/tool block สำหรับ MT5, Rebate, Pip, Margin tools"],
-    ["05", "BenefitSection", "Adapt", "Trust / DXEcosystemStrip", "ใช้เป็น story/proof block ได้ แต่ห้าม performance framing"],
-    ["06", "StaticsSection", "Remove", "ปิดไว้ก่อน", "ลบหรือ hide จนกว่าจะมีตัวเลข verified ห้าม fake stats"],
-    ["07", "HowItWorkSection", "Adapt", "StepProcess", "เปลี่ยนเป็น flow สมัคร, ทัก LINE OA, เตรียม MT5"],
-    ["08", "PricingSection", "Replace", "AccountPathSelector", "เปลี่ยน pricing เป็น Standard + Demo Account เท่านั้น"],
-    ["09", "BlogSection", "Adapt", "ArticlesPreview", "ใช้เป็น education/risk/MT5/rebate content preview"],
-    ["10", "FaqSection", "Adapt", "FAQ", "ใช้ accordion เดิม เพิ่มคำถาม risk, account, LINE, IB"],
-    ["11", "Footer", "Custom", "LegalFooter", "เปลี่ยนเป็น footer broker-safe พร้อม risk disclosure และ legal links"],
+    ["00", "Workshop", "Add", "RiskDisclosureBar", "เพิ่มก่อน nav ทุกหน้า เพราะ Fizens ไม่มี risk block"],
+    ["01", "HeroSection", "Edit", "TerminalHero", "แก้ hero finance SaaS เป็น broker hero: MT5, Rebate $5/lot, No Minimum, ทีมไทย 24/7"],
+    ["02", "AboutSection", "Edit", "TrustStackCards", "ใช้ rhythm เดิม แต่เล่า trust story แทน app story"],
+    ["03", "FeaturesSection", "Edit", "MarketsPreview", "แก้ feature cards เป็นตลาดที่เทรดได้ พร้อม label sample/verify"],
+    ["04", "AdditionSection", "Edit", "TradingToolsGrid", "ใช้พื้นที่ visual/tool block สำหรับ MT5, Rebate, Pip, Margin tools"],
+    ["05", "BenefitSection", "Edit", "Trust / DXEcosystemStrip", "ใช้เป็น story/proof block ได้ แต่ห้าม performance framing"],
+    ["06", "StaticsSection", "Hide", "ปิดไว้ก่อน", "hide จนกว่าจะมีตัวเลข verified ห้าม fake stats"],
+    ["07", "HowItWorkSection", "Edit", "StepProcess", "แก้เป็น flow สมัคร, ทัก LINE OA, เตรียม MT5"],
+    ["08", "PricingSection", "Edit", "AccountPathSelector", "แก้ pricing เป็น Standard + Demo Account เท่านั้น"],
+    ["09", "BlogSection", "Edit", "ArticlesPreview", "ใช้เป็น education/risk/MT5/rebate content preview"],
+    ["10", "FaqSection", "Edit", "FAQ", "ใช้ accordion เดิม เพิ่มคำถาม risk, account, LINE, IB"],
+    ["11", "Footer", "Edit", "LegalFooter", "แก้เป็น footer broker-safe พร้อม risk disclosure และ legal links"],
   ];
   const mapSummaryKey = `${copyKey}:placement-summary`;
   copyStore[mapSummaryKey] = placementRows
@@ -1212,7 +1219,7 @@ function renderFizensMap(framerMapMd, copyKey, copyStore) {
         <div>
           <div class="eyebrow">Fizens structure</div>
           <h2>Template placement map</h2>
-          <p>อ่านแบบนี้: แถวบนคือ section เดิมใน Fizens Home; ตารางด้านล่างบอกว่าใน Framer ต้อง reuse, adapt, replace, remove หรือ custom build เป็น block อะไรของ BestonFX.</p>
+          <p>อ่านแบบนี้: แถวบนคือ section เดิมใน Fizens Home; ตารางด้านล่างบอกว่าใน Framer ต้องแก้, ซ่อน, หรือเพิ่ม block ไหนเป็น BestonFX.</p>
         </div>
         ${copyButton("Copy placement summary", mapSummaryKey, "ghost")}
       </div>
@@ -1235,7 +1242,7 @@ function renderFizensMap(framerMapMd, copyKey, copyStore) {
               <tr>
                 <th>Order</th>
                 <th>Fizens block</th>
-                <th>Action</th>
+                <th>Template edit</th>
                 <th>BestonFX block</th>
                 <th>ทำยังไงใน Framer</th>
               </tr>
@@ -1244,9 +1251,9 @@ function renderFizensMap(framerMapMd, copyKey, copyStore) {
               ${placementRows
                 .map(([order, source, action, target, note]) => {
                   const tag =
-                    action === "Remove"
+                    action === "Hide"
                       ? "remove-gated"
-                      : action === "Replace" || action === "Custom" || action === "Add"
+                      : action === "Edit" || action === "Add"
                         ? "replace"
                         : "adapt";
                   return `<tr>
